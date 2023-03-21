@@ -16,7 +16,7 @@ function Error404() {
         </span>
       </section>
       <div className="link-container">
-        <Link className="more-link " to="/home">
+        <Link className="more-link " to="/">
           Return
         </Link>
       </div>
