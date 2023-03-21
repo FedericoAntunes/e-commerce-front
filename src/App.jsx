@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import AboutUs from "./components/AboutUs";
+import Error404 from "./components/Error404";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
@@ -13,10 +15,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        <Route element={<Layout/>}>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
         </Route>
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
   );
