@@ -32,7 +32,7 @@ function Footer() {
               </p>
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <div className="flex sm: justify-center">
+              <div className="flex sm: justify-center mt-5">
                 <a href="#" className="text-gray-500 mr-4 hover:text-white">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
                 </a>
