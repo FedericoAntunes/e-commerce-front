@@ -1,20 +1,23 @@
 
 import { Navbar, Dropdown, Avatar } from "flowbite-react"
+import { Link } from "react-router-dom"
 function Header() {
   return (
     <>
 <Navbar
   fluid={true}
-  rounded={true}
+
+  className= "bg-yellow-600"
 >
-  <Navbar.Brand href="https://flowbite.com/">
+  <Navbar.Brand>
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
-      className="mr-3 h-6 sm:h-9"
-      alt="Flowbite Logo"
+      src="https://i.ibb.co/qCJx7Zs/nohungerlogo.png"
+      className="mr-3 h-20 sm:h-40"
+      alt="No Hunger Logo"
+      
     />
-    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-      Flowbite
+    <span className="self-center whitespace-nowrap text-xl text-yellow-200 font-semibold dark:text-white">
+      No Hunger
     </span>
   </Navbar.Brand>
   <div className="flex md:order-2">
@@ -49,21 +52,36 @@ function Header() {
   </div>
   <Navbar.Collapse>
     <Navbar.Link
-      href="/navbars"
+      href="/"
       active={true}
+      className = "text-lg md:text-gray-700 md:hover:text-yellow-200"
     >
       Home
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
+    <Navbar.Link
+     href="/about-us"
+     className = "text-lg sm:hover:text-yellow-200 md:hover:text-yellow-200 hover:bg-yellow-600"
+     >
+
       About
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Services
+    <Navbar.Link 
+    href="/login"
+    className = "text-lg  sm:hover:text-yellow-200  md:hover:text-yellow-200 hover:bg-yellow-600 "
+    >
+      
+      Login
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Pricing
+    <Navbar.Link 
+    href="/register"
+    className = "text-lg  sm:hover:text-yellow-200  md:hover:text-yellow-200 hover:bg-yellow-600"
+    >
+      Register
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
+    <Navbar.Link 
+    
+    className = "text-lg  sm:hover:text-yellow-200  md:hover:text-yellow-200 hover:bg-yellow-600"
+    >
       Contact
     </Navbar.Link>
   </Navbar.Collapse>
