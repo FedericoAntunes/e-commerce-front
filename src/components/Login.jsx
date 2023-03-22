@@ -9,13 +9,12 @@ function Login() {
           class="flex items-center mb-6 text-2xl font-semibold text-gray-900"
         >
           <img
-            class="w-20 h-20 mr-2"
-            src="https://i.ibb.co/qCJx7Zs/nohungerlogo.png"
+            class=" h-24 -mb-[4.5rem] z-10"
+            src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
             alt="logo"
           />
-          <h1 className="text-white"> No Hunger</h1>
         </a>
-        <div class="w-full bg-gray-600 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div class="w-full bg-gray-600 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 py-6">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-200 md:text-2xl">
               Sign in to your account
