@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 function Login() {
   return (
     <section class="bg-gray-50 bg-gray-900">
-      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a
-          href="#"
+      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
+        <Link
+          to="#"
           class="flex items-center mb-6 text-2xl font-semibold text-gray-900"
         >
           <img
@@ -13,8 +13,8 @@ function Login() {
             src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
             alt="logo"
           />
-        </a>
-        <div class="w-full bg-gray-600 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 py-6">
+        </Link>
+        <div class="w-full bg-gray-600 rounded-lg shadow md:mt-0 sm:max-w-md py-6">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-200 md:text-2xl">
               Sign in to your account
