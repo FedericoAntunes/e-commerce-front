@@ -6,8 +6,8 @@ function Header() {
       <Navbar fluid={true} style={{backgroundColor: "#1F2937" }} >
         <Navbar.Brand>
           <img
-            src="https://i.ibb.co/C26bLZQ/no-Hungerlogo2.png"
-            className="mr-3 h-12 sm:h-16"
+            src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
+            className="mr-5 h-12 sm:h-16"
             alt="No Hunger Logo"
           />
           <span className="self-center whitespace-nowrap text-xl text-yellow-200 font-semibold dark:text-white">
