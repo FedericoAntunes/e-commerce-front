@@ -1,11 +1,13 @@
 .mySwiper {
   background-color: #000;
   width: 100%;
-  height: 140px;
+  height: 100px;
 }
 
 .mySwiper > div {
-  width: 140px;
+  margin-left: 0 !important;
+  height: 100px;
+  width: 100px;
 }
 
 .swiper-button-prev,
