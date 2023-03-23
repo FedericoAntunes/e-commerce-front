@@ -7,12 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-//import "./styles.css";
+import "./categoriesSlider.css";
 
 // import required modules
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 
 export default function CategoryCarousel() {
   const [categories, setCategories] = useState([]);
@@ -28,20 +28,17 @@ export default function CategoryCarousel() {
   return (
     <>
       <Swiper
-        slidesPerView={1}
-        // spaceBetween={30}
+        slidesPerView={"auto"}
+        navigation={true}
         freeMode={true}
         loop={true}
         autoPlay={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
+        modules={[FreeMode, Navigation]}
         className="mySwiper"
       >
         {categories.map((category) => {
           return (
-            <SwiperSlide key={category.id} className="bg-gray-700">
+            <SwiperSlide key={category.id} className={"bg-black"}>
               <div className="relative">
                 <img
                   src={`${category.image}`}
@@ -49,7 +46,9 @@ export default function CategoryCarousel() {
                   className="mx-auto"
                 />
                 <div className="absolute bottom-0 left-0 right-0 text-yellow-200">
-                  <h5>{category.name}</h5>
+                  <span className="rounded-full bg-gray-700 opacity-70 p-1 text-sm font-bold">
+                    {category.name}
+                  </span>
                 </div>
               </div>
             </SwiperSlide>
