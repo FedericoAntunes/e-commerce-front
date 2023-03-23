@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiCall from "./api/api";
 import { Link } from "react-router-dom";
+import ProductModal from "./partials/ProductModal";
 
 function Restaurant() {
   const [products, setProducts] = useState([]);
@@ -27,10 +28,14 @@ function Restaurant() {
       {products.map((product) => {
         return (
           <div key={product.id}>
-            <Link to={`/product/${product.slug}`}>
-              <p>{product.title}</p>
-              <img src={`${product.image}`} alt="category-img" />
-            </Link>
+            <ProductModal
+              title={product.title}
+              image={product.image}
+              description={product.description}
+              logo={product.logo}
+              price={product.price}
+              stock={product.stock}
+            ></ProductModal>
           </div>
         );
       })}

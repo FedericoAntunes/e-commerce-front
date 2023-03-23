@@ -8,7 +8,7 @@ import AboutUs from "./components/AboutUs";
 import Error404 from "./components/Error404";
 import Layout from "./components/layout/Layout";
 import Restaurant from "./components/Restaurant";
-import Product from "./components/Product";
+
 function App() {
   return (
     <div className="App">
@@ -19,7 +19,6 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/:slug" element={<Restaurant />} />
-          <Route path="/product/:slug" element={<Product />} />
           <Route path="/about-us" element={<AboutUs />} />
         </Route>
         <Route path="*" element={<Error404 />} />
