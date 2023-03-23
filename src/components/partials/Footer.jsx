@@ -32,14 +32,14 @@ function Footer() {
               </p>
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <div className="flex sm: justify-center mt-5">
-                <a href="#" className="text-gray-500 mr-4 hover:text-white">
+              <div className="flex sm: justify-end mt-5">
+                <a className="text-gray-500 mr-4 hover:text-white">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
                 </a>
-                <a href="#" className="text-gray-500 mr-4 hover:text-white">
+                <a className="text-gray-500 mr-4 hover:text-white">
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
-                <a href="#" className="text-gray-500 mr-4 hover:text-white">
+                <a className="text-gray-500 mr-4 hover:text-white">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
                 </a>
               </div>
@@ -47,16 +47,16 @@ function Footer() {
           </div>
           <hr className="my-8 border-gray-800" />
           <div className="flex flex-wrap">
-            <div className="w-full lg:w-2/3 lg:order-2 mb-4 lg:mb-0">
+            <div className="w-full text-end lg:w-2/3 lg:order-2 mb-4 lg:mb-0">
               <p className="text-gray-500">
                 &copy; 2023 No Hunger. All rights reserved.
               </p>
             </div>
-            <div className="w-full lg:w-1/3 lg:order-1">
-              <a href="#" className="text-gray-500 mr-4 hover:text-white">
+            <div className="w-full text-start lg:w-1/3 lg:order-1">
+              <a className="text-gray-500 mr-4 hover:text-white">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-500 mr-4 hover:text-white">
+              <a className="text-gray-500 mr-4 hover:text-white">
                 Terms of Service
               </a>
             </div>

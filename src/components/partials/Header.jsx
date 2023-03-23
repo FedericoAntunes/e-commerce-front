@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <Navbar fluid={true} style={{backgroundColor: "#1F2937" }} >
+      <Navbar fluid={true} style={{ backgroundColor: "#1F2937" }}>
         <Navbar.Brand>
           <img
             src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
@@ -40,28 +40,25 @@ function Header() {
           </Dropdown>
           <Navbar.Toggle />
         </div>
-        <Navbar.Collapse style={{hover: "background-color: #111827"}}
-        className = " "
-        
-        >
+        <Navbar.Collapse style={{ hover: "background-color: #111827" }}>
           <Link
             to={"/"}
             className="block py-2 pr-4 pl-3 md:p-0   text-gray-300  dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent  md:dark:hover:bg-transparent md:dark:hover:text-white text-lg     md:hover:text-yellow-200 "
-            style={{fontWeight: "600"}}
+            style={{ fontWeight: "600" }}
           >
             Home
           </Link>
           <Link
             to={"/about-us"}
             className="block py-2 pr-4 pl-3 md:p-0   text-gray-300  dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent  md:dark:hover:bg-transparent md:dark:hover:text-white text-lg   md:hover:text-yellow-200 "
-            style={{fontWeight: "600"}}
+            style={{ fontWeight: "600" }}
           >
             About
           </Link>
           <Link
             to={"/login"}
             className="block py-2 pr-4 pl-3 md:p-0   text-gray-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent  md:dark:hover:bg-transparent md:dark:hover:text-white text-lg    md:hover:text-yellow-200 "
-            style={{fontWeight: "600"}}
+            style={{ fontWeight: "600" }}
           >
             Login
           </Link>
@@ -69,15 +66,15 @@ function Header() {
           <Link
             to={"/register"}
             className="block py-2 pr-4 pl-3 md:p-0   text-gray-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent  md:dark:hover:bg-transparent md:dark:hover:text-white text-lg   md:hover:text-yellow-200 "
-            style={{fontWeight: "600"}}
+            style={{ fontWeight: "600" }}
           >
             Register
           </Link>
 
-          <Link className="block py-2 pr-4 pl-3 md:p-0   text-gray-300  dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent  md:dark:hover:bg-transparent md:dark:hover:text-white text-lg   md:hover:text-yellow-200 "
-          style={{fontWeight: "600"}}
+          <Link
+            className="block py-2 pr-4 pl-3 md:p-0   text-gray-300  dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent  md:dark:hover:bg-transparent md:dark:hover:text-white text-lg   md:hover:text-yellow-200 "
+            style={{ fontWeight: "600" }}
           >
-            
             Contact
           </Link>
         </Navbar.Collapse>

@@ -29,7 +29,7 @@ export default function CategoryCarousel() {
     <>
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        // spaceBetween={30}
         freeMode={true}
         loop={true}
         autoPlay={true}
@@ -42,7 +42,16 @@ export default function CategoryCarousel() {
         {categories.map((category) => {
           return (
             <SwiperSlide key={category.id} className="bg-gray-700">
-              <img src={`${category.image}`} alt="category-img" />
+              <div className="relative">
+                <img
+                  src={`${category.image}`}
+                  alt="category-img"
+                  className="mx-auto"
+                />
+                <div className="absolute bottom-0 left-0 right-0 text-yellow-200">
+                  <h5>{category.name}</h5>
+                </div>
+              </div>
             </SwiperSlide>
           );
         })}
