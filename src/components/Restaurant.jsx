@@ -1,0 +1,41 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import apiCall from "./api/api";
+import { Link } from "react-router-dom";
+
+function Restaurant() {
+  const [products, setProducts] = useState([]);
+  const [company, setCompany] = useState(null);
+
+  const params = useParams();
+  const getData = async () => {
+    const companyData = await apiCall(`/companies/${params.slug}`, "get");
+    setCompany(companyData);
+    const productData = await apiCall(
+      `/products?companyId=${companyData.id}`,
+      "get"
+    );
+    setProducts(productData);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <>
+      {products.map((product) => {
+        return (
+          <div key={product.id}>
+            <Link to={`/product/${product.slug}`}>
+              <p>{product.title}</p>
+              <img src={`${product.image}`} alt="category-img" />
+            </Link>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+export default Restaurant;
