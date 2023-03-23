@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import AboutUs from "./components/AboutUs";
 import Error404 from "./components/Error404";
 import Layout from "./components/layout/Layout";
+import Restaurant from "./components/Restaurant";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/:slug" element={<Restaurant />} />
           <Route path="/about-us" element={<AboutUs />} />
         </Route>
         <Route path="*" element={<Error404 />} />

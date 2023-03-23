@@ -1,6 +1,7 @@
 import apiCall from "./api/api";
 import { useEffect, useState } from "react";
 import CategoryCarousel from "./partials/CategoryCarousel";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [companies, setCompanies] = useState([]);
@@ -29,8 +30,10 @@ function Home() {
         companies.map((company) => {
           return (
             <div key={company.id}>
-              <p>{company.name}</p>
-              <img src={`${company.logo}`} alt="category-img" />
+              <Link to={`/${company.slug}`}>
+                <p>{company.name}</p>
+                <img src={`${company.logo}`} alt="category-img" />
+              </Link>
             </div>
           );
         })}

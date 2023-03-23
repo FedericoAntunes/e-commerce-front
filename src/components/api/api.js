@@ -6,7 +6,6 @@ const apiCall = async (path, method) => {
     method,
     url: path,
   });
-  console.log(response.data);
   return response.data;
 };
 
