@@ -24,11 +24,11 @@ function Home() {
     <>
       {categories &&
         categories.map((category) => {
-          return <p>{category.name}</p>;
+          return <p key={category.id}>{category.name}</p>;
         })}
       {companies &&
         companies.map((company) => {
-          return <p>{company.name}</p>;
+          return <p key={company.id}>{company.name}</p>;
         })}
     </>
   );
