@@ -39,7 +39,7 @@ export default function ProductModal({
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
                     {description}
                   </p>
-                  <h1>{stock}</h1>
+                  <h1>In stock: {stock}</h1>
                   <div className="text-right">
                     <h1>US$ {price}</h1>
                   </div>
