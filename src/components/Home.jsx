@@ -1,5 +1,6 @@
 import apiCall from "./api/api";
 import { useEffect, useState } from "react";
+import CategoryCarousel from "./partials/CategoryCarousel";
 
 function Home() {
   const [companies, setCompanies] = useState([]);
@@ -22,14 +23,8 @@ function Home() {
 
   return (
     <>
-      {categories &&
-        categories.map((category) => {
-          return (
-            <div key={category.id}>
-              <img src={`${category.image}`} alt="category-img" />
-            </div>
-          );
-        })}
+      <CategoryCarousel />
+
       {companies &&
         companies.map((company) => {
           return (
