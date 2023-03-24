@@ -22,7 +22,11 @@ export default function ProductModal({
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <img className="h-40" src={`${logo}`} alt="category-img" />
+                <img
+                  className="h-40 rounded-t"
+                  src={`${logo}`}
+                  alt="category-img"
+                />
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 className="text-3xl font-semibold">{title}</h3>
                   <button
