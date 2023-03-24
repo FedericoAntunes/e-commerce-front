@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-function CardAbout({ name, description, linkedin, github }) {
+function CardAbout({ name, description, linkedin, github, image }) {
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-3 my-3">
         <img
-          className="rounded-t-lg"
-          src="https://i.ibb.co/P9LSfVX/franky.jpg"
+          className="rounded-t-lg h-64 mx-auto  "
+          src={image}
           alt="card-img"
         />
         <div className="p-5">
