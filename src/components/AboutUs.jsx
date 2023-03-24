@@ -7,7 +7,7 @@ function AboutUs() {
       <div className="flex flex-wrap justify-center">
         <CardAbout
           name={"Federico Antunes"}
-          image={"https://i.ibb.co/P9LSfVX/franky.jpg"}
+          image={"https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"}
           description={"Lorem ipsum dolor"}
           github={"http://github.com"}
           linkedin={"https://www.linkedin.com/"}
