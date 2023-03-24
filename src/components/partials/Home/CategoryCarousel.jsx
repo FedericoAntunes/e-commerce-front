@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import apiCall from "../api/api";
+import apiCall from "../../api/api";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
