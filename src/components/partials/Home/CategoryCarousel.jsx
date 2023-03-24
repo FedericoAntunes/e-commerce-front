@@ -32,7 +32,7 @@ export default function CategoryCarousel() {
         navigation={true}
         freeMode={true}
         modules={[FreeMode, Navigation]}
-        className="mySwiper"
+        className="mySwiper w-[90%]"
       >
         {categories.map((category) => {
           return (
@@ -44,7 +44,7 @@ export default function CategoryCarousel() {
                   className="mx-auto"
                 />
                 <div className="absolute bottom-1 left-0 right-0 text-yellow-200">
-                  <span className="rounded-full bg-gray-700 bg-opacity-70 p-1 text-sm font-bold">
+                  <span className="rounded-full bg-gray-700 bg-opacity-70 p-1 text-xs font-bold">
                     {category.name}
                   </span>
                 </div>
