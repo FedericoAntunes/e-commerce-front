@@ -30,7 +30,7 @@ function Restaurant() {
 
   return (
     <>
-      {products.map((product) => {
+      {/* {products.map((product) => {
         return (
           <div key={product.id}>
             <ProductModal
@@ -43,7 +43,19 @@ function Restaurant() {
             ></ProductModal>
           </div>
         );
-      })}
+      })} */}
+ {products.map((product)=> {
+  return(
+<div></div>
+  )
+ })}
+
+    
+
+
+
+
+
 
   
     
