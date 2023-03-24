@@ -5,14 +5,14 @@ import Footer from "../partials/Footer";
 function Layout() {
   return (
     <>
-      <div className="">
+      <div>
         <div className="mb-[5.25rem]">
           <Header />
         </div>
-        <main className="">
+        <main>
           <Outlet />
         </main>
-        <div className="">
+        <div>
           <Footer />
         </div>
       </div>

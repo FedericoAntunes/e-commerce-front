@@ -16,7 +16,7 @@ function Companies() {
 
   return (
     <>
-      <div class="flex flex-wrap justify-center bg-gray-900">
+      <div class="flex flex-wrap justify-center">
         {companies &&
           companies.map((company) => {
             return (
@@ -25,7 +25,7 @@ function Companies() {
                 class="w-full max-w-md mx-4 mb-8 overflow-hidden"
               >
                 <Link to={`/${company.slug}`}>
-                  <div class="bg-gray-800 border border-gray-600 rounded-lg shadow-lg overflow-hidden transition duration-500 transform hover:-translate-y-1 hover:scale-105">
+                  <div class="bg-gray-400 rounded-lg shadow-lg overflow-hidden transition duration-500 transform hover:-translate-y-1 hover:scale-105">
                     <div class="p-4">
                       <img
                         class="object-contain w-full h-40"

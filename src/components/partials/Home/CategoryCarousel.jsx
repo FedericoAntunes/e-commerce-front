@@ -36,7 +36,7 @@ export default function CategoryCarousel() {
       >
         {categories.map((category) => {
           return (
-            <SwiperSlide key={category.id} className={"bg-black"}>
+            <SwiperSlide key={category.id}>
               <div className="relative">
                 <img
                   src={`${category.image}`}
