@@ -1,13 +1,24 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import ShoppingCart from "./ShoppingCart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+
 function Header() {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  function toggleMenu() {
+    setOpenMenu(!openMenu);
+  }
+
   return (
-    <>
+    <div className="fixed w-full h-16 z-10 top-0">
       <Navbar fluid={true} style={{ backgroundColor: "#1F2937" }}>
         <Navbar.Brand>
           <img
             src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
-            className="mr-5 h-12 sm:h-16"
+            className="mr-5 h-16"
             alt="No Hunger Logo"
           />
           <span className="self-center whitespace-nowrap text-xl text-yellow-200 font-semibold dark:text-white">
@@ -78,8 +89,14 @@ function Header() {
             Contact
           </Link>
         </Navbar.Collapse>
+        <FontAwesomeIcon
+          className="text-gray-300"
+          onClick={() => toggleMenu()}
+          icon={faCartShopping}
+        />
       </Navbar>
-    </>
+      <ShoppingCart openMenu={openMenu} toggleMenu={toggleMenu} />
+    </div>
   );
 }
 
