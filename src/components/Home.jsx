@@ -25,18 +25,27 @@ function Home() {
   return (
     <>
       <CategoryCarousel />
-
-      {companies &&
-        companies.map((company) => {
-          return (
-            <div key={company.id}>
-              <Link to={`/${company.slug}`}>
-                <p>{company.name}</p>
-                <img src={`${company.logo}`} alt="category-img" />
-              </Link>
+<div class="flex flex-wrap justify-center bg-gray-900">
+  {companies && companies.map((company) => {
+    return (
+      <div key={company.id} class="w-full max-w-md mx-4 mb-8 overflow-hidden">
+        <Link to={`/${company.slug}`}>
+          <div class="bg-gray-800 border border-gray-600 rounded-lg shadow-lg overflow-hidden transition duration-500 transform hover:-translate-y-1 hover:scale-105">
+            <div class="p-4">
+              <img class="object-contain w-full h-40" src={`${company.logo}`} alt="category-img" />
+              <h2 class="text-xl font-bold mt-4 text-white">{company.name}</h2>
+              <p class="text-gray-400">{company.description}</p>
             </div>
-          );
-        })}
+          </div>
+        </Link>
+      </div>
+    );
+  })}
+</div>
+
+
+
+
     </>
   );
 }

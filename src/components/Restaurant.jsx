@@ -7,6 +7,11 @@ import ProductModal from "./partials/ProductModal";
 function Restaurant() {
   const [products, setProducts] = useState([]);
   const [company, setCompany] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
 
   const params = useParams();
   const getData = async () => {
@@ -39,6 +44,17 @@ function Restaurant() {
           </div>
         );
       })}
+
+  
+    
+  
+
+
+
+
+
+
+
     </>
   );
 }
