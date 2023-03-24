@@ -3,7 +3,7 @@ import { Dropdown, Button } from "flowbite-react";
 function Filters() {
   return (
     <div className="flex py-2 gap-2">
-      <span className="my-auto ml-10">Filter:</span>
+      <span className="my-auto ml-10 ">Filter:</span>
       <Button size="xs" color="light">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ function Filters() {
         Promotions
       </Button>
       <div className="ml-auto mr-10 my-auto flex gap-2">
-        <Dropdown color="light" label="Oreder by" dismissOnClick={false}>
+        <Dropdown color="light" label="Order by" dismissOnClick={false}>
           <Dropdown.Item>Relevance</Dropdown.Item>
           <Dropdown.Item>Promotions</Dropdown.Item>
           <Dropdown.Item>Rating</Dropdown.Item>
