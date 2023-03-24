@@ -40,7 +40,7 @@ export default function ProductModal({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                  <p className="my-4 text-slate-500 text-lg leading-relaxed w-[30rem]">
                     {description}
                   </p>
                   <h1>In stock: {stock}</h1>
