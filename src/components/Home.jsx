@@ -2,17 +2,32 @@ import CategoryCarousel from "./partials/Home/CategoryCarousel";
 import Companies from "./partials/Home/Companies";
 import Filters from "./partials/Home/Filters";
 import Products from "./partials/Home/Products";
+import apiCall from "./api/api";
+import { useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 
 function Home() {
+  const [category, setCategory, products, setProducts] = useOutletContext();
+
+  const getProducts = async () => {
+    const response = await apiCall("/products", "get");
+    setProducts(response);
+  };
+
+  useEffect(() => {
+    getProducts();
+    console.log(products);
+    console.log(category);
+  }, []);
   return (
     <>
-      <CategoryCarousel />
+      <CategoryCarousel category={category} setCategory={setCategory} />
 
-      <Filters />
+      <Filters setProducts={setProducts} />
 
       <Companies />
 
-      <Products />
+      <Products products={products} />
     </>
   );
 }
