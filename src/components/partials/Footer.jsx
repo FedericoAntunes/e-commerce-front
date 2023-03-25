@@ -8,8 +8,8 @@ import {
 
 function Footer() {
   return (
-    <>
-      <footer className="bg-yellow-500 py-8" style={{boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px"}}>
+    <> 
+      <footer className="py-8 bg-yellow-500" style={{boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px"}}>
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">

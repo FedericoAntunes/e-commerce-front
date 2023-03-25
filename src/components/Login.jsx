@@ -4,7 +4,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   return (
-    <section className="bg-gray-50 bg-gray-900">
+    <section className="bg-gray-100">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <Link
           to="/about-us"
