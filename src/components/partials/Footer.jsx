@@ -9,19 +9,19 @@ import {
 function Footer() {
   return (
     <>
-      <footer className="bg-gray-900 py-8">
+      <footer className="bg-yellow-500 py-8" style={{boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px"}}>
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
               <h2 className="text-white font-bold mb-4">About Us</h2>
-              <p className="text-gray-500">
+              <p className="text-white">
                 No Hunger is an e-commerce that will provide you the best
                 restaurants all around the world.
               </p>
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
               <h2 className="text-white font-bold mb-4">Contact Us</h2>
-              <p className="text-gray-500">
+              <p className="text-white">
                 18 of July, Center
                 <br />
                 Montevideo, Uruguay 224
@@ -33,30 +33,30 @@ function Footer() {
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
               <div className="flex sm: justify-end mt-5">
-                <a className="text-gray-500 mr-4 hover:text-white">
+                <a className=" mr-4 text-white">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
                 </a>
-                <a className="text-gray-500 mr-4 hover:text-white">
+                <a className="mr-4 text-white">
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
-                <a className="text-gray-500 mr-4 hover:text-white">
+                <a className=" mr-4 text-white">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
                 </a>
               </div>
             </div>
           </div>
-          <hr className="my-8 border-gray-800" />
+          <hr className="my-8 border-white" />
           <div className="flex flex-wrap">
             <div className="w-full text-end lg:w-2/3 lg:order-2 mb-4 lg:mb-0">
-              <p className="text-gray-500">
+              <p className="text-white">
                 &copy; 2023 No Hunger. All rights reserved.
               </p>
             </div>
             <div className="w-full text-start lg:w-1/3 lg:order-1">
-              <a className="text-gray-500 mr-4 hover:text-white">
+              <a className="text-white mr-4 hover:text-white">
                 Privacy Policy
               </a>
-              <a className="text-gray-500 mr-4 hover:text-white">
+              <a className="text-white mr-4 hover:text-white">
                 Terms of Service
               </a>
             </div>

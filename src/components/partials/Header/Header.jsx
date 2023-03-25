@@ -17,14 +17,14 @@ function Header() {
 
   return (
     <div className="fixed w-full h-16 z-10 top-0">
-      <Navbar fluid={true} style={{ backgroundColor: "#1F2937" }}>
+      <Navbar fluid={true} style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px;" }}>
         <Logo />
 
         <Search />
 
         <div className="flex md:order-last">
           <FontAwesomeIcon
-            className="text-gray-300 p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-200"
+            className="text-gray-300 p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-600"
             onClick={() => toggleMenu()}
             icon={faCartShopping}
           />
@@ -62,16 +62,16 @@ function Header() {
         <Navbar.Collapse className="navbar-links-container pt-[2px]">
           <Link
             to={"/"}
-            className="block py-2 text-gray-300 border-0 bg-transparent hover:text-yellow-200"
-            style={{ fontWeight: "400", fontSize: "0.875rem" }}
+            className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"
+            style={{ fontWeight: "800", fontSize: "0.875rem" }}
           >
             Home
           </Link>
           <Link
             to={"/about-us"}
-            className="block py-2 text-gray-300 border-0 bg-transparent hover:text-yellow-200"
+            className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"
             style={{
-              fontWeight: "400",
+              fontWeight: "800",
               fontSize: "0.875rem",
             }}
           >
@@ -79,9 +79,9 @@ function Header() {
           </Link>
           <Link
             to={"/login"}
-            className="block py-2 text-gray-300 border-0 bg-transparent hover:text-yellow-200"
+            className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"
             style={{
-              fontWeight: "400",
+              fontWeight: "800",
               fontSize: "0.875rem",
             }}
           >
@@ -90,9 +90,9 @@ function Header() {
 
           <Link
             to={"/register"}
-            className="block py-2 text-gray-300 border-0 bg-transparent hover:text-yellow-200"
+            className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"
             style={{
-              fontWeight: "400",
+              fontWeight: "800",
               fontSize: "0.875rem",
             }}
           >
@@ -100,9 +100,9 @@ function Header() {
           </Link>
 
           <Link
-            className="block py-2 text-gray-300 border-0 bg-transparent hover:text-yellow-200"
+            className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"
             style={{
-              fontWeight: "400",
+              fontWeight: "800",
               fontSize: "0.875rem",
             }}
           >
