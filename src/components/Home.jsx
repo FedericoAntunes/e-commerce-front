@@ -1,5 +1,5 @@
 import CategoryCarousel from "./partials/Home/CategoryCarousel";
-import Companies from "./partials/Home/Companies";
+import Companies from "./partials/Home/CompaniesCarousel";
 import Filters from "./partials/Home/Filters";
 import Products from "./partials/Home/Products";
 import apiCall from "./api/api";

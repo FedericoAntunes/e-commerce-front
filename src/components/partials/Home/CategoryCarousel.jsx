@@ -26,7 +26,7 @@ export default function CategoryCarousel() {
     getCategories();
   }, []);
   return (
-    <>
+    <div className="pt-2">
       <Swiper
         slidesPerView={"auto"}
         navigation={true}
@@ -53,6 +53,6 @@ export default function CategoryCarousel() {
           );
         })}
       </Swiper>
-    </>
+    </div>
   );
 }
