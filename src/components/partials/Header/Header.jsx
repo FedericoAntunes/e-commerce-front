@@ -22,7 +22,7 @@ function Header() {
 
         <Search />
 
-        <div className="flex md:order-last">
+        <div className="flex order-4">
           <FontAwesomeIcon
             className="text-gray-300 p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-600"
             onClick={() => toggleMenu()}
@@ -55,11 +55,11 @@ function Header() {
           </Dropdown>
           <Navbar.Toggle
             className="hover:text-yellow-400"
-            style={{ backgroundColor: "transparent" }}
+            style={{ backgroundColor: "transparent", boxShadow: "none" }}
           />
         </div>
 
-        <Navbar.Collapse className="navbar-links-container pt-[2px]">
+        <Navbar.Collapse className="navbar-links-container pt-[2px] order-6 md:order-3">
           <Link
             to={"/"}
             className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"

@@ -5,7 +5,7 @@ function Logo() {
   return (
     <>
       <Navbar.Brand>
-        <Link to={"/"}>
+        <Link to={"/"} className="order-first">
           <img
             // src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
             src="/img/no-hunger.png"

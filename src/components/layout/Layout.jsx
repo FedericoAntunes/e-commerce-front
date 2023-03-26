@@ -10,10 +10,10 @@ function Layout() {
   return (
     <>
       <div>
-        <div className="mb-[5.25rem]">
+        <div>
           <Header products={products} setProducts={setProducts} />
         </div>
-        <main className="">
+        <main className="xs:mt-[5.25rem] mt-[146px]">
           <Outlet context={[category, setCategory, products, setProducts]} />
         </main>
         <div>
