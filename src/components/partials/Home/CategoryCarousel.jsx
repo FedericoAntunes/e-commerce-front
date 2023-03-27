@@ -14,6 +14,10 @@ import "./CategoryCarousel.css";
 // import required modules
 import { FreeMode, Navigation } from "swiper";
 
+// Reacy-toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function CategoryCarousel() {
   const [categories, setCategories] = useState([]);
 
@@ -25,8 +29,15 @@ export default function CategoryCarousel() {
   useEffect(() => {
     getCategories();
   }, []);
+
+  const notify = () =>
+    toast.warn("This feature is not included yet.", {
+      position: "bottom-right",
+    });
+
   return (
-    <div className="pt-2">
+    <div onClick={notify} className="pt-2">
+      <ToastContainer />
       <Swiper
         slidesPerView={"auto"}
         navigation={true}

@@ -8,6 +8,14 @@ import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () =>
+  toast.warn("This feature is not included yet.", {
+    position: "bottom-right",
+  });
+
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -16,8 +24,12 @@ function Header() {
   }
 
   return (
-    <div className="fixed w-full h-16 z-10 top-0">
-      <Navbar fluid={true} style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px;"}}>
+    <div onClick={notify} className="fixed w-full h-16 z-10 top-0">
+      <ToastContainer />
+      <Navbar
+        fluid={true}
+        style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px;" }}
+      >
         <Logo />
 
         <Search />

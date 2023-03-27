@@ -1,8 +1,17 @@
 import { Dropdown, Button } from "flowbite-react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () =>
+  toast.warn("This feature is not included yet.", {
+    position: "bottom-right",
+  });
+
 function Filters() {
   return (
-    <div className="flex py-2 gap-2">
+    <div onClick={notify} className="flex py-2 gap-2">
+      <ToastContainer />
       <span className="my-auto ml-10 ">Filter:</span>
       <Button size="xs" color="light">
         <svg
