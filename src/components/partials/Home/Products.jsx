@@ -5,7 +5,10 @@ function Products({ products }) {
     <div className="flex flex-wrap justify-center">
       {products.map((product, index) => {
         return (
-          <div key={index} className="relative w-full max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div
+            key={index}
+            className="relative w-full max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
             <div className="-mb-6 relative">
               <img
                 className="rounded-full absolute left-4 top-2 h-12"
@@ -18,7 +21,7 @@ function Products({ products }) {
             </div>
             <Link to={`/${product.company.slug}`}>
               <img
-                className="pt-8 pb-4 mx-auto rounded-t-lg"
+                className="pt-8 pb-4 mx-auto rounded-t-lg  w-[7rem]"
                 src={product.image}
                 alt="product"
               />
