@@ -16,16 +16,16 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-gray-600 rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
+        <div className="sm:w-full bg-white rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-200 md:text-2xl">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
             </h1>
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
                   for="email"
-                  className="block mb-2 text-sm font-medium text-gray-200"
+                  className="block mb-2 text-sm font-medium text-black"
                 >
                   Your email
                 </label>
@@ -41,7 +41,7 @@ function Login() {
               <div>
                 <label
                   for="password"
-                  className="block mb-2 text-sm font-medium text-gray-200"
+                  className="block mb-2 text-sm font-medium text-black"
                 >
                   Password
                 </label>
@@ -66,7 +66,7 @@ function Login() {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label for="remember" className="text-gray-200 font-medium">
+                    <label for="remember" className="text-black font-medium">
                       Remember me
                     </label>
                   </div>
@@ -84,7 +84,7 @@ function Login() {
               >
                 Sign in
               </button>
-              <p className="text-sm font-light text-gray-200 font-medium">
+              <p className="text-sm font-light text-black ">
                 Don’t have an account yet?
                 <Link
                   to="/register"

@@ -1,0 +1,15 @@
+.mySwiper {
+  width: 100%;
+  height: 80px;
+}
+
+.mySwiper  .swiper-wrapper {
+  margin-left: 0px !important;
+  height: 80px;
+  width: 80px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fde68a;
+}

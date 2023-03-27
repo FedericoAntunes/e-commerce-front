@@ -2,10 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 
 function Products({ products }) {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center">
       {products.map((product) => {
         return (
-          <div className="w-full max-w-sm bg-white border mx-auto my-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="w-full max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="-mb-6 relative">
               <img
                 className="rounded-full absolute left-4 top-2 h-12"
