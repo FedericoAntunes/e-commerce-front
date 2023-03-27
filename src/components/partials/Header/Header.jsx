@@ -17,14 +17,17 @@ function Header() {
 
   return (
     <div className="fixed w-full h-16 z-10 top-0">
-      <Navbar fluid={true} style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px;"}}>
+      <Navbar
+        fluid={true}
+        style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px;" }}
+      >
         <Logo />
 
         <Search />
 
         <div className="flex order-4">
           <FontAwesomeIcon
-            className="text-gray-300 p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-600"
+            className="text-gray-500 p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
             onClick={() => toggleMenu()}
             icon={faCartShopping}
           />
