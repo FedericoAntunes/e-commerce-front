@@ -1,5 +1,13 @@
 import React from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () =>
+  toast.warn("This feature is not included yet.", {
+    position: "bottom-right",
+  });
+
 export default function ProductModal({
   product,
   isModalOpen,
@@ -10,6 +18,7 @@ export default function ProductModal({
     <>
       {isModalOpen && product.id === actualProduct ? (
         <>
+          <ToastContainer />
           <div className=" justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto w-[30rem]">
               {/*content*/}
@@ -43,7 +52,10 @@ export default function ProductModal({
                 </div>
                 {/*footer*/}
                 <div className="flex flex-col  items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full w-4/5">
+                  <button
+                    onClick={notify}
+                    class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full w-4/5"
+                  >
                     Add to my cart
                   </button>
                   <button

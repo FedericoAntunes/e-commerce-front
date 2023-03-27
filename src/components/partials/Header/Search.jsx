@@ -1,7 +1,16 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () =>
+  toast.warn("This feature is not included yet.", {
+    position: "bottom-right",
+  });
+
 function Search() {
   return (
     <>
       <form style={{ flex: "1 1 auto", maxWidth: "700px" }} className="px-3">
+        <ToastContainer />
         <label
           for="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -20,6 +29,7 @@ function Search() {
             required
           />
           <button
+            onClick={notify}
             type="submit"
             className="text-white absolute right-2.5 bottom-2.5 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
           >
