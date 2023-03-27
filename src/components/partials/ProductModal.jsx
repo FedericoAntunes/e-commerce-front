@@ -42,7 +42,7 @@ export default function ProductModal({
                     src={`${product.logo}`}
                     alt="category-img"
                   />
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed w-[30rem]">
+                  <p className="my-4 text-slate-500 text-lg mx-auto leading-relaxed w-[30rem]">
                     {product.description}
                   </p>
                   <h1>In stock: {product.stock}</h1>
