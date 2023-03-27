@@ -36,7 +36,7 @@ export default function CategoryCarousel() {
     });
 
   return (
-    <div onClick={notify} className="pt-2">
+    <div onClick={notify} className="pt-2 mt-10">
       <ToastContainer />
       <Swiper
         slidesPerView={"auto"}
@@ -47,7 +47,7 @@ export default function CategoryCarousel() {
       >
         {categories.map((category, index) => {
           return (
-            <SwiperSlide  key={index} >
+            <SwiperSlide key={index}>
               <div className="relative">
                 <img
                   src={`${category.image}`}
