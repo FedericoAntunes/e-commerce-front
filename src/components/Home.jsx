@@ -16,8 +16,7 @@ function Home() {
 
   useEffect(() => {
     getProducts();
-    console.log(products);
-    console.log(category);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

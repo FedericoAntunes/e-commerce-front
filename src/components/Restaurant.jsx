@@ -28,9 +28,10 @@ function Restaurant() {
 
   useEffect(() => {
     getData();
-  }, [getData]);
+    // eslint-disable-next-line
+  }, []);
 
-  return (
+  return company && (
     <>
       {/* {products.map((product) => {
         return (

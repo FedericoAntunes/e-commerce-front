@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import "./CompaniesCarousel.css"
+import "./CompaniesCarousel.css";
 
 // import required modules
 import { FreeMode, Navigation } from "swiper";
@@ -29,37 +29,23 @@ function CompaniesCarousel() {
   return (
     <>
       <h3 className="font-bold text-yellow-600">Trending restaurants</h3>
-      <Swiper
-        slidesPerView={"auto"}
-        navigation={true}
-        freeMode={true}
-        modules={[FreeMode, Navigation]}
-        className="mySwiper"
-      >
+        <div className="flex flex-wrap justify-center my-2">
         {companies.map((company, index) => {
           return (
-            <SwiperSlide className="mx-2" key={index}>
-              <div className="">
-                <div className="">
-                  <div className="">
-                    <NavLink to={`/${company.slug}`}>
-                      <img
-                        className="rounded-full"
-                        src={`${company.logo}`}
-                        alt="category-img"
-
-                      />
-                      <h2 className="">
-                        {company.name}
-                      </h2>
-                    </NavLink >
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+            <div className="mx-2" key={index}>
+              <NavLink className="" to={`/${company.slug}`}>
+                <img
+                  className="rounded-full h-24 w-24 mx-auto shadow-xl"
+                  src={`${company.logo}`}
+                  alt="category-img"
+                />
+              </NavLink>
+              <h2 className="font-bold">{company.name}</h2>
+            </div>
           );
         })}
-      </Swiper>
+        </div>
+    
     </>
   );
 }
