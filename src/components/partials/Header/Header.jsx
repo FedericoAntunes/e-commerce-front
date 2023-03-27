@@ -24,7 +24,7 @@ function Header() {
   }
 
   return (
-    <div onClick={notify} className="fixed w-full h-16 z-10 top-0">
+    <div className="fixed w-full h-16 z-10 top-0">
       <ToastContainer />
       <Navbar
         fluid={true}
@@ -59,11 +59,11 @@ function Header() {
                 name@flowbite.com
               </span>
             </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
+            <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
+            <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
+            <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown.Item onClick={notify}>Sign out</Dropdown.Item>
           </Dropdown>
           <Navbar.Toggle
             className="hover:text-yellow-400"
@@ -112,6 +112,7 @@ function Header() {
           </Link>
 
           <Link
+            onClick={notify}
             className="block py-2 text-dark border-0 bg-transparent hover:text-yellow-600"
             style={{
               fontWeight: "800",
