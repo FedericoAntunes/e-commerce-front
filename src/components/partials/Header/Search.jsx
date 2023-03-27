@@ -31,7 +31,7 @@ function Search() {
         </label>
         <div className="relative w-auto">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <img src="/img/no-hunger.png" width="25" height="25" />
+            <img src="/img/no-hunger.png" width="25" height="25" alt="logo" />
           </div>
           <input
             type="search"

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import apiCall from "../../api/api";
 
 // Import Swiper React components
@@ -45,9 +45,9 @@ export default function CategoryCarousel() {
         modules={[FreeMode, Navigation]}
         className="mySwiper w-[90%]"
       >
-        {categories.map((category) => {
+        {categories.map((category, index) => {
           return (
-            <SwiperSlide key={category.id}>
+            <SwiperSlide  key={index} >
               <div className="relative">
                 <img
                   src={`${category.image}`}

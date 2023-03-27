@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   return (
@@ -24,7 +22,7 @@ function Login() {
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block mb-2 text-sm font-medium text-black"
                 >
                   Your email
@@ -40,7 +38,7 @@ function Login() {
               </div>
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block mb-2 text-sm font-medium text-black"
                 >
                   Password
@@ -66,7 +64,7 @@ function Login() {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label for="remember" className="text-black font-medium">
+                    <label htmlFor="remember" className="text-black font-medium">
                       Remember me
                     </label>
                   </div>

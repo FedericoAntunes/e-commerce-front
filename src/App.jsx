@@ -6,7 +6,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import AboutUs from "./components/AboutUs";
 import Error404 from "./components/Error404";
-import Layout from "./components/layout/Layout";
+import Layout from "./components/Layout/Layout";
 import Restaurant from "./components/Restaurant";
 
 function App() {

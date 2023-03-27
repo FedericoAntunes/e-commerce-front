@@ -54,7 +54,7 @@ export default function ProductModal({
                 <div className="flex flex-col  items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
                     onClick={notify}
-                    class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full w-4/5"
+                    className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full w-4/5"
                   >
                     Add to my cart
                   </button>

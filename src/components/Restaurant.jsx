@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiCall from "./api/api";
-import { Link, NavLink } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import ProductModal from "./partials/ProductModal";
 
 function Restaurant() {
@@ -28,7 +28,7 @@ function Restaurant() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   return (
     <>
@@ -47,7 +47,7 @@ function Restaurant() {
                 <img
                   className="pt-8 pb-4 mx-auto rounded-t-lg"
                   src={product.image}
-                  alt="product image"
+                  alt="product"
                 />
               </Link>
               <div className="px-5 pb-5">

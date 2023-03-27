@@ -5,6 +5,7 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
@@ -33,15 +34,15 @@ function Footer() {
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
               <div className="flex sm: justify-end mt-5">
-                <a className=" mr-4 text-black">
+                <NavLink className=" mr-4 text-black">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
-                </a>
-                <a className="mr-4 text-black">
+                </NavLink>
+                <NavLink className="mr-4 text-black">
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
-                </a>
-                <a className=" mr-4 text-black">
+                </NavLink>
+                <NavLink className=" mr-4 text-black">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
@@ -53,12 +54,12 @@ function Footer() {
               </p>
             </div>
             <div className="w-full text-start lg:w-1/3 lg:order-1">
-              <a className="text-white mr-4 hover:text-white">
+              <NavLink className="text-white mr-4 hover:text-white">
                 Privacy Policy
-              </a>
-              <a className="text-white mr-4 hover:text-white">
+              </NavLink>
+              <NavLink className="text-white mr-4 hover:text-white">
                 Terms of Service
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

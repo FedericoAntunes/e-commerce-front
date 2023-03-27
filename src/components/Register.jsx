@@ -21,7 +21,7 @@ function Register() {
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
-                  for="username"
+                  htmlFor="username"
                   className="block mb-2 text-sm font-medium text-black "
                 >
                   Your username?
@@ -37,7 +37,7 @@ function Register() {
               </div>
               <div>
                 <label
-                  for="email"
+                 htmlFor="email"
                   className="block mb-2 text-sm font-medium text-black "
                 >
                   Your email
@@ -53,7 +53,7 @@ function Register() {
               </div>
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block mb-2 text-sm font-medium text-black "
                 >
                   Password
