@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,9 +8,20 @@ const notify = () =>
   });
 
 function Search() {
+  const [searchString, setSearchString] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log(searchString);
+  };
+
   return (
     <>
-      <form style={{ flex: "1 1 auto", maxWidth: "700px" }} className="px-3">
+      <form
+        style={{ flex: "1 1 auto", minWidth: "235px", maxWidth: "700px" }}
+        className="px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2"
+        onSubmit={handleSearch}
+      >
         <ToastContainer />
         <label
           for="default-search"
@@ -25,8 +37,8 @@ function Search() {
             type="search"
             id="default-search"
             className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Restaurant, Category or Food..."
-            required
+            placeholder="Search Restaurant, Category, Food..."
+            onChange={(e) => setSearchString(e.target.value)}
           />
           <button
             onClick={notify}
