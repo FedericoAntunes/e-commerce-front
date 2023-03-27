@@ -24,11 +24,7 @@ export default function ProductModal({
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <img
-                  className="h-40 rounded-t"
-                  src={`${product.logo}`}
-                  alt="category-img"
-                />
+
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 className="text-3xl font-semibold">{product.title}</h3>
                   <button
@@ -42,6 +38,11 @@ export default function ProductModal({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
+                  <img
+                    className="h-40 mx-auto rounded-t"
+                    src={`${product.logo}`}
+                    alt="category-img"
+                  />
                   <p className="my-4 text-slate-500 text-lg leading-relaxed w-[30rem]">
                     {product.description}
                   </p>
