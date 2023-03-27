@@ -5,7 +5,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 function Login() {
   return (
     <section className="bg-gray-100">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
+      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <Link
           to="/about-us"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -16,7 +16,7 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="w-full bg-gray-600 rounded-lg shadow md:mt-0 sm:max-w-md py-6">
+        <div className="sm:w-full bg-gray-600 rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-200 md:text-2xl">
               Sign in to your account

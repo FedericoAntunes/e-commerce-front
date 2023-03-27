@@ -9,19 +9,19 @@ import {
 function Footer() {
   return (
     <> 
-      <footer className="py-8 bg-yellow-500" style={{boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px"}}>
+      <footer className="py-8 bg-white" style={{boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px"}}>
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <h2 className="text-white font-bold mb-4">About Us</h2>
-              <p className="text-white">
+              <h2 className="text-black font-bold mb-4">About Us</h2>
+              <p className="text-black">
                 No Hunger is an e-commerce that will provide you the best
                 restaurants all around the world.
               </p>
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <h2 className="text-white font-bold mb-4">Contact Us</h2>
-              <p className="text-white">
+              <h2 className="text-black font-bold mb-4">Contact Us</h2>
+              <p className="text-black">
                 18 of July, Center
                 <br />
                 Montevideo, Uruguay 224
@@ -33,13 +33,13 @@ function Footer() {
             </div>
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
               <div className="flex sm: justify-end mt-5">
-                <a className=" mr-4 text-white">
+                <a className=" mr-4 text-black">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
                 </a>
-                <a className="mr-4 text-white">
+                <a className="mr-4 text-black">
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
-                <a className=" mr-4 text-white">
+                <a className=" mr-4 text-black">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
                 </a>
               </div>
@@ -48,7 +48,7 @@ function Footer() {
           <hr className="my-8 border-white" />
           <div className="flex flex-wrap">
             <div className="w-full text-end lg:w-2/3 lg:order-2 mb-4 lg:mb-0">
-              <p className="text-white">
+              <p className="text-black">
                 &copy; 2023 No Hunger. All rights reserved.
               </p>
             </div>

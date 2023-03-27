@@ -9,12 +9,12 @@ function ShoppingCart({ openMenu, toggleMenu }) {
           openMenu ? "translate-x-0 " : "translate-x-full"
         }`}
       >
-        <div className="bg-gray-400 w-22 text-black text-lg py-2 px-3">
+        <div className="bg-yellow-500 w-22 text-black text-lg py-2 px-3">
           <span className="absolute right-3 top-4" onClick={() => toggleMenu()}>
             <FontAwesomeIcon icon={faClose} />
           </span>
-          <div className="font-bold">Your Shopping cart</div>
-          <div className="font-semibold">Enter yout location</div>
+          <div className="font-bold">Your Shopping car</div>
+          <div className="font-semibold">Enter your location</div>
         </div>
         <div className="flex text-black justify-center ml-3 mt-6">
           <ul className="text-center">
