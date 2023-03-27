@@ -28,7 +28,7 @@ function Header() {
       <ToastContainer />
       <Navbar
         fluid={true}
-        style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px;" }}
+        style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px" }}
       >
         <Logo />
 

@@ -40,9 +40,9 @@ function Restaurant() {
         );
       })} */}
       <div className="flex flex-wrap justify-center">
-        {products.map((product) => {
+        {products.map((product, index) => {
           return (
-            <div className="w-full max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div key={index} className="w-full max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <Link to={`/${product.company.slug}`}>
                 <img
                   className="pt-8 pb-4 mx-auto rounded-t-lg"
