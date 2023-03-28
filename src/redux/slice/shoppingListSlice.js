@@ -9,6 +9,10 @@ export const shoppingListSlice = createSlice({
       const alreadyInCart = state.some((item) => item.id === product.id);
       if (alreadyInCart) {
         const productInCart = state.find((item) => item.id === product.id);
+        if (productInCart.quantity + product.quantity <= 0) {
+          state = state.filter((item) => item.id !== productInCart.id);
+          return state;
+        }
         productInCart.quantity = productInCart.quantity + product.quantity;
         return state;
       }
@@ -17,7 +21,8 @@ export const shoppingListSlice = createSlice({
       return state;
     },
     removeItem: (state, action) => {
-      state = state.filter((item) => item.id !== action.payload.id);
+      state = state.filter((item) => item.id !== action.payload);
+      return state;
     },
     updateItem: (state, action) => {
       const itemIndex = state.findIndex(
