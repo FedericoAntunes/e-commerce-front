@@ -36,14 +36,16 @@ function Restaurant() {
       <div>
         <div
           className="w-full mb-6 h-32"
-          style={{ backgroundImage: `url("${company.background}")` }}
+          style={{
+            backgroundImage: `url("${company.background}")`,
+            backgroundSize: "100%",
+            backgroundRepeat: "no-repeat",
+          }}
         ></div>
         <div className="mx-4">
           <div>
             <h2 className="text-left font-bold text-4xl">{company.name}</h2>
-            <p className="text-left">
-              {company.description}
-            </p>
+            <p className="text-left">{company.description}</p>
           </div>
           <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
             {products.map((product, index) => {
