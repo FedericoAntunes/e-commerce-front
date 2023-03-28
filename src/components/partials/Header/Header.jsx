@@ -1,12 +1,14 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ShoppingCart from "../ShoppingCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutUser } from "../../../redux/slice/userSlice";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,9 +22,16 @@ function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [navbarScroll, setNavbarScroll] = useState(false);
   const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   function toggleMenu() {
     setOpenMenu(!openMenu);
+  }
+  function handleLogOut() {
+    dispatch(logOutUser());
+    navigate("/login");
   }
 
   const navbarScrolling = () => {
@@ -68,36 +77,34 @@ function Header() {
             onClick={() => toggleMenu()}
             icon={faCartShopping}
           />
-
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded={true}
-                className="pt-2 pr-1"
-                style={
-                  navbarScroll || location.pathname !== "/"
-                    ? { color: "gray" }
-                    : { color: "lightyellow" }
-                }
-              />
-            }
-          >
-            <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">
-                name@flowbite.com
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
-            <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
-            <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={notify}>Sign out</Dropdown.Item>
-          </Dropdown>
+          {user ? (
+            <Dropdown
+              arrowIcon={false}
+              inline={true}
+              label={
+                <Avatar
+                  alt="User settings"
+                  img={user.avatar}
+                  rounded={true}
+                  className="pt-2 pr-1"
+                />
+              }
+            >
+              <Dropdown.Header>
+                <span className="block text-sm">{user.username}</span>
+                <span className="block truncate text-sm font-medium">
+                  {user.email}
+                </span>
+              </Dropdown.Header>
+              <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
+              <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
+              <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={() => handleLogOut()}>
+                Sign out
+              </Dropdown.Item>
+            </Dropdown>
+          ) : null}
           <Navbar.Toggle
             className="hover:text-yellow-400"
             style={
