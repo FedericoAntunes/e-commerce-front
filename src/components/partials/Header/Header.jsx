@@ -26,10 +26,7 @@ function Header() {
   return (
     <div className="fixed w-full h-16 z-50 top-0">
       <ToastContainer />
-      <Navbar
-        fluid={true}
-        style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px" }}
-      >
+      <Navbar fluid={true}>
         <Logo />
 
         <Search />
