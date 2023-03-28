@@ -34,7 +34,7 @@ function Restaurant() {
 
   return (
     company && (
-      <div>
+      <div className="mt-20">
         <div
           className="w-full mb-6 h-32"
           style={{
