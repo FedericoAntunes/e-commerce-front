@@ -1,6 +1,6 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ShoppingCart from "../ShoppingCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +21,7 @@ const notify = () =>
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [navbarScroll, setNavbarScroll] = useState(false);
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
@@ -53,7 +54,7 @@ function Header() {
       <Navbar
         fluid={true}
         style={
-          navbarScroll
+          navbarScroll || location.pathname !== "/"
             ? { backgroundColor: "white" }
             : { backgroundColor: "transparent" }
         }
@@ -65,7 +66,11 @@ function Header() {
 
         <div
           className="flex order-4 nav-cart-user ease-in-out duration-500"
-          style={navbarScroll ? { color: "gray" } : { color: "lightyellow" }}
+          style={
+            navbarScroll || location.pathname !== "/"
+              ? { color: "gray" }
+              : { color: "lightyellow" }
+          }
         >
           <FontAwesomeIcon
             className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
@@ -102,7 +107,19 @@ function Header() {
           ) : null}
           <Navbar.Toggle
             className="hover:text-yellow-400"
-            style={{ backgroundColor: "transparent", boxShadow: "none" }}
+            style={
+              navbarScroll || location.pathname !== "/"
+                ? {
+                    color: "gray",
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                  }
+                : {
+                    color: "lightyellow",
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                  }
+            }
           />
         </div>
 
@@ -110,7 +127,11 @@ function Header() {
           <Link
             to={"/"}
             className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={navbarScroll ? { color: "gray" } : { color: "lightyellow" }}
+            style={
+              navbarScroll || location.pathname !== "/"
+                ? { color: "gray" }
+                : { color: "lightyellow" }
+            }
           >
             Home
           </Link>
@@ -118,7 +139,11 @@ function Header() {
           <Link
             to={"/about-us"}
             className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={navbarScroll ? { color: "gray" } : { color: "lightyellow" }}
+            style={
+              navbarScroll || location.pathname !== "/"
+                ? { color: "gray" }
+                : { color: "lightyellow" }
+            }
           >
             About
           </Link>
@@ -126,7 +151,11 @@ function Header() {
           <Link
             onClick={notify}
             className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={navbarScroll ? { color: "gray" } : { color: "lightyellow" }}
+            style={
+              navbarScroll || location.pathname !== "/"
+                ? { color: "gray" }
+                : { color: "lightyellow" }
+            }
           >
             Contact
           </Link>
@@ -134,7 +163,11 @@ function Header() {
           <Link
             to={"/login"}
             className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={navbarScroll ? { color: "gray" } : { color: "lightyellow" }}
+            style={
+              navbarScroll || location.pathname !== "/"
+                ? { color: "gray" }
+                : { color: "lightyellow" }
+            }
           >
             Login
           </Link>
@@ -142,7 +175,11 @@ function Header() {
           <Link
             to={"/register"}
             className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={navbarScroll ? { color: "gray" } : { color: "lightyellow" }}
+            style={
+              navbarScroll || location.pathname !== "/"
+                ? { color: "gray" }
+                : { color: "lightyellow" }
+            }
           >
             Register
           </Link>
