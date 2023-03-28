@@ -72,33 +72,34 @@ function Header() {
             onClick={() => toggleMenu()}
             icon={faCartShopping}
           />
-
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <Avatar
-                alt="User settings"
-                img={user.avatar}
-                rounded={true}
-                className="pt-2 pr-1"
-              />
-            }
-          >
-            <Dropdown.Header>
-              <span className="block text-sm">{user.username}</span>
-              <span className="block truncate text-sm font-medium">
-                {user.email}
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
-            <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
-            <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={() => handleLogOut()}>
-              Sign out
-            </Dropdown.Item>
-          </Dropdown>
+          {user ? (
+            <Dropdown
+              arrowIcon={false}
+              inline={true}
+              label={
+                <Avatar
+                  alt="User settings"
+                  img={user.avatar}
+                  rounded={true}
+                  className="pt-2 pr-1"
+                />
+              }
+            >
+              <Dropdown.Header>
+                <span className="block text-sm">{user.username}</span>
+                <span className="block truncate text-sm font-medium">
+                  {user.email}
+                </span>
+              </Dropdown.Header>
+              <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
+              <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
+              <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={() => handleLogOut()}>
+                Sign out
+              </Dropdown.Item>
+            </Dropdown>
+          ) : null}
           <Navbar.Toggle
             className="hover:text-yellow-400"
             style={{ backgroundColor: "transparent", boxShadow: "none" }}
