@@ -4,23 +4,34 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
+function notify(message) {
+  toast.warn(message, {
+    position: "bottom-right",
+  });
+}
+
 export default function ProductModal({
   product,
   isModalOpen,
   setIsModalOpen,
   actualProduct,
 }) {
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
   const handleSubmit = (product) => {
-    dispatch(addItem({...product, quantity}))
-  }
+    if (quantity > product.stock) {
+      notify("The quantity cannot exceed the stock of the product.");
+    }
+    if (quantity < 1) {
+      notify("The quantity cannot be less than 0.");
+    }
+    dispatch(addItem({ ...product, quantity }));
+  };
 
   const handleQuantity = (e) => {
-    setQuantity(Number(e.target.value))
-  }
-
+    setQuantity(Number(e.target.value));
+  };
 
   return (
     <>
@@ -59,7 +70,13 @@ export default function ProductModal({
                   <div className="text-right">
                     <h1>US$ {product.price}</h1>
                   </div>
-                  <input onChange={(e) => handleQuantity(e)} type="number" min={1} max={product.stock} value={quantity}/>
+                  <input
+                    onChange={(e) => handleQuantity(e)}
+                    type="number"
+                    min={1}
+                    max={product.stock}
+                    value={quantity}
+                  />
                 </div>
                 {/*footer*/}
                 <div className="flex flex-col  items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
