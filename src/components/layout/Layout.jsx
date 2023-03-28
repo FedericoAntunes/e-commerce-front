@@ -6,6 +6,7 @@ import { useState } from "react";
 function Layout() {
   const [category, setCategory] = useState("");
   const [products, setProducts] = useState([]);
+  const [companies, setCompanies] = useState([]);
 
   return (
     <>
@@ -14,7 +15,7 @@ function Layout() {
           <Header products={products} setProducts={setProducts} />
         </div>
         <main className="xs:mt-[5.25rem] mt-[146px]">
-          <Outlet context={[category, setCategory, products, setProducts]} />
+          <Outlet context={[category, setCategory, companies, setCompanies]} />
         </main>
         <div>
           <Footer />

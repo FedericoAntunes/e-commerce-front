@@ -33,60 +33,87 @@ function Restaurant() {
 
   return (
     company && (
-      <>
-        {/* {products.map((product) => {
-        return (
-          <div key={product.id}>
-            
+      <div>
+        <div
+          className="w-full mb-6 h-32"
+          style={{ backgroundImage: `url("${company.background}")` }}
+        ></div>
+        <div className="mx-4">
+          <div>
+            <h2 className="text-left font-bold text-4xl">{company.name}</h2>
+            <p className="text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+              eaque sit suscipit eum voluptatibus optio ipsam nulla? Officia,
+              earum iste exercitationem, saepe aliquid magni cum id eveniet
+              eligendi molestias temporibus! Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Mollitia eaque sit suscipit eum
+              voluptatibus optio ipsam nulla? Officia, earum iste
+              exercitationem, saepe aliquid magni cum id eveniet eligendi
+              molestias temporibus!
+            </p>
           </div>
-        );
-      })} */}
-        <div className="flex flex-wrap justify-center">
-          {products.map((product, index) => {
-            return (
-              <div
-                key={index}
-                className="relative w-full max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <Link to={`/${product.company.slug}`}>
-                  <img
-                    className="pt-8 pb-4 mx-auto rounded-t-lg w-[7rem]"
-                    src={product.image}
-                    alt="product"
-                  />
-                </Link>
-                <div className="px-5 pb-5">
-                  <Link to={`/${product.company.slug}`}>
-                    <h5 className="pb-4 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                      {product.title}
-                    </h5>
-                  </Link>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="absolute bottom-2 left-2 text-3xl font-bold text-gray-900 dark:text-white">
-                      ${product.price}
-                    </span>
-                    <ProductModal
-                      product={product}
-                      isModalOpen={isModalOpen}
-                      setIsModalOpen={setIsModalOpen}
-                      actualProduct={actualProduct}
+          <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
+            {products.map((product, index) => {
+              return (
+                <div
+                  key={index}
+                  className="relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                >
+                  {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
+                  <div className="-mb-6 relative">
+                    <img
+                      className="rounded-full absolute z-10 left-4 top-2 h-12"
+                      src={product.company.logo}
+                      alt="company"
                     />
-                    <button
-                      onClick={() => handleOpenModal(product.id)}
-                      className="absolute bottom-2 right-2 text-white 
-          bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Add to cart
-                    </button>
+                  </div>
+                  <Link to={`/${product.company.slug}`}>
+                    <div className="hover:scale-105 ease-in-out duration-300">
+                      <img
+                        className="pt-8 pb-4 z-0 mx-auto rounded-t-lg w-[12rem]"
+                        src={product.image}
+                        alt="product"
+                      />
+                    </div>
+                  </Link>
+                  <div className="px-5">
+                    <Link to={`/${product.company.slug}`}>
+                      <h5 className="text-md text-start font-semibold tracking-tight text-gray-900 dark:text-white">
+                        {product.title}
+                      </h5>
+                    </Link>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-gray-900 dark:text-white">
+                        ${product.price}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </>
+      </div>
     )
   );
 }
 
 export default Restaurant;
+
+{
+  /* <div className="flex items-center justify-between mt-4">
+  <ProductModal
+    product={product}
+    isModalOpen={isModalOpen}
+    setIsModalOpen={setIsModalOpen}
+    actualProduct={actualProduct}
+  />
+  <button
+    onClick={() => handleOpenModal(product.id)}
+    className="text-white mb-4 text-white
+bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+  >
+    Add to cart
+  </button>
+</div>; */
+}
