@@ -9,6 +9,7 @@ function Restaurant() {
   const [company, setCompany] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actualProduct, setActualProduct] = useState({});
+  const [isShown, setIsShown] = useState(false);
 
   const handleOpenModal = (productId) => {
     setActualProduct(productId);
@@ -51,10 +52,34 @@ function Restaurant() {
             {products.map((product, index) => {
               return (
                 <div
+                  onMouseEnter={() => {
+                    setActualProduct(product.id);
+                    setIsShown(true);
+                  }}
+                  onMouseLeave={() => {
+                    setActualProduct(product.id);
+                    setIsShown(false);
+                  }}
                   key={index}
                   className="relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                   {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
+                  <div className="flex items-center mx-auto z-30 justify">
+                    <ProductModal
+                      product={product}
+                      isModalOpen={isModalOpen}
+                      setIsModalOpen={setIsModalOpen}
+                      actualProduct={actualProduct}
+                    />{" "}
+                  </div>
+                  {isShown && actualProduct === product.id && (
+                    <button
+                      onClick={() => handleOpenModal(product.id)}
+                      className="text-white absolute z-20 right-1 bottom-20 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Add to cart
+                    </button>
+                  )}
                   <div className="-mb-6 relative">
                     <img
                       className="rounded-full absolute z-10 left-4 top-2 h-12"
@@ -96,19 +121,5 @@ function Restaurant() {
 export default Restaurant;
 
 {
-  /* <div className="flex items-center justify-between mt-4">
-  <ProductModal
-    product={product}
-    isModalOpen={isModalOpen}
-    setIsModalOpen={setIsModalOpen}
-    actualProduct={actualProduct}
-  />
-  <button
-    onClick={() => handleOpenModal(product.id)}
-    className="text-white mb-4 text-white
-bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-  >
-    Add to cart
-  </button>
-</div>; */
+  /* ; */
 }
