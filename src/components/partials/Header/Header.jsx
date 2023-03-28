@@ -79,7 +79,7 @@ function Header() {
               label={
                 <Avatar
                   alt="User settings"
-                  img={user.avatar}
+                  img={process.env.REACT_APP_SERVER_DOMAIN + user.avatar}
                   rounded={true}
                   className="pt-2 pr-1"
                 />
