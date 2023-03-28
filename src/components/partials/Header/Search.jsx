@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
@@ -12,6 +13,7 @@ const notify = () =>
 
 function Search({ navbarScroll }) {
   const [items, setItems] = useState([]);
+  const location = useLocation();
 
   const getItems = async () => {
     const products = await apiCall("/products", "get");
@@ -90,7 +92,7 @@ function Search({ navbarScroll }) {
     <>
       <form
         style={
-          navbarScroll
+          navbarScroll || location.pathname !== "/"
             ? {
                 opacity: 1,
                 flex: "1 1 auto",
