@@ -10,7 +10,7 @@ const notify = () =>
     position: "bottom-right",
   });
 
-function Search() {
+function Search({ navbarScroll }) {
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
@@ -89,8 +89,22 @@ function Search() {
   return (
     <>
       <form
-        style={{ flex: "1 1 auto", minWidth: "250px", maxWidth: "700px" }}
-        className="px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2"
+        style={
+          navbarScroll
+            ? {
+                opacity: 1,
+                flex: "1 1 auto",
+                minWidth: "250px",
+                maxWidth: "700px",
+              }
+            : {
+                opacity: 0,
+                flex: "1 1 auto",
+                minWidth: "250px",
+                maxWidth: "700px",
+              }
+        }
+        className="px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-300"
         onSubmit={handleOnSearch}
       >
         <ToastContainer />

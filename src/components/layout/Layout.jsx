@@ -14,7 +14,7 @@ function Layout() {
         <div>
           <Header products={products} setProducts={setProducts} />
         </div>
-        <main className="xs:mt-[5.25rem] mt-[146px]">
+        <main className="">
           <Outlet context={[category, setCategory, companies, setCompanies]} />
         </main>
         <div>
@@ -24,5 +24,5 @@ function Layout() {
     </>
   );
 }
-
+// xs:mt-[5.25rem] mt-[146px]
 export default Layout;
