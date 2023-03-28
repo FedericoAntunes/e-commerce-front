@@ -1,12 +1,14 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ShoppingCart from "../ShoppingCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../../redux/slice/userSlice";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,9 +21,15 @@ const notify = () =>
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [navbarScroll, setNavbarScroll] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function toggleMenu() {
     setOpenMenu(!openMenu);
+  }
+  function handleLogOut() {
+    dispatch(logOutUser());
+    navigate("/login");
   }
 
   const navbarScrolling = () => {
@@ -86,7 +94,9 @@ function Header() {
             <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
             <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={notify}>Sign out</Dropdown.Item>
+            <Dropdown.Item onClick={() => handleLogOut()}>
+              Sign out
+            </Dropdown.Item>
           </Dropdown>
           <Navbar.Toggle
             className="hover:text-yellow-400"
