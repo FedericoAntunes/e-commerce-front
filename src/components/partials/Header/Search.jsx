@@ -96,13 +96,13 @@ function Search({ navbarScroll }) {
             ? {
                 opacity: 1,
                 flex: "1 1 auto",
-                minWidth: "250px",
+                minWidth: "235px",
                 maxWidth: "700px",
               }
             : {
                 opacity: 0,
                 flex: "1 1 auto",
-                minWidth: "250px",
+                minWidth: "235px",
                 maxWidth: "700px",
               }
         }

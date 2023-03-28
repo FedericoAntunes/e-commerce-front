@@ -145,44 +145,36 @@ function Header() {
                 : { color: "lightyellow" }
             }
           >
-            About
+            About this project
           </Link>
 
-          <Link
-            onClick={notify}
-            className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={
-              navbarScroll || location.pathname !== "/"
-                ? { color: "gray" }
-                : { color: "lightyellow" }
-            }
-          >
-            Contact
-          </Link>
+          {!user && (
+            <>
+              <Link
+                to={"/login"}
+                className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
+                style={
+                  navbarScroll || location.pathname !== "/"
+                    ? { color: "gray" }
+                    : { color: "lightyellow" }
+                }
+              >
+                Login
+              </Link>
 
-          <Link
-            to={"/login"}
-            className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={
-              navbarScroll || location.pathname !== "/"
-                ? { color: "gray" }
-                : { color: "lightyellow" }
-            }
-          >
-            Login
-          </Link>
-
-          <Link
-            to={"/register"}
-            className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={
-              navbarScroll || location.pathname !== "/"
-                ? { color: "gray" }
-                : { color: "lightyellow" }
-            }
-          >
-            Register
-          </Link>
+              <Link
+                to={"/register"}
+                className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
+                style={
+                  navbarScroll || location.pathname !== "/"
+                    ? { color: "gray" }
+                    : { color: "lightyellow" }
+                }
+              >
+                Register
+              </Link>
+            </>
+          )}
         </Navbar.Collapse>
       </Navbar>
       <ShoppingCart openMenu={openMenu} toggleMenu={toggleMenu} />

@@ -8,7 +8,7 @@ function Hero() {
       }}
       className="h-[100vh] pl-4 bg-cover flex justify-start items-center"
     >
-      <form
+      <div
         style={{ flex: "1 1 auto", minWidth: "235px", maxWidth: "700px" }}
         className="px-0 xs:px-3 mt-2 xs:mt-0 text-left order-5 xs:order-2"
       >
@@ -36,7 +36,7 @@ function Hero() {
             Find Food
           </button> */}
         </div>
-      </form>
+      </div>
     </div>
   );
 }
