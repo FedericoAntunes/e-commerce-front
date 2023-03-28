@@ -1,6 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import apiCall from "./api/api";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/slice/userSlice";
+import { useState } from "react";
 
 function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const response = await apiCall("/login", "post", {
+      email: inputEmail,
+      password: inputPassword,
+    });
+    dispatch(
+      loginUser({
+        id: response.id,
+        firstname: response.firstname,
+        lastname: response.lastname,
+        token: response.token,
+        email: response.email,
+        avatar: response.avatar,
+      })
+    );
+    navigate("/");
+  };
   return (
     <section className="bg-gray-100">
       <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
@@ -19,7 +47,7 @@ function Login() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="email"
@@ -33,7 +61,8 @@ function Login() {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="Insert your email..."
-                  required=""
+                  value={inputEmail}
+                  onChange={(event) => setInputEmail(event.target.value)}
                 />
               </div>
               <div>
@@ -49,7 +78,8 @@ function Login() {
                   id="password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                  required=""
+                  value={inputPassword}
+                  onChange={(event) => setInputPassword(event.target.value)}
                 />
               </div>
               <div className="flex items-center justify-between">
@@ -64,7 +94,10 @@ function Login() {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label htmlFor="remember" className="text-black font-medium">
+                    <label
+                      htmlFor="remember"
+                      className="text-black font-medium"
+                    >
                       Remember me
                     </label>
                   </div>
