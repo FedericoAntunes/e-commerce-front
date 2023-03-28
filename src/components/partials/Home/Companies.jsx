@@ -12,7 +12,7 @@ function Companies({ companies }) {
             ></div>
             <div className="text-left">
               <h5 className="font-bold text-lg">{company.name}</h5>
-              <div>50-60min</div>
+              <div>{company.estimated_time}</div>
             </div>
           </div>
         </NavLink>
