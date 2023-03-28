@@ -22,6 +22,7 @@ function Login() {
         id: response.id,
         firstname: response.firstname,
         lastname: response.lastname,
+        username: response.username,
         token: response.token,
         email: response.email,
         avatar: response.avatar,

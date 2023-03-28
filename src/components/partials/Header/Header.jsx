@@ -7,7 +7,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../../redux/slice/userSlice";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -23,6 +23,7 @@ function Header() {
   const [navbarScroll, setNavbarScroll] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   function toggleMenu() {
     setOpenMenu(!openMenu);
@@ -78,16 +79,16 @@ function Header() {
             label={
               <Avatar
                 alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                img={user.avatar}
                 rounded={true}
                 className="pt-2 pr-1"
               />
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
+              <span className="block text-sm">{user.username}</span>
               <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+                {user.email}
               </span>
             </Dropdown.Header>
             <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
