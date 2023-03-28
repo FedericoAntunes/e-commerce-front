@@ -42,14 +42,7 @@ function Restaurant() {
           <div>
             <h2 className="text-left font-bold text-4xl">{company.name}</h2>
             <p className="text-left">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-              eaque sit suscipit eum voluptatibus optio ipsam nulla? Officia,
-              earum iste exercitationem, saepe aliquid magni cum id eveniet
-              eligendi molestias temporibus! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Mollitia eaque sit suscipit eum
-              voluptatibus optio ipsam nulla? Officia, earum iste
-              exercitationem, saepe aliquid magni cum id eveniet eligendi
-              molestias temporibus!
+              {company.description}
             </p>
           </div>
           <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
