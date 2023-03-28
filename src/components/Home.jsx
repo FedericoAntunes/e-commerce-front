@@ -1,5 +1,5 @@
 import CategoryCarousel from "./partials/Home/CategoryCarousel";
-import Companies from "./partials/Home/CompaniesCarousel";
+import Companies from "./partials/Home/Companies";
 import Filters from "./partials/Home/Filters";
 import Products from "./partials/Home/Products";
 import Hero from "./partials/Hero";
@@ -8,15 +8,15 @@ import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function Home() {
-  const [category, setCategory, products, setProducts] = useOutletContext();
+  const [category, setCategory, companies, setCompanies] = useOutletContext();
 
-  const getProducts = async () => {
-    const response = await apiCall("/products", "get");
-    setProducts(response);
+  const getCompanies = async () => {
+    const response = await apiCall("/companies", "get");
+    setCompanies(response);
   };
 
   useEffect(() => {
-    getProducts();
+    getCompanies();
     // eslint-disable-next-line
   }, []);
   return (
@@ -25,11 +25,9 @@ function Home() {
 
       <CategoryCarousel category={category} setCategory={setCategory} />
 
-      <Filters setProducts={setProducts} />
+      <Filters />
 
-      <Companies />
-
-      <Products products={products} />
+      <Companies companies={companies} />
     </>
   );
 }
