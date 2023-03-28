@@ -1,23 +1,21 @@
 
-import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = {
-  items: [],
-};
+import { createSlice, current } from '@reduxjs/toolkit';
 
 export const shoppingListSlice = createSlice({
   name: 'shoppingList',
-  initialState,
+  initialState: [],
   reducers: {
     addItem: (state, action) => {
-      state.items.push(action.payload);
+     state.push(action.payload);
+     console.log(current(state))
+     return state;
     },
     removeItem: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload.id);
+      state = state.filter((item) => item.id !== action.payload.id);
     },
     updateItem: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      state.items[itemIndex] = action.payload;
+      const itemIndex = state.findIndex((item) => item.id === action.payload.id);
+      state[itemIndex] = action.payload;
     },
   },
 });

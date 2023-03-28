@@ -1,16 +1,8 @@
-import React from "react";
 import { addItem } from "../../redux/slice/shoppingListSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
-
-
-
-const notify = () =>
-  toast.warn("This feature is not included yet.", {
-    position: "bottom-right",
-  });
-
+import { useEffect, useState } from "react";
 
 export default function ProductModal({
   product,
@@ -18,10 +10,15 @@ export default function ProductModal({
   setIsModalOpen,
   actualProduct,
 }) {
+  const [quantity, setQuantity] = useState(1)
   const dispatch = useDispatch();
 
   const handleSubmit = (product) => {
-    dispatch(addItem(product))
+    dispatch(addItem({...product, quantity}))
+  }
+
+  const handleQuantity = (e) => {
+    setQuantity(Number(e.target.value))
   }
 
 
@@ -52,7 +49,7 @@ export default function ProductModal({
                 <div className="relative p-6 flex-auto">
                   <img
                     className="h-40 mx-auto rounded-t"
-                    src={`${product.logo}`}
+                    src={`${product.image}`}
                     alt="category-img"
                   />
                   <p className="my-4 text-slate-500 text-lg mx-auto leading-relaxed w-[30rem]">
@@ -62,6 +59,7 @@ export default function ProductModal({
                   <div className="text-right">
                     <h1>US$ {product.price}</h1>
                   </div>
+                  <input onChange={(e) => handleQuantity(e)} type="number" min={1} max={product.stock} value={quantity}/>
                 </div>
                 {/*footer*/}
                 <div className="flex flex-col  items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
