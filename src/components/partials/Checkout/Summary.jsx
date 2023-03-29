@@ -11,7 +11,7 @@ function Summary() {
           <h2 class="text-lg font-medium">Order Summary</h2>
         </div>
         <div className="grid grid-cols-2 gap-7 justify-center items-center">
-          <div className="">
+          <div className="mb-5">
             {shoppingList.map((product) => {
               return (
                 <div className="flex justify-start py-2 border my-4">
