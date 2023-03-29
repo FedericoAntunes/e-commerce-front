@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { removeItem, addItem } from "../../redux/slice/shoppingListSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function notify(message) {
   toast.warn(message, {
@@ -35,7 +36,7 @@ function ShoppingCart({ openMenu, toggleMenu }) {
     <>
       <ToastContainer />
       <div
-        className={`fixed overflow-y-scroll right-0 h-screen top-0 bg-white w-full lg:w-2/5 z-10 ease-in-out duration-300 ${
+        className={`fixed right-0 h-screen top-0 bg-white w-full lg:w-2/5 z-10 ease-in-out duration-300 ${
           openMenu ? "translate-x-0 " : "translate-x-full"
         }`}
       >
@@ -47,9 +48,9 @@ function ShoppingCart({ openMenu, toggleMenu }) {
           </span>
           <div className="font-bold">Your Shopping cart</div>
         </div>
-        <div className="flex text-black justify-center mx-3 mt-6">
+        <div className="flex text-black justify-center mx-3 mt-6 h-[89vh]">
           {shoppingList.length > 0 ? (
-            <ul className="text-center w-full">
+            <ul className="text-center w-full overflow-y-scroll mb-20 ">
               {shoppingList.map((product) => {
                 return (
                   <li className="mt-2 text-lg py-1 relative border-b border-gray-500">
@@ -98,6 +99,16 @@ function ShoppingCart({ openMenu, toggleMenu }) {
                   </li>
                 );
               })}
+              <div className="bg-gray-200 border  w-full absolute bottom-0 p-5  left-0 right-0">
+                <Link to={"/checkout"}>
+                  <button
+                    className=" text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="submit"
+                  >
+                    Checkout
+                  </button>
+                </Link>
+              </div>
             </ul>
           ) : (
             <div>
