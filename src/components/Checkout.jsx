@@ -5,6 +5,8 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Shipping from "./partials/Checkout/Shipping";
+import Payment from "./partials/Checkout/Payment";
 
 function Checkout() {
   const steps = ["Shipping Information", "Payment", "Review & Order"];
@@ -55,14 +57,14 @@ function Checkout() {
 
   let actualStepComponent = "";
   if (activeStep === 0) {
-    actualStepComponent = <div>Step 1</div>;
+    actualStepComponent = <Shipping/>;
   } else if (activeStep === 1) {
-    actualStepComponent = <div>Step 2</div>;
+    actualStepComponent = <Payment/>;
   } else if (activeStep === 2) {
     actualStepComponent = <div>Step 3</div>;
   }
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }} className="mt-[84px]">
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
