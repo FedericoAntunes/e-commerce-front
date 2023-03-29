@@ -36,7 +36,7 @@ export default function CategoryCarousel() {
     });
 
   return (
-    <div onClick={notify} className="pt-2 mt-10">
+    <div onClick={notify} className="pt-2 mt-10 cursor-pointer">
       <ToastContainer />
       <Swiper
         slidesPerView={"auto"}
