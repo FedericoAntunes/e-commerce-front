@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import apiCall from "./api/api";
 import { Link } from "react-router-dom";
 import ProductModal from "./partials/ProductModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faEllipsis, faStar } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 function Restaurant() {
   const [products, setProducts] = useState([]);
@@ -10,6 +13,8 @@ function Restaurant() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
+
+  const user = useSelector((state) => state.user);
 
   const handleOpenModal = (productId) => {
     setActualProduct(productId);
@@ -42,11 +47,30 @@ function Restaurant() {
             backgroundSize: "100%",
             backgroundRepeat: "no-repeat",
           }}
-        ></div>
+        >
+          <FontAwesomeIcon
+            className="rounded-full bg-gray-100 p-2 float-right mr-2 mt-3"
+            icon={faEllipsis}
+          />
+          <FontAwesomeIcon
+            className="rounded-full bg-gray-100 p-2 float-right mr-2 mt-3"
+            icon={faHeart}
+          />
+        </div>
         <div className="mx-4">
-          <div>
+          <div className="mx-2">
             <h2 className="text-left font-bold text-4xl">{company.name}</h2>
-            <p className="text-left">{company.description}</p>
+            <small className="text-left block">
+              <FontAwesomeIcon icon={faStar} /> 4.2 (100+ reviews) •{" "}
+              <span className="underline">More information</span>
+              <div className="text-gray-600">$ • Burguer • Fastfood •</div>
+              <div className="font-semibold">
+                {!user
+                  ? "Login to see the estimated delivery time"
+                  : "The estimated waiting time is 30 - 40 min"}
+              </div>
+            </small>
+            <p className="text-left text-gray-500">{company.description}</p>
           </div>
           <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
             {products.map((product, index) => {
