@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = ({ redirectPath }) => {
   const sessionStatus = useSelector((state) => {
-    return state.session.status;
+    return state.user;
   });
 
   if (!sessionStatus) {

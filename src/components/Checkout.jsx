@@ -8,11 +8,28 @@ import Typography from "@mui/material/Typography";
 import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
 import Summary from "./partials/Checkout/Summary";
+import { useSelector } from "react-redux";
+import apiCall from "./api/api";
 
 function Checkout() {
-  const steps = ["Shipping Information", "Payment", "Review & Order"];
+  const steps = ["Shipping Information", "Summary", "Payment"];
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
+
+  const shoppingList = useSelector((state) => state.shoppingList);
+
+  // Inputs states
+  const [shippingData, setShippingData] = useState({
+    name: "",
+    address: "",
+    city: "",
+    province: "",
+    postal_code: "",
+    payment_method: "",
+    payment_info: {},
+    products: shoppingList,
+  });
+  console.log(shippingData);
 
   const isStepOptional = (step) => {
     return false; //step === 1;
@@ -23,6 +40,9 @@ function Checkout() {
   };
 
   const handleNext = () => {
+    if (activeStep === steps.length - 1) {
+      apiCall("/order", "post", shippingData);
+    }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -58,11 +78,15 @@ function Checkout() {
 
   let actualStepComponent = "";
   if (activeStep === 0) {
-    actualStepComponent = <Shipping />;
+    actualStepComponent = (
+      <Shipping shippingData={shippingData} setShippingData={setShippingData} />
+    );
   } else if (activeStep === 1) {
-    actualStepComponent = <Payment />;
+    actualStepComponent = <Summary />;
   } else if (activeStep === 2) {
-    actualStepComponent = <Summary/>;
+    actualStepComponent = (
+      <Payment shippingData={shippingData} setShippingData={setShippingData} />
+    );
   }
   return (
     <Box sx={{ width: "100%" }} className="mt-[84px]">
@@ -87,16 +111,17 @@ function Checkout() {
       </Stepper>
       {activeStep === steps.length ? (
         <>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            All steps completed - you&apos;re finished
+          </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
             <Button onClick={handleReset}>Reset</Button>
           </Box>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
         </>
       ) : (
         <>
+          <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
               color="inherit"
@@ -116,7 +141,6 @@ function Checkout() {
               {activeStep === steps.length - 1 ? "Finish" : "Next"}
             </Button>
           </Box>
-          <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
         </>
       )}
     </Box>

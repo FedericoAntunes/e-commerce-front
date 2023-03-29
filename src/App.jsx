@@ -9,6 +9,7 @@ import Error404 from "./components/Error404";
 import Layout from "./components/Layout/Layout";
 import Restaurant from "./components/Restaurant";
 import Checkout from "./components/Checkout";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/:slug" element={<Restaurant />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route element={<ProtectedRoute redirectPath={"/login"} />}>
+            <Route path="/checkout" element={<Checkout />} />
+          </Route>
         </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>

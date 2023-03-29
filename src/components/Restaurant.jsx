@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiCall from "./api/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProductModal from "./partials/ProductModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faEllipsis, faStar } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +14,8 @@ function Restaurant() {
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
 
+  const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
 
   const handleOpenModal = (productId) => {
@@ -24,6 +26,8 @@ function Restaurant() {
   const params = useParams();
   const getData = async () => {
     const companyData = await apiCall(`/companies/${params.slug}`, "get");
+    console.log(companyData);
+    !companyData && navigate("/");
     setCompany(companyData);
     const productData = await apiCall(
       `/products?companyId=${companyData.id}`,

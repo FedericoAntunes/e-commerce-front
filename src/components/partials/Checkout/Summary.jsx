@@ -43,9 +43,6 @@ function Summary() {
               <h3 class="text-lg font-bold">Total</h3>
               <span class="text-gray-800 font-medium">$118.50</span>
             </div>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded mt-6">
-              Confirm Order
-            </button>
           </div>
         </div>
       </div>
