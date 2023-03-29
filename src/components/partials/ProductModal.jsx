@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
 
 function notify(message) {
   toast.warn(message, {
@@ -20,6 +21,7 @@ export default function ProductModal({
   const dispatch = useDispatch();
 
   const handleSubmit = (product) => {
+    dispatch(toggleMenu(true));
     if (quantity > product.stock) {
       notify("The quantity cannot exceed the stock of the product.");
     }
@@ -81,7 +83,9 @@ export default function ProductModal({
                 {/*footer*/}
                 <div className="flex flex-col  items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
-                    onClick={() => handleSubmit(product)}
+                    onClick={() => {
+                      handleSubmit(product);
+                    }}
                     className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full w-4/5"
                   >
                     Add to my cart

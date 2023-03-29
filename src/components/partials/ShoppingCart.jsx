@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { AnimatePresence, motion } from "framer-motion";
 import { removeItem, addItem } from "../../redux/slice/shoppingListSlice";
+import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
 
 function notify(message) {
   toast.warn(message, {
@@ -12,8 +13,9 @@ function notify(message) {
   });
 }
 
-function ShoppingCart({ openMenu, toggleMenu }) {
+function ShoppingCart() {
   const shoppingList = useSelector((state) => state.shoppingList);
+  const showShoppingCart = useSelector((state) => state.showShoppingCart);
 
   const dispatch = useDispatch();
 
@@ -37,11 +39,14 @@ function ShoppingCart({ openMenu, toggleMenu }) {
       <ToastContainer />
       <div
         className={`fixed right-0 h-screen top-0 bg-white w-full lg:w-2/5 z-10 ease-in-out duration-300 ${
-          openMenu ? "translate-x-0 " : "translate-x-full"
+          showShoppingCart ? "translate-x-0 " : "translate-x-full"
         }`}
       >
         <div className="bg-gradient-to-r from-yellow-200 to-yellow-400 h-[5.25rem] w-22 text-black text-lg py-2 px-3">
-          <span className="absolute right-3 top-4" onClick={() => toggleMenu()}>
+          <span
+            className="absolute right-3 top-4"
+            onClick={() => dispatch(toggleMenu())}
+          >
             <button>
               <FontAwesomeIcon className="text-gray-700" icon={faClose} />
             </button>
@@ -126,7 +131,7 @@ function ShoppingCart({ openMenu, toggleMenu }) {
               <p>Your shopping cart is empty!</p>
               <p>Add products to start an order.</p>
               <button
-                onClick={() => toggleMenu()}
+                onClick={() => dispatch(toggleMenu())}
                 className="mt-2 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Start buying

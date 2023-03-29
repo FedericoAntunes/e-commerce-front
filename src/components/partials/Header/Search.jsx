@@ -16,7 +16,6 @@ function Search({ navbarScroll }) {
     const categories = await apiCall("/categories", "get");
 
     setItems([...products, ...companies, ...categories]);
-    console.log(items);
   };
 
   useEffect(() => {
@@ -26,21 +25,21 @@ function Search({ navbarScroll }) {
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
-    console.log(string, results);
+    //console.log(string, results);
   };
 
   const handleOnHover = (result) => {
     // the item hovered
-    console.log(result);
+    //console.log(result);
   };
 
   const handleOnSelect = (item) => {
     // the item selected
-    console.log(item);
+    //console.log(item);
   };
 
   const handleOnFocus = () => {
-    console.log("Focused");
+    //console.log("Focused");
   };
 
   const formatResult = (item) => {

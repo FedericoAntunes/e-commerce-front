@@ -10,6 +10,7 @@ import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
 import { logOutUser } from "../../../redux/slice/userSlice";
+import { toggleMenu } from "../../../redux/slice/showShoppingCartSlice";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,7 +21,6 @@ const notify = () =>
   });
 
 function Header() {
-  const [openMenu, setOpenMenu] = useState(false);
   const [navbarScroll, setNavbarScroll] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -28,9 +28,6 @@ function Header() {
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
 
-  function toggleMenu() {
-    setOpenMenu(!openMenu);
-  }
   function handleLogOut() {
     dispatch(logOutUser());
     navigate("/login");
@@ -74,11 +71,16 @@ function Header() {
               : { color: "lightyellow" }
           }
         >
-          <FontAwesomeIcon
-            className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
-            onClick={() => toggleMenu()}
-            icon={faCartShopping}
-          />
+          <div className="relative">
+            <FontAwesomeIcon
+              className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
+              onClick={() => dispatch(toggleMenu())}
+              icon={faCartShopping}
+            />
+            <span className="absolute top-2 right-2 rounded-full px-1 text-white text-xs bg-red-500">
+              {shoppingList.length}
+            </span>
+          </div>
           {/* {shoppingList.map((product)=>{
             <h5>{product.quantity}</h5>
           })} */}
@@ -193,7 +195,7 @@ function Header() {
           )}
         </Navbar.Collapse>
       </Navbar>
-      <ShoppingCart openMenu={openMenu} toggleMenu={toggleMenu} />
+      <ShoppingCart />
     </div>
   );
 }

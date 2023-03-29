@@ -5,14 +5,14 @@ import { useState } from "react";
 
 function Layout() {
   const [category, setCategory] = useState("");
-  const [products, setProducts] = useState([]);
+
   const [companies, setCompanies] = useState([]);
 
   return (
     <>
       <div>
         <div>
-          <Header products={products} setProducts={setProducts} />
+          <Header />
         </div>
         <main className="">
           <Outlet context={[category, setCategory, companies, setCompanies]} />

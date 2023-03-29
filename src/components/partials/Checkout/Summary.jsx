@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 function Summary() {
   const shoppingList = useSelector((state) => state.shoppingList);
-  const dispatch = useDispatch();
+
   return (
     <>
       <div class="bg-white border rounded-lg shadow-lg p-6">
@@ -22,7 +22,6 @@ function Summary() {
                     <h4>Qty: {product.quantity}</h4>
                   </div>
                 </div>
-                
               );
             })}
           </div>
