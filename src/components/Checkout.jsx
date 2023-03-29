@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
+import Summary from "./partials/Checkout/Summary";
 
 function Checkout() {
   const steps = ["Shipping Information", "Payment", "Review & Order"];
@@ -61,7 +62,7 @@ function Checkout() {
   } else if (activeStep === 1) {
     actualStepComponent = <Payment/>;
   } else if (activeStep === 2) {
-    actualStepComponent = <div>Step 3</div>;
+    actualStepComponent = <Summary/>;
   }
   return (
     <Box sx={{ width: "100%" }} className="mt-[84px]">

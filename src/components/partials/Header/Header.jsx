@@ -25,6 +25,7 @@ function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const shoppingList = useSelector((state) => state.shoppingList);
 
   function toggleMenu() {
     setOpenMenu(!openMenu);
@@ -77,6 +78,9 @@ function Header() {
             onClick={() => toggleMenu()}
             icon={faCartShopping}
           />
+          {/* {shoppingList.map((product)=>{
+            <h5>{product.quantity}</h5>
+          })} */}
           {user ? (
             <Dropdown
               arrowIcon={false}
