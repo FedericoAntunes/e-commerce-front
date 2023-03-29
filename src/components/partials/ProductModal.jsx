@@ -2,7 +2,7 @@ import { addItem } from "../../redux/slice/shoppingListSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function notify(message) {
   toast.warn(message, {

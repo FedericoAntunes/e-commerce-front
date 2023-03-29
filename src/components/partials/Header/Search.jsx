@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import apiCall from "../../api/api";
 import "./Search.css";
-
-const notify = () =>
-  toast.warn("This feature is not included yet.", {
-    position: "bottom-right",
-  });
 
 function Search({ navbarScroll }) {
   const [items, setItems] = useState([]);
@@ -118,7 +113,7 @@ function Search({ navbarScroll }) {
         </label>
         <div className="relative w-auto z-10">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <img src="/img/no-hunger.png" width="25" height="25" />
+            <img src="/img/no-hunger.png" width="25" height="25" alt="" />
           </div>
           <ReactSearchAutocomplete
             type="search"
