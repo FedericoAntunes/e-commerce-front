@@ -1,4 +1,4 @@
-import { useState, ReactNode } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -14,7 +14,7 @@ function Checkout() {
   const [skipped, setSkipped] = useState(new Set());
 
   const isStepOptional = (step) => {
-    return step === 1;
+    return false; //step === 1;
   };
 
   const isStepSkipped = (step) => {
@@ -57,9 +57,9 @@ function Checkout() {
 
   let actualStepComponent = "";
   if (activeStep === 0) {
-    actualStepComponent = <Shipping/>;
+    actualStepComponent = <Shipping />;
   } else if (activeStep === 1) {
-    actualStepComponent = <Payment/>;
+    actualStepComponent = <Payment />;
   } else if (activeStep === 2) {
     actualStepComponent = <div>Step 3</div>;
   }
@@ -86,17 +86,16 @@ function Checkout() {
       </Stepper>
       {activeStep === steps.length ? (
         <>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
             <Button onClick={handleReset}>Reset</Button>
           </Box>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            All steps completed - you&apos;re finished
+          </Typography>
         </>
       ) : (
         <>
-          <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
               color="inherit"
@@ -116,6 +115,7 @@ function Checkout() {
               {activeStep === steps.length - 1 ? "Finish" : "Next"}
             </Button>
           </Box>
+          <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
         </>
       )}
     </Box>

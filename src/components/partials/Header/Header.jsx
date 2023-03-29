@@ -1,13 +1,14 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ShoppingCart from "../ShoppingCart";
+import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import ShoppingCart from "../ShoppingCart";
 import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
-import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../../redux/slice/userSlice";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -145,7 +146,18 @@ function Header() {
                 : { color: "lightyellow" }
             }
           >
-            About this project
+            <motion.span
+              animate={{ x: [50, 150, 50], opacity: 1, scale: 1 }}
+              transition={{
+                duration: 5,
+                delay: 0.3,
+                ease: [0.5, 0.71, 1, 1.5],
+              }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileHover={{ scale: 1.2 }}
+            >
+              About this project
+            </motion.span>
           </Link>
 
           {!user && (
