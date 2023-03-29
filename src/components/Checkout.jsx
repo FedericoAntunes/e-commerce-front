@@ -53,6 +53,14 @@ function Checkout() {
     setActiveStep(0);
   };
 
+  let actualStepComponent = "";
+  if (activeStep === 0) {
+    actualStepComponent = <div>Step 1</div>;
+  } else if (activeStep === 1) {
+    actualStepComponent = <div>Step 2</div>;
+  } else if (activeStep === 2) {
+    actualStepComponent = <div>Step 3</div>;
+  }
   return (
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={activeStep}>
@@ -86,7 +94,7 @@ function Checkout() {
         </>
       ) : (
         <>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+          <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
               color="inherit"
