@@ -48,9 +48,9 @@ function ShoppingCart({ openMenu, toggleMenu }) {
           </span>
           <div className="font-bold">Your Shopping cart</div>
         </div>
-        <div className="flex text-black justify-center mx-3 mt-6 h-[89vh]">
+        <div className="flex text-black justify-center mx-3 h-[calc(100vh-166px)]">
           {shoppingList.length > 0 ? (
-            <ul className="text-center w-full overflow-y-scroll mb-20 ">
+            <ul className="text-center w-full overflow-y-scroll">
               {shoppingList.map((product) => {
                 return (
                   <AnimatePresence key={product.id} mode="popLayout">
