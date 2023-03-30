@@ -3,12 +3,25 @@ import apiCall from "./api/api";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/slice/userSlice";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+
+  function notify(message) {
+    toast.error(message, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+    });
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,10 +43,13 @@ function Login() {
         })
       );
       navigate("/");
+    } else {
+      notify("Invalid credentials, try again.");
     }
   };
   return (
     <section className="bg-gray-100">
+      <ToastContainer limit={1}/>
       <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <Link
           to="/about-us"
