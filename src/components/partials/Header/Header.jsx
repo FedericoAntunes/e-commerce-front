@@ -2,7 +2,6 @@ import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import ShoppingCart from "../ShoppingCart";
@@ -145,25 +144,14 @@ function Header() {
 
           <Link
             to={"/about-us"}
-            className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
+            className="heartbeat block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
             style={
               navbarScroll || location.pathname !== "/"
                 ? { color: "gray" }
                 : { color: "lightyellow" }
             }
           >
-            <motion.span
-              animate={{ x: [50, 150, 50], opacity: 1, scale: 1 }}
-              transition={{
-                duration: 5,
-                delay: 0.3,
-                ease: [0.5, 0.71, 1, 1.5],
-              }}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileHover={{ scale: 1.2 }}
-            >
-              About this project
-            </motion.span>
+            About this project
           </Link>
 
           {!user && (
