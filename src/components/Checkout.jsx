@@ -22,6 +22,7 @@ function Checkout() {
   const shoppingList = useSelector((state) => state.shoppingList);
   const user = useSelector((state) => state.user);
 
+
   // Inputs states
   const [shippingData, setShippingData] = useState({
     address: {
