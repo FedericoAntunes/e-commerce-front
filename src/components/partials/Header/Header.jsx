@@ -80,9 +80,7 @@ function Header() {
               {shoppingList.length}
             </span>
           </div>
-          {/* {shoppingList.map((product)=>{
-            <h5>{product.quantity}</h5>
-          })} */}
+
           {user ? (
             <Dropdown
               arrowIcon={false}
@@ -90,7 +88,11 @@ function Header() {
               label={
                 <Avatar
                   alt="User settings"
-                  img={process.env.REACT_APP_SERVER_DOMAIN + user.avatar}
+                  img={
+                    user.avatar.substring(0, 4) === "http"
+                      ? user.avatar
+                      : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
+                  }
                   rounded={true}
                   className="pt-2 pr-1"
                 />

@@ -17,18 +17,20 @@ function Login() {
       email: inputEmail,
       password: inputPassword,
     });
-    dispatch(
-      loginUser({
-        id: response.id,
-        firstname: response.firstname,
-        lastname: response.lastname,
-        username: response.username,
-        token: response.token,
-        email: response.email,
-        avatar: response.avatar,
-      })
-    );
-    navigate("/");
+    if (response.id) {
+      dispatch(
+        loginUser({
+          id: response.id,
+          firstname: response.firstname,
+          lastname: response.lastname,
+          username: response.username,
+          token: response.token,
+          email: response.email,
+          avatar: response.avatar,
+        })
+      );
+      navigate("/");
+    }
   };
   return (
     <section className="bg-gray-100">
