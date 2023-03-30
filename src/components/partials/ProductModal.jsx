@@ -21,13 +21,14 @@ export default function ProductModal({
   const dispatch = useDispatch();
 
   const handleSubmit = (product) => {
-    dispatch(toggleMenu(true));
+    setIsModalOpen();
     if (quantity > product.stock) {
-      notify("The quantity cannot exceed the stock of the product.");
+      return notify("The quantity cannot exceed the stock of the product.");
     }
     if (quantity < 1) {
-      notify("The quantity cannot be less than 0.");
+      return notify("The quantity cannot be less than 0.");
     }
+    dispatch(toggleMenu(true));
     dispatch(addItem({ ...product, quantity }));
   };
 

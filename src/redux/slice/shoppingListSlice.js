@@ -24,6 +24,9 @@ export const shoppingListSlice = createSlice({
       state = state.filter((item) => item.id !== action.payload);
       return state;
     },
+    removeAllItems: (state, action) => {
+      return [];
+    },
     updateItem: (state, action) => {
       const itemIndex = state.findIndex(
         (item) => item.id === action.payload.id
@@ -33,6 +36,7 @@ export const shoppingListSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, updateItem } = shoppingListSlice.actions;
+export const { addItem, removeItem, removeAllItems, updateItem } =
+  shoppingListSlice.actions;
 
 export default shoppingListSlice.reducer;

@@ -8,13 +8,16 @@ import Typography from "@mui/material/Typography";
 import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
 import Summary from "./partials/Checkout/Summary";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import apiCall from "./api/api";
+import { removeAllItems } from "../redux/slice/shoppingListSlice";
 
 function Checkout() {
   const steps = ["Shipping Information", "Summary", "Payment"];
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
+
+  const dispatch = useDispatch();
 
   const shoppingList = useSelector((state) => state.shoppingList);
 
@@ -29,7 +32,6 @@ function Checkout() {
     payment_info: {},
     products: shoppingList,
   });
-  console.log(shippingData);
 
   const isStepOptional = (step) => {
     return false; //step === 1;
@@ -39,9 +41,10 @@ function Checkout() {
     return skipped.has(step);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (activeStep === steps.length - 1) {
-      apiCall("/order", "post", shippingData);
+      await apiCall("/order", "post", shippingData);
+      dispatch(removeAllItems());
     }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
