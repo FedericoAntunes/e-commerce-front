@@ -92,7 +92,7 @@ function Checkout() {
     );
   }
   return (
-    <Box sx={{ width: "100%" }} className="mt-[84px]">
+    <Box sx={{ maxWidth: "60%" }} className="mt-[84px] mx-auto ">
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
