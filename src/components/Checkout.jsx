@@ -20,16 +20,25 @@ function Checkout() {
   const dispatch = useDispatch();
 
   const shoppingList = useSelector((state) => state.shoppingList);
+  const user = useSelector((state) => state.user);
 
   // Inputs states
   const [shippingData, setShippingData] = useState({
-    name: "",
-    address: "",
-    city: "",
-    province: "",
-    postal_code: "",
+    address: {
+      firstname: "",
+      address: "",
+      lastname: "",
+      city: "",
+      province: "",
+      postal_code: "",
+    },
     payment_method: "",
-    payment_info: {},
+    payment_info: {
+      card_number: "",
+      name_card: "",
+      expiration_date: "",
+      cvv: "",
+    },
     products: shoppingList,
   });
 
@@ -43,7 +52,9 @@ function Checkout() {
 
   const handleNext = async () => {
     if (activeStep === steps.length - 1) {
-      await apiCall("/order", "post", shippingData);
+      await apiCall("/order", "post", shippingData, {
+        Authorization: `Bearer ${user.token}`,
+      });
       dispatch(removeAllItems());
     }
     let newSkipped = skipped;

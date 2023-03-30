@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -10,6 +9,10 @@ module.exports = {
       sm: "640px",
       md: "768px",
       lg: "1024px",
+    },
+    extend: {
+      borderColor: ["focus"],
+      ringColor: ["focus"],
     },
   },
   plugins: [require("flowbite/plugin")],

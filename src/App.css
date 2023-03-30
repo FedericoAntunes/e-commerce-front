@@ -3,3 +3,11 @@
   background-color: rgb(249, 246, 244) !important; /*Se lo agregue para probar*/
   font-family: Lato, sans-serif;
 }
+
+.inputs input:focus{
+  outline-color: #FBBF24 !important;
+  box-sizing:border-box !important;
+}
+.inputs{
+  border: 1px transparent;
+}

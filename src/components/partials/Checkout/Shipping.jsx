@@ -1,108 +1,98 @@
 import React from "react";
-
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 function Shipping({ shippingData, setShippingData }) {
   return (
     <>
-      <div className="shipping-information max-w-3xl mx-auto">
-        <h2 className="text-lg font-medium text-gray-900">
-          Shipping Information
-        </h2>
-        <form className="mt-6">
-          <div>
-            <label
-              for="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </label>
-            <input
-              value={shippingData.name}
-              type="text"
-              name="name"
-              id="name"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-              onChange={(e) =>
-                setShippingData({ ...shippingData, name: e.target.value })
-              }
-            />
-          </div>
-          <div className="mt-6">
-            <label
-              for="address"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Address
-            </label>
-            <input
-              value={shippingData.address}
-              onChange={(e) =>
-                setShippingData({ ...shippingData, address: e.target.value })
-              }
-              type="text"
-              name="address"
-              id="address"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-            />
-          </div>
-          <div className="mt-6 grid grid-cols-3 gap-6">
-            <label
-              for="city"
-              className="block text-sm font-medium text-gray-700"
-            >
-              City
-            </label>
-            <input
-              value={shippingData.city}
-              onChange={(e) =>
-                setShippingData({ ...shippingData, city: e.target.value })
-              }
-              type="text"
-              name="city"
-              id="city"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-            />
-          </div>
-          <div>
-            <label
-              for="province"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Province
-            </label>
-            <input
-              value={shippingData.province}
-              onChange={(e) =>
-                setShippingData({ ...shippingData, province: e.target.value })
-              }
-              type="text"
-              name="province"
-              id="province"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-            />
-          </div>
-          <div>
-            <label
-              for="postalCode"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Postal Code
-            </label>
-            <input
-              value={shippingData.postal_code}
-              onChange={(e) =>
-                setShippingData({
-                  ...shippingData,
-                  postal_code: e.target.value,
-                })
-              }
-              type="text"
-              name="postalCode"
-              id="postalCode"
-              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-            />
-          </div>
-        </form>
-      </div>
+      <form action="">
+      <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        width: "100%",
+        '& > :not(style)': { m: 1 },
+      }}
+    >
+      <TextField
+        helperText=" "
+        id="demo-helper-text-aligned"
+        value={shippingData.address.firstname}
+        label="Firstname"
+        sx={{ width:"50%"}}
+        onChange={(e) =>
+          setShippingData({ ...shippingData, address: {...shippingData.address,firstname: e.target.value }})
+        }
+      />
+      <TextField
+        helperText=" "
+        id="demo-helper-text-aligned-no-helper"
+        label="Lastname"
+        value={shippingData.address.lastname}
+        sx={{ width:"50%"}}
+        onChange={(e) =>
+          setShippingData({ ...shippingData, address: {...shippingData.address,lastname: e.target.value }})
+        }
+      />
+    </Box>
+    <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          "& > :not(style)": { m: 1 },
+        }}
+      >
+        <TextField
+          helperText=" "
+          id="address"
+          label="Address"
+          value={shippingData.address.address}
+          sx={{ width: "100%" }}
+          onChange={(e) =>
+            setShippingData({ ...shippingData, address: {...shippingData.address,address: e.target.value }})
+          }
+        />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          "& > :not(style)": { m: 1 },
+        }}
+      >
+        <TextField
+          helperText=" "
+          id="city"
+          label="City"
+          value={shippingData.address.city}
+          sx={{ width: "50%" }}
+          onChange={(e) =>
+            setShippingData({ ...shippingData, address: {...shippingData.address,city: e.target.value }})
+          }
+        />
+        <TextField
+          helperText=" "
+          id="province"
+          label="Province/State"
+          value={shippingData.address.province}
+          sx={{ width: "25%" }}
+          onChange={(e) =>
+            setShippingData({ ...shippingData, address: {...shippingData.address,province: e.target.value }})
+          }
+        />
+        <TextField
+          helperText=" "
+          id="postalcode"
+          label="Postal Code"
+          value={shippingData.address.postal_code}
+          sx={{ width: "25%" }}
+          onChange={(e) =>
+            setShippingData({ ...shippingData, address: {...shippingData.address, postal_code: e.target.value }})
+          }
+        />
+      </Box>
+      </form>
     </>
   );
 }
