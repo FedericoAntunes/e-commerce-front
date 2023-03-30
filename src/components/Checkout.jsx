@@ -20,6 +20,7 @@ function Checkout() {
   const dispatch = useDispatch();
 
   const shoppingList = useSelector((state) => state.shoppingList);
+  const token = useSelector((state) => state.user.token);
 
   // Inputs states
   const [shippingData, setShippingData] = useState({
@@ -43,7 +44,9 @@ function Checkout() {
 
   const handleNext = async () => {
     if (activeStep === steps.length - 1) {
-      await apiCall("/order", "post", shippingData);
+      await apiCall("/order", "post", shippingData, {
+        Authorization: `Bearer ${token}`,
+      });
       dispatch(removeAllItems());
     }
     let newSkipped = skipped;
