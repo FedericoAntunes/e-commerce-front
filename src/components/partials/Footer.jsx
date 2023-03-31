@@ -9,8 +9,11 @@ import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <> 
-      <footer className="py-8 bg-white" style={{boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px"}}>
+    <>
+      <footer
+        className="py-8 bg-white mt-12"
+        style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px" }}
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 mb-4 lg:mb-0">

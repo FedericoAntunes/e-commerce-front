@@ -65,16 +65,19 @@ function Restaurant() {
           <div className="mx-2">
             <h2 className="text-left font-bold text-4xl">{company.name}</h2>
             <small className="text-left block">
-              <FontAwesomeIcon icon={faStar} /> 4.2 (100+ reviews) •{" "}
-              <span className="underline">More information</span>
-              <div className="text-gray-600">$ • Burguer • Fastfood •</div>
-              <div className="font-semibold">
+              <FontAwesomeIcon className="text-yellow-300" icon={faStar} /> 4.2
+              <span className="text-gray-500"> (100+ reviews) • </span>
+              <span className="underline text-blue-600">More information</span>
+              <div className="text-gray-400">$ • Burguer • Fastfood •</div>
+              <div className="font-semibold text-orange-400">
                 {!user
                   ? "Login to see the estimated delivery time"
                   : "The estimated waiting time is 30 - 40 min"}
               </div>
             </small>
-            <p className="text-left text-gray-500">{company.description}</p>
+            <p className="text-left w-full md:w-1/2 ml-6 text-gray-500">
+              {company.description}
+            </p>
           </div>
           <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
             {products.map((product, index) => {
@@ -139,6 +142,47 @@ function Restaurant() {
                 </div>
               );
             })}
+          </div>
+          <div className="text-left mt-12 border-t pt-12">
+            <h5 className="text-2xl font-semibold">
+              Frequently asked questions
+            </h5>
+            <div className="mt-4">
+              <h6 className="font-semibold text-lg">
+                Can I order {company.name} delivery with No-Hunger?
+              </h6>
+              <p>Yes. {company.name} delivery is available on No-Hunger.</p>
+            </div>
+            <div className="mt-4">
+              <h6 className="font-semibold text-lg">
+                Is {company.name} delivery available near me?
+              </h6>
+              {!user ? (
+                <p>
+                  Enter your address to see if {company.name} delivery is
+                  available to your location in Ottawa
+                </p>
+              ) : (
+                <p>
+                  Yes, {company.name} delivery is available to your location
+                </p>
+              )}
+            </div>
+            <div className="mt-4">
+              <h6 className="font-semibold text-lg">
+                Where can I find {company.name} online menu prices?
+              </h6>
+              <p>
+                View upfront pricing information for the various items offered
+                by {company.name} here on this page.
+              </p>
+            </div>
+            <div className="mt-4">
+              <h6 className="font-semibold text-lg">
+                How do I pay for my {company.name} order?
+              </h6>
+              <p>Payment is handled via your No-Hunger account.</p>
+            </div>
           </div>
         </div>
       </div>
