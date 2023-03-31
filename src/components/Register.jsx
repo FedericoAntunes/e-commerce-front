@@ -42,6 +42,7 @@ function Register() {
       const response = await apiCall("/login", "post", {
         email,
         password,
+        reg_mode: "email",
       });
       /*       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/usuarios/tokens`,

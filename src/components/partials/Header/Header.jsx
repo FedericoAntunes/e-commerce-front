@@ -14,6 +14,8 @@ import { toggleMenu } from "../../../redux/slice/showShoppingCartSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { googleLogout } from "@react-oauth/google";
+
 const notify = () =>
   toast.warn("This feature is not included yet.", {
     position: "bottom-right",
@@ -28,6 +30,7 @@ function Header() {
   const shoppingList = useSelector((state) => state.shoppingList);
 
   function handleLogOut() {
+    googleLogout();
     dispatch(logOutUser());
     navigate("/login");
   }

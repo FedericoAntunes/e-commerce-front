@@ -2,15 +2,76 @@ import { Link, useNavigate } from "react-router-dom";
 import apiCall from "./api/api";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/slice/userSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
+// Google authentication
+import { GoogleLogin } from "@react-oauth/google";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+
+const responseMessage = (response) => {
+  console.log(response);
+};
+const errorMessage = (error) => {
+  console.log(error);
+};
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+
+  const [user, setUser] = useState(null);
+
+  const googleData = async () => {
+    const googleUser = await apiCall(
+      `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+      "get",
+      null,
+      {
+        Authorization: `Bearer ${user.access_token}`,
+        Accept: "application/json",
+      }
+    );
+    const userToAuth = await apiCall("/login/google", "post", {
+      email: googleUser.email,
+      firstname: googleUser.given_name,
+      lastname: googleUser.family_name,
+      avatar: googleUser.picture,
+    });
+    if (userToAuth.id) {
+      dispatch(
+        loginUser({
+          id: userToAuth.id,
+          firstname: userToAuth.firstname,
+          lastname: userToAuth.lastname,
+          username: userToAuth.username,
+          token: userToAuth.token,
+          email: userToAuth.email,
+          avatar: userToAuth.avatar,
+        })
+      );
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      try {
+        googleData();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [user]);
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
 
   function notify(message) {
     toast.error(message, {
@@ -49,7 +110,7 @@ function Login() {
   };
   return (
     <section className="bg-gray-100">
-      <ToastContainer limit={1}/>
+      <ToastContainer limit={1} />
       <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <Link
           to="/about-us"
@@ -62,7 +123,7 @@ function Login() {
           />
         </Link>
         <div className="sm:w-full bg-white rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div className="p-6 pb-0 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
             </h1>
@@ -144,6 +205,24 @@ function Login() {
                 </Link>
               </p>
             </form>
+          </div>
+          <div className="px-2">
+            <div className="flex items-center justify-center mb-4">
+              <hr className="w-full border-t-2 border-gray-200" />
+              <span className="px-2">or</span>
+              <hr className="w-full border-t-2 border-gray-200" />
+            </div>
+            <button
+              onClick={() => login()}
+              className="flex w-full p-2 font-medium items-center hover:bg-gray-50 justify-center rounded-lg border"
+            >
+              <img
+                className="w-6 mr-2"
+                src="https://www.pngplay.com/wp-content/uploads/13/Google-Logo-PNG-Photo-Image.png"
+                alt=""
+              />{" "}
+              Login with Google
+            </button>
           </div>
         </div>
       </div>
