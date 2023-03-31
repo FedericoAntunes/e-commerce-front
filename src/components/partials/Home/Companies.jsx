@@ -7,8 +7,8 @@ function Companies({ companies }) {
         <NavLink key={index} to={`/${company.slug}`}>
           <div className="mx-2">
             <div
-              style={{ backgroundImage: `url("${company.background}")` }}
-              className="h-28"
+              style={{ backgroundImage: `url("${company.background}")`  }}
+              className="h-28 bg-cover bg-no-repeat"
             ></div>
             <div className="text-left">
               <h5 className="font-bold text-lg">{company.name}</h5>
