@@ -40,3 +40,8 @@
   border-bottom: none !important;
 
 }
+/*BOTON DE NEXT*/
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+   color: black !important;   /*#F59E0B */
+}
+/*BOTON DE BACK*/
