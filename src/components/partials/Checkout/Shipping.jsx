@@ -17,8 +17,10 @@ function Shipping({ shippingData, setShippingData }) {
         helperText=" "
         id="demo-helper-text-aligned"
         value={shippingData.address.firstname}
-        label="Firstname"
-        sx={{ width:"50%"}}
+        label={<span style={{color: "#F59E0B"}}>Firstname</span>}
+        sx={{ width: "50%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+        '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+        variant="standard"
         onChange={(e) =>
           setShippingData({ ...shippingData, address: {...shippingData.address,firstname: e.target.value }})
         }
@@ -26,9 +28,11 @@ function Shipping({ shippingData, setShippingData }) {
       <TextField
         helperText=" "
         id="demo-helper-text-aligned-no-helper"
-        label="Lastname"
+        label={<span style={{color: "#F59E0B"}}>Lastname</span>}
         value={shippingData.address.lastname}
-        sx={{ width:"50%"}}
+        sx={{ width: "50%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+        '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+        variant="standard"
         onChange={(e) =>
           setShippingData({ ...shippingData, address: {...shippingData.address,lastname: e.target.value }})
         }
@@ -45,9 +49,11 @@ function Shipping({ shippingData, setShippingData }) {
         <TextField
           helperText=" "
           id="address"
-          label="Address"
+          label={<span style={{color: "#F59E0B"}}>Address</span>}
           value={shippingData.address.address}
-          sx={{ width: "100%" }}
+          sx={{ width: "100%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          variant="standard"
           onChange={(e) =>
             setShippingData({ ...shippingData, address: {...shippingData.address,address: e.target.value }})
           }
@@ -64,9 +70,11 @@ function Shipping({ shippingData, setShippingData }) {
         <TextField
           helperText=" "
           id="city"
-          label="City"
+          label={<span style={{color: "#F59E0B"}}>City</span>}
           value={shippingData.address.city}
-          sx={{ width: "50%" }}
+          sx={{ width: "50%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+        '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          variant="standard"
           onChange={(e) =>
             setShippingData({ ...shippingData, address: {...shippingData.address,city: e.target.value }})
           }
@@ -74,9 +82,11 @@ function Shipping({ shippingData, setShippingData }) {
         <TextField
           helperText=" "
           id="province"
-          label="Province/State"
+          label={<span style={{color: "#F59E0B"}}>Province/State</span>}
           value={shippingData.address.province}
-          sx={{ width: "25%" }}
+          sx={{ width: "25%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          variant="standard"
           onChange={(e) =>
             setShippingData({ ...shippingData, address: {...shippingData.address,province: e.target.value }})
           }
@@ -84,9 +94,11 @@ function Shipping({ shippingData, setShippingData }) {
         <TextField
           helperText=" "
           id="postalcode"
-          label="Postal Code"
+          label={<span style={{color: "#F59E0B"}}>Postal Code</span>}
           value={shippingData.address.postal_code}
-          sx={{ width: "25%" }}
+          sx={{ width: "25%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          variant="standard"
           onChange={(e) =>
             setShippingData({ ...shippingData, address: {...shippingData.address, postal_code: e.target.value }})
           }

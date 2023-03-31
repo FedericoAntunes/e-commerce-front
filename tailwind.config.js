@@ -10,10 +10,7 @@ module.exports = {
       md: "768px",
       lg: "1024px",
     },
-    extend: {
-      borderColor: ["focus"],
-      ringColor: ["focus"],
-    },
+
   },
   plugins: [require("flowbite/plugin")],
 };

@@ -4,10 +4,39 @@
   font-family: Lato, sans-serif;
 }
 
-.inputs input:focus{
-  outline-color: #FBBF24 !important;
-  box-sizing:border-box !important;
+.inputs input:focus {
+  outline-color: #fbbf24 !important;
+  box-sizing: border-box !important;
 }
-.inputs{
+.inputs {
   border: 1px transparent;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus {
+  box-shadow: none !important ;
+  border: none ;
+}
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input:focus {
+  outline: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.MuiInput-underline:FOCU
+
+
+
+
+.css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border-bottom: none;
+}
+
+.css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border-bottom: 1px solid transparent  !important;
+}
+
+.MuiInput-underline:focus{
+  border-bottom: none !important;
+
 }

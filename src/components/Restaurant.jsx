@@ -61,7 +61,7 @@ function Restaurant() {
             icon={faHeart}
           />
         </div>
-        <div className="mx-4">
+        <div className="mx-24">
           <div className="mx-2">
             <h2 className="text-left font-bold text-4xl">{company.name}</h2>
             <small className="text-left block">
