@@ -89,7 +89,7 @@ function Restaurant() {
                     setIsShown(false);
                   }}
                   key={index}
-                  className="relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                  className="pb-6 relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                   {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
                   <div className="flex items-center mx-auto z-30 justify">
@@ -103,7 +103,7 @@ function Restaurant() {
                   {isShown && actualProduct === product.id && (
                     <button
                       onClick={() => handleOpenModal(product.id)}
-                      className="text-white absolute z-20 right-1 bottom-20 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       View more
                     </button>
@@ -118,7 +118,7 @@ function Restaurant() {
                   <Link to={`/${product.company.slug}`}>
                     <div className="hover:scale-105 ease-in-out duration-300">
                       <img
-                        className="pt-8 pb-4 z-0 mx-auto rounded-t-lg w-[12rem]"
+                        className="pt-8 pb-4 z-0 mx-auto rounded-t-lg h-[12rem]"
                         src={product.image}
                         alt="product"
                       />

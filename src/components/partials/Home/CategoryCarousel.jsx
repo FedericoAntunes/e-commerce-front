@@ -15,7 +15,6 @@ import "./CategoryCarousel.css";
 import { FreeMode, Navigation } from "swiper";
 
 // Reacy-toastify
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavLink } from "react-router-dom";
 
@@ -31,36 +30,30 @@ export default function CategoryCarousel() {
     getCategories();
   }, []);
 
-  const notify = () =>
-    toast.warn("This feature is not included yet.", {
-      position: "bottom-right",
-    });
-
   return (
-    <div className="pt-2 mt-10 cursor-pointer">
-      <ToastContainer />
+    <div className="pt-2 my-6 w-full mx-auto cursor-pointer">
       <Swiper
         slidesPerView={"auto"}
         navigation={true}
         freeMode={true}
         modules={[FreeMode, Navigation]}
-        className="mySwiper w-[90%]"
+        className="mySwiper"
       >
         {categories.map((category, index) => {
           return (
             <SwiperSlide key={index}>
               <NavLink to={`/category/${category.slug}`}>
-                <div className="relative">
+                <div className="rounded-lg overflow-hidden relative mx-2 bg-gray-200 flex">
+                  <div className="flex items-center text-black">
+                    <div className="font-sm max-w-[80px] ml-3 align-middle font-bold">
+                      {category.name}
+                    </div>
+                  </div>
                   <img
                     src={`${category.image}`}
                     alt="category-img"
-                    className="mx-auto"
+                    className="ml-auto h-20"
                   />
-                  <div className="absolute bottom-1 left-0 right-0 text-yellow-200">
-                    <span className="rounded-full bg-gray-700 bg-opacity-70 p-1 text-xs font-bold">
-                      {category.name}
-                    </span>
-                  </div>
                 </div>
               </NavLink>
             </SwiperSlide>

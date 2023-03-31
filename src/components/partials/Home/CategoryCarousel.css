@@ -1,15 +1,34 @@
 .mySwiper {
   width: 100%;
-  height: 80px;
+  padding: 0px 40px !important;
+  overflow: hidden;
 }
 
 .mySwiper .swiper-wrapper {
-  margin-left: 0px !important;
-  height: 80px;
-  width: 80px;
+  margin-left: 0 !important;
+  width: 200px;
+
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #fde68a;
+  background-color: rgb(249, 246, 244);
+  padding: 40px 20px !important;
+  margin-top: -40px;
+  color: #fcd84c;
+  opacity: 1 !important;
+}
+
+.swiper-button-prev{
+  margin-left: -10px !important;
+}
+
+.swiper-button-next{
+margin-right: -10px !important;
+}
+
+@media (max-width: 667px ) {
+  .mySwiper .swiper-wrapper {
+    width: 165px;
+  }
 }
