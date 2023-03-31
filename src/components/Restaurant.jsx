@@ -110,7 +110,7 @@ function Restaurant() {
                   )}
                   <div className="-mb-6 relative">
                     <img
-                      className="rounded-full absolute z-10 left-4 top-2 h-12"
+                      className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
                       src={product.company.logo}
                       alt="company"
                     />
