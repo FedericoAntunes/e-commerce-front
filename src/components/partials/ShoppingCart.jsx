@@ -126,6 +126,7 @@ function ShoppingCart() {
           ) : (
             <div>
               <img
+                className="mt-20"
                 src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/a023a017672c2488.svg"
                 alt="Shopping-cart"
               />

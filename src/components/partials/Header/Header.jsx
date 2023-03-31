@@ -79,8 +79,8 @@ function Header() {
               onClick={() => dispatch(toggleMenu())}
               icon={faCartShopping}
             />
-            <span className="absolute top-2 right-2 rounded-full px-1 text-white text-xs bg-red-500">
-              {shoppingList.length}
+            <span className="absolute top-2 right-2 rounded-full w-4 h-4 text-white text-[0.7rem] bg-red-500">
+              {shoppingList.length < 10 ? shoppingList.length : "9+"}
             </span>
           </div>
 
