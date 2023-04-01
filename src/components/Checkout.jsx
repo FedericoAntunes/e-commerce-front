@@ -11,6 +11,7 @@ import Summary from "./partials/Checkout/Summary";
 import { useSelector, useDispatch } from "react-redux";
 import apiCall from "./api/api";
 import { removeAllItems } from "../redux/slice/shoppingListSlice";
+import ScrollToTop from "./ScrollToTop";
 
 function Checkout() {
   const steps = ["Shipping Information", "Summary", "Payment"];
@@ -104,6 +105,7 @@ function Checkout() {
   }
   return (
     <Box sx={{ maxWidth: "60%" }} className="mt-[84px] mx-auto ">
+      <ScrollToTop />
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};

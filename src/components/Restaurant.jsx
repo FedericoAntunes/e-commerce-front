@@ -26,7 +26,6 @@ function Restaurant() {
   const params = useParams();
   const getData = async () => {
     const companyData = await apiCall(`/companies/${params.slug}`, "get");
-    console.log(companyData);
     !companyData && navigate("/");
     setCompany(companyData);
     const productData = await apiCall(
