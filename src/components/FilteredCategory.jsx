@@ -26,7 +26,7 @@ function FilteredCategory() {
   }, []);
 
   return (
-    <div className="pt-20 grid-cols-1 sm:grid-cols-4 grid gap-2">
+    <div className="pt-20 grid-cols-1 sm:grid-cols-4 mx-24 grid gap-2">
       {products &&
         products.map((product, index) => {
           return (
@@ -40,7 +40,7 @@ function FilteredCategory() {
                 setIsShown(false);
               }}
               key={index}
-              className="pb-6 relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
             >
               {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
               <div className="flex items-center mx-auto z-30 justify"></div>
@@ -63,7 +63,7 @@ function FilteredCategory() {
               <Link to={`/${product.company.slug}`}>
                 <div className="hover:scale-105 ease-in-out duration-300">
                   <img
-                    className="pt-8 pb-4 z-0 mx-auto rounded-t-lg h-[12rem]"
+                    className="pt-6 pb-4 z-0 h-full rounded-t-lg"
                     src={product.image}
                     alt="product"
                   />
@@ -76,7 +76,7 @@ function FilteredCategory() {
                   </h5>
                 </Link>
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-gray-900 dark:text-white">
+                  <span className="font-bold text-gray-100 bg-green-600 w-16 rounded-full dark:text-white">
                     ${product.price}
                   </span>
                 </div>
