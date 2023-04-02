@@ -11,58 +11,63 @@ function Footer() {
   return (
     <>
       <footer
-        className="py-8 bg-white mt-12"
+        className="py-8 bg-white text-left mt-12"
         style={{ boxShadow: "rgba(181, 129, 108, 0.5) 0px 16px 24px -18px" }}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap">
-            <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <h2 className="text-black font-bold mb-4">About Us</h2>
-              <p className="text-black">
+        <div className="w-full px-4">
+          <div className="flex flex-wrap w-full justify-between">
+            <div className="w-full border-r pr-2 lg:w-[300px] mb-4 lg:mb-0">
+              <h2 className="text-black text-xl font-bold mb-4">About Us</h2>
+              <p className="text-gray-700">
                 No Hunger is an e-commerce that will provide you the best
                 restaurants all around the world.
               </p>
             </div>
-            <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <h2 className="text-black font-bold mb-4">Contact Us</h2>
-              <p className="text-black">
-                18 of July, Center
+            <div className="w-full border-r pr-2 lg:w-[300px] mb-4 lg:mb-0">
+              <h2 className="text-black text-xl font-bold mb-4">Contact Us</h2>
+              <p className="text-gray-700">
+                18 de Julio, Centro
                 <br />
                 Montevideo, Uruguay 224
                 <br />
-                Phone: 099472300
+                Phone: 123456789
                 <br />
                 Email: info@nohunger.org
               </p>
             </div>
-            <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
-              <div className="flex sm: justify-end mt-5">
-                <NavLink className=" mr-4 text-black">
-                  <FontAwesomeIcon icon={faFacebook} size="2x" />
+            <div className="border-r pr-2 justify-center flex w-[300px] mb-4 lg:mb-0">
+              <div className="flex mt-5">
+                <NavLink className="mr-4">
+                  <FontAwesomeIcon
+                    className="text-yellow-300 hover:text-yellow-400"
+                    icon={faFacebook}
+                    size="2x"
+                  />
                 </NavLink>
-                <NavLink className="mr-4 text-black">
-                  <FontAwesomeIcon icon={faTwitter} size="2x" />
+                <NavLink className="mr-4">
+                  <FontAwesomeIcon
+                    className="text-yellow-300 hover:text-yellow-400"
+                    icon={faTwitter}
+                    size="2x"
+                  />
                 </NavLink>
-                <NavLink className=" mr-4 text-black">
-                  <FontAwesomeIcon icon={faInstagram} size="2x" />
+                <NavLink className="mr-4">
+                  <FontAwesomeIcon
+                    className="text-yellow-300 hover:text-yellow-400"
+                    icon={faInstagram}
+                    size="2x"
+                  />
                 </NavLink>
               </div>
             </div>
-          </div>
-          <hr className="my-8 border-white" />
-          <div className="flex flex-wrap">
-            <div className="w-full text-end lg:w-2/3 lg:order-2 mb-4 lg:mb-0">
-              <p className="text-black">
+            <div className="w-full mx-4 mt-6 flex justify-end text-start">
+              <NavLink className="text-black mr-4">Privacy Policy</NavLink>
+              <NavLink className="text-black mr-4">Terms of Service</NavLink>
+            </div>
+            <div className="w-full flex justify-end pr-2  mb-4 lg:mb-0">
+              <p className="text-gray-600">
                 &copy; 2023 No Hunger. All rights reserved.
               </p>
-            </div>
-            <div className="w-full text-start lg:w-1/3 lg:order-1">
-              <NavLink className="text-white mr-4 hover:text-white">
-                Privacy Policy
-              </NavLink>
-              <NavLink className="text-white mr-4 hover:text-white">
-                Terms of Service
-              </NavLink>
             </div>
           </div>
         </div>
