@@ -16,14 +16,14 @@ function Footer() {
       >
         <div className="w-full px-4">
           <div className="flex flex-wrap w-full justify-between">
-            <div className="w-full lg:border-r border-b pb-2 pr-2 lg:w-[300px] mb-4 lg:mb-0">
+            <div className="w-full lg:border-r lg:border-b-0 border-b pb-2 pr-2 lg:w-[300px] mb-4 lg:mb-0">
               <h2 className="text-black text-xl font-bold mb-4">About Us</h2>
               <p className="text-gray-700">
                 No Hunger is an e-commerce that will provide you the best
                 restaurants all around the world.
               </p>
             </div>
-            <div className="w-full lg:border-r border-b pb-2 pr-2 lg:w-[300px] mb-4 lg:mb-0">
+            <div className="w-full lg:border-r lg:border-b-0 border-b pb-2 pr-2 lg:w-[300px] mb-4 lg:mb-0">
               <h2 className="text-black text-xl font-bold mb-4">Contact Us</h2>
               <p className="text-gray-700">
                 18 de Julio, Centro
