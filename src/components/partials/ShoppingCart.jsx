@@ -42,18 +42,23 @@ function ShoppingCart() {
           showShoppingCart ? "translate-x-0 " : "translate-x-full"
         }`}
       >
-        <div className="bg-gradient-to-r from-yellow-200 to-yellow-400 h-[5.25rem] w-22 text-black text-lg py-2 px-3">
+        <div className="bg-gradient-to-r flex items-center from-yellow-200 to-yellow-400 h-[5.25rem] w-22 text-black text-lg py-2 px-3">
           <span
-            className="absolute right-3 top-4"
+            className="absolute top-3 right-4"
             onClick={() => dispatch(toggleMenu())}
           >
             <button>
-              <FontAwesomeIcon className="text-gray-700" icon={faClose} />
+              <FontAwesomeIcon
+                className="text-white hover:text-red-500"
+                icon={faClose}
+              />
             </button>
           </span>
-          <div className="font-bold">Your Shopping cart</div>
+          <div className="w-full">
+            <div className="font-bold text-white">Your Shopping cart </div>
+          </div>
         </div>
-        <div className="flex text-black justify-center mx-3 h-[calc(100vh-166px)]">
+        <div className="flex text-black py-3 justify-center mx-2 h-[calc(100vh-166px)]">
           {shoppingList.length > 0 ? (
             <ul className="text-center w-full overflow-y-scroll">
               {shoppingList.map((product) => {
@@ -63,7 +68,7 @@ function ShoppingCart() {
                       initial={{ x: 300, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       exit={{ x: -300, opacity: 0 }}
-                      className="mt-2 text-lg py-1 relative border-b border-gray-500"
+                      className="mt-2 text-lg py-1 mr-2 relative border-b border-gray-500"
                     >
                       <div className="flex">
                         <img
