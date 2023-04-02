@@ -104,7 +104,7 @@ function Checkout() {
     );
   }
   return (
-    <Box sx={{ maxWidth: "60%" }} className="mt-[84px] mx-auto ">
+    <Box sx={{ maxWidth: "60%" }} className="mt-[84px] pt-16 mx-auto ">
       <ScrollToTop />
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
