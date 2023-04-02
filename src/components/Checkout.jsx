@@ -53,7 +53,7 @@ function Checkout() {
 
   const handleNext = async () => {
     if (activeStep === steps.length - 1) {
-      await apiCall("/order", "post", shippingData, {
+      await apiCall("/orders", "post", shippingData, {
         Authorization: `Bearer ${token}`,
       });
       dispatch(removeAllItems());
