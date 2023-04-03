@@ -147,7 +147,10 @@ function Checkout() {
     );
   }
   return (
-    <Box sx={{ maxWidth: "60%" }} className="mt-[84px] pt-16 mx-auto ">
+    <Box
+      sx={{ maxWidth: "100%" }}
+      className="mt-[84px] md:px-48 pt-16 mx-auto "
+    >
       <ToastContainer />
       <ScrollToTop />
       <Stepper activeStep={activeStep}>
