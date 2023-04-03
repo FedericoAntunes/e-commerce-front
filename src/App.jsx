@@ -11,6 +11,7 @@ import Restaurant from "./components/Restaurant";
 import Checkout from "./components/Checkout";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import FilteredCategory from "./components/FilteredCategory";
+import OrderStatus from "./components/OrderStatus"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           />
           <Route element={<ProtectedRoute redirectPath={"/login"} />}>
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order-status" element={<OrderStatus/>} />
           </Route>
         </Route>
         <Route path="*" element={<Error404 />} />
