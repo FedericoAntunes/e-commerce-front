@@ -11,9 +11,11 @@ import Summary from "./partials/Checkout/Summary";
 import { useSelector, useDispatch } from "react-redux";
 import apiCall from "./api/api";
 import { removeAllItems } from "../redux/slice/shoppingListSlice";
+import { saveLastOrderInfo } from "../redux/slice/lastOrderInfoSlice";
 import ScrollToTop from "./ScrollToTop";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
   const Msg = ({ closeToast, toastProps }) => (
@@ -31,6 +33,7 @@ function Checkout() {
   const steps = ["Shipping Information", "Summary", "Payment"];
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
+  const navigate = useNavigate();
 
   const notifySuccess = () =>
     toast.success("Order created successfully.", {
@@ -94,6 +97,9 @@ function Checkout() {
           })
         : notifySuccess();
       dispatch(removeAllItems());
+      console.log(response);
+      dispatch(saveLastOrderInfo(response.data));
+      navigate("/order-status");
     }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
