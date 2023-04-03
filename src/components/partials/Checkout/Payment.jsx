@@ -96,7 +96,7 @@ function Payment({ shippingData, setShippingData }) {
       </FormControl>
 
       <Box sx={{ display: active === "credit_card" ? "block" : "none" }}>
-        <Grid container>
+        <Grid container >
         <Grid item xs={12}>
           <Cards
             number={state.number}
@@ -112,7 +112,6 @@ function Payment({ shippingData, setShippingData }) {
             label="Card Number"
             type="number"
             name="number"
-            variant="standard"
             value={state.number}
             onChange={handleInputChange}
             onFocus={handleInputFocus}
@@ -120,18 +119,14 @@ function Payment({ shippingData, setShippingData }) {
           />
           </Grid>
           <Grid item xs={12} sm={6}>
-          <TextField
-            id="card-name"
-            label="Name"
-            type="text"
-            name="name"
-            className="form-control"
-            required
-            variant="standard"
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-            sx={{ my: 1 }}
-          />
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              label="Expiration Date"
+              value={state.selectedDate}
+              sx={{ my: 1 }}
+              onChange={handleDateChange}
+             />
+           </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6}>
             {/* <TextField
@@ -146,13 +141,23 @@ function Payment({ shippingData, setShippingData }) {
               onFocus={handleInputFocus}
               sx={{ my: 1 }}
             /> */}
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
-        label="Expiration Date"
-        value={state.selectedDate}
-        onChange={handleDateChange}
-        />
-    </LocalizationProvider>
+             <TextField        // CardName
+            id="card-name"
+            label="Name"
+            type="text"
+            name="name"
+            required
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            onKeyPress={(event) => {
+              const regex = /^[a-zA-Z\s]*$/;
+              const key = String.fromCharCode(event.which);
+              if (!regex.test(key)) {
+                event.preventDefault();
+              }
+            }}
+            sx={{ my: 1 }}
+          />
           </Grid>
           
           <Grid item xs={12} sm={6}>
@@ -161,12 +166,24 @@ function Payment({ shippingData, setShippingData }) {
               label="CVC"
               type="tel"
               name="cvc"
-              variant="standard"
               className="form-control"
               pattern="\d{3,4}"
               required
               onChange={handleInputChange}
               onFocus={handleInputFocus}
+              inputProps={{
+                maxLength: 3,
+              }}
+              onKeyPress={(event) => {
+                const keyCode = event.keyCode || event.which;
+                const keyValue = String.fromCharCode(keyCode);
+                const regex = /^[0-9]*$/;
+                if (!regex.test(keyValue)) {
+                  event.preventDefault();
+                }
+              }}
+
+              sx={{ my: 1 }}
             />
           </Grid>
         </Grid>
@@ -190,7 +207,6 @@ function Payment({ shippingData, setShippingData }) {
               width: "100%",
             }}
             variant="standard"
-            //color= {yellowA400}
             inputProps={{ underline: { borderBottom: "#FCD34D" } }}
             onChange={(e) =>
               setShippingData({
