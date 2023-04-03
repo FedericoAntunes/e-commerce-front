@@ -31,13 +31,13 @@ function Payment({ shippingData, setShippingData }) {
         >
           <FormControlLabel
             value="credit_card"
-            control={<Radio sx={{ color: "#FCD34D", "&.Mui-checked": {color: "#F59E0B"}}}  />}
+            control={<Radio sx={{}}  />}
             label="Credit Card"
           />
-          <FormControlLabel value="paypal" control={<Radio sx={{ color: "#FCD34D", "&.Mui-checked": {color: "#F59E0B"}}} />} label="PayPal" />
+          <FormControlLabel value="paypal" control={<Radio />} label="PayPal" />
           <FormControlLabel
             value="etransfer"
-            control={<Radio sx={{ color: "#FCD34D", "&.Mui-checked": {color: "#F59E0B"}}} />}
+            control={<Radio sx={{}} />}
             label="eTransfer"
           />
         </RadioGroup>
@@ -53,12 +53,10 @@ function Payment({ shippingData, setShippingData }) {
       >
         <TextField
           id="cardNumber"
-          label={<span style={{color: "#F59E0B"}}>Card Number</span>}
-          sx={{ width: "100%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
-          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          label={<span>Card Number</span>}
+          sx={{ width: "100%"}}
           variant="standard"
           //color= {yellowA400}  
-          inputProps={{underline: {borderBottom: "#FCD34D" }}}
           onChange={(e) => 
             setShippingData({
               ...shippingData,
@@ -81,9 +79,8 @@ function Payment({ shippingData, setShippingData }) {
       >
         <TextField
           id="nameOnCard"
-          label={<span style={{color: "#F59E0B"}}>Name on card</span>}
-          sx={{ width: "100%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
-          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          label={<span>Name on card</span>}
+          sx={{ width: "100%"}}
           variant="standard"
           onChange={(e) =>
             setShippingData({
@@ -108,9 +105,8 @@ function Payment({ shippingData, setShippingData }) {
       >
         <TextField
           id="expirationDate"
-          label={<span style={{color: "#F59E0B"}}>Expiration date</span>}
-          sx={{ width: "100%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
-          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          label={<span>Expiration date</span>}
+          sx={{ width: "100%"}}
           variant="standard"
           onChange={(e) =>
             setShippingData({
@@ -134,9 +130,8 @@ function Payment({ shippingData, setShippingData }) {
       >
         <TextField
           id="cvv"
-          label={<span style={{color: "#F59E0B"}}>CVV</span>}
-          sx={{ width: "100%" ,'& .MuiInput-underline:before': { borderBottomColor: 'orange' },
-          '& .MuiInput-underline:after': { borderBottomColor: 'orange' },  }}
+          label={<span>CVV</span>}
+          sx={{ width: "100%"}}
           variant="standard"
           onChange={(e) =>
             setShippingData({

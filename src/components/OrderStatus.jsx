@@ -19,7 +19,7 @@ function OrderStatus() {
   const total = subtotal + tax + shipping;
 
   return (
-    <div className="my-60">
+    <div className="mt-[84px] py-12">
       <Typography variant="h4" gutterBottom>
         Thanks for your order
       </Typography>
