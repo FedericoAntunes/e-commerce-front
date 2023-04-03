@@ -9,7 +9,7 @@ const apiCall = async (url, method, data, headers) => {
       data,
       headers,
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

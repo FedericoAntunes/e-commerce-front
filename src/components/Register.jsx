@@ -33,10 +33,10 @@ function Register() {
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     }); */
-    console.log(response);
-    if (response === "Fill all the fields.") {
+    console.log(response.data);
+    if (response.data === "Fill all the fields.") {
       setError("Fill all the fields.");
-    } else if (response === "User already exist.") {
+    } else if (response.data === "User already exist.") {
       setError("User already exist.");
     } else {
       const response = await apiCall("/login", "post", {
@@ -51,8 +51,8 @@ function Register() {
           password,
         }
       ); */
-      console.log(response);
-      const user = response;
+      console.log(response.data);
+      const user = response.data;
       dispatch(loginUser(user));
       navigate(`/`);
     }

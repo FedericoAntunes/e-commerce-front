@@ -14,10 +14,10 @@ function FilteredCategory() {
       "get"
     );
     const products = await apiCall(
-      `/products?categoryId=${category.id}`,
+      `/products?categoryId=${category.data.id}`,
       "get"
     );
-    setProducts(products);
+    setProducts(products.data);
   };
 
   useEffect(() => {

@@ -15,7 +15,7 @@ function Search({ navbarScroll }) {
     const companies = await apiCall("/companies", "get");
     const categories = await apiCall("/categories", "get");
 
-    setItems([...products, ...companies, ...categories]);
+    setItems([...products.data, ...companies.data, ...categories.data]);
   };
 
   useEffect(() => {

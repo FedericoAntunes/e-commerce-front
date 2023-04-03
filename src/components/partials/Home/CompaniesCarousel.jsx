@@ -19,7 +19,7 @@ function CompaniesCarousel() {
 
   const getCompanies = async () => {
     const response = await apiCall("/companies", "get");
-    setCompanies(response);
+    setCompanies(response.data);
   };
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function CompaniesCarousel() {
   return (
     <>
       <h3 className="font-bold text-yellow-600">Trending restaurants</h3>
-        <div className="flex flex-wrap justify-center my-2">
+      <div className="flex flex-wrap justify-center my-2">
         {companies.map((company, index) => {
           return (
             <div className="mx-2" key={index}>
@@ -44,8 +44,7 @@ function CompaniesCarousel() {
             </div>
           );
         })}
-        </div>
-    
+      </div>
     </>
   );
 }

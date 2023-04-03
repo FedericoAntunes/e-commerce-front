@@ -89,7 +89,7 @@ function Checkout() {
         }
       );
       console.log(response);
-      response.response.status === 406
+      response.status === 406
         ? toast(Msg, {
             position: "bottom-right",
           })

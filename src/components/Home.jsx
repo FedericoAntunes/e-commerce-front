@@ -11,7 +11,7 @@ function Home() {
 
   const getCompanies = async () => {
     const response = await apiCall("/companies", "get");
-    setCompanies(response);
+    setCompanies(response.data);
   };
 
   useEffect(() => {

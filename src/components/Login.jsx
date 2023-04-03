@@ -37,21 +37,21 @@ function Login() {
       }
     );
     const userToAuth = await apiCall("/login/google", "post", {
-      email: googleUser.email,
-      firstname: googleUser.given_name,
-      lastname: googleUser.family_name,
-      avatar: googleUser.picture,
+      email: googleUser.data.email,
+      firstname: googleUser.data.given_name,
+      lastname: googleUser.data.family_name,
+      avatar: googleUser.data.picture,
     });
-    if (userToAuth.id) {
+    if (userToAuth.data.id) {
       dispatch(
         loginUser({
-          id: userToAuth.id,
-          firstname: userToAuth.firstname,
-          lastname: userToAuth.lastname,
-          username: userToAuth.username,
-          token: userToAuth.token,
-          email: userToAuth.email,
-          avatar: userToAuth.avatar,
+          id: userToAuth.data.id,
+          firstname: userToAuth.data.firstname,
+          lastname: userToAuth.data.lastname,
+          username: userToAuth.data.username,
+          token: userToAuth.data.token,
+          email: userToAuth.data.email,
+          avatar: userToAuth.data.avatar,
         })
       );
       navigate("/");
@@ -91,16 +91,17 @@ function Login() {
       email: inputEmail,
       password: inputPassword,
     });
-    if (response.id) {
+    console.log(response);
+    if (response.data.id) {
       dispatch(
         loginUser({
-          id: response.id,
-          firstname: response.firstname,
-          lastname: response.lastname,
-          username: response.username,
-          token: response.token,
-          email: response.email,
-          avatar: response.avatar,
+          id: response.data.id,
+          firstname: response.data.firstname,
+          lastname: response.data.lastname,
+          username: response.data.username,
+          token: response.data.token,
+          email: response.data.email,
+          avatar: response.data.avatar,
         })
       );
       navigate("/");

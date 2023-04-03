@@ -26,13 +26,13 @@ function Restaurant() {
   const params = useParams();
   const getData = async () => {
     const companyData = await apiCall(`/companies/${params.slug}`, "get");
-    !companyData && navigate("/");
-    setCompany(companyData);
+    !companyData.data && navigate("/");
+    setCompany(companyData.data);
     const productData = await apiCall(
-      `/products?companyId=${companyData.id}`,
+      `/products?companyId=${companyData.data.id}`,
       "get"
     );
-    setProducts(productData);
+    setProducts(productData.data);
   };
 
   useEffect(() => {

@@ -23,7 +23,7 @@ export default function CategoryCarousel() {
 
   const getCategories = async () => {
     const response = await apiCall("/categories", "get");
-    setCategories(response);
+    setCategories(response.data);
   };
 
   useEffect(() => {
