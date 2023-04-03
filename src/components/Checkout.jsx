@@ -12,11 +12,30 @@ import { useSelector, useDispatch } from "react-redux";
 import apiCall from "./api/api";
 import { removeAllItems } from "../redux/slice/shoppingListSlice";
 import ScrollToTop from "./ScrollToTop";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Checkout() {
+  const Msg = ({ closeToast, toastProps }) => (
+    <div>
+      <img
+        className="mx-auto"
+        src="https://media.tenor.com/Vyg73kR334sAAAAM/jurassic-park-ah.gif"
+        alt="ah-ah-ah"
+      />
+      Hacking not allowed!
+    </div>
+  );
+
+  //
   const steps = ["Shipping Information", "Summary", "Payment"];
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
+
+  const notifySuccess = () =>
+    toast.success("Order created successfully.", {
+      position: "bottom-right",
+    });
 
   const dispatch = useDispatch();
 
@@ -43,6 +62,14 @@ function Checkout() {
     products: shoppingList,
   });
 
+  const calcTotal = () => {
+    let total = 0;
+    shoppingList.map((item) => {
+      return (total += item.price * item.quantity);
+    });
+    return total;
+  };
+
   const isStepOptional = (step) => {
     return false; //step === 1;
   };
@@ -53,9 +80,20 @@ function Checkout() {
 
   const handleNext = async () => {
     if (activeStep === steps.length - 1) {
-      await apiCall("/orders", "post", shippingData, {
-        Authorization: `Bearer ${token}`,
-      });
+      const response = await apiCall(
+        "/orders",
+        "post",
+        { shippingData, total_price: calcTotal() }, // to see denis change to static number
+        {
+          Authorization: `Bearer ${token}`,
+        }
+      );
+      console.log(response);
+      response.response.status === 406
+        ? toast(Msg, {
+            position: "bottom-right",
+          })
+        : notifySuccess();
       dispatch(removeAllItems());
     }
     let newSkipped = skipped;
@@ -105,6 +143,7 @@ function Checkout() {
   }
   return (
     <Box sx={{ maxWidth: "60%" }} className="mt-[84px] pt-16 mx-auto ">
+      <ToastContainer />
       <ScrollToTop />
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {

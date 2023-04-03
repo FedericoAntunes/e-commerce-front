@@ -61,9 +61,9 @@ function FilteredCategory() {
                 </Link>
               </div>
               <Link to={`/${product.company.slug}`}>
-                <div className="hover:scale-105 ease-in-out duration-300">
+                <div className="hover:scale-105 ease-in-out w-full h-[200px] mb-5 overflow-hidden duration-300">
                   <img
-                    className="pt-6 pb-4 z-0 h-full rounded-t-lg"
+                    className="pt-6 pb-4 z-0 w-full rounded-t-lg"
                     src={product.image}
                     alt="product"
                   />
@@ -77,7 +77,7 @@ function FilteredCategory() {
                 </Link>
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-gray-100 bg-green-600 w-16 rounded-full dark:text-white">
-                    ${product.price}
+                    ${product.price.toFixed(2)}
                   </span>
                 </div>
               </div>

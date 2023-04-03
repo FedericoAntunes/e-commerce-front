@@ -60,7 +60,7 @@ function Restaurant() {
             icon={faHeart}
           />
         </div>
-        <div className="mx-24">
+        <div className="mx-2 lg:mx-24">
           <div className="mx-2">
             <h2 className="text-left font-bold text-4xl">{company.name}</h2>
             <small className="text-left block">
@@ -118,7 +118,7 @@ function Restaurant() {
                     />
                   </div>
                   <Link to={`/${product.company.slug}`}>
-                    <div className="hover:scale-105 ease-in-out duration-300">
+                    <div className="hover:scale-105 ease-in-out w-full h-[200px] mb-5 overflow-hidden duration-300">
                       <img
                         className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
                         src={product.image}
@@ -134,7 +134,7 @@ function Restaurant() {
                     </Link>
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-gray-100 bg-green-600 w-16 rounded-full dark:text-white">
-                        ${product.price}
+                        ${product.price.toFixed(2)}
                       </span>
                     </div>
                   </div>
