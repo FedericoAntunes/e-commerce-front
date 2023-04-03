@@ -11,7 +11,8 @@ import Restaurant from "./components/Restaurant";
 import Checkout from "./components/Checkout";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import FilteredCategory from "./components/FilteredCategory";
-import OrderStatus from "./components/OrderStatus"
+import OrderStatus from "./components/OrderStatus";
+import OrderHistory from "./components/OrderHistory";
 
 function App() {
   return (
@@ -28,9 +29,11 @@ function App() {
             path="/category/:category_slug"
             element={<FilteredCategory />}
           />
+          <Route path="/order-history" element={<OrderHistory />} />
+
           <Route element={<ProtectedRoute redirectPath={"/login"} />}>
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/order-status" element={<OrderStatus/>} />
+            <Route path="/order-status" element={<OrderStatus />} />
           </Route>
         </Route>
         <Route path="*" element={<Error404 />} />

@@ -107,9 +107,10 @@ function Header() {
                   {user.email}
                 </span>
               </Dropdown.Header>
-              <Dropdown.Item onClick={notify}>Dashboard</Dropdown.Item>
-              <Dropdown.Item onClick={notify}>Settings</Dropdown.Item>
-              <Dropdown.Item onClick={notify}>Earnings</Dropdown.Item>
+              <Dropdown.Item>
+                <Link to="/order-history">Order History</Link>
+              </Dropdown.Item>
+              {/*<Dropdown.Item onClick={notify}>Settings</Dropdown.Item>*/}
               <Dropdown.Divider />
               <Dropdown.Item onClick={() => handleLogOut()}>
                 Sign out
