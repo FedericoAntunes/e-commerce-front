@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
@@ -8,8 +9,15 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+
 
 function Payment({ shippingData, setShippingData }) {
+  const [value, setValue] = useState(null);
   const [active, setActive] = useState(null);
   const [state, setState] = useState({
     number: "",
@@ -20,19 +28,46 @@ function Payment({ shippingData, setShippingData }) {
   });
 
   const handleInputChange = (evt) => {
-    const { name, value } = evt.target;
+      const { name, value } = evt.target;
+      setState((prev) => ({ ...prev, [name]: value }));
 
-    setState((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleDateChange = (newValue) => {
+    setState((prev) => ({ ...prev, selectedDate: newValue }));
+    handleInputChange({
+      target: {
+        name: "expiry",
+        value: newValue ? `${newValue.getMonth() + 1}/${newValue.getFullYear().toString().substr(-2)}` : ""
+      }
+    });
+  };
+  
 
   const handleInputFocus = (evt) => {
     setState((prev) => ({ ...prev, focus: evt.target.name }));
   };
+  const expDate = (params) => (
+    <DatePicker
+    {...params}
+    label="Valid Thru"
+    inputFormat="MM/yy"
+    id="card-expiry"
+    className="form-control"
+    required
+    value={state.expiry}
+    onChange={(newValue) =>
+      handleInputChange({ target: { name: "expiry", value: newValue } })
+    }
+    sx={{ my: 1 }}
+  />
+  );
+  
 
   return (
     <>
-      <FormControl>
-        <FormLabel id="demo-row-radio-buttons-group-label">Payment</FormLabel>
+      <FormControl component="fieldset">
+        <FormLabel component="legend" id="demo-row-radio-buttons-group-label">Payment</FormLabel>
         <RadioGroup
           row
           required
@@ -61,7 +96,8 @@ function Payment({ shippingData, setShippingData }) {
       </FormControl>
 
       <Box sx={{ display: active === "credit_card" ? "block" : "none" }}>
-        <div>
+        <Grid container>
+        <Grid item xs={12}>
           <Cards
             number={state.number}
             expiry={state.expiry}
@@ -69,48 +105,71 @@ function Payment({ shippingData, setShippingData }) {
             name={state.name}
             focused={state.focus}
           />
-          <input
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            id="card-number"
+            label="Card Number"
             type="number"
             name="number"
-            placeholder="Card Number"
+            variant="standard"
             value={state.number}
             onChange={handleInputChange}
             onFocus={handleInputFocus}
+            sx={{ my: 1 }}
           />
-          <input
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            id="card-name"
+            label="Name"
             type="text"
             name="name"
             className="form-control"
-            placeholder="Name"
             required
+            variant="standard"
             onChange={handleInputChange}
             onFocus={handleInputFocus}
+            sx={{ my: 1 }}
           />
-          <div className="col-6">
-            <input
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            {/* <TextField
+              id="card-expiry"
+              label="Valid Thru"
               type="tel"
               name="expiry"
               className="form-control"
-              placeholder="Valid Thru"
               pattern="\d\d/\d\d"
               required
               onChange={handleInputChange}
               onFocus={handleInputFocus}
-            />
-          </div>
-          <div className="col-6">
-            <input
+              sx={{ my: 1 }}
+            /> */}
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <DatePicker
+        label="Expiration Date"
+        value={state.selectedDate}
+        onChange={handleDateChange}
+        />
+    </LocalizationProvider>
+          </Grid>
+          
+          <Grid item xs={12} sm={6}>
+            <TextField
+              id="card-cvc"
+              label="CVC"
               type="tel"
               name="cvc"
+              variant="standard"
               className="form-control"
-              placeholder="CVC"
               pattern="\d{3,4}"
               required
               onChange={handleInputChange}
               onFocus={handleInputFocus}
             />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </Box>
 
       <Box sx={{ display: active === "paypal" ? "block" : "none" }}>Paypal</Box>
