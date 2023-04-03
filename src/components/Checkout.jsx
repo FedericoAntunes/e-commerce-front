@@ -88,7 +88,6 @@ function Checkout() {
           Authorization: `Bearer ${token}`,
         }
       );
-      console.log(response);
       response.status === 406
         ? toast(Msg, {
             position: "bottom-right",
