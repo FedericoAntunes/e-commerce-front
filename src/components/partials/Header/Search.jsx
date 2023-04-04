@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
@@ -9,6 +9,7 @@ import "./Search.css";
 function Search({ navbarScroll }) {
   const [items, setItems] = useState([]);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const getItems = async () => {
     const products = await apiCall("/products", "get");
@@ -34,8 +35,13 @@ function Search({ navbarScroll }) {
   };
 
   const handleOnSelect = (item) => {
-    // the item selected
-    //console.log(item);
+    if (item.title) {
+      return null;
+    } else if (item.logo) {
+      navigate(`/${item.slug}`);
+    } else {
+      navigate(`/category/${item.slug}`);
+    }
   };
 
   const handleOnFocus = () => {
