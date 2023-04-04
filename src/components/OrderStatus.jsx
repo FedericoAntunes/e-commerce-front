@@ -51,50 +51,84 @@ function OrderStatus() {
             <StepLabel>Shipped</StepLabel>
           </Step>
         </Stepper>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Paper sx={{ p: 2 }}>
-              <Typography variant="h5" gutterBottom>
-                Product details
-              </Typography>
+        <Grid container spacing={2} justifyContent="center" alignItems="center">
+          <Grid item xs={12} md={4}>
+            <Paper className="text-left" sx={{ p: 2, bgcolor: "#f5f5f5" }}>
+              <Box sx={{ mb: 2 }}>
+                <Typography variant="h5" gutterBottom>
+                  Order details
+                </Typography>
+              </Box>
               {lastOrderInfo.products.map((product, index) => (
-                <div key={index}>
-                  <Typography variant="body1" gutterBottom>
-                    {product.title}
-                  </Typography>
-                  <Typography variant="body1" gutterBottom>
-                    Quantity: {product.qty}
-                  </Typography>
-                  <Typography variant="body1" gutterBottom>
-                    Price: ${(product.unit_price * product.qty).toFixed(2)}
-                  </Typography>
+                <Box
+                  key={index}
+                  sx={{
+                    borderBottom: "1px solid #eee",
+                    py: 2,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ flexGrow: 1 }}>
+                    <div className="text-center">
+                      <Typography
+                        variant="body1"
+                        gutterBottom
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        {product.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        className="font-bold"
+                        gutterBottom
+                      >
+                        Quantity: <strong>{product.qty}</strong>
+                      </Typography>
+                      <Typography variant="body1" gutterBottom>
+                        Price:{" "}
+                        <strong>
+                          ${(product.unit_price * product.qty).toFixed(2)}
+                        </strong>
+                      </Typography>
+                    </div>
+                  </Box>
                   <img
                     src={product.image}
                     alt="Product"
-                    sx={{ width: "100%", height: "auto", marginTop: "1rem" }}
+                    style={{
+                      width: "20rem",
+                      borderRadius: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                    }}
+                    className="rounded-lg"
                   />
-                </div>
+                </Box>
               ))}
             </Paper>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper sx={{ p: 2 }}>
-              <Typography variant="h5" gutterBottom>
-                Price
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Subtotal: ${subtotal.toFixed(2)}
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Tax: ${tax.toFixed(2)}
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Shipping: ${shipping.toFixed(2)}
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Total: ${total.toFixed(2)}
-              </Typography>
-              <Box sx={{ borderBottom: "1px solid #eee", my: 2 }}></Box>
+          <Grid item xs={12} md={3}>
+            <Paper className="text-start" sx={{ p: 2, bgcolor: "#f5f5f5" }}>
+              <div className="text-start mb-4">
+                <Typography variant="h5" gutterBottom>
+                  Order Summary
+                </Typography>
+              </div>
+              <div className="text-start">
+                <Typography variant="body1" gutterBottom>
+                  Subtotal: <strong>${subtotal.toFixed(2)}</strong>
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  Tax: <strong>${tax.toFixed(2)}</strong>
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  Shipping: <strong>${shipping.toFixed(2)}</strong>
+                </Typography>
+                <Typography variant="h6" gutterBottom>
+                  <strong>Total:</strong> <strong>${total.toFixed(2)}</strong>
+                </Typography>
+              </div>
+              <Box sx={{ borderBottom: "1px solid gray", my: 2, opacity: 0.5 }}></Box>
               <Typography variant="h5" gutterBottom>
                 Order Information
               </Typography>
