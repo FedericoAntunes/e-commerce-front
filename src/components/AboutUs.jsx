@@ -1,10 +1,34 @@
 import CardAbout from "./partials/CardAbout";
 import Technologies from "./partials/Technologies";
+import { Grid } from "@mui/material";
+import AboutDescription from "./AboutDescription";
 
 function AboutUs() {
   return (
     <>
       <div className="flex flex-wrap justify-center mt-[84px]">
+        <div className="w-full text-center bg-yellow-200 bg-gradient-to-r from-yellow-300 to-yellow-200 py-8 shadow-lg border-b-4 border-yellow-400 ">
+          <h1 className="text-4xl font-bold flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10 mr-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm5 10a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"
+              />
+            </svg>
+            Our Team
+          </h1>
+          <div className="mt-4">
+            <h2 className="text-xl font-semibold">
+              Discover the team that brought this project to life.
+            </h2>
+          </div>
+        </div>
+
         <CardAbout
           name={"Federico Antunes"}
           image={
@@ -53,8 +77,8 @@ function AboutUs() {
           linkedin={"https://www.linkedin.com/in/martin-bentura-88365326b/"}
         />
       </div>
-      <div>
-        <Technologies />
+      <div className="">
+        <AboutDescription />
       </div>
     </>
   );

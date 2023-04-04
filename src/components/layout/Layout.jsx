@@ -3,6 +3,7 @@ import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import { useState } from "react";
 import AboutBtn from "../partials/Header/AboutBtn";
+import { Link } from "react-router-dom";
 
 function Layout() {
   const [category, setCategory] = useState("");
@@ -12,7 +13,7 @@ function Layout() {
   return (
     <>
       <div>
-        <AboutBtn />
+        <Link to={"/about-us"}><AboutBtn /></Link>
         <div>
           <Header />
         </div>
