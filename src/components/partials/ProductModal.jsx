@@ -38,7 +38,7 @@ export default function ProductModal({
 
   return (
     <>
-      {isModalOpen && product.id === actualProduct ? (
+      {isModalOpen && product.slug === actualProduct ? (
         <>
           <ToastContainer />
           <div className="h-screen  w-fit m-auto justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">

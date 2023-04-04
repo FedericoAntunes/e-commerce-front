@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiCall from "./api/api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import ProductModal from "./partials/ProductModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faEllipsis, faStar } from "@fortawesome/free-solid-svg-icons";
@@ -14,12 +14,15 @@ function Restaurant() {
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const productSlug = searchParams.get("product");
+
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
 
-  const handleOpenModal = (productId) => {
-    setActualProduct(productId);
+  const handleOpenModal = (productSlug) => {
+    setActualProduct(productSlug);
     setIsModalOpen(!isModalOpen);
   };
 
@@ -37,6 +40,10 @@ function Restaurant() {
 
   useEffect(() => {
     getData();
+    const productExists = products.some((item) => item.slug === productSlug);
+    console.log("productSlug:", productSlug);
+    console.log("productExists:", productExists);
+    productExists && handleOpenModal(productSlug);
     // eslint-disable-next-line
   }, []);
 
@@ -83,11 +90,11 @@ function Restaurant() {
               return (
                 <div
                   onMouseEnter={() => {
-                    setActualProduct(product.id);
+                    setActualProduct(product.slug);
                     setIsShown(true);
                   }}
                   onMouseLeave={() => {
-                    setActualProduct(product.id);
+                    setActualProduct(product.slug);
                     setIsShown(false);
                   }}
                   key={index}
@@ -102,9 +109,9 @@ function Restaurant() {
                       actualProduct={actualProduct}
                     />{" "}
                   </div>
-                  {isShown && actualProduct === product.id && (
+                  {isShown && actualProduct === product.slug && (
                     <button
-                      onClick={() => handleOpenModal(product.id)}
+                      onClick={() => handleOpenModal(product.slug)}
                       className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       View more

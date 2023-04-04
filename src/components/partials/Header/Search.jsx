@@ -36,7 +36,7 @@ function Search({ navbarScroll }) {
 
   const handleOnSelect = (item) => {
     if (item.title) {
-      return null;
+      navigate(`/${item.company.slug}?product=${item.slug}`);
     } else if (item.logo) {
       navigate(`/${item.slug}`);
     } else {
