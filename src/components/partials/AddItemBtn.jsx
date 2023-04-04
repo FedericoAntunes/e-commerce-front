@@ -1,10 +1,10 @@
 import React from "react";
-import "./AddItemBtn.css"
+import "./AddItemBtn.css";
 
 function AddItemBtn() {
   return (
     <>
-      <button type="button" className="button rounded">
+      <button type="button" className="button rounded overflow-hidden">
         <span className="button__text">Add Item</span>
         <span className="button__icon">
           <svg
