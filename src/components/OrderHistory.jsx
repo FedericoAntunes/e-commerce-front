@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import apiCall from "./api/api";
 import { useSelector } from "react-redux";
+import { format } from 'date-fns'
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState(null);
@@ -22,7 +23,7 @@ export default function OrderHistory() {
     orders && (
       <div className="bg-gray-100 mt-[84px]">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:pb-24 lg:px-8">
-          <div className="max-w-xl">
+          <div className="max-w-xl mx-auto">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               Order history
             </h1>
@@ -46,7 +47,7 @@ export default function OrderHistory() {
                         <dt className="font-medium text-gray-900">
                           Date placed
                         </dt>
-                        <dd className="sm:mt-1">{order.createdAt}</dd>
+                        <dd className="sm:mt-1">{format(new Date(order.createdAt), 'yyyy-MM-dd hh:mm')}</dd>
                       </div>
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
                         <dt className="font-medium text-gray-900">
@@ -92,7 +93,7 @@ export default function OrderHistory() {
                           scope="col"
                           className="hidden pr-8 py-3 font-normal sm:table-cell"
                         >
-                          Status
+                          Quantity
                         </th>
                         <th
                           scope="col"

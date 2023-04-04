@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
+import AddItemBtn from "./AddItemBtn";
 
 function notify(message) {
   toast.warn(message, {
@@ -83,16 +84,24 @@ export default function ProductModal({
                 </div>
                 {/*footer*/}
                 <div className="flex flex-col  items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button
+                  {/* <button
                     onClick={() => {
                       handleSubmit(product);
                     }}
                     className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full w-4/5"
                   >
                     Add to my cart
-                  </button>
+                  </button> */}
                   <button
-                    className="text-red-500 bg-white hover:bg-red-200 border border-red-500 mt-4 inline-block ms-auto rounded-full  background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    onClick={() => {
+                      handleSubmit(product);
+                    }}
+                  >
+                    <AddItemBtn />
+                  </button>
+
+                  <button
+                    className="text-red-500 bg-white hover:bg-red-200 border border-red-500 mt-4 inline-block ms-auto rounded  background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setIsModalOpen()}
                   >
