@@ -79,9 +79,11 @@ function Header() {
               onClick={() => dispatch(toggleMenu())}
               icon={faCartShopping}
             />
-            <span className="absolute top-2 right-2 rounded-full w-4 h-4 text-white text-[0.7rem] bg-red-500">
-              {shoppingList.length < 10 ? shoppingList.length : "9+"}
-            </span>
+            {shoppingList.length > 0 && (
+              <span className="absolute animate-bounce top-2 right-2 rounded-full w-4 h-4 text-white text-[0.7rem] bg-red-500">
+                {shoppingList.length < 10 ? shoppingList.length : "9+"}
+              </span>
+            )}
           </div>
 
           {user ? (
@@ -136,30 +138,6 @@ function Header() {
         </div>
 
         <Navbar.Collapse className="navbar-links-container pt-[2px] order-6 md:order-3">
-          <Link
-            to={"/"}
-            className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={
-              navbarScroll || location.pathname !== "/"
-                ? { color: "gray" }
-                : { color: "lightyellow" }
-            }
-          >
-            Home
-          </Link>
-
-          <Link
-            to={"/about-us"}
-            className="heartbeat block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
-            style={
-              navbarScroll || location.pathname !== "/"
-                ? { color: "gray" }
-                : { color: "lightyellow" }
-            }
-          >
-            About this project
-          </Link>
-
           {!user && (
             <>
               <Link
