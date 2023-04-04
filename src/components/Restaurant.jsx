@@ -23,7 +23,7 @@ function Restaurant() {
 
   const handleOpenModal = (productSlug) => {
     setActualProduct(productSlug);
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(true);
   };
 
   const params = useParams();
@@ -40,12 +40,13 @@ function Restaurant() {
 
   useEffect(() => {
     getData();
-    const productExists = products.some((item) => item.slug === productSlug);
-    console.log("productSlug:", productSlug);
-    console.log("productExists:", productExists);
-    productExists && handleOpenModal(productSlug);
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    const productExists = products.some((item) => item.slug === productSlug);
+    productExists && handleOpenModal(productSlug);
+  }, [products]);
 
   return (
     company && (
