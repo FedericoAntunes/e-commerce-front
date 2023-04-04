@@ -38,20 +38,15 @@ export default function OrderHistory() {
             <div className="space-y-20">
               {orders.map((order) => (
                 <div key={order.id}>
-                  <h3 className="sr-only">
-                    Order placed on{" "}
-                    {/*  <time dateTime={order.datetime}>{order.date}</time> */}
-                  </h3>
+                  <h3 className="sr-only">Order placed on {order.createdAt}</h3>
 
                   <div className="bg-gray-50 rounded-lg py-6 px-4 sm:px-6 sm:flex sm:items-center sm:justify-between sm:space-x-6 lg:space-x-8">
-                    <dl className="divide-y divide-gray-200 space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
+                    <dl className="divide-y divide-gray-200 space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-4 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
                       <div className="flex justify-between sm:block">
                         <dt className="font-medium text-gray-900">
                           Date placed
                         </dt>
-                        <dd className="sm:mt-1">
-                          {/*    <time dateTime={order.datetime}>{order.date}</time> */}
-                        </dd>
+                        <dd className="sm:mt-1">{order.createdAt}</dd>
                       </div>
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
                         <dt className="font-medium text-gray-900">
@@ -62,6 +57,10 @@ export default function OrderHistory() {
                       <div className="flex justify-between pt-6 font-medium text-gray-900 sm:block sm:pt-0">
                         <dt>Total amount</dt>
                         <dd className="sm:mt-1">{order.total_price}</dd>
+                      </div>
+                      <div className="flex justify-between pt-6 font-medium text-gray-900 sm:block sm:pt-0">
+                        <dt>Status</dt>
+                        <dd className="sm:mt-1">{order.status}</dd>
                       </div>
                     </dl>
                     <a
@@ -104,40 +103,45 @@ export default function OrderHistory() {
                       </tr>
                     </thead>
                     <tbody className="border-b border-gray-200 divide-y divide-gray-200 text-sm sm:border-t">
-                      {/* {order.products.map((product) => (
-                      <tr key={product.id}>
-                        <td className="py-6 pr-8">
-                          <div className="flex items-center">
-                            <img
-                              src={product.imageSrc}
-                              alt={product.imageAlt}
-                              className="w-16 h-16 object-center object-cover rounded mr-6"
-                            />
-                            <div>
-                              <div className="font-medium text-gray-900">
-                                {product.name}
-                              </div>
-                              <div className="mt-1 sm:hidden">
-                                {product.price}
+                      {order.orderProducts.map((orderProduct) => (
+                        <tr key={orderProduct.id}>
+                          <td className="py-6 pr-8">
+                            <div className="flex items-center">
+                              <img
+                                src={orderProduct.product.image}
+                                alt={""}
+                                className="w-16 h-16 object-center object-cover rounded mr-6"
+                              />
+                              <div>
+                                <div className="font-medium text-gray-900">
+                                  {orderProduct.product.title}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </td>
-                        <td className="hidden py-6 pr-8 sm:table-cell">
-                          {product.price}
-                        </td>
-                        <td className="hidden py-6 pr-8 sm:table-cell">
-                          {product.status}
-                        </td>
-                        <td className="py-6 font-medium text-right whitespace-nowrap">
-                          <a href={product.href} className="text-indigo-600">
-                            View
-                            <span className="hidden lg:inline"> Product</span>
-                            <span className="sr-only">, {product.name}</span>
-                          </a>
-                        </td>
-                      </tr>
-                    ))} */}
+                          </td>
+                          <td className="py-6 pr-8 sm:table-cell">
+                            {orderProduct.unit_price}
+                          </td>
+                          <td className="hidden py-6 pr-8 sm:table-cell">
+                            {orderProduct.qty}
+                          </td>
+                          <td className="py-6 font-medium text-right whitespace-nowrap">
+                            <a
+                              href={orderProduct.href}
+                              className="text-indigo-600"
+                            >
+                              View
+                              <span className="hidden lg:inline">
+                                {" "}
+                                orderProduct
+                              </span>
+                              <span className="sr-only">
+                                , {orderProduct.title}
+                              </span>
+                            </a>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

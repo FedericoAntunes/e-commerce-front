@@ -24,6 +24,7 @@ function Checkout() {
         className="mx-auto"
         src="https://media.tenor.com/Vyg73kR334sAAAAM/jurassic-park-ah.gif"
         alt="ah-ah-ah"
+        style={{ mixBlendMode: "multiply" }}
       />
       Hacking not allowed!
     </div>
@@ -70,7 +71,10 @@ function Checkout() {
     shoppingList.map((item) => {
       return (total += item.price * item.quantity);
     });
-    return total;
+    const shipping = Number(process.env.REACT_APP_SHIPPING);
+    const tax = total * Number(process.env.REACT_APP_TAX);
+    const realTotal = tax + shipping + total;
+    return realTotal;
   };
 
   const isStepOptional = (step) => {
@@ -91,13 +95,13 @@ function Checkout() {
           Authorization: `Bearer ${token}`,
         }
       );
-      response.status === 406
-        ? toast(Msg, {
-            position: "bottom-right",
-          })
-        : notifySuccess();
+      if (response.response && response.response.status === 406) {
+        return toast(Msg, {
+          position: "bottom-right",
+        });
+      }
+      notifySuccess();
       dispatch(removeAllItems());
-      console.log(response);
       dispatch(saveLastOrderInfo(response.data));
       navigate("/order-status");
     }

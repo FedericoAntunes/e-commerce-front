@@ -28,7 +28,6 @@ function OrderStatus() {
       const order = await apiCall(`/orders/lastOrder`, "get", null, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("order", order.data);
       setOrder(order.data);
     };
     handleOrder();
