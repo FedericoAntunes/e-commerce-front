@@ -97,9 +97,9 @@ function OrderStatus() {
                     src={product.image}
                     alt="Product"
                     style={{
-                      width: "20rem",
                       borderRadius: "0.5rem",
                       boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                      width: "60%", height: "auto", marginTop: "1rem"
                     }}
                     className="rounded-lg"
                   />
