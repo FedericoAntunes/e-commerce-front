@@ -6,6 +6,7 @@ import ProductModal from "./partials/ProductModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faEllipsis, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+import CenteredModal from "./partials/CenteredModal";
 
 function Restaurant() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ function Restaurant() {
 
   const handleOpenModal = (productSlug) => {
     setActualProduct(productSlug);
-    setIsModalOpen(true);
+    setIsModalOpen(!isModalOpen);
   };
 
   const params = useParams();
@@ -103,17 +104,23 @@ function Restaurant() {
                 >
                   {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
                   <div className="flex items-center mx-auto z-30 justify">
-                    <ProductModal
+                    {/* <ProductModal
                       product={product}
                       isModalOpen={isModalOpen}
                       setIsModalOpen={setIsModalOpen}
                       actualProduct={actualProduct}
-                    />{" "}
+                    />{" "} */}
+                    <CenteredModal
+                      product={product}
+                      isModalOpen={isModalOpen}
+                      setIsModalOpen={setIsModalOpen}
+                      actualProduct={actualProduct}
+                    />
                   </div>
                   {isShown && actualProduct === product.slug && (
                     <button
                       onClick={() => handleOpenModal(product.slug)}
-                      className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className=" absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       View more
                     </button>
