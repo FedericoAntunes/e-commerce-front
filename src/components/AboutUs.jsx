@@ -2,18 +2,18 @@ import CardAbout from "./partials/CardAbout";
 import Technologies from "./partials/Technologies";
 import { Grid } from "@mui/material";
 import AboutDescription from "./AboutDescription";
-import ScrollToTop from "./ScrollToTop"
-import { faBurger } from "@fortawesome/free-solid-svg-icons"
+import ScrollToTop from "./ScrollToTop";
+import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function AboutUs() {
   return (
     <>
-    <ScrollToTop/>
-      <div className="flex flex-wrap justify-center mt-[84px]">
+      <ScrollToTop />
+      <div className="flex flex-wrap justify-center mt-[140px] sm:mt-[84px]">
         <div className="w-full text-center bg-yellow-200 bg-gradient-to-r from-yellow-300 to-yellow-200 py-8 shadow-lg border-b-4 border-yellow-400 ">
           <h1 className="text-4xl font-bold flex items-center justify-center">
-          <FontAwesomeIcon icon={faBurger} className="mr-3"/>
+            <FontAwesomeIcon icon={faBurger} className="mr-3" />
             Our Team
           </h1>
           <div className="mt-4">
