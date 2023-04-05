@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import apiCall from "./api/api";
 import { useSelector } from "react-redux";
-import { format } from 'date-fns'
+import { format } from "date-fns";
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState(null);
@@ -33,77 +33,89 @@ export default function OrderHistory() {
             </p>
           </div>
 
-          <div className="mt-16">
-            <h2 className="sr-only">Recent orders</h2>
+          <div className="mt-6">
+            <h2 className="font-semibold">Recent orders</h2>
 
             <div className="space-y-20">
               {orders.map((order) => (
-                <div key={order.id}>
+                <div className="border" key={order.id}>
                   <h3 className="sr-only">Order placed on {order.createdAt}</h3>
 
                   <div className="bg-gray-50 rounded-lg py-6 px-4 sm:px-6 sm:flex sm:items-center sm:justify-between sm:space-x-6 lg:space-x-8">
-                    <dl className="divide-y divide-gray-200 space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-4 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
+                    <dl className="divide-y divide-gray-200 mx-auto space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-4 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
                       <div className="flex justify-between sm:block">
-                        <dt className="font-medium text-gray-900">
+                        <dt className="font-medium font-semibold text-left lg:text-center text-gray-900">
                           Date placed
                         </dt>
-                        <dd className="sm:mt-1">{format(new Date(order.createdAt), 'yyyy-MM-dd hh:mm')}</dd>
+                        <dd className="sm:mt-1">
+                          {format(
+                            new Date(order.createdAt),
+                            "yyyy-MM-dd hh:mm"
+                          )}
+                        </dd>
                       </div>
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
-                        <dt className="font-medium text-gray-900">
+                        <dt className="font-medium font-semibold text-left lg:text-center text-gray-900">
                           Order number
                         </dt>
                         <dd className="sm:mt-1">{order.id}</dd>
                       </div>
                       <div className="flex justify-between pt-6 font-medium text-gray-900 sm:block sm:pt-0">
-                        <dt>Total amount</dt>
-                        <dd className="sm:mt-1">{order.total_price}</dd>
+                        <dt className="text-left font-semibold lg:text-center">
+                          Total amount
+                        </dt>
+                        <dd className="sm:mt-1 text-green-500 font-semibold">
+                          $ {order.total_price.toFixed(2)}
+                        </dd>
                       </div>
                       <div className="flex justify-between pt-6 font-medium text-gray-900 sm:block sm:pt-0">
-                        <dt>Status</dt>
-                        <dd className="sm:mt-1">{order.status}</dd>
+                        <dt className="font-semibold">Status</dt>
+                        <dd
+                          className={`sm:mt-1 font-semibold ${
+                            order.status === "In process"
+                              ? "text-blue-500"
+                              : order.status === "Sending"
+                              ? "text-yellow-400"
+                              : "text-green-500"
+                          }`}
+                        >
+                          {order.status}
+                        </dd>
                       </div>
                     </dl>
-                    <a
-                      /*  href={order.invoiceHref} */
-                      className="w-full flex items-center justify-center bg-white mt-6 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto sm:mt-0"
-                    >
-                      View Invoice
-                      <span className="sr-only">for order {order.id}</span>
-                    </a>
                   </div>
 
-                  <table className="mt-4 w-full text-gray-500 sm:mt-6">
+                  <table className="w-full border-t text-gray-500 ">
                     <caption className="sr-only">Products</caption>
                     <thead className="sr-only text-sm text-gray-500 text-left sm:not-sr-only">
                       <tr>
                         <th
                           scope="col"
-                          className="sm:w-2/5 lg:w-1/3 pr-8 py-3 font-normal"
+                          className="sm:w-2/5 lg:w-1/3 pr-8 py-3 text-center font-semibold"
                         >
                           Product
                         </th>
                         <th
                           scope="col"
-                          className="hidden w-1/5 pr-8 py-3 font-normal sm:table-cell"
+                          className="hidden w-1/5 pr-8 py-3 font-semibold text-center sm:table-cell"
                         >
-                          Price
+                          Unit price
                         </th>
                         <th
                           scope="col"
-                          className="hidden pr-8 py-3 font-normal sm:table-cell"
+                          className="hidden pr-8 py-3 font-semibold text-center sm:table-cell"
                         >
                           Quantity
                         </th>
                         <th
                           scope="col"
-                          className="w-0 py-3 font-normal text-right"
+                          className="hidden py-3 font-semibold text-center sm:table-cell"
                         >
-                          Info
+                          Total price
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="border-b border-gray-200 divide-y divide-gray-200 text-sm sm:border-t">
+                    <tbody className="border-gray-200 divide-y divide-gray-200 text-sm sm:border-t">
                       {order.orderProducts.map((orderProduct) => (
                         <tr key={orderProduct.id}>
                           <td className="py-6 pr-8">
@@ -111,7 +123,7 @@ export default function OrderHistory() {
                               <img
                                 src={orderProduct.product.image}
                                 alt={""}
-                                className="w-16 h-16 object-center object-cover rounded mr-6"
+                                className="w-16 h-16 object-center object-cover rounded ml-2 border mr-6"
                               />
                               <div>
                                 <div className="font-medium text-gray-900">
@@ -120,26 +132,24 @@ export default function OrderHistory() {
                               </div>
                             </div>
                           </td>
-                          <td className="py-6 pr-8 sm:table-cell">
-                            {orderProduct.unit_price}
+                          <td className="hidden py-6 pr-8 sm:table-cell">
+                            <p>${orderProduct.unit_price}</p>
                           </td>
                           <td className="hidden py-6 pr-8 sm:table-cell">
                             {orderProduct.qty}
                           </td>
-                          <td className="py-6 font-medium text-right whitespace-nowrap">
-                            <a
-                              href={orderProduct.href}
-                              className="text-indigo-600"
-                            >
-                              View
-                              <span className="hidden lg:inline">
-                                {" "}
-                                orderProduct
+                          <td className="py-6 pr-8 table-cell sm:hidden">
+                            <p>
+                              <span className="font-semibold text-yellow-500">
+                                ${orderProduct.unit_price * orderProduct.qty}
+                              </span>{" "}
+                              <span className="text-xs">
+                                (${orderProduct.unit_price}x{orderProduct.qty})
                               </span>
-                              <span className="sr-only">
-                                , {orderProduct.title}
-                              </span>
-                            </a>
+                            </p>
+                          </td>
+                          <td className="hidden py-6 font-semibold text-yellow-500 sm:table-cell">
+                            ${orderProduct.unit_price * orderProduct.qty}
                           </td>
                         </tr>
                       ))}
