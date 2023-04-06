@@ -59,7 +59,7 @@ function Register() {
   };
 
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <Link
           to="/about-us"
@@ -71,7 +71,7 @@ function Register() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-white rounded-lg shadow md:mt-0 py-6 lg:w-1/4">
+        <div className="sm:w-full bg-gray-100 rounded-lg shadow md:mt-0 py-6 lg:w-1/4">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Create your account
