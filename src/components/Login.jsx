@@ -140,7 +140,7 @@ function Login() {
                   type="email"
                   name="email"
                   id="email"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                   placeholder="Insert your email..."
                   value={inputEmail}
                   onChange={(event) => setInputEmail(event.target.value)}
@@ -174,12 +174,12 @@ function Login() {
                       required=""
                     />
                   </div>
-                  <div className="ml-3 text-base font-medium text-black">
+                  <div className="sm:mx-3 ml-3 text-base font-medium text-black">
                     <label
                       htmlFor="remember"
                       className="text-black font-medium"
                     >
-                      Remember me
+                      Remember
                     </label>
                   </div>
                 </div>
