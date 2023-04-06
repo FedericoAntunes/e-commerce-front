@@ -152,7 +152,10 @@ export default function OrderHistory() {
                             </p>
                           </td>
                           <td className="hidden py-6 font-semibold text-yellow-500 sm:table-cell">
-                            ${orderProduct.unit_price * orderProduct.qty}
+                            $
+                            {(
+                              orderProduct.unit_price * orderProduct.qty
+                            ).toFixed(2)}
                           </td>
                         </tr>
                       ))}
