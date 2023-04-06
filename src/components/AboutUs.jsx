@@ -7,6 +7,9 @@ import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AboutUsCard from "./partials/AboutUsCard";
 import AboutThisProject from "./partials/AboutThisProject";
+import AboutUsFeatures from "./partials/AboutUsFeatures";
+import AboutUsChallenges from "./partials/AboutUsChallenges";
+import AboutUsTechnologies from "./partials/AboutUsTechnologies";
 
 function AboutUs() {
   return (
@@ -76,27 +79,10 @@ function AboutUs() {
       <div>
         <AboutThisProject />
       </div>
-      <div className="flex justify-center gap-6">
-        <AboutUsCard
-          title={"Tecnologías"}
-          description={
-            "Para el front-end, utilizamos una tecnología llamada React, que permite realizar las funcionalidades de la página, sin recargar el navegador. Para el diseño, utilizamos Tailwind."
-          }
-        />
-        <AboutUsCard
-          title={"Features"}
-          description={`Responsive design: Our website adapts to different screen sizes and devices, providing a seamless user experience.
-            User registration and login: Users can create accounts, log in, and save their preferences and orders.
-            Product browsing and search: Our website offers a wide range of products, with a powerful search engine to find exactly what you need.
-            Shopping cart: Users can add and remove items from their cart, and keep track of the total cost and quantity.
-            Checkout process: Our website integrates with a secure payment gateway, allowing users to complete their purchases safely and easily.
-            Order history and tracking: Users can view their past orders and track the status of their current ones.`}
-        />
-        <AboutUsCard
-          title={"Challanges"}
-          description={`Payment gateway: Integrating a payment gateway can be complex and requires careful attention to security and user experience.
-          Search functionality: Building a fast and accurate search engine for large datasets can be a challenge, requiring knowledge of indexing, ranking, and optimization techniques.`}
-        />
+      <div className="flex flex-col sm:flex-row justify-center sm:gap-6 ">
+        <AboutUsFeatures/>
+        <AboutUsTechnologies/>
+        <AboutUsChallenges/>
       </div>
     </>
   );
