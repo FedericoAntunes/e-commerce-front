@@ -59,16 +59,16 @@ function CenteredModal({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 pt-12 sm:grid bg-gray-100 sm:grid-cols-2 flex-auto">
-                  <div className="">
+                  <div className="pr-4">
                     <img
-                      className="h-40 mx-auto border mt-8 rounded"
+                      className="h-40 mx-auto border md:w-full md:h-auto mt-8 md:mt-0 rounded"
                       src={`${product.image}`}
                       alt="category-img"
                     />
-                    <h1 className="my-4 text-slate-800 text-xl font-bold text-center leading-6">
+                    <h4 className="my-4 text-slate-800 text-sm font-bold text-left leading-6">
                       In stock:{" "}
                       <span className="text-slate-500">{product.stock}</span>
-                    </h1>
+                    </h4>
 
                     <div className="text-center justify-between flex">
                       <input
@@ -79,12 +79,25 @@ function CenteredModal({
                         value={quantity}
                         className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       />
-                      <h1 className="text-3xl font-bold text-green-500">
-                        US$ {(product.price * quantity).toFixed(2)}
-                      </h1>
+                      <div>
+                        {product.in_offer ? (
+                          <>
+                            <span className="line-through text-xl text-gray-400">
+                              ${product.price.toFixed(2)}
+                            </span>
+                            <span className="font-bold text-2xl ml-2 text-green-500">
+                              ${(product.price * 0.8).toFixed(2)}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="font-bold text-2xl text-green-500">
+                            ${product.price.toFixed(2)}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <div className="overflow-auto h-[170px]">
+                  <div className="overflow-x-hidden overflow-y-auto h-[170px]">
                     <p className="mt-2 text-gray-900 font-body text-lg leading-8 text-left w-80">
                       {product.description}
                     </p>
