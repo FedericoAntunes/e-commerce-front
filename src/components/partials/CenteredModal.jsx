@@ -64,12 +64,17 @@ function CenteredModal({
                     src={`${product.image}`}
                     alt="category-img"
                   />
-                  <p className="my-4 text-slate-500 text-lg mx-auto leading-relaxed w-80">
+                  <p className="my-4 text-gray-900 font-body text-lg leading-8 mx-auto text-left w-80">
                     {product.description}
                   </p>
-                  <h1>In stock: {product.stock}</h1>
+
+                  <h1 className="my-4 text-slate-800 text-xl font-bold text-center leading-6">
+                    In stock:{" "}
+                    <span className="text-slate-500">{product.stock}</span>
+                  </h1>
+
                   <div className="text-right">
-                    <h1>US$ {product.price}</h1>
+                    <h1 className="text-3xl font-bold text-green-500">US$ {product.price}</h1>
                   </div>
                   <input
                     onChange={(e) => handleQuantity(e)}
@@ -77,6 +82,7 @@ function CenteredModal({
                     min={1}
                     max={product.stock}
                     value={quantity}
+                    className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 mt-4"
                   />
                 </div>
                 {/*footer*/}

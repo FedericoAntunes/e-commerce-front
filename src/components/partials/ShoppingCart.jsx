@@ -87,17 +87,21 @@ function ShoppingCart() {
                             </span>
                           </div>
                           <div className="w-1/4">
-                            Quantity:
-                            <div className="w-2/3 ml-4 border rounded-full px-1">
+                            <label className="block font-bold mb-2">
+                              Quantity:
+                            </label>
+                            <div className="flex items-center justify-between w-full ml-4 rounded-full px-1">
                               <button
-                                className="float-left"
+                                className=" w-1/3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-l-full focus:outline-none"
                                 onClick={() => handleSubstractOne(product)}
                               >
                                 -
-                              </button>{" "}
-                              {product.quantity}{" "}
+                              </button>
+                              <span className="text-center flex-grow">
+                                {product.quantity}
+                              </span>
                               <button
-                                className="float-right"
+                                className="w-1/3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-r-full focus:outline-none"
                                 onClick={() => handleAddOne(product)}
                               >
                                 +
