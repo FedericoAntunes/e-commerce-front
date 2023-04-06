@@ -110,11 +110,6 @@ function Restaurant() {
                   key={index}
                   className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
                 >
-                  {product.featured && (
-                    <span className="absolute top-2 z-50 p-1 text-xs right-2 rounded-full bg-yellow-400 text-white">
-                      Featured
-                    </span>
-                  )}
                   {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
                   <div className="flex items-center mx-auto z-30 justify">
                     {/* <ProductModal
