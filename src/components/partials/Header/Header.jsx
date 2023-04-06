@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
 import ShoppingCart from "../ShoppingCart";
 import Search from "./Search";
 import "./Header.css";
@@ -22,6 +22,7 @@ const notify = () =>
   });
 
 function Header() {
+  const [toggleSearch, setToggleSearch] = useState(false);
   const [navbarScroll, setNavbarScroll] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -63,7 +64,11 @@ function Header() {
       >
         <Logo />
 
-        <Search navbarScroll={navbarScroll} />
+        <Search
+          navbarScroll={navbarScroll}
+          toggleSearch={toggleSearch}
+          setToggleSearch={setToggleSearch}
+        />
 
         <div
           className="flex order-4 nav-cart-user ease-in-out duration-500"
@@ -74,6 +79,13 @@ function Header() {
           }
         >
           <div className="relative">
+            <FontAwesomeIcon
+              className={`p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400 sm:hidden`}
+              onClick={() => {
+                setToggleSearch(!toggleSearch);
+              }}
+              icon={faSearch}
+            />
             <FontAwesomeIcon
               className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
               onClick={() => dispatch(toggleMenu())}
@@ -120,7 +132,7 @@ function Header() {
             </Dropdown>
           ) : null}
           <Navbar.Toggle
-            className="hover:text-yellow-400"
+            className={`hover:text-yellow-400 ${user && "hidden"}`}
             style={
               navbarScroll || location.pathname !== "/"
                 ? {

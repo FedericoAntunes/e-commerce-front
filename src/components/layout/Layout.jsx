@@ -4,6 +4,7 @@ import Footer from "../partials/Footer";
 import { useState } from "react";
 import AboutBtn from "../partials/Header/AboutBtn";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../ScrollToTop";
 
 function Layout() {
   const [category, setCategory] = useState("");
@@ -12,8 +13,11 @@ function Layout() {
 
   return (
     <>
+      <ScrollToTop />
       <div>
-        <Link to={"/about-us"}><AboutBtn /></Link>
+        <Link to={"/about-us"}>
+          <AboutBtn />
+        </Link>
         <div>
           <Header />
         </div>
