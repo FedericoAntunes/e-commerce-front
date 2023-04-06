@@ -81,13 +81,13 @@ function ShoppingCart() {
                             <h4 className="text-black inline text-start font-medium">
                               {product.title}
                             </h4>
-                            <span className="text-gray-600">
-                              $ {product.price * product.quantity} (${" "}
-                              {product.price} p/u)
+                            <span className="text-gray-600 w-[125px]">
+                              $ {(product.price * product.quantity).toFixed(2)}{" "}
+                              <p>($ {product.price.toFixed(2)} p/u)</p>
                             </span>
                           </div>
                           <div className="w-1/4">
-                            <label className="block font-bold mb-2">
+                            <label className="block font-bold ml-2 mb-2">
                               Quantity:
                             </label>
                             <div className="flex items-center justify-between w-full ml-4 rounded-full px-1">

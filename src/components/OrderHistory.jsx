@@ -133,7 +133,7 @@ export default function OrderHistory() {
                             </div>
                           </td>
                           <td className="hidden py-6 pr-8 sm:table-cell">
-                            <p>${orderProduct.unit_price}</p>
+                            <p>${orderProduct.unit_price.toFixed(2)}</p>
                           </td>
                           <td className="hidden py-6 pr-8 sm:table-cell">
                             {orderProduct.qty}
@@ -141,7 +141,10 @@ export default function OrderHistory() {
                           <td className="py-6 pr-8 table-cell sm:hidden">
                             <p>
                               <span className="font-semibold text-yellow-500">
-                                ${orderProduct.unit_price * orderProduct.qty}
+                                $
+                                {(
+                                  orderProduct.unit_price * orderProduct.qty
+                                ).toFixed(2)}
                               </span>{" "}
                               <span className="text-xs">
                                 (${orderProduct.unit_price}x{orderProduct.qty})
