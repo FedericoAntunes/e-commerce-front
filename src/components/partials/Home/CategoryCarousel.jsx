@@ -31,13 +31,16 @@ export default function CategoryCarousel() {
   }, []);
 
   return (
-    <div className="pt-2 my-6 w-full mx-auto cursor-pointer">
+    <div className="pt-2 my-16 px-4 w-full mx-auto">
+      <h4 className="text-left mb-6 border-t pt-6 text-3xl font-semibold">
+        Explore by category
+      </h4>
       <Swiper
         slidesPerView={"auto"}
         navigation={true}
         freeMode={true}
         modules={[FreeMode, Navigation]}
-        className="mySwiper"
+        className="mySwiper cursor-pointer"
       >
         {categories.map((category, index) => {
           return (
