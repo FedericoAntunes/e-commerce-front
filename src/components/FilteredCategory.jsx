@@ -85,10 +85,21 @@ function FilteredCategory() {
                         {product.title}
                       </h5>
                     </Link>
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-gray-100 bg-green-600 w-16 rounded-full dark:text-white">
-                        ${product.price.toFixed(2)}
-                      </span>
+                    <div className="flex items-end">
+                      {product.in_offer ? (
+                        <>
+                          <span className="line-through text-gray-400">
+                            ${product.price.toFixed(2)}
+                          </span>
+                          <span className="font-bold text-xl ml-2 text-green-500">
+                            ${(product.price * 0.8).toFixed(2)}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="font-bold text-xl text-green-500">
+                          ${product.price.toFixed(2)}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
