@@ -40,7 +40,7 @@ function CenteredModal({
     <>
       {isModalOpen && product.slug === actualProduct ? (
         <>
-          <div className="fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center">
+          <div className="fixed left-0 h-screen top-0 right-0 bottom-0 z-40 flex items-center justify-center">
             <div className="relative w-full max-w-2xl mx-auto">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -102,7 +102,7 @@ function CenteredModal({
           </div>
           <div
             onClick={() => setIsModalOpen()}
-            className="opacity-25 fixed inset-0 z-40 bg-black"
+            className={`opacity-25 fixed inset-0 z-30 bg-black`}
           ></div>
         </>
       ) : null}

@@ -45,6 +45,14 @@ function Restaurant() {
   }, []);
 
   useEffect(() => {
+    if (!isModalOpen) {
+      document.body.style.overflow = "visible";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isModalOpen]);
+
+  useEffect(() => {
     const productExists = products.some((item) => item.slug === productSlug);
     productExists && handleOpenModal(productSlug);
   }, [products]);
@@ -83,9 +91,9 @@ function Restaurant() {
                   : "The estimated waiting time is 30 - 40 min"}
               </div>
             </small>
-            <p className="text-left w-full md:w-1/2 ml-6 text-gray-500">
+            {/* <p className="text-left w-full md:w-1/2 ml-6 text-gray-500">
               {company.description}
-            </p>
+            </p> */}
           </div>
           <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
             {products.map((product, index) => {

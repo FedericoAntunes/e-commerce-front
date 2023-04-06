@@ -38,7 +38,7 @@ function ShoppingCart() {
     <>
       <ToastContainer />
       <div
-        className={`fixed right-0 h-screen top-0 bg-white w-full lg:w-[550px] z-10 ease-in-out duration-300 ${
+        className={`fixed right-0 h-screen top-0 bg-white w-full lg:w-[550px] z-40 ease-in-out duration-300 ${
           showShoppingCart ? "translate-x-0 " : "translate-x-full"
         }`}
       >
