@@ -6,7 +6,7 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import apiCall from "../../api/api";
 import "./Search.css";
 
-function Search({ navbarScroll }) {
+function Search({ navbarScroll, toggleSearch, setToggleSearch }) {
   const [items, setItems] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
@@ -106,7 +106,9 @@ function Search({ navbarScroll }) {
                 maxWidth: "700px",
               }
         }
-        className="px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-300"
+        className={`px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-300 ${
+          !toggleSearch && "hidden"
+        } sm:inline`}
         onSubmit={handleOnSearch}
       >
         <ToastContainer />
@@ -123,7 +125,7 @@ function Search({ navbarScroll }) {
           <ReactSearchAutocomplete
             type="search"
             id="default-search"
-            className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+            className={`block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:visible`}
             placeholder="Search Restaurant, Category, Food..."
             items={items}
             onSearch={handleOnSearch}

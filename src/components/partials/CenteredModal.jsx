@@ -42,23 +42,21 @@ function CenteredModal({
         <>
           <div className="fixed left-0 h-screen top-0 right-0 bottom-0 z-40 flex items-center justify-center">
             <div className="relative w-full max-w-2xl mx-auto">
-              <div className="border-0 rounded-lg h-screen sm:h-[80vh] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg h-screen sm:h-[70vh] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold w-80 text-center">
+                <div className="flex items-start justify-between p-5 border-b mt-16 sm:mt-0 border-solid border-slate-200 rounded-t">
+                  <h3 className="text-2xl font-semibold text-left">
                     {product.title}
                   </h3>
-                  <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                  <span
                     onClick={() => setIsModalOpen()}
+                    className="bg-transparent text-black float-right h-6 w-6 text-3xl leading-none block outline-none font-semibold focus:outline-none"
                   >
-                    <span className="bg-transparent text-black  h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button>
+                    ×
+                  </span>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 pt-12 sm:grid bg-gray-100 sm:grid-cols-2 flex-auto">
+                <div className="relative p-6 sm:grid bg-gray-100 sm:grid-cols-2 flex-auto">
                   <div className="pr-4">
                     <img
                       className="h-40 mx-auto border md:w-full md:h-auto mt-8 md:mt-0 rounded"
@@ -121,13 +119,13 @@ function CenteredModal({
                   >
                     Add to my cart
                   </button>
-                  <button
+                  {/* <button
                     className="text-red-500 bg-white md:hover:bg-red-200 border border-red-500 mt-4 inline-block ms-auto rounded background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setIsModalOpen()}
                   >
                     Close
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
