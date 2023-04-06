@@ -95,7 +95,7 @@ function Restaurant() {
               {company.description}
             </p> */}
           </div>
-          <div className="grid-cols-1 sm:grid-cols-4 grid gap-2">
+          <div className="grid-cols-1 sm:grid-cols-4 mt-16 grid gap-2">
             {products.map((product, index) => {
               return (
                 <div
@@ -108,7 +108,7 @@ function Restaurant() {
                     setIsShown(false);
                   }}
                   key={index}
-                  className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                  className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
                 >
                   {product.featured && (
                     <span className="absolute top-2 z-50 p-1 text-xs right-2 rounded-full bg-yellow-400 text-white">
@@ -160,10 +160,21 @@ function Restaurant() {
                         {product.title}
                       </h5>
                     </Link>
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-gray-100 bg-green-600 w-16 rounded-full dark:text-white">
-                        ${product.price.toFixed(2)}
-                      </span>
+                    <div className="flex items-end">
+                      {product.in_offer ? (
+                        <>
+                          <span className="line-through text-gray-400">
+                            ${product.price.toFixed(2)}
+                          </span>
+                          <span className="font-bold text-xl ml-2 text-green-500">
+                            ${(product.price * 0.8).toFixed(2)}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="font-bold text-xl text-green-500">
+                          ${product.price.toFixed(2)}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
