@@ -4,7 +4,14 @@ import apiCall from "./api/api";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import ProductModal from "./partials/ProductModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faEllipsis, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faEllipsis,
+  faStar,
+  faStopwatch,
+  faHeartPulse,
+  faStopwatch20,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import CenteredModal from "./partials/CenteredModal";
 
@@ -95,92 +102,191 @@ function Restaurant() {
               {company.description}
             </p> */}
           </div>
-          <div className="grid-cols-1 sm:grid-cols-4 mt-16 grid gap-2">
-            {products.map((product, index) => {
-              return (
-                <div
-                  onMouseEnter={() => {
-                    setActualProduct(product.slug);
-                    setIsShown(true);
-                  }}
-                  onMouseLeave={() => {
-                    setActualProduct(product.slug);
-                    setIsShown(false);
-                  }}
-                  key={index}
-                  className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
-                >
-                  {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
-                  <div className="flex items-center mx-auto z-30 justify">
-                    {/* <ProductModal
+          {products.some((item) => item.in_offer) && (
+            <div className="mt-16">
+              <h2 className="text-2xl font-semibold text-left mx-2">
+                Limited time offerts!{" "}
+                <FontAwesomeIcon
+                  className="text-green-500"
+                  icon={faStopwatch}
+                />
+              </h2>
+              <div className="grid-cols-1 sm:grid-cols-4 mt-6 grid gap-2">
+                {products.map((product, index) => {
+                  return (
+                    product.in_offer && (
+                      <div
+                        onMouseEnter={() => {
+                          setActualProduct(product.slug);
+                          setIsShown(true);
+                        }}
+                        onMouseLeave={() => {
+                          setActualProduct(product.slug);
+                          setIsShown(false);
+                        }}
+                        key={index}
+                        className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
+                      >
+                        <div className="flex items-center mx-auto z-30 justify">
+                          <CenteredModal
+                            product={product}
+                            isModalOpen={isModalOpen}
+                            setIsModalOpen={setIsModalOpen}
+                            actualProduct={actualProduct}
+                          />
+                        </div>
+                        <button
+                          onClick={() => handleOpenModal(product.slug)}
+                          className="md:hidden absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        >
+                          View more
+                        </button>
+                        {isShown && actualProduct === product.slug && (
+                          <button
+                            onClick={() => handleOpenModal(product.slug)}
+                            className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                          >
+                            View more
+                          </button>
+                        )}
+                        <div className="-mb-6 relative">
+                          <img
+                            className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
+                            src={product.company.logo}
+                            alt="company"
+                          />
+                        </div>
+                        <Link to={`/${product.company.slug}`}>
+                          <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
+                            <img
+                              className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
+                              src={product.image}
+                              alt="product"
+                            />
+                          </div>
+                        </Link>
+                        <div className="px-5">
+                          <Link to={`/${product.company.slug}`}>
+                            <h5 className="text-md text-start font-semibold tracking-tight text-gray-900 dark:text-white">
+                              {product.title}
+                            </h5>
+                          </Link>
+                          <div className="flex items-end">
+                            {product.in_offer ? (
+                              <>
+                                <span className="line-through text-gray-400">
+                                  ${product.price.toFixed(2)}
+                                </span>
+                                <span className="font-bold text-xl ml-2 text-green-500">
+                                  ${(product.price * 0.8).toFixed(2)}
+                                </span>
+                              </>
+                            ) : (
+                              <span className="font-bold text-xl text-green-500">
+                                ${product.price.toFixed(2)}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          <div className="mt-16">
+            <h2 className="text-2xl font-semibold text-left mx-2">
+              Picked for you{" "}
+              <FontAwesomeIcon className="text-red-500" icon={faHeart} />
+            </h2>
+            <div className="grid-cols-1 sm:grid-cols-4 mt-6 grid gap-2">
+              {products.map((product, index) => {
+                return (
+                  <div
+                    onMouseEnter={() => {
+                      setActualProduct(product.slug);
+                      setIsShown(true);
+                    }}
+                    onMouseLeave={() => {
+                      setActualProduct(product.slug);
+                      setIsShown(false);
+                    }}
+                    key={index}
+                    className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
+                  >
+                    {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
+                    <div className="flex items-center mx-auto z-30 justify">
+                      {/* <ProductModal
                       product={product}
                       isModalOpen={isModalOpen}
                       setIsModalOpen={setIsModalOpen}
                       actualProduct={actualProduct}
                     />{" "} */}
-                    <CenteredModal
-                      product={product}
-                      isModalOpen={isModalOpen}
-                      setIsModalOpen={setIsModalOpen}
-                      actualProduct={actualProduct}
-                    />
-                  </div>
-                  <button
-                    onClick={() => handleOpenModal(product.slug)}
-                    className="md:hidden absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  >
-                    View more
-                  </button>
-                  {isShown && actualProduct === product.slug && (
+                      <CenteredModal
+                        product={product}
+                        isModalOpen={isModalOpen}
+                        setIsModalOpen={setIsModalOpen}
+                        actualProduct={actualProduct}
+                      />
+                    </div>
                     <button
                       onClick={() => handleOpenModal(product.slug)}
-                      className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="md:hidden absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                     >
                       View more
                     </button>
-                  )}
-                  <div className="-mb-6 relative">
-                    <img
-                      className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                      src={product.company.logo}
-                      alt="company"
-                    />
-                  </div>
-                  <Link to={`/${product.company.slug}`}>
-                    <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
+                    {isShown && actualProduct === product.slug && (
+                      <button
+                        onClick={() => handleOpenModal(product.slug)}
+                        className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      >
+                        View more
+                      </button>
+                    )}
+                    <div className="-mb-6 relative">
                       <img
-                        className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
-                        src={product.image}
-                        alt="product"
+                        className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
+                        src={product.company.logo}
+                        alt="company"
                       />
                     </div>
-                  </Link>
-                  <div className="px-5">
                     <Link to={`/${product.company.slug}`}>
-                      <h5 className="text-md text-start font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {product.title}
-                      </h5>
+                      <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
+                        <img
+                          className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
+                          src={product.image}
+                          alt="product"
+                        />
+                      </div>
                     </Link>
-                    <div className="flex items-end">
-                      {product.in_offer ? (
-                        <>
-                          <span className="line-through text-gray-400">
+                    <div className="px-5">
+                      <Link to={`/${product.company.slug}`}>
+                        <h5 className="text-md text-start font-semibold tracking-tight text-gray-900 dark:text-white">
+                          {product.title}
+                        </h5>
+                      </Link>
+                      <div className="flex items-end">
+                        {product.in_offer ? (
+                          <>
+                            <span className="line-through text-gray-400">
+                              ${product.price.toFixed(2)}
+                            </span>
+                            <span className="font-bold text-xl ml-2 text-green-500">
+                              ${(product.price * 0.8).toFixed(2)}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="font-bold text-xl text-green-500">
                             ${product.price.toFixed(2)}
                           </span>
-                          <span className="font-bold text-xl ml-2 text-green-500">
-                            ${(product.price * 0.8).toFixed(2)}
-                          </span>
-                        </>
-                      ) : (
-                        <span className="font-bold text-xl text-green-500">
-                          ${product.price.toFixed(2)}
-                        </span>
-                      )}
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
           <div className="text-left mt-12 border-t pt-12">
             <h5 className="text-2xl font-semibold">
