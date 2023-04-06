@@ -20,11 +20,11 @@
 }
 
 .swiper-button-prev{
-  margin-left: -10px !important;
+  margin-left: -12px !important;
 }
 
 .swiper-button-next{
-margin-right: -10px !important;
+margin-right: -12px !important;
 }
 
 @media (max-width: 667px ) {

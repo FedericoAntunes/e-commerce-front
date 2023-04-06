@@ -125,10 +125,16 @@ function Restaurant() {
                       actualProduct={actualProduct}
                     />
                   </div>
+                  <button
+                    onClick={() => handleOpenModal(product.slug)}
+                    className="md:hidden absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  >
+                    View more
+                  </button>
                   {isShown && actualProduct === product.slug && (
                     <button
                       onClick={() => handleOpenModal(product.slug)}
-                      className=" absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       View more
                     </button>
@@ -141,7 +147,7 @@ function Restaurant() {
                     />
                   </div>
                   <Link to={`/${product.company.slug}`}>
-                    <div className="hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
+                    <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
                       <img
                         className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
                         src={product.image}

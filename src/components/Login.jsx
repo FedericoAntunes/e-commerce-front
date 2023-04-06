@@ -110,7 +110,7 @@ function Login() {
     }
   };
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
       <ToastContainer limit={1} />
       <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
         <Link
@@ -123,7 +123,7 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-white rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
+        <div className="sm:w-full bg-gray-100 rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
           <div className="p-6 pb-0 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
