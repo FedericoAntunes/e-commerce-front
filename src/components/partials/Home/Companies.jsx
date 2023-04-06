@@ -13,7 +13,7 @@ function Companies({ companies }) {
               style={{ backgroundImage: `url("${company.background}")` }}
               className="h-28 relative bg-cover bg-no-repeat"
             >
-              {company.valoration > 4.5 && (
+              {company.valoration >= 4.7 && (
                 <span className="bg-green-500 text-white p-1 rounded-r-full absolute left-0 top-2">
                   {" "}
                   Trending restaurant{" "}
