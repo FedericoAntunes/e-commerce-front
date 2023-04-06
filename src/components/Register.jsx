@@ -153,9 +153,9 @@ function Register() {
                   value={email}
                 />
               </div>
-              <div class="relative flex justify-center">
+              <div className="relative flex justify-center">
                 <input
-                  class="opacity-0 absolute inset-0 z-50 cursor-pointer"
+                  className="opacity-0 absolute inset-0 z-50 cursor-pointer"
                   onChange={(e) => setAvatar(e.target.files[0])}
                   multiple
                   name="avatar"
@@ -164,7 +164,7 @@ function Register() {
                 />
                 <label
                   for="avatar"
-                  class="text-white px-4 py-2 bg-yellow-500 rounded-lg cursor-pointer text-base tracking-normal block w-40 text-center"
+                  className="text-white px-4 py-2 bg-yellow-500 rounded-lg cursor-pointer text-base tracking-normal block w-40 text-center"
                 >
                   Choose File
                 </label>
