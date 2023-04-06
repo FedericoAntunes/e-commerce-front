@@ -123,7 +123,7 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-gray-100 rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
+        <div className="sm:w-full bg-gray-100 shadow-xl rounded-lg md:mt-0 lg:w-1/4 py-6">
           <div className="p-6 pb-0 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
@@ -132,7 +132,7 @@ function Login() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-black"
+                  className="block mb-2 text-lg font-medium text-black tracking-wide"
                 >
                   Your email
                 </label>
@@ -149,7 +149,7 @@ function Login() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-black"
+                  className="block mb-2 text-lg font-medium text-black tracking-wide"
                 >
                   Password
                 </label>
@@ -174,7 +174,7 @@ function Login() {
                       required=""
                     />
                   </div>
-                  <div className="ml-3 text-sm">
+                  <div className="ml-3 text-base font-medium text-black">
                     <label
                       htmlFor="remember"
                       className="text-black font-medium"
@@ -185,22 +185,22 @@ function Login() {
                 </div>
                 <Link
                   to="#"
-                  className="text-sm font-medium text-blue-500 hover:underline"
+                  className="text-base font-medium text-blue-500 hover:underline"
                 >
                   Forgot password?
                 </Link>
               </div>
               <button
                 type="submit"
-                className="w-full text-gray-200	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                className="w-full text-gray-200	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
               >
                 Sign in
               </button>
-              <p className="text-sm font-light text-black ">
+              <p className="text-base font-light text-black  ">
                 Don’t have an account yet?
                 <Link
                   to="/register"
-                  className="font-medium text-blue-500 hover:underline ml-1"
+                  className="text-base font-light  text-blue-500 hover:underline ml-1"
                 >
                   Sign up
                 </Link>
