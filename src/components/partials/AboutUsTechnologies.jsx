@@ -16,7 +16,7 @@ function AboutUsTechnologies() {
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Technologies
         </h5>
-        <ul className="list-none text-left w-full pl-20 mt-6">
+        <ul className="list-none text-left w-full pl-10 mt-6">
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
             <FaReact className="inline-block mr-2 text-5xl" /> React
           </li>
