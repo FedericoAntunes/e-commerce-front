@@ -10,7 +10,7 @@ function AboutUsChallenges() {
         </h5>
         <ul className="list-disc list-inside text-left">
           <li className="flex items-center mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <FaCreditCard className="inline-block mr-3 text-8xl text-gray-500 dark:text-gray-400" /> Payment gateway: Integrating a payment gateway can be complex and requires careful attention to security and user experience.
+            <FaCreditCard className="inline-block mr-3 text-8xl text-gray-500 dark:text-gray-400" />Payment gateway: Integrating a payment gateway can be complex and requires careful attention to security and user experience.
           </li>
           <li className="flex items-center mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
             <FaSearch className="inline-block mr-3 text-8xl text-gray-500 dark:text-gray-400" /> Search functionality: Building a fast and accurate search engine for large datasets can be a challenge, requiring knowledge of indexing, ranking, and optimization techniques.

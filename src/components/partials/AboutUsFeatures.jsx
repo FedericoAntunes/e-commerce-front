@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function AboutUsFeatures() {
   return (
@@ -8,15 +8,16 @@ function AboutUsFeatures() {
           Features
         </h5>
         <p className="mb-4 text-lg font-medium text-gray-700 dark:text-gray-400 text-left">
-          Our ecommerce platform offers a seamless user experience with responsive design, easy checkout, and order tracking. Browse our wide range of products and shop with confidence knowing your personal information is secure.
+          Our ecommerce platform offers a seamless user experience with{" "}
+          <span className="font-bold">responsive design</span>,{" "}
+          <span className="font-bold">easy checkout</span>, and{" "}
+          <span className="font-bold">order tracking</span>. Browse our wide
+          range of products and shop with confidence knowing your personal
+          information is secure.
         </p>
       </div>
     </>
-  )
+  );
 }
 
-export default AboutUsFeatures
-
-
-
-
+export default AboutUsFeatures;
