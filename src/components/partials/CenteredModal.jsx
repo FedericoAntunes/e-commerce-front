@@ -42,55 +42,87 @@ function CenteredModal({
         <>
           <div className="fixed left-0 h-screen top-0 right-0 bottom-0 z-40 flex items-center justify-center">
             <div className="relative w-full max-w-2xl mx-auto">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg h-screen sm:h-[80vh] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 className="text-3xl font-semibold w-80 text-center">
                     {product.title}
                   </h3>
                   <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setIsModalOpen()}
                   >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                    <span className="bg-transparent text-black  h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
                     </span>
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <img
-                    className="h-40 mx-auto rounded-t"
-                    src={`${product.image}`}
-                    alt="category-img"
-                  />
-                  <p className="my-4 text-slate-500 text-lg mx-auto leading-relaxed w-80">
-                    {product.description}
-                  </p>
-                  <h1>In stock: {product.stock}</h1>
-                  <div className="text-right">
-                    <h1>US$ {product.price}</h1>
+                <div className="relative p-6 pt-12 sm:grid bg-gray-100 sm:grid-cols-2 flex-auto">
+                  <div className="pr-4">
+                    <img
+                      className="h-40 mx-auto border md:w-full md:h-auto mt-8 md:mt-0 rounded"
+                      src={`${product.image}`}
+                      alt="category-img"
+                    />
+                    <h4 className="my-4 text-slate-800 text-sm font-bold text-left leading-6">
+                      In stock:{" "}
+                      <span className="text-slate-500">{product.stock}</span>
+                    </h4>
+
+                    <div className="text-center justify-between flex">
+                      <input
+                        onChange={(e) => handleQuantity(e)}
+                        type="number"
+                        min={1}
+                        max={product.stock}
+                        value={quantity}
+                        className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      />
+                      <div>
+                        {product.in_offer ? (
+                          <>
+                            <span className="line-through text-xl text-gray-400">
+                              ${product.price.toFixed(2)}
+                            </span>
+                            <span className="font-bold text-2xl ml-2 text-green-500">
+                              ${(product.price * 0.8).toFixed(2)}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="font-bold text-2xl text-green-500">
+                            ${product.price.toFixed(2)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <input
-                    onChange={(e) => handleQuantity(e)}
-                    type="number"
-                    min={1}
-                    max={product.stock}
-                    value={quantity}
-                  />
+                  <div className="overflow-x-hidden overflow-y-auto h-[170px]">
+                    <p className="mt-2 text-gray-900 font-body text-lg leading-8 text-left w-80">
+                      {product.description}
+                    </p>
+                  </div>
                 </div>
                 {/*footer*/}
                 <div className="flex flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
+                    className="hidden md:inline"
                     onClick={() => {
                       handleSubmit(product);
                     }}
                   >
                     <AddItemBtn />
                   </button>
-
                   <button
-                    className="text-red-500 bg-white hover:bg-red-200 border border-red-500 mt-4 inline-block ms-auto rounded background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    onClick={() => {
+                      handleSubmit(product);
+                    }}
+                    className="bg-yellow-500 md:hidden  text-white font-bold py-2 px-4 rounded-full w-4/5"
+                  >
+                    Add to my cart
+                  </button>
+                  <button
+                    className="text-red-500 bg-white md:hover:bg-red-200 border border-red-500 mt-4 inline-block ms-auto rounded background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setIsModalOpen()}
                   >

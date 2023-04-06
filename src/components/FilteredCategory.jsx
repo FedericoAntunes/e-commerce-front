@@ -31,7 +31,7 @@ function FilteredCategory() {
     category && (
       <div className="mt-20 pt-6">
         <h3 className="text-2xl font-semibold">{category.name}</h3>
-        <div className="pt-6 grid-cols-1 sm:grid-cols-4 mx-24 grid gap-2">
+        <div className="pt-6 grid-cols-1 sm:grid-cols-4 sm:mx-24 grid gap-2">
           {products &&
             products.map((product, index) => {
               return (
@@ -54,6 +54,11 @@ function FilteredCategory() {
                   )}
                   {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
                   <div className="flex items-center mx-auto z-30 justify"></div>
+                  <Link to={`/${product.company.slug}`}>
+                    <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                      Go to restaurant
+                    </button>
+                  </Link>
                   {isShown && actualProduct === product.id && (
                     <Link to={`/${product.company.slug}`}>
                       <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -71,7 +76,7 @@ function FilteredCategory() {
                     </Link>
                   </div>
                   <Link to={`/${product.company.slug}`}>
-                    <div className="hover:scale-105 ease-in-out w-full h-[200px] mb-5 overflow-hidden duration-300">
+                    <div className="md:hover:scale-105 ease-in-out w-full h-[200px] mb-5 overflow-hidden duration-300">
                       <img
                         className="pt-6 pb-4 z-0 w-full rounded-t-lg"
                         src={product.image}
