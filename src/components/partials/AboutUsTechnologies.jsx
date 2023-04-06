@@ -11,19 +11,19 @@ function AboutUsTechnologies() {
         </h5>
         <ul className="list-none text-left w-full pl-20 mt-6">
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <FaReact className="inline-block mr-2 text-4xl" /> React
+            <FaReact className="inline-block mr-2 text-5xl" /> React
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <FaCss3 className="inline-block mr-2 text-4xl" /> Tailwind CSS
+            <FaCss3 className="inline-block mr-2 text-5xl" /> Tailwind CSS
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <SiMysql className="inline-block mr-2 text-4xl" /> MySQL
+            <SiMysql className="inline-block mr-2 text-5xl" /> MySQL
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <FaNodeJs className="inline-block mr-2 text-4xl" /> Node.js
+            <FaNodeJs className="inline-block mr-2 text-5xl" /> Node.js
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <SiExpress className="inline-block mr-2 text-4xl" /> Express.js
+            <SiExpress className="inline-block mr-2 text-5xl" /> Express.js
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
             <MdWeb className="inline-block mr-2 text-4xl" /> Material UI
