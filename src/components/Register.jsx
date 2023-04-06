@@ -71,7 +71,7 @@ function Register() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-gray-100 rounded-lg shadow md:mt-0 py-6 lg:w-1/4">
+        <div className="sm:w-full bg-gray-100 rounded-lg shadow-xl md:mt-0 py-6 lg:w-1/4">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Create your account
@@ -84,7 +84,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="firstname"
-                  className="block mb-2 text-sm font-medium text-black "
+                  className="block mb-2 font-medium text-black text-base tracking-wide "
                 >
                   Firstname
                 </label>
@@ -102,7 +102,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="lastname"
-                  className="block mb-2 text-sm font-medium text-black "
+                  className="block mb-2 font-medium text-black text-base tracking-wide "
                 >
                   Lastname
                 </label>
@@ -120,7 +120,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="username"
-                  className="block mb-2 text-sm font-medium text-black "
+                  className="block mb-2 font-medium text-black text-base tracking-wide "
                 >
                   Username
                 </label>
@@ -138,7 +138,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-black "
+                  className="block mb-2 font-medium text-black text-base tracking-wide "
                 >
                   Email
                 </label>
@@ -165,7 +165,7 @@ function Register() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-black "
+                  className="block mb-2 font-medium text-black text-base tracking-wide "
                 >
                   Password
                 </label>
@@ -182,15 +182,15 @@ function Register() {
               </div>
               <button
                 type="submit"
-                className="w-full text-white 	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                className="w-full text-base tracking-wide text-white 	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5 text-center "
               >
                 Sign up
               </button>
-              <p className="text-sm font-light text-black  ">
+              <p className="text-base font-light text-black  ">
                 Do you already have an account?
                 <Link
                   to="/login"
-                  className="font-medium text-blue-500 hover:underline ml-1"
+                  className="font-medium text-base text-blue-500 hover:underline ml-1"
                 >
                   Sign in
                 </Link>
