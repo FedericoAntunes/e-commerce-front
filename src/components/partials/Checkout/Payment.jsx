@@ -9,12 +9,10 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
-
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 function Payment({ shippingData, setShippingData }) {
   const [value, setValue] = useState(null);
@@ -28,9 +26,8 @@ function Payment({ shippingData, setShippingData }) {
   });
 
   const handleInputChange = (evt) => {
-      const { name, value } = evt.target;
-      setState((prev) => ({ ...prev, [name]: value }));
-
+    const { name, value } = evt.target;
+    setState((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleDateChange = (newValue) => {
@@ -38,36 +35,48 @@ function Payment({ shippingData, setShippingData }) {
     handleInputChange({
       target: {
         name: "expiry",
-        value: newValue ? `${newValue.getMonth() + 1}/${newValue.getFullYear().toString().substr(-2)}` : ""
-      }
+        value: newValue
+          ? `${newValue.getMonth() + 1}/${newValue
+              .getFullYear()
+              .toString()
+              .substr(-2)}`
+          : "",
+      },
     });
   };
-  
 
   const handleInputFocus = (evt) => {
     setState((prev) => ({ ...prev, focus: evt.target.name }));
   };
   const expDate = (params) => (
     <DatePicker
-    {...params}
-    label="Valid Thru"
-    inputFormat="MM/yy"
-    id="card-expiry"
-    className="form-control"
-    required
-    value={state.expiry}
-    onChange={(newValue) =>
-      handleInputChange({ target: { name: "expiry", value: newValue } })
-    }
-    sx={{ my: 1 }}
-  />
+      {...params}
+      label="Valid Thru"
+      inputFormat="MM/yy"
+      id="card-expiry"
+      className="form-control"
+      required
+      value={state.expiry}
+      onChange={(newValue) =>
+        handleInputChange({ target: { name: "expiry", value: newValue } })
+      }
+      sx={{ my: 1 }}
+    />
   );
-  
 
   return (
     <>
       <FormControl component="fieldset">
-        <FormLabel component="legend" id="demo-row-radio-buttons-group-label">Payment</FormLabel>
+        <FormLabel component="legend" id="demo-row-radio-buttons-group-label">
+          <div className="justify-center my-6 flex">
+            <img
+              className="bg-transparent w-8"
+              src="https://uxwing.com/wp-content/themes/uxwing/download/crime-security-military-law/secure-payment-icon.png"
+              alt=""
+            />{" "}
+            <span className="ml-2">Secure payment system</span>
+          </div>
+        </FormLabel>
         <RadioGroup
           row
           required
@@ -96,37 +105,37 @@ function Payment({ shippingData, setShippingData }) {
       </FormControl>
 
       <Box sx={{ display: active === "credit_card" ? "block" : "none" }}>
-        <Grid container >
-        <Grid item xs={12}>
-          <Cards
-            number={state.number}
-            expiry={state.expiry}
-            cvc={state.cvc}
-            name={state.name}
-            focused={state.focus}
-          />
+        <Grid container>
+          <Grid item xs={12}>
+            <Cards
+              number={state.number}
+              expiry={state.expiry}
+              cvc={state.cvc}
+              name={state.name}
+              focused={state.focus}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
-          <TextField
-            id="card-number"
-            label="Card Number"
-            type="number"
-            name="number"
-            value={state.number}
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-            sx={{ my: 1 }}
-          />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker
-              label="Expiration Date"
-              value={state.selectedDate}
+            <TextField
+              id="card-number"
+              label="Card Number"
+              type="number"
+              name="number"
+              value={state.number}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
               sx={{ my: 1 }}
-              onChange={handleDateChange}
-             />
-           </LocalizationProvider>
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DatePicker
+                label="Expiration Date"
+                value={state.selectedDate}
+                sx={{ my: 1 }}
+                onChange={handleDateChange}
+              />
+            </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6}>
             {/* <TextField
@@ -141,25 +150,25 @@ function Payment({ shippingData, setShippingData }) {
               onFocus={handleInputFocus}
               sx={{ my: 1 }}
             /> */}
-             <TextField        // CardName
-            id="card-name"
-            label="Name"
-            type="text"
-            name="name"
-            required
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-            onKeyPress={(event) => {
-              const regex = /^[a-zA-Z\s]*$/;
-              const key = String.fromCharCode(event.which);
-              if (!regex.test(key)) {
-                event.preventDefault();
-              }
-            }}
-            sx={{ my: 1 }}
-          />
+            <TextField // CardName
+              id="card-name"
+              label="Name"
+              type="text"
+              name="name"
+              required
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+              onKeyPress={(event) => {
+                const regex = /^[a-zA-Z\s]*$/;
+                const key = String.fromCharCode(event.which);
+                if (!regex.test(key)) {
+                  event.preventDefault();
+                }
+              }}
+              sx={{ my: 1 }}
+            />
           </Grid>
-          
+
           <Grid item xs={12} sm={6}>
             <TextField
               id="card-cvc"
@@ -182,7 +191,6 @@ function Payment({ shippingData, setShippingData }) {
                   event.preventDefault();
                 }
               }}
-
               sx={{ my: 1 }}
             />
           </Grid>
