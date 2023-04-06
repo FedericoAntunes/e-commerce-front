@@ -50,128 +50,93 @@ function OrderStatus() {
             <StepLabel>Shipped</StepLabel>
           </Step>
         </Stepper>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Grid item xs={12} md={4}>
-            <Paper className="text-left" sx={{ p: 2, bgcolor: "#f5f5f5" }}>
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="h5" gutterBottom>
-                  Order details
-                </Typography>
-              </Box>
+        <div class="flex flex-col lg:flex-row lg:justify-between">
+          <div class="w-full md:w-1/2 lg:w-2/5">
+            <div class="p-4 bg-gray-100 border rounded-lg">
+              <h5 class="text-xl font-bold mb-2">Order Details</h5>
               {lastOrderInfo.products.map((product, index) => (
-                <Box
+                <div
                   key={index}
-                  sx={{
-                    borderBottom: "1px solid #eee",
-                    py: 2,
-                    display: "flex",
-                    alignItems: "center",
-                  }}
+                  class="flex items-center justify-between py-2 border-b border-gray-300"
                 >
-                  <Box sx={{ flexGrow: 1 }}>
-                    <div className="text-center">
-                      <Typography
-                        variant="body1"
-                        gutterBottom
-                        sx={{ fontWeight: "bold" }}
-                      >
-                        {product.title}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        className="font-bold"
-                        gutterBottom
-                      >
-                        Quantity: <strong>{product.qty}</strong>
-                      </Typography>
-                      <Typography variant="body1" gutterBottom>
-                        Price:{" "}
-                        <strong>
-                          ${(product.unit_price * product.qty).toFixed(2)}
-                        </strong>
-                      </Typography>
-                    </div>
-                  </Box>
+                  <div class="flex-grow pr-4">
+                    <h6 class="font-medium">{product.title}</h6>
+                    <p class="text-sm text-gray-600 leading-6 tracking-wider">
+                      Quantity: <strong>{product.qty}</strong>
+                    </p>
+                    <p class="text-sm text-gray-600 leading-6 tracking-wider">
+                      Price:{" "}
+                      <strong>
+                        ${(product.unit_price * product.qty).toFixed(2)}
+                      </strong>
+                    </p>
+                  </div>
                   <img
                     src={product.image}
                     alt="Product"
-                    style={{
-                      borderRadius: "0.5rem",
-                      boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                      width: "60%", height: "auto", marginTop: "1rem"
-                    }}
-                    className="rounded-lg"
+                    class="w-[100px] rounded-lg shadow-md"
                   />
-                </Box>
-              ))}
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <Paper className="text-start" sx={{ p: 2, bgcolor: "#f5f5f5" }}>
-              <div className="text-start mb-4">
-                <Typography variant="h5" gutterBottom>
-                  Order Summary
-                </Typography>
-              </div>
-              <div className="text-start">
-                <Typography variant="body1" gutterBottom>
-                  Subtotal: <strong>${subtotal.toFixed(2)}</strong>
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Tax: <strong>${tax.toFixed(2)}</strong>
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Shipping: <strong>${shipping.toFixed(2)}</strong>
-                </Typography>
-                <Typography variant="h6" gutterBottom>
-                  <strong>Total:</strong> <strong>${total.toFixed(2)}</strong>
-                </Typography>
-              </div>
-              <Box sx={{ borderBottom: "1px solid gray", my: 2, opacity: 0.5 }}></Box>
-              <Typography variant="h5" gutterBottom>
-                Order Information
-              </Typography>
-              {order && (
-                <div key={order.id}>
-                  <Typography variant="body1">
-                    <strong>Order Id:</strong> {order.id}
-                  </Typography>
-                  <Typography variant="body1" gutterBottom>
-                    <strong>Order Status:</strong> {order.status}
-                  </Typography>
-                  <div>
-                    <Typography
-                      variant="body1"
-                      gutterBottom
-                      display="inline-block"
-                    >
-                      <strong>Name:</strong> {order.address.firstname}{" "}
-                      {order.address.lastname}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      gutterBottom
-                      display="inline-block"
-                      sx={{ ml: 2 }}
-                    >
-                      <strong>Province:</strong> {order.address.province}
-                    </Typography>
-                  </div>
-                  <Typography
-                    variant="body1"
-                    sx={{ fontWeight: "bold", mb: 1 }}
-                  >
-                    Address:
-                  </Typography>
-                  <Typography variant="body1" gutterBottom>
-                    {order.address.address}, {order.address.city},{" "}
-                    {order.address.postal_code}
-                  </Typography>
                 </div>
-              )}
-            </Paper>
-          </Grid>
-        </Grid>
+              ))}
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 lg:w-3/5">
+            <div class="p-4 bg-gray-100">
+              <div class="mb-4">
+                <h5 class="text-xl font-bold text-left">Order Summary</h5>
+              </div>
+              <div class="mb-4">
+                <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
+                  Subtotal: <strong>${subtotal.toFixed(2)}</strong>
+                </p>
+
+                <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
+                  Tax: <strong>${tax.toFixed(2)}</strong>
+                </p>
+
+                <div className="mb-4">
+                  <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
+                    Shipping: <strong>${shipping.toFixed(2)}</strong>
+                  </p>
+                </div>
+
+                <h6 class="text-lg font-medium mb-2 text-left">
+                  <strong>Total:</strong> <strong>${total.toFixed(2)}</strong>
+                </h6>
+              </div>
+              <div class="border-b border-gray-300 mb-2"></div>
+              <div>
+                <h5 class="text-xl font-bold text-left">Order Information</h5>
+                {order && (
+                  <div key={order.id} class="mt-4">
+                    <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
+                      <strong>Order Id:</strong> {order.id}
+                    </p>
+                    <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
+                      <strong>Order Status:</strong> {order.status}
+                    </p>
+                    <div class="flex items-center mt-2">
+                      <p class="text-sm text-gray-600 leading-6 tracking-wider">
+                        <strong>Name:</strong> {order.address.firstname}{" "}
+                        {order.address.lastname}
+                      </p>
+                      <p class="text-sm text-gray-600 ml-2 leading-6 tracking-wider">
+                        <strong>Province:</strong> {order.address.province}
+                      </p>
+                    </div>
+                    <h6 class="text-sm text-gray-600 font-medium mt-2 text-left leading-6 tracking-wider">
+                      <strong>Address:</strong>
+                    </h6>
+                    <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
+                      {order.address.address}, {order.address.city},{" "}
+                      {order.address.postal_code}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   );
