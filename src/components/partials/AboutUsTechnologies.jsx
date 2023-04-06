@@ -1,6 +1,13 @@
-import { FaReact, FaCss3, FaNodeJs } from 'react-icons/fa';
-import { SiMysql, SiExpress } from 'react-icons/si';
-import { MdWeb } from 'react-icons/md';
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { SiMysql, SiExpress, SiTailwindcss } from "react-icons/si";
+import { 
+    MdWeb,
+    MdDesktopMac,
+    MdStorage,
+    MdSettings,
+    MdCheckCircle,
+    MdChat
+  } from 'react-icons/md';
 
 function AboutUsTechnologies() {
   return (
@@ -14,7 +21,8 @@ function AboutUsTechnologies() {
             <FaReact className="inline-block mr-2 text-5xl" /> React
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <FaCss3 className="inline-block mr-2 text-5xl" /> Tailwind CSS
+            <SiTailwindcss className="inline-block mr-2 text-5xl" /> Tailwind
+            CSS
           </li>
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
             <SiMysql className="inline-block mr-2 text-5xl" /> MySQL
@@ -25,9 +33,7 @@ function AboutUsTechnologies() {
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
             <SiExpress className="inline-block mr-2 text-5xl" /> Express.js
           </li>
-          <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
-            <MdWeb className="inline-block mr-2 text-4xl" /> Material UI
-          </li>
+
         </ul>
       </div>
     </>
