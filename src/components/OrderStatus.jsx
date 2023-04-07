@@ -35,7 +35,7 @@ function OrderStatus() {
 
   return (
     order && (
-      <div className="mt-[84px] py-12">
+      <div className="mt-[84px] py-12 px-48">
         <Typography variant="h4" gutterBottom>
           Thanks for your order
         </Typography>
@@ -50,7 +50,7 @@ function OrderStatus() {
             <StepLabel>Shipped</StepLabel>
           </Step>
         </Stepper>
-        <div class="flex flex-col lg:flex-row lg:justify-between">
+        <div class="flex flex-col gap-4 mt-6 bg-white p-6 rounded-lg shadow-xl lg:flex-row lg:justify-between">
           <div class="w-full md:w-1/2 lg:w-2/5">
             <div class="p-4 bg-gray-100 border rounded-lg">
               <h5 class="text-xl font-bold mb-2">Order Details</h5>
@@ -81,7 +81,7 @@ function OrderStatus() {
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-3/5">
-            <div class="p-4 bg-gray-100">
+            <div class="p-4 bg-gray-100 border">
               <div class="mb-4">
                 <h5 class="text-xl font-bold text-left">Order Summary</h5>
               </div>
