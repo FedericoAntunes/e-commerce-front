@@ -51,7 +51,7 @@ function Header() {
   });
 
   return (
-    <div className="fixed w-full h-16 z-50 top-0">
+    <div className="fixed w-full h-16 z-50 -top-1">
       <ToastContainer />
       <Navbar
         fluid={true}
