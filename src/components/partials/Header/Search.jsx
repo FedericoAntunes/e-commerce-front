@@ -6,7 +6,7 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import apiCall from "../../api/api";
 import "./Search.css";
 
-function Search({ navbarScroll, toggleSearch, setToggleSearch }) {
+function Search({ navbarScroll, toggleSearch, setToggleSearch, header }) {
   const [items, setItems] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
@@ -107,7 +107,7 @@ function Search({ navbarScroll, toggleSearch, setToggleSearch }) {
               }
         }
         className={`px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-300 ${
-          !toggleSearch && "hidden"
+          !toggleSearch && header && "hidden"
         } sm:inline`}
         onSubmit={handleOnSearch}
       >

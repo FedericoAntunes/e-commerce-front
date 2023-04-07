@@ -68,6 +68,7 @@ function Header() {
           navbarScroll={navbarScroll}
           toggleSearch={toggleSearch}
           setToggleSearch={setToggleSearch}
+          header={true}
         />
 
         <div
@@ -79,13 +80,15 @@ function Header() {
           }
         >
           <div className="relative">
-            <FontAwesomeIcon
-              className={`p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400 sm:hidden`}
-              onClick={() => {
-                setToggleSearch(!toggleSearch);
-              }}
-              icon={faSearch}
-            />
+            {navbarScroll && (
+              <FontAwesomeIcon
+                className={`p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400 sm:hidden`}
+                onClick={() => {
+                  setToggleSearch(!toggleSearch);
+                }}
+                icon={faSearch}
+              />
+            )}
             <FontAwesomeIcon
               className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
               onClick={() => dispatch(toggleMenu())}

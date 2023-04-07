@@ -10,7 +10,7 @@ function Hero() {
     >
       <div
         style={{ flex: "1 1 auto", minWidth: "235px", maxWidth: "700px" }}
-        className="px-0 xs:px-3 mt-2 xs:mt-0 text-left order-5 xs:order-2"
+        className="pl-0 pr-3 xs:px-3 mt-2 xs:mt-0 text-left order-5 xs:order-2"
       >
         <label
           htmlFor="default-search"
@@ -22,7 +22,7 @@ function Hero() {
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <img src="/img/no-hunger.png" width="25" height="25" alt="logo" />
           </div>
-          <Search navbarScroll={true} />
+          <Search navbarScroll={true} header={false} />
           {/* <input
             type="search"
             id="default-search"
