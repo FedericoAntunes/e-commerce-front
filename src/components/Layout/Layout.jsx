@@ -21,7 +21,7 @@ function Layout() {
         <div>
           <Header />
         </div>
-        <main className="">
+        <main className="min-h-[90vh]">
           <Outlet context={[category, setCategory, companies, setCompanies]} />
         </main>
         <div>
