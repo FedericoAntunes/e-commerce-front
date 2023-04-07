@@ -60,7 +60,7 @@ function Register() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 lg:h-screen">
+    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:h-screen">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
         <Link
           to="/about-us"
@@ -82,10 +82,10 @@ function Register() {
               className="space-y-4 md:space-y-6"
               action="#"
             >
-              <div className="lg:flex">
+              <div className="md:flex">
                 <label
                   htmlFor="firstname"
-                  className="block mb-2 font-medium text-black text-base tracking-wide lg:my-auto mt-4 mx-4"
+                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
                 >
                   Firstname:
                 </label>
@@ -101,7 +101,7 @@ function Register() {
                 />
                 <label
                   htmlFor="lastname"
-                  className="block mb-2 font-medium text-black text-base tracking-wide lg:my-auto mt-4 mx-4"
+                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
                 >
                   Lastname:
                 </label>
@@ -116,10 +116,10 @@ function Register() {
                   value={lastname}
                 />
               </div>
-              <div className="lg:flex">
+              <div className="md:flex">
                 <label
                   htmlFor="username"
-                  className="block mb-2 font-medium text-black text-base tracking-wide lg:my-auto mt-4 mx-4"
+                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
                 >
                   Username:
                 </label>
@@ -135,7 +135,7 @@ function Register() {
                 />
                 <label
                   htmlFor="email"
-                  className="block mb-2 font-medium text-black text-base tracking-wide lg:my-auto mt-4 mx-4"
+                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
                 >
                   Email:
                 </label>
@@ -150,9 +150,15 @@ function Register() {
                   value={email}
                 />
               </div>
-              <div className="relative lg:flex justify-center">
+              <div className="relative md:flex">
+                <label
+                  htmlFor="avatar"
+                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
+                >
+                  Avatar:
+                </label>
                 <input
-                  className="mt-4"
+                  className="my-auto block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                   onChange={(e) => setAvatar(e.target.files[0])}
                   multiple
                   name="avatar"
@@ -161,7 +167,7 @@ function Register() {
                 />
                 <label
                   htmlFor="password"
-                  className="block mb-2 font-medium text-black text-base tracking-wide mx-4 lg:my-auto mt-4"
+                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
                 >
                   Password:
                 </label>
