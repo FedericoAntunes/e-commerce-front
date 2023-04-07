@@ -28,7 +28,6 @@ function Register() {
     const response = await apiCall("/users", "post", formData, {
       "Content-Type": "multipart/form-data",
     });
-    console.log(response.data);
     if (response.data === "Fill all the fields.") {
       setError("Fill all the fields.");
       return toast.warn("Fill all the fields.", {
@@ -82,105 +81,113 @@ function Register() {
               className="space-y-4 md:space-y-6"
               action="#"
             >
-              <div className="md:flex">
-                <label
-                  htmlFor="firstname"
-                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
-                >
-                  Firstname:
-                </label>
-                <input
-                  onChange={(e) => setFirstName(e.target.value)}
-                  type="text"
-                  name="firstname"
-                  id="firstname"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="Insert your firstname..."
-                  required=""
-                  value={firstname}
-                />
-                <label
-                  htmlFor="lastname"
-                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
-                >
-                  Lastname:
-                </label>
-                <input
-                  onChange={(e) => setLastName(e.target.value)}
-                  type="text"
-                  name="lastname"
-                  id="lastname"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="Insert your lastname..."
-                  required=""
-                  value={lastname}
-                />
-              </div>
-              <div className="md:flex">
-                <label
-                  htmlFor="username"
-                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
-                >
-                  Username:
-                </label>
-                <input
-                  onChange={(e) => setUserName(e.target.value)}
-                  type="text"
-                  name="username"
-                  id="username"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="Insert your username..."
-                  required=""
-                  value={username}
-                />
-                <label
-                  htmlFor="email"
-                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
-                >
-                  Email:
-                </label>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="Insert your email..."
-                  required=""
-                  value={email}
-                />
-              </div>
-              <div className="relative md:flex">
-                <label
-                  htmlFor="avatar"
-                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
-                >
-                  Avatar:
-                </label>
-                <input
-                  className="my-auto block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                  onChange={(e) => setAvatar(e.target.files[0])}
-                  multiple
-                  name="avatar"
-                  id="avatar"
-                  type="file"
-                />
-                <label
-                  htmlFor="password"
-                  className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 mx-4"
-                >
-                  Password:
-                </label>
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="••••••••"
-                  className="w-full bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block lg:w-1/2 p-2.5 "
-                  required=""
-                  value={password}
-                />
+              <div className="md:grid grid-cols-2 gap-4 ">
+                <div>
+                  <label
+                    htmlFor="firstname"
+                    className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 w-fit"
+                  >
+                    Firstname:
+                  </label>
+                  <input
+                    onChange={(e) => setFirstName(e.target.value)}
+                    type="text"
+                    name="firstname"
+                    id="firstname"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="Insert your firstname..."
+                    required=""
+                    value={firstname}
+                  />
+                </div>{" "}
+                <div>
+                  <label
+                    htmlFor="lastname"
+                    className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 w-fit"
+                  >
+                    Lastname:
+                  </label>
+                  <input
+                    onChange={(e) => setLastName(e.target.value)}
+                    type="text"
+                    name="lastname"
+                    id="lastname"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="Insert your lastname..."
+                    required=""
+                    value={lastname}
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="username"
+                    className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 w-fit"
+                  >
+                    Username:
+                  </label>
+                  <input
+                    onChange={(e) => setUserName(e.target.value)}
+                    type="text"
+                    name="username"
+                    id="username"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="Insert your username..."
+                    required=""
+                    value={username}
+                  />
+                </div>{" "}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 w-fit"
+                  >
+                    Email:
+                  </label>
+                  <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="Insert your email..."
+                    required=""
+                    value={email}
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="avatar"
+                    className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 w-fit"
+                  >
+                    Avatar:
+                  </label>
+                  <input
+                    className="my-auto block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                    onChange={(e) => setAvatar(e.target.files[0])}
+                    multiple
+                    name="avatar"
+                    id="avatar"
+                    type="file"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 font-medium text-black text-base tracking-wide md:my-auto mt-4 w-fit"
+                  >
+                    Password:
+                  </label>
+                  <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="••••••••"
+                    className="w-full bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                    required=""
+                    value={password}
+                  />
+                </div>
               </div>
               <button
                 type="submit"
