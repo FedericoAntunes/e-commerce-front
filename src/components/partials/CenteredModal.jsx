@@ -57,7 +57,7 @@ function CenteredModal({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 sm:grid bg-gray-100 sm:grid-cols-2 flex-auto">
-                  <div className="pr-4">
+                  <div className="pr-4 my-auto">
                     <img
                       className="h-40 w-[219px] mx-auto border mt-8 md:mt-0 rounded"
                       src={`${product.image}`}
@@ -95,7 +95,7 @@ function CenteredModal({
                       </div>
                     </div>
                   </div>
-                  <div className="overflow-x-hidden overflow-y-auto h-[170px]">
+                  <div className="overflow-x-hidden my-auto overflow-y-auto h-[170px]">
                     <p className="mt-2 text-gray-900 font-body text-lg leading-8 text-left w-80">
                       {product.description}
                     </p>
