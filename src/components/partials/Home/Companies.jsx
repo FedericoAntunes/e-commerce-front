@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import CompaniesLoader from "../loaders/CompaniesLoader";
 
 function Companies({ companies }) {
-  console.log(companies);
-  return (
+  return companies ? (
     <div className="grid-cols-1 sm:grid-cols-2 mx-4 grid gap-x-8 gap-y-12 border-t pt-16 mt-16">
       {companies.map((company, index) => (
         <NavLink key={index} to={`/${company.slug}`}>
@@ -35,6 +35,8 @@ function Companies({ companies }) {
         </NavLink>
       ))}
     </div>
+  ) : (
+    <CompaniesLoader />
   );
 }
 

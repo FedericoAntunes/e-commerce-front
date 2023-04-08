@@ -5,6 +5,8 @@ import Hero from "./partials/Hero";
 import apiCall from "./api/api";
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import CompaniesLoader from "./partials/loaders/CompaniesLoader";
+import CategoriesLoader from "./partials/loaders/CategoriesLoader";
 
 function Home() {
   const [category, setCategory, companies, setCompanies] = useOutletContext();
@@ -22,11 +24,17 @@ function Home() {
     <>
       <Hero />
 
-      <CategoryCarousel category={category} setCategory={setCategory} />
-
-      {/* <Filters /> */}
-
-      <Companies companies={companies} />
+      {companies.length > 0 ? (
+        <>
+          <CategoryCarousel category={category} setCategory={setCategory} />
+          <Companies companies={companies} />
+        </>
+      ) : (
+        <>
+          <CategoriesLoader />
+          <CompaniesLoader />
+        </>
+      )}
     </>
   );
 }
