@@ -59,7 +59,7 @@ function CenteredModal({
                 <div className="relative p-6 sm:grid bg-gray-100 sm:grid-cols-2 flex-auto">
                   <div className="pr-4">
                     <img
-                      className="h-40 mx-auto border md:w-full md:h-auto mt-8 md:mt-0 rounded"
+                      className="h-40 w-[219px] mx-auto border md:w-full md:h-auto mt-8 md:mt-0 rounded"
                       src={`${product.image}`}
                       alt="category-img"
                     />
