@@ -21,6 +21,7 @@ function Restaurant() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
+  const [showBtn, setShowBtn] = useState("");
 
   const [searchParams, setSearchParams] = useSearchParams();
   const productSlug = searchParams.get("product");
@@ -119,12 +120,14 @@ function Restaurant() {
                         onMouseEnter={() => {
                           setActualProduct(product.slug);
                           setIsShown(true);
+                          setShowBtn(`${index}a`);
                         }}
                         onMouseLeave={() => {
                           setActualProduct(product.slug);
                           setIsShown(false);
+                          setShowBtn("");
                         }}
-                        key={index}
+                        key={`${index}a`}
                         className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
                       >
                         <div className="flex items-center mx-auto z-30 justify">
@@ -141,7 +144,7 @@ function Restaurant() {
                         >
                           View more
                         </button>
-                        {isShown && actualProduct === product.slug && (
+                        {isShown && showBtn === `${index}a` && (
                           <button
                             onClick={() => handleOpenModal(product.slug)}
                             className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -207,12 +210,14 @@ function Restaurant() {
                     onMouseEnter={() => {
                       setActualProduct(product.slug);
                       setIsShown(true);
+                      setShowBtn(`${index}b`);
                     }}
                     onMouseLeave={() => {
                       setActualProduct(product.slug);
                       setIsShown(false);
+                      setShowBtn("");
                     }}
-                    key={index}
+                    key={`${index}b`}
                     className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
                   >
                     {/* <div className="w-full absolute rounded-lg h-full opacity-0 hover:opacity-50 bg-gray-300"></div> */}
@@ -236,7 +241,7 @@ function Restaurant() {
                     >
                       View more
                     </button>
-                    {isShown && actualProduct === product.slug && (
+                    {isShown && showBtn === `${index}b` && (
                       <button
                         onClick={() => handleOpenModal(product.slug)}
                         className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
