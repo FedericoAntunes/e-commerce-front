@@ -50,7 +50,7 @@ function CenteredModal({
                   </h3>
                   <span
                     onClick={() => setIsModalOpen()}
-                    className="bg-transparent text-black float-right h-6 w-6 text-3xl leading-none block outline-none font-semibold focus:outline-none"
+                    className="bg-transparent text-black hover:cursor-pointer float-right h-6 w-6 text-3xl leading-none block outline-none font-semibold focus:outline-none"
                   >
                     ×
                   </span>
