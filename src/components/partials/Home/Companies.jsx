@@ -5,7 +5,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Companies({ companies }) {
   console.log(companies);
   return (
-    <div className="grid-cols-1 sm:grid-cols-2 mx-4 grid gap-x-8 gap-y-12 border-t pt-8 mt-4">
+    <div className="grid-cols-1 sm:grid-cols-2 mx-4 grid gap-x-8 gap-y-12 border-t pt-16 mt-16">
       {companies.map((company, index) => (
         <NavLink key={index} to={`/${company.slug}`}>
           <div className="mx-2 rounded-lg overflow-hidden border shadow-lg">

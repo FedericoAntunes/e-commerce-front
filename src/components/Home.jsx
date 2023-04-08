@@ -24,7 +24,7 @@ function Home() {
 
       <CategoryCarousel category={category} setCategory={setCategory} />
 
-      <Filters />
+      {/* <Filters /> */}
 
       <Companies companies={companies} />
     </>

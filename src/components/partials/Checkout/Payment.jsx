@@ -95,7 +95,6 @@ function Payment({ shippingData, setShippingData }) {
             control={<Radio />}
             label="Credit Card"
           />
-          <FormControlLabel value="paypal" control={<Radio />} label="PayPal" />
           <FormControlLabel
             value="etransfer"
             control={<Radio />}
@@ -196,9 +195,6 @@ function Payment({ shippingData, setShippingData }) {
           </Grid>
         </Grid>
       </Box>
-
-      <Box sx={{ display: active === "paypal" ? "block" : "none" }}>Paypal</Box>
-
       <Box sx={{ display: active === "etransfer" ? "block" : "none" }}>
         <Box
           sx={{
@@ -227,7 +223,6 @@ function Payment({ shippingData, setShippingData }) {
             }
           />
         </Box>
-
         <Box
           sx={{
             display: "flex",
@@ -254,7 +249,6 @@ function Payment({ shippingData, setShippingData }) {
             }
           />
         </Box>
-
         <Box
           sx={{
             display: "flex",
@@ -281,7 +275,6 @@ function Payment({ shippingData, setShippingData }) {
             }
           />
         </Box>
-
         <Box
           sx={{
             display: "flex",
