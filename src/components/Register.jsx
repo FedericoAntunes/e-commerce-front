@@ -63,7 +63,7 @@ function Register() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:h-screen">
+    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:min-h-screen">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
         <Link
           to="/about-us"
