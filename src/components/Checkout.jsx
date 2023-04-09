@@ -1,24 +1,47 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  Box,
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  Typography,
+} from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// Actions
+import { removeAllItems } from "../redux/slice/shoppingListSlice";
+import { saveLastOrderInfo } from "../redux/slice/lastOrderInfoSlice";
+
+// Components
+import ScrollToTop from "./ScrollToTop";
 import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
 import Summary from "./partials/Checkout/Summary";
-import { useSelector, useDispatch } from "react-redux";
+
+// ApiCall
 import apiCall from "./api/api";
-import { removeAllItems } from "../redux/slice/shoppingListSlice";
-import { saveLastOrderInfo } from "../redux/slice/lastOrderInfoSlice";
-import ScrollToTop from "./ScrollToTop";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+
+const notifySuccess = () =>
+  toast.success("Order created successfully.", {
+    position: "bottom-right",
+  });
 
 function Checkout() {
-  const Msg = ({ closeToast, toastProps }) => (
+  const [activeStep, setActiveStep] = useState(0);
+  const [skipped, setSkipped] = useState(new Set());
+
+  const shoppingList = useSelector((state) => state.shoppingList);
+  const token = useSelector((state) => state.user.token);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const Msg = () => (
     <div>
       <img
         className="mx-auto"
@@ -30,21 +53,7 @@ function Checkout() {
     </div>
   );
 
-  //
   const steps = ["Shipping Information", "Summary", "Payment"];
-  const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set());
-  const navigate = useNavigate();
-
-  const notifySuccess = () =>
-    toast.success("Order created successfully.", {
-      position: "bottom-right",
-    });
-
-  const dispatch = useDispatch();
-
-  const shoppingList = useSelector((state) => state.shoppingList);
-  const token = useSelector((state) => state.user.token);
 
   // Inputs states
   const [shippingData, setShippingData] = useState({

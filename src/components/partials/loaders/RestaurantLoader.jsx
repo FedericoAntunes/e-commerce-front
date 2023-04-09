@@ -11,19 +11,7 @@ function RestaurantLoader() {
       <div className="mx-2 lg:mx-24">
         <div className="mx-2">
           <h2 className="text-left font-bold bg-gray-200 h-12 rounded-lg text-4xl mb-6 mt-12"></h2>
-          <small className="text-left h-[80px] w-[200px] bg-gray-200 rounded-lg block">
-            {/*      <div className="mb-2">
-              <FontAwesomeIcon className="text-yellow-300" icon={faStar} /> 4.2
-              <span className="text-gray-500"> (100+ reviews) • </span>
-              <span className="underline text-blue-600">More information</span>
-            </div>
-            <div className="text-gray-400 mb-2">$ • Burguer • Fastfood •</div>
-            <div className="font-semibold text-orange-400">
-              {!user
-                ? "Login to see the estimated delivery time"
-                : "The estimated waiting time is 30 - 40 min"}
-            </div> */}
-          </small>
+          <small className="text-left h-[80px] w-[200px] bg-gray-200 rounded-lg block"></small>
         </div>
         <div className="mt-16">
           <h2 className="text-left font-bold bg-gray-200 h-10 rounded-lg text-4xl mb-6 mt-12"></h2>

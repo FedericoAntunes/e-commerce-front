@@ -1,11 +1,9 @@
-import CardAbout from "./partials/CardAbout";
-import Technologies from "./partials/Technologies";
-import { Grid } from "@mui/material";
-import AboutDescription from "./AboutDescription";
-import ScrollToTop from "./ScrollToTop";
 import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AboutUsCard from "./partials/AboutUsCard";
+
+// Components
+import CardAbout from "./partials/CardAbout";
+import ScrollToTop from "./ScrollToTop";
 import AboutThisProject from "./partials/AboutThisProject";
 import AboutUsFeatures from "./partials/AboutUsFeatures";
 import AboutUsChallenges from "./partials/AboutUsChallenges";

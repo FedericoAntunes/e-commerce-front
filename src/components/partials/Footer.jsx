@@ -1,11 +1,10 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (

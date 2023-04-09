@@ -1,21 +1,23 @@
-import React, { useState } from "react";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import { useState } from "react";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+
+// Mui
+import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import {
+  Grid,
+  Box,
+  TextField,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
 
 function Payment({ shippingData, setShippingData }) {
-  const [value, setValue] = useState(null);
   const [active, setActive] = useState(null);
   const [state, setState] = useState({
     number: "",
@@ -137,18 +139,6 @@ function Payment({ shippingData, setShippingData }) {
             </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6}>
-            {/* <TextField
-              id="card-expiry"
-              label="Valid Thru"
-              type="tel"
-              name="expiry"
-              className="form-control"
-              pattern="\d\d/\d\d"
-              required
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-              sx={{ my: 1 }}
-            /> */}
             <TextField // CardName
               id="card-name"
               label="Name"

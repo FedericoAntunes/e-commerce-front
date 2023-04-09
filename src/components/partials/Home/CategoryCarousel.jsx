@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from "react";
-import apiCall from "../../api/api";
-
-// Import Swiper React components
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { NavLink } from "react-router-dom";
+import { FreeMode, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-
 import "./CategoryCarousel.css";
 
-// import required modules
-import { FreeMode, Navigation } from "swiper";
-
-// Reacy-toastify
-import "react-toastify/dist/ReactToastify.css";
-import { NavLink } from "react-router-dom";
+// ApiCall
+import apiCall from "../../api/api";
 
 export default function CategoryCarousel() {
   const [categories, setCategories] = useState([]);

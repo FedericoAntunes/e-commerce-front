@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -19,7 +18,6 @@ function CardAbout({ name, description, linkedin, github, image }) {
             {name}
           </h5>
           <h6 className="text-indigo-800 font-bold">Full Stack Developer Jr</h6>
-
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {description}
           </p>

@@ -1,12 +1,13 @@
-import React from "react";
 import { useSelector } from "react-redux";
 
 function Summary() {
   const shoppingList = useSelector((state) => state.shoppingList);
+
   const subtotal = shoppingList.reduce(
     (acc, product) => acc + product.price * product.quantity,
     0
   );
+
   const shipping = 10;
   const tax = subtotal * 0.085;
   const total = subtotal + shipping + tax;

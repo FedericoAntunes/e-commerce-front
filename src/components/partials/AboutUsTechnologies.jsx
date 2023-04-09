@@ -1,13 +1,5 @@
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMysql, SiExpress, SiTailwindcss } from "react-icons/si";
-import { 
-    MdWeb,
-    MdDesktopMac,
-    MdStorage,
-    MdSettings,
-    MdCheckCircle,
-    MdChat
-  } from 'react-icons/md';
 
 function AboutUsTechnologies() {
   return (
@@ -33,7 +25,6 @@ function AboutUsTechnologies() {
           <li className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-400">
             <SiExpress className="inline-block mr-2 text-5xl" /> Express.js
           </li>
-
         </ul>
       </div>
     </>

@@ -1,30 +1,37 @@
-import { Link, useNavigate } from "react-router-dom";
-import apiCall from "./api/api";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/slice/userSlice";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+
+// Actions
+import { loginUser } from "../redux/slice/userSlice";
 
 // Google authentication
-import { GoogleLogin } from "@react-oauth/google";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 
-const responseMessage = (response) => {
-  console.log(response);
-};
-const errorMessage = (error) => {
-  console.log(error);
-};
+// ApiCall
+import apiCall from "./api/api";
+
+function notify(message) {
+  toast.error(message, {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+  });
+}
 
 function Login() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-
   const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const googleData = async () => {
     const googleUser = await apiCall(
@@ -73,17 +80,6 @@ function Login() {
     onError: (error) => console.log("Login Failed:", error),
   });
 
-  function notify(message) {
-    toast.error(message, {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-    });
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -109,6 +105,7 @@ function Login() {
       notify("Invalid credentials, try again.");
     }
   };
+
   return (
     <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
       <ToastContainer limit={1} />

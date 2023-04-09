@@ -1,20 +1,16 @@
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  Paper,
-  Grid,
-  Typography,
-  Box,
-} from "@mui/material/";
-import { useSelector } from "react-redux";
-import apiCall from "./api/api";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Stepper, Step, StepLabel, Typography } from "@mui/material/";
+
+// ApiCall
+import apiCall from "./api/api";
 
 function OrderStatus() {
-  const token = useSelector((state) => state.user.token);
   const [order, setOrder] = useState(null);
+
+  const token = useSelector((state) => state.user.token);
   const lastOrderInfo = useSelector((state) => state.lastOrderInfo);
+
   const subtotal = lastOrderInfo.products.reduce(
     (acc, product) => acc + product.unit_price * product.qty,
     0
@@ -34,7 +30,7 @@ function OrderStatus() {
   }, []);
 
   return (
-    order && (  
+    order && (
       <div className="mt-[84px] py-12 sm:px-48">
         <Typography variant="h4" gutterBottom>
           Thanks for your order
@@ -89,17 +85,14 @@ function OrderStatus() {
                 <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
                   Subtotal: <strong>${subtotal.toFixed(2)}</strong>
                 </p>
-
                 <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
                   Tax: <strong>${tax.toFixed(2)}</strong>
                 </p>
-
                 <div className="mb-4">
                   <p class="text-sm text-gray-600 text-left leading-6 tracking-wider">
                     Shipping: <strong>${shipping.toFixed(2)}</strong>
                   </p>
                 </div>
-
                 <h6 class="text-lg font-medium mb-2 text-left">
                   <strong>Total:</strong> <strong>${total.toFixed(2)}</strong>
                 </h6>

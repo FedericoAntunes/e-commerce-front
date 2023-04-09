@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import apiCall from "./api/api";
+
+// LazyLoader
 import FilteredCategoryLoader from "./partials/loaders/FilteredCategoryLoader";
+
+// ApiCall
+import apiCall from "./api/api";
 
 function FilteredCategory() {
   const [products, setProducts] = useState(null);
   const [category, setCategory] = useState(null);
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
+
   const params = useParams();
 
   const getCategoryProducts = async () => {

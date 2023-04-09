@@ -1,16 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+
+// Components
+import ScrollToTop from "../ScrollToTop";
+import AboutBtn from "../partials/Header/AboutBtn";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
-import { useState } from "react";
-import AboutBtn from "../partials/Header/AboutBtn";
-import { Link } from "react-router-dom";
-import ScrollToTop from "../ScrollToTop";
-import { Suspense } from "react";
-import RestaurantLoader from "../partials/loaders/RestaurantLoader";
 
 function Layout() {
   const [category, setCategory] = useState("");
-
   const [companies, setCompanies] = useState([]);
 
   return (
@@ -33,5 +31,5 @@ function Layout() {
     </>
   );
 }
-// xs:mt-[5.25rem] mt-[146px]
+
 export default Layout;

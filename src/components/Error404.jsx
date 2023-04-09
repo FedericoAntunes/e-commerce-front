@@ -5,7 +5,6 @@ function Error404() {
   return (
     <>
       <h1 className="text-center mt-3">404 Error</h1>
-
       <section className="error-container">
         <span>
           <span>4</span>

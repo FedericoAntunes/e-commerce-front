@@ -1,21 +1,25 @@
-import { useEffect, useState, Suspense } from "react";
-import { useParams } from "react-router-dom";
-import apiCall from "./api/api";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import ProductModal from "./partials/ProductModal";
+import { useEffect, useState } from "react";
+import {
+  Link,
+  useNavigate,
+  useSearchParams,
+  useParams,
+} from "react-router-dom";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
   faEllipsis,
   faStar,
   faStopwatch,
-  faHeartPulse,
-  faStopwatch20,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+
+// Components
 import CenteredModal from "./partials/CenteredModal";
 import RestaurantLoader from "./partials/loaders/RestaurantLoader";
-import { domAnimation, LazyMotion, motion } from "framer-motion";
+
+// ApiCall
+import apiCall from "./api/api";
 
 function Restaurant() {
   const [products, setProducts] = useState([]);
@@ -25,12 +29,12 @@ function Restaurant() {
   const [isShown, setIsShown] = useState(false);
   const [showBtn, setShowBtn] = useState("");
 
+  const user = useSelector((state) => state.user);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const productSlug = searchParams.get("product");
 
   const navigate = useNavigate();
-
-  const user = useSelector((state) => state.user);
 
   const handleOpenModal = (productSlug) => {
     setActualProduct(productSlug);
@@ -104,9 +108,6 @@ function Restaurant() {
                 : "The estimated waiting time is 30 - 40 min"}
             </div>
           </small>
-          {/* <p className="text-left w-full md:w-1/2 ml-6 text-gray-500">
-              {company.description}
-            </p> */}
         </div>
         {products.some((item) => item.in_offer) && (
           <>

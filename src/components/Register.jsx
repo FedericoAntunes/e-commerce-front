@@ -1,9 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import apiCall from "./api/api";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/slice/userSlice";
 import { ToastContainer, toast } from "react-toastify";
+
+// Actions
+import { loginUser } from "../redux/slice/userSlice";
+
+// ApiCall
+import apiCall from "./api/api";
 
 function Register() {
   const [firstname, setFirstName] = useState("");

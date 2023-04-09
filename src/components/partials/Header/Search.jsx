@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import apiCall from "../../api/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Search.css";
 
-function Search({ navbarScroll, toggleSearch, setToggleSearch, header }) {
+// ApiCall
+import apiCall from "../../api/api";
+
+const notify = () =>
+  toast.warn("This feature is not included yet.", {
+    position: "bottom-right",
+  });
+
+function Search({ navbarScroll, toggleSearch, header }) {
   const [items, setItems] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,7 +43,8 @@ function Search({ navbarScroll, toggleSearch, setToggleSearch, header }) {
 
   const handleOnSelect = (item) => {
     if (item.title) {
-      navigate(`/${item.company.slug}?product=${item.slug}`);
+      notify();
+      /*  navigate(`/${item.company.slug}?product=${item.slug}`); */
     } else if (item.logo) {
       navigate(`/${item.slug}`);
     } else {

@@ -23,18 +23,6 @@ function Hero() {
             <img src="/img/no-hunger.png" width="25" height="25" alt="logo" />
           </div>
           <Search navbarScroll={true} header={false} />
-          {/* <input
-            type="search"
-            id="default-search"
-            className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Restaurant, Category, Food..."
-          /> */}
-          {/* <button
-            type="submit"
-            className="text-white absolute h-[3.3rem] -right-28 bottom-0 bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-sm px-4 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
-          >
-            Find Food
-          </button> */}
         </div>
       </div>
     </div>

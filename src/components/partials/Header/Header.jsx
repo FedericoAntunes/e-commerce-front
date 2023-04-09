@@ -1,32 +1,33 @@
-import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Navbar, Dropdown, Avatar } from "flowbite-react";
+import { googleLogout } from "@react-oauth/google";
+
+// Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
+
+// Actions
+import { logOutUser } from "../../../redux/slice/userSlice";
+import { toggleMenu } from "../../../redux/slice/showShoppingCartSlice";
+
+// Components
 import ShoppingCart from "../ShoppingCart";
 import Search from "./Search";
 import "./Header.css";
 import Logo from "./Logo";
-import { logOutUser } from "../../../redux/slice/userSlice";
-import { toggleMenu } from "../../../redux/slice/showShoppingCartSlice";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-import { googleLogout } from "@react-oauth/google";
-
-const notify = () =>
-  toast.warn("This feature is not included yet.", {
-    position: "bottom-right",
-  });
 
 function Header() {
   const [toggleSearch, setToggleSearch] = useState(false);
   const [navbarScroll, setNavbarScroll] = useState(false);
+
   const location = useLocation();
+
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
 
@@ -52,7 +53,6 @@ function Header() {
 
   return (
     <div className="fixed w-full h-16 z-50 -top-1">
-      <ToastContainer />
       <Navbar
         fluid={true}
         style={
@@ -63,14 +63,12 @@ function Header() {
         className="ease-in-out duration-300"
       >
         <Logo />
-
         <Search
           navbarScroll={navbarScroll}
           toggleSearch={toggleSearch}
           setToggleSearch={setToggleSearch}
           header={true}
         />
-
         <div
           className="flex order-4 nav-cart-user ease-in-out duration-500"
           style={
@@ -100,7 +98,6 @@ function Header() {
               </span>
             )}
           </div>
-
           {user ? (
             <Dropdown
               arrowIcon={false}
@@ -127,7 +124,6 @@ function Header() {
               <Link to="/order-history">
                 <Dropdown.Item>Order History</Dropdown.Item>
               </Link>
-              {/*<Dropdown.Item onClick={notify}>Settings</Dropdown.Item>*/}
               <Dropdown.Divider />
               <Dropdown.Item onClick={() => handleLogOut()}>
                 Sign out
@@ -151,7 +147,6 @@ function Header() {
             }
           />
         </div>
-
         <Navbar.Collapse className="navbar-links-container pt-[2px] order-6 md:order-3">
           {!user && (
             <>
@@ -166,7 +161,6 @@ function Header() {
               >
                 Login
               </Link>
-
               <Link
                 to={"/register"}
                 className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"

@@ -1,8 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./slice/userSlice";
-import shoppingListSlice from "./slice/shoppingListSlice";
-import showShoppingCartSlice from "./slice/showShoppingCartSlice";
-import lastOrderInfoSlice from "./slice/lastOrderInfoSlice";
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import {
@@ -15,6 +11,12 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+
+// Slices
+import userReducer from "./slice/userSlice";
+import shoppingListSlice from "./slice/shoppingListSlice";
+import showShoppingCartSlice from "./slice/showShoppingCartSlice";
+import lastOrderInfoSlice from "./slice/lastOrderInfoSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import apiCall from "./api/api";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
+
+// ApiCall
+import apiCall from "./api/api";
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState(null);
@@ -32,15 +34,12 @@ export default function OrderHistory() {
               invoices.
             </p>
           </div>
-
           <div className="mt-6">
             <h2 className="font-semibold">Recent orders</h2>
-
             <div className="space-y-20">
               {orders.map((order) => (
                 <div className="border" key={order.id}>
                   <h3 className="sr-only">Order placed on {order.createdAt}</h3>
-
                   <div className="bg-gray-50 rounded-lg py-6 px-4 sm:px-6 sm:flex sm:items-center sm:justify-between sm:space-x-6 lg:space-x-8">
                     <dl className="divide-y divide-gray-200 mx-auto space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-4 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
                       <div className="flex justify-between sm:block">
@@ -84,7 +83,6 @@ export default function OrderHistory() {
                       </div>
                     </dl>
                   </div>
-
                   <table className="w-full border-t text-gray-500 ">
                     <caption className="sr-only">Products</caption>
                     <thead className="sr-only text-sm text-gray-500 text-left sm:not-sr-only">
