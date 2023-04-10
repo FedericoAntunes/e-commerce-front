@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserShield } from "@fortawesome/free-solid-svg-icons";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 // Actions
 import { loginUser } from "../redux/slice/userSlice";
@@ -108,6 +109,11 @@ function Login() {
     }
   };
 
+  const handleFillInputs = () => {
+    setInputEmail("user@hotmail.com");
+    setInputPassword("123");
+  };
+
   return (
     <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:min-h-screen">
       <ToastContainer limit={1} />
@@ -128,15 +134,17 @@ function Login() {
               Sign in to your account
             </h1>
             <div className="flex justify-end text-sm font-medium">
-            <Link
+              <Link
                 to="https://e-commerce-admin-mu.vercel.app/login"
-                className="text-blue-600 hover:text-blue-700 focus:text-blue-700 hover:underline transform hover:scale-110 focus:scale-110 transition-all"
+                className="text-blue-600 md:hover:text-blue-700 focus:text-blue-700 md:hover:underline transform md:hover:scale-110 focus:scale-110 transition-all"
               >
-            <FontAwesomeIcon icon={faUserShield} className="text-blue-500 mr-2" />
-            Admin Panel
-             </Link>
+                <FontAwesomeIcon
+                  icon={faUserShield}
+                  className="text-blue-500 mr-2"
+                />
+                Admin Panel
+              </Link>
             </div>
-
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -194,14 +202,14 @@ function Login() {
                 </div>
                 <Link
                   to="#"
-                  className="text-base font-medium text-blue-500 hover:underline"
+                  className="text-base font-medium text-blue-500 md:hover:underline"
                 >
                   Forgot password?
                 </Link>
               </div>
               <button
                 type="submit"
-                className="w-full text-gray-200	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
+                className="w-full text-gray-200	bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
               >
                 <p className="mx-auto text-md">Sign in</p>
               </button>
@@ -209,11 +217,21 @@ function Login() {
                 Don’t have an account yet?
                 <Link
                   to="/register"
-                  className="text-base font-light  text-blue-500 hover:underline ml-1"
+                  className="text-base font-light  text-blue-500 md:hover:underline ml-1"
                 >
                   Sign up
                 </Link>
               </p>
+              <div className="flex justify-center text-sm font-medium">
+                <button
+                  className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                  type="button"
+                  onClick={handleFillInputs}
+                >
+                  <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
+                  Fill Inputs
+                </button>
+              </div>
             </form>
             <div className="flex items-center justify-center mb-4">
               <hr className="w-full border-t-2 border-gray-200" />
@@ -222,7 +240,7 @@ function Login() {
             </div>
             <button
               onClick={() => login()}
-              className="flex w-full p-2 font-medium items-center hover:bg-gray-50 justify-center rounded-lg border"
+              className="flex w-full p-2 font-medium items-center md:hover:bg-gray-50 bg-white justify-center rounded-lg border"
             >
               <img
                 className="w-6 mr-2"
