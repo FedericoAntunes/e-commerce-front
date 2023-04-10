@@ -21,6 +21,10 @@ import ScrollToTop from "./ScrollToTop";
 import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
 import Summary from "./partials/Checkout/Summary";
+import SpinnerLoader from "./partials/loaders/SpinnerLoader";
+import FinishBtn from "./partials/Checkout/FinishBtn";
+import NextBtn from "./partials/Checkout/NextBtn";
+import BackBtn from "./partials/Checkout/BackBtn";
 
 // ApiCall
 import apiCall from "./api/api";
@@ -33,6 +37,7 @@ const notifySuccess = () =>
 function Checkout() {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
+  const [loader, setLoader] = useState(false);
 
   const shoppingList = useSelector((state) => state.shoppingList);
   const token = useSelector((state) => state.user.token);
@@ -96,6 +101,7 @@ function Checkout() {
 
   const handleNext = async () => {
     if (activeStep === steps.length - 1) {
+      setLoader(true);
       const response = await apiCall(
         "/orders",
         "post",
@@ -105,6 +111,7 @@ function Checkout() {
         }
       );
       if (response.response && response.response.status === 406) {
+        setLoader(false);
         return toast(Msg, {
           position: "bottom-right",
         });
@@ -112,6 +119,7 @@ function Checkout() {
       notifySuccess();
       dispatch(removeAllItems());
       dispatch(saveLastOrderInfo(response.data));
+      setLoader(false);
       navigate("/order-status");
     }
     let newSkipped = skipped;
@@ -205,7 +213,7 @@ function Checkout() {
               onClick={handleBack}
               sx={{ mr: 1 }}
             >
-              Back
+              <BackBtn />
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
             {isStepOptional(activeStep) && (
@@ -214,7 +222,17 @@ function Checkout() {
               </Button>
             )}
             <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              {activeStep === steps.length - 1 ? (
+                loader ? (
+                  <button className="w-full text-gray-200 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  ">
+                    <SpinnerLoader />
+                  </button>
+                ) : (
+                  <FinishBtn />
+                )
+              ) : (
+                <NextBtn />
+              )}
             </Button>
           </Box>
         </>

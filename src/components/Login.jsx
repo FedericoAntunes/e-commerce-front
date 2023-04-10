@@ -14,6 +14,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 
 // ApiCall
 import apiCall from "./api/api";
+import SpinnerLoader from "./partials/loaders/SpinnerLoader";
 
 function notify(message) {
   toast.error(message, {
@@ -30,6 +31,7 @@ function Login() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [user, setUser] = useState(null);
+  const [loader, setLoader] = useState(false);
 
   const navigate = useNavigate();
 
@@ -75,6 +77,7 @@ function Login() {
         console.log(error);
       }
     }
+    // eslint-disable-next-line
   }, [user]);
 
   const login = useGoogleLogin({
@@ -83,6 +86,7 @@ function Login() {
   });
 
   const handleSubmit = async (event) => {
+    setLoader(true);
     event.preventDefault();
 
     const response = await apiCall("/login", "post", {
@@ -90,7 +94,7 @@ function Login() {
       password: inputPassword,
     });
     console.log(response);
-    if (response.data.id) {
+    if (response.data && response.data.id) {
       dispatch(
         loginUser({
           id: response.data.id,
@@ -106,6 +110,7 @@ function Login() {
     } else {
       notify("Invalid credentials, try again.");
     }
+    setLoader(false);
   };
 
   return (
@@ -203,7 +208,9 @@ function Login() {
                 type="submit"
                 className="w-full text-gray-200	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
               >
-                <p className="mx-auto text-md">Sign in</p>
+                <p className="mx-auto inline-block text-md">
+                  {loader ? <SpinnerLoader /> : "Sign in"}
+                </p>
               </button>
               <p className="text-base font-light text-black  ">
                 Don’t have an account yet?

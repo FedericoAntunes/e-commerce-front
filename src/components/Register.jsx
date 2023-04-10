@@ -8,6 +8,7 @@ import { loginUser } from "../redux/slice/userSlice";
 
 // ApiCall
 import apiCall from "./api/api";
+import SpinnerLoader from "./partials/loaders/SpinnerLoader";
 
 function Register() {
   const [firstname, setFirstName] = useState("");
@@ -16,11 +17,13 @@ function Register() {
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [loader, setLoader] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const createUser = async (e) => {
+    setLoader(true);
     e.preventDefault();
     const formData = new FormData();
     formData.append("firstname", firstname);
@@ -33,19 +36,19 @@ function Register() {
       "Content-Type": "multipart/form-data",
     });
     if (response.data === "Fill all the fields.") {
-      setError("Fill all the fields.");
+      setLoader(false);
       return toast.warn("Fill all the fields.", {
         position: "bottom-right",
       });
     }
     if (response.data === "Username already exist.") {
-      setError("Username already exist.");
+      setLoader(false);
       return toast.warn("Username already exist.", {
         position: "bottom-right",
       });
     }
     if (response.data === "User email already exist.") {
-      setError("User email already exist.");
+      setLoader(false);
       return toast.warn("User email already exist.", {
         position: "bottom-right",
       });
@@ -58,6 +61,7 @@ function Register() {
       });
       const user = response.data;
       dispatch(loginUser(user));
+      setLoader(false);
       return navigate(`/`);
     }
   };
@@ -195,7 +199,9 @@ function Register() {
               </div>
               <div className="flex justify-center">
                 <button className="lg:w-2/4 w-full text-base text-center tracking-wide text-white my-4 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5">
-                  <p className="mx-auto font-sm"> Sign up </p>
+                  <p className="mx-auto font-sm">
+                    {loader ? <SpinnerLoader /> : "Sign up"}
+                  </p>
                 </button>
               </div>
               <p className="text-base font-light text-black  ">
