@@ -101,7 +101,7 @@ function Restaurant() {
               <span className="text-gray-500"> (100+ reviews) • </span>
               <span className="underline text-blue-600">More information</span>
             </div>
-            <div className="text-gray-400 mb-2">$ • Burguer • Fastfood •</div>
+            <div className="text-gray-400 mb-2">$ • {company.tags} •</div>
             <div className="font-semibold text-orange-400">
               {!user
                 ? "Login to see the estimated delivery time"
