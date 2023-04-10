@@ -73,7 +73,7 @@ function Footer() {
           </div>
         </div>
       </footer> */}
-      <footer className={styles.footer}>
+      <footer className={`${styles.footer} flex justify-between items-center`}>
         <div className={styles.waves}>
           <div className={styles.wave} id={styles.wave1}></div>
           <div className={styles.wave} id={styles.wave2}></div>
@@ -83,10 +83,10 @@ function Footer() {
         <ul className={styles.social_icon}>
           <li className={styles.social_icon__item}>
             <Link className={styles.social_icon__link} to="/">
-              <FontAwesomeIcon icon={faFacebook} />
+              <FontAwesomeIcon icon={faFacebook} className="" />
             </Link>
           </li>
-          <li className={styles.social_icon__item}>
+          <li className={styles.social_icon__item} >
             <Link className={styles.social_icon__link} to="/">
               <FontAwesomeIcon icon={faTwitter} />
             </Link>
@@ -124,7 +124,7 @@ function Footer() {
             </Link>
           </li>
         </ul>
-        <p>&copy; 2023 HA Academy Sala 4 | All Rights Reserved</p>
+        <p className="text-xs text-gray-600 font-bold tracking-wide">&copy; 2023 HA Academy Sala 4 | All Rights Reserved</p>
         {/* <img
           src="https://www.animatedimages.org/data/media/157/animated-fishing-image-0057.gif"
           alt=""
