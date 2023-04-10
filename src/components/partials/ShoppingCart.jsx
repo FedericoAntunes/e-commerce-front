@@ -153,6 +153,12 @@ function ShoppingCart() {
           )}
         </div>
       </div>
+      {showShoppingCart ? (
+        <div
+          className="opacity-25 fixed inset-0 z-20 bg-black"
+          onClick={() => dispatch(toggleMenu())}
+        ></div>
+      ) : null}
     </>
   );
 }
