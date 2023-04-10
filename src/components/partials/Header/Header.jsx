@@ -30,6 +30,7 @@ function Header() {
 
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
+  const isShoppingCartOpen = useSelector((state) => state.showShoppingCart);
 
   function handleLogOut() {
     googleLogout();
@@ -44,6 +45,14 @@ function Header() {
       setNavbarScroll(false);
     }
   };
+
+  useEffect(() => {
+    if (!isShoppingCartOpen) {
+      document.body.style.overflow = "visible";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isShoppingCartOpen]);
 
   useEffect(() => {
     navbarScrolling();
