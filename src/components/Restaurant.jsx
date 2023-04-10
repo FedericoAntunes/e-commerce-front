@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   Link,
   useNavigate,
+  useLocation,
   useSearchParams,
   useParams,
 } from "react-router-dom";
@@ -29,6 +30,8 @@ function Restaurant() {
   const [isShown, setIsShown] = useState(false);
   const [showBtn, setShowBtn] = useState("");
 
+  const location = useLocation();
+
   const user = useSelector((state) => state.user);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,9 +39,13 @@ function Restaurant() {
 
   const navigate = useNavigate();
 
-  const handleOpenModal = (productSlug) => {
+  const handleOpenModal = (productSlug, forceOpen) => {
     setActualProduct(productSlug);
-    setIsModalOpen(!isModalOpen);
+    if (forceOpen) {
+      setIsModalOpen(true);
+    } else {
+      setIsModalOpen(!isModalOpen);
+    }
   };
 
   const params = useParams();
@@ -54,9 +61,11 @@ function Restaurant() {
   };
 
   useEffect(() => {
+    setCompany(null);
+    setProducts([]);
     getData();
     // eslint-disable-next-line
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (!isModalOpen) {
@@ -68,7 +77,7 @@ function Restaurant() {
 
   useEffect(() => {
     const productExists = products.some((item) => item.slug === productSlug);
-    productExists && handleOpenModal(productSlug);
+    productExists && handleOpenModal(productSlug, true);
   }, [products]);
 
   return company && products ? (

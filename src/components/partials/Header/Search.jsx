@@ -15,6 +15,8 @@ const notify = () =>
 
 function Search({ navbarScroll, toggleSearch, header }) {
   const [items, setItems] = useState([]);
+  const [search, setSearch] = useState("");
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -31,9 +33,10 @@ function Search({ navbarScroll, toggleSearch, header }) {
   }, []);
 
   const handleOnSearch = (string, results) => {
+    setSearch(string);
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
-    //console.log(string, results);
+    // console.log(string, results);
   };
 
   const handleOnHover = (result) => {
@@ -43,8 +46,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
 
   const handleOnSelect = (item) => {
     if (item.title) {
-      notify();
-      /*  navigate(`/${item.company.slug}?product=${item.slug}`); */
+      navigate(`/${item.company.slug}?product=${item.slug}`);
     } else if (item.logo) {
       navigate(`/${item.slug}`);
     } else {
@@ -117,7 +119,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
         className={`px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-300 ${
           !toggleSearch && header && "hidden"
         } sm:inline`}
-        onSubmit={handleOnSearch}
+        onSubmit={(e) => e.preventDefault()}
       >
         <ToastContainer />
         <label
