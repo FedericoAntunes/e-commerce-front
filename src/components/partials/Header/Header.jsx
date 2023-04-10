@@ -78,7 +78,7 @@ function Header() {
           }
         >
           <div className="relative">
-            {navbarScroll && (
+            {(navbarScroll || location.pathname !== "/") && (
               <FontAwesomeIcon
                 className={`p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400 sm:hidden`}
                 onClick={() => {

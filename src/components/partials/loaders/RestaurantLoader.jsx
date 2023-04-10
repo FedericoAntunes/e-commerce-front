@@ -25,7 +25,7 @@ function RestaurantLoader() {
                   <div className="-mb-6 relative">
                     <div className="rounded-full absolute z-10 left-4 top-2 w-12 h-12" />
                   </div>
-                  <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] bg-gray-200 mb-5 overflow-hidden duration-300">
+                  <div className="ease-in-out relative w-full h-[200px] bg-gray-200 mb-5 overflow-hidden duration-300">
                     <div className="pt-6 pb-4 z-0 mx-auto rounded-t-lg" />
                   </div>
                   <div className="px-5 h-12">
