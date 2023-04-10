@@ -7,10 +7,10 @@ import Companies from "./partials/Home/Companies";
 import Hero from "./partials/Hero";
 import CompaniesLoader from "./partials/loaders/CompaniesLoader";
 import CategoriesLoader from "./partials/loaders/CategoriesLoader";
+import Loader from "./partials/loaders/Loader";
 
 // ApiCall
 import apiCall from "./api/api";
-import Loader from "./partials/loaders/Loader";
 
 function Home() {
   const [category, setCategory, companies, setCompanies] = useOutletContext();

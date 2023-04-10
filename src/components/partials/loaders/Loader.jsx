@@ -3,7 +3,7 @@ function Loader() {
     <div className="absolute grid h-screen place-items-center">
       <img
         className="mix-blend-multiply"
-        src="../../../../public/img/loader.gif"
+        src="/img/loader.gif"
         alt="Loading..."
       />
     </div>
