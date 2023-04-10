@@ -13,7 +13,7 @@ function AboutUs() {
   return (
     <>
       <ScrollToTop />
-      <div className="flex flex-wrap justify-center mt-[140px] sm:mt-[84px]">
+      <div className="flex flex-wrap justify-center sm:mt-[84px]">
         <div className="w-full text-center bg-yellow-200 bg-gradient-to-r from-yellow-300 to-yellow-200 py-8 shadow-lg border-b-4 border-yellow-400 ">
           <h1 className="text-4xl font-bold flex items-center justify-center">
             <FontAwesomeIcon icon={faBurger} className="mr-3" />
