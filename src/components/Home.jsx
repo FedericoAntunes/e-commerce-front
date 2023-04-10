@@ -21,7 +21,9 @@ function Home() {
   };
 
   useEffect(() => {
-    getCompanies();
+    setTimeout(() => {
+      getCompanies();
+    }, 1000);
     // eslint-disable-next-line
   }, []);
 
