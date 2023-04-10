@@ -64,7 +64,7 @@ function Register() {
 
   return (
     <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:min-h-screen">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[90vh]">
         <Link
           to="/about-us"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -193,12 +193,11 @@ function Register() {
                   />
                 </div>
               </div>
-              <button
-                type="submit"
-                className="lg:w-2/4 w-full text-base tracking-wide text-white my-4 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5 text-center "
-              >
-                Sign up
-              </button>
+              <div className="flex justify-center">
+                <button className="lg:w-2/4 w-full text-base text-center tracking-wide text-white my-4 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5">
+                  <p className="mx-auto font-sm"> Sign up </p>
+                </button>
+              </div>
               <p className="text-base font-light text-black  ">
                 Do you already have an account?
                 <Link

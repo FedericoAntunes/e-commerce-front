@@ -109,7 +109,7 @@ function Login() {
   return (
     <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:min-h-screen">
       <ToastContainer limit={1} />
-      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto">
+      <div className=" flex flex-col items-center justify-center px-6 py-8 md:h-[90vh] mx-auto">
         <Link
           to="/about-us"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -191,7 +191,7 @@ function Login() {
                 type="submit"
                 className="w-full text-gray-200	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
               >
-                Sign in
+                <p className="mx-auto text-md">Sign in</p>
               </button>
               <p className="text-base font-light text-black  ">
                 Don’t have an account yet?
