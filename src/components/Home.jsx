@@ -28,7 +28,7 @@ function Home() {
   return (
     <>
       <Hero />
-      {companies.length < 0 ? (
+      {companies.length > 0 ? (
         <>
           <CategoryCarousel category={category} setCategory={setCategory} />
           <Companies companies={companies} />

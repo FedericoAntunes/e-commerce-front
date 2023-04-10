@@ -1,12 +1,13 @@
 function Loader() {
   return (
-    <div className="absolute grid h-screen place-items-center">
+    <>
+      <div className="fixed inset-0 h-screen w-screen backdrop-blur-sm z-[9998]"></div>
       <img
-        className="mix-blend-multiply"
+        className="fixed inset-0 m-auto mix-blend-multiply z-[9999]"
         src="/img/loader.gif"
         alt="Loading..."
       />
-    </div>
+    </>
   );
 }
 
