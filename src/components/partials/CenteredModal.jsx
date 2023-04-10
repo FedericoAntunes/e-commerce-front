@@ -101,14 +101,13 @@ function CenteredModal({
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button
-                    className="hidden md:inline"
+                  <span
                     onClick={() => {
                       handleSubmit(product);
                     }}
                   >
-                    <AddItemBtn />
-                  </button>
+                    <AddItemBtn className="hidden md:inline" />
+                  </span>
                   <button
                     onClick={() => {
                       handleSubmit(product);

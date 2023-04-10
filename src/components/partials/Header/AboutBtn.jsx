@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import "./AboutBtn.css";
+import styles from "./AboutBtn.module.css";
 
 function AboutBtn() {
   const [timer, setTimer] = useState(false);
@@ -11,18 +11,20 @@ function AboutBtn() {
 
   return (
     <div
-      className={`fixed bottom-4 flex ${
-        timer && "wobble-hor-bottom"
+      className={`fixed text-white bottom-4 flex ${
+        timer && styles.wobble_hor_bottom
       } z-50 right-6`}
     >
-      <button className="bg-green-500 p-2 font-semibold hover:bg-green-600 transition ease-in-out-300 rounded-full">
-        <p>About this project</p>
+      <button
+        className={`bg-green-500 p-2 font-semibold md:hover:bg-green-600 transition ease-in-out-300 rounded-full ${styles.button}`}
+      >
+        <p className={styles.buttonP}>About this project</p>
         <svg
           stroke-width="4"
           stroke="currentColor"
           viewBox="0 0 24 24"
           fill="none"
-          class="h-6 w-6"
+          className={`h-6 w-6 ${styles.buttonSvg}`}
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

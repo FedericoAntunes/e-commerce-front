@@ -15,8 +15,8 @@ import { toggleMenu } from "../../../redux/slice/showShoppingCartSlice";
 // Components
 import ShoppingCart from "../ShoppingCart";
 import Search from "./Search";
-import "./Header.css";
 import Logo from "./Logo";
+import "./Header.css";
 
 function Header() {
   const [toggleSearch, setToggleSearch] = useState(false);
@@ -129,23 +129,24 @@ function Header() {
                 Sign out
               </Dropdown.Item>
             </Dropdown>
-          ) : null}
-          <Navbar.Toggle
-            className={`hover:text-yellow-400 ${user && "hidden"}`}
-            style={
-              navbarScroll || location.pathname !== "/"
-                ? {
-                    color: "gray",
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
-                  }
-                : {
-                    color: "lightyellow",
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
-                  }
-            }
-          />
+          ) : (
+            <Navbar.Toggle
+              className={`hover:text-yellow-400`}
+              style={
+                navbarScroll || location.pathname !== "/"
+                  ? {
+                      color: "gray",
+                      backgroundColor: "transparent",
+                      boxShadow: "none",
+                    }
+                  : {
+                      color: "lightyellow",
+                      backgroundColor: "transparent",
+                      boxShadow: "none",
+                    }
+              }
+            />
+          )}
         </div>
         <Navbar.Collapse className="navbar-links-container pt-[2px] order-6 md:order-3">
           {!user && (
