@@ -131,9 +131,10 @@ function Footer() {
         </ul>
         <p>&copy;2023 HA Academy Sala 4 | All Rights Reserved</p>
         <img
-          src="https://www.animatedimages.org/data/media/157/animated-fishing-image-0057.gif"
+          src="https://cdn.dribbble.com/users/6033/screenshots/6126860/comp_2.gif"
           alt=""
-          className="absolute top-0 -m-44 z-[1001]"
+          className="absolute top-10 -m-44 z-[1001] mix-blend-multiply"
+          width="300"
         />
       </footer>
     </>
