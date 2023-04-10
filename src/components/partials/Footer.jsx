@@ -109,7 +109,10 @@ function Footer() {
             </Link>
           </li>
           <li className={styles.menu__item}>
-            <Link className={styles.menu__link} to="https://e-commerce-admin-mu.vercel.app/login">
+            <Link
+              className={styles.menu__link}
+              to="https://e-commerce-admin-mu.vercel.app/login"
+            >
               Admin Panel
             </Link>
           </li>
