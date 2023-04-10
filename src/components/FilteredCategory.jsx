@@ -4,6 +4,9 @@ import { useParams, Link } from "react-router-dom";
 // LazyLoader
 import FilteredCategoryLoader from "./partials/loaders/FilteredCategoryLoader";
 
+// Components
+import Companies from "./partials/FilteredCategory/Companies";
+
 // ApiCall
 import apiCall from "./api/api";
 
@@ -12,6 +15,7 @@ function FilteredCategory() {
   const [category, setCategory] = useState(null);
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
+  const [companies, setCompanies] = useState(null);
 
   const params = useParams();
 
@@ -21,6 +25,9 @@ function FilteredCategory() {
       "get"
     );
     setCategory(category.data);
+    const companyTag = params.category_slug.split("-");
+    const companyData = await apiCall(`/companies?tag=${companyTag[0]}`, "get");
+    setCompanies(companyData.data);
     const products = await apiCall(
       `/products?categoryId=${category.data.id}`,
       "get"
@@ -33,10 +40,19 @@ function FilteredCategory() {
     // eslint-disable-next-line
   }, []);
 
-  return category && products ? (
+  return companies && category && products ? (
     <div className="mt-20 pt-6">
       <h3 className="text-2xl font-semibold">{category.name}</h3>
-      <div className="pt-6 grid-cols-1 sm:grid-cols-4 sm:mx-24 grid gap-2">
+      <div className="mx-4 mt-10 sm:mx-24">
+        <h4 className="font-semibold">
+          Featured restaurants of {category.name}
+        </h4>
+        <Companies companies={companies} />
+      </div>
+      <h4 className="font-semibold mt-16">
+        Featured products of {category.name}
+      </h4>
+      <div className="pt-6 grid-cols-1 sm:grid-cols-4 mx-4 sm:mx-24 grid gap-2">
         {products &&
           products.map((product, index) => {
             return (
@@ -50,7 +66,7 @@ function FilteredCategory() {
                   setIsShown(false);
                 }}
                 key={index}
-                className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                className="pb-6 mx-auto overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
                 <div className="flex items-center mx-auto z-30 justify"></div>
                 <Link to={`/${product.company.slug}`}>
@@ -60,7 +76,7 @@ function FilteredCategory() {
                 </Link>
                 {isShown && actualProduct === product.id && (
                   <Link to={`/${product.company.slug}`}>
-                    <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       Go to restaurant
                     </button>
                   </Link>
