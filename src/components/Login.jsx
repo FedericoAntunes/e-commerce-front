@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserShield } from "@fortawesome/free-solid-svg-icons";
 
 // Actions
 import { loginUser } from "../redux/slice/userSlice";
@@ -125,6 +127,16 @@ function Login() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
             </h1>
+            <div className="flex justify-end text-sm font-medium">
+            <Link
+                to="https://e-commerce-admin-mu.vercel.app/login"
+                className="text-blue-600 hover:text-blue-700 focus:text-blue-700 hover:underline transform hover:scale-110 focus:scale-110 transition-all"
+              >
+            <FontAwesomeIcon icon={faUserShield} className="text-blue-500 mr-2" />
+            Admin Panel
+             </Link>
+            </div>
+
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -203,8 +215,6 @@ function Login() {
                 </Link>
               </p>
             </form>
-          </div>
-          <div className="px-2">
             <div className="flex items-center justify-center mb-4">
               <hr className="w-full border-t-2 border-gray-200" />
               <span className="px-2">or</span>
