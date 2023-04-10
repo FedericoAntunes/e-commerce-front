@@ -95,7 +95,7 @@ function CenteredModal({
                     </div>
                   </div>
                   <div className="overflow-x-hidden my-auto overflow-y-auto h-[170px]">
-                    <p className="mt-2 text-gray-900 font-body text-lg leading-8 text-left w-80">
+                    <p className="mt-2 text-gray-900 font-body text-lg leading-8 text-left w-fit">
                       {product.description}
                     </p>
                   </div>
