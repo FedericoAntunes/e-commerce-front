@@ -10,6 +10,7 @@ import CategoriesLoader from "./partials/loaders/CategoriesLoader";
 
 // ApiCall
 import apiCall from "./api/api";
+import Loader from "./partials/loaders/Loader";
 
 function Home() {
   const [category, setCategory, companies, setCompanies] = useOutletContext();
@@ -27,13 +28,14 @@ function Home() {
   return (
     <>
       <Hero />
-      {companies.length > 0 ? (
+      {companies.length < 0 ? (
         <>
           <CategoryCarousel category={category} setCategory={setCategory} />
           <Companies companies={companies} />
         </>
       ) : (
         <>
+          <Loader />
           <CategoriesLoader />
           <CompaniesLoader />
         </>
