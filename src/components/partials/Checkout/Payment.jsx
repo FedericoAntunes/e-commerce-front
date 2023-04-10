@@ -139,7 +139,7 @@ function Payment({ shippingData, setShippingData }) {
             </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField // CardName
+            <TextField className="" // CardName
               id="card-name"
               label="Name"
               type="text"

@@ -45,3 +45,19 @@
    color: black !important;   /*#F59E0B */
 }
 /*BOTON DE BACK*/
+
+#removeRingShadow{
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  --tw-ring-shadow: none !important;
+}
+
+.MuiInput[type=number]:focus{
+  --tw-ring-shadow: none !important;
+}
+
+.MuiInput[type='datetime-local']:focus{
+  --tw-ring-shadow: none !important;
+}
+.MuiInput[type='text']:focus{
+  --tw-ring-shadow: none !important;
+}
