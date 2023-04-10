@@ -109,13 +109,11 @@ function Footer() {
             </Link>
           </li>
           <li className={styles.menu__item}>
-            <Link className={styles.menu__link} to="#">
-              About
-            </Link>
-          </li>
-          <li className={styles.menu__item}>
-            <Link className={styles.menu__link} to="#">
-              Services
+            <Link
+              className={styles.menu__link}
+              to="https://e-commerce-admin-mu.vercel.app/login"
+            >
+              Admin Panel
             </Link>
           </li>
           <li className={styles.menu__item}>
@@ -136,6 +134,11 @@ function Footer() {
           className="absolute top-10 -m-44 z-[1001] mix-blend-multiply"
           width="300"
         />
+        {/* <img
+          src="https://www.animatedimages.org/data/media/157/animated-fishing-image-0057.gif"
+          alt=""
+          className="absolute top-0 -m-44 z-[1001]"
+        /> */}
       </footer>
     </>
   );

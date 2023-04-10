@@ -15,6 +15,7 @@
     border-radius: 14px;
     border: 1px solid rgb(236, 235, 216);
   }
+  
 
 @tailwind components;
 @tailwind utilities;
