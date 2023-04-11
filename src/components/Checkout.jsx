@@ -168,76 +168,78 @@ function Checkout() {
     );
   }
   return (
-    <Box
-      sx={{ maxWidth: "100%" }}
-      className="mt-[84px] md:px-48 pt-16 mx-auto "
-    >
-      <ToastContainer />
-      <ScrollToTop />
-      <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-          if (isStepOptional(index)) {
-            labelProps.optional = (
-              <Typography variant="caption">Optional</Typography>
+    <div className="">
+      <Box
+        sx={{ maxWidth: "100%" }}
+        className="mt-[84px] md:px-40 mx-auto md:mx-24 lg:px-44 xl:px-96 bg-white rounded-lg shadow-lg"
+      >
+        <ToastContainer />
+        <ScrollToTop />
+        <Stepper activeStep={activeStep}>
+          {steps.map((label, index) => {
+            const stepProps = {};
+            const labelProps = {};
+            if (isStepOptional(index)) {
+              labelProps.optional = (
+                <Typography variant="caption">Optional</Typography>
+              );
+            }
+            if (isStepSkipped(index)) {
+              stepProps.completed = false;
+            }
+            return (
+              <Step key={label} {...stepProps}>
+                <StepLabel {...labelProps}>{label}</StepLabel>
+              </Step>
             );
-          }
-          if (isStepSkipped(index)) {
-            stepProps.completed = false;
-          }
-          return (
-            <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-      {activeStep === steps.length ? (
-        <>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-            <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleReset}>Reset</Button>
-          </Box>
-        </>
-      ) : (
-        <>
-          <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-            <Button
-              color="inherit"
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              sx={{ mr: 1 }}
-            >
-              <BackBtn />
-            </Button>
-            <Box sx={{ flex: "1 1 auto" }} />
-            {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
+          })}
+        </Stepper>
+        {activeStep === steps.length ? (
+          <>
+            <Typography sx={{ mt: 2, mb: 1 }}>
+              All steps completed - you&apos;re finished
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Box sx={{ flex: "1 1 auto" }} />
+              <Button onClick={handleReset}>Reset</Button>
+            </Box>
+          </>
+        ) : (
+          <>
+            <Typography sx={{ mt: 2, mb: 1 }}>{actualStepComponent}</Typography>
+            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Button
+                color="inherit"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                sx={{ mr: 1 }}
+              >
+                <BackBtn />
               </Button>
-            )}
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? (
-                loader ? (
-                  <button className="w-full text-gray-200 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  ">
-                    <SpinnerLoader />
-                  </button>
-                ) : (
-                  <FinishBtn />
-                )
-              ) : (
-                <NextBtn />
+              <Box sx={{ flex: "1 1 auto" }} />
+              {isStepOptional(activeStep) && (
+                <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                  Skip
+                </Button>
               )}
-            </Button>
-          </Box>
-        </>
-      )}
-    </Box>
+              <Button onClick={handleNext}>
+                {activeStep === steps.length - 1 ? (
+                  loader ? (
+                    <button className="w-full text-gray-200 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  ">
+                      <SpinnerLoader />
+                    </button>
+                  ) : (
+                    <FinishBtn />
+                  )
+                ) : (
+                  <NextBtn />
+                )}
+              </Button>
+            </Box>
+          </>
+        )}
+      </Box>
+    </div>
   );
 }
 

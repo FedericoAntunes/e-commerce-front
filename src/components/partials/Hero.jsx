@@ -6,7 +6,7 @@ function Hero() {
       style={{
         backgroundImage: `url("https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/9b21aa66b4922ae2.png")`,
       }}
-      className="h-[100vh] pl-4 bg-cover flex justify-start items-center"
+      className="h-[100vh] px-4 md:px-24 bg-cover flex justify-start items-center"
     >
       <div
         style={{ flex: "1 1 auto", minWidth: "235px", maxWidth: "700px" }}

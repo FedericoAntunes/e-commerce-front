@@ -62,7 +62,7 @@ function FilteredCategory() {
             Featured products of {category.name}
           </h4>
         )}
-        <div className="pt-6 grid-cols-1 sm:grid-cols-4 mx-4 sm:mx-24 grid gap-2">
+        <div className="pt-6 grid-cols-1 sm:grid-cols-4 mx-4 md:mx-24 grid gap-2">
           {products &&
             products.map((product, index) => {
               return (
@@ -80,13 +80,13 @@ function FilteredCategory() {
                 >
                   <div className="flex items-center mx-auto z-30 justify"></div>
                   <Link to={`/${product.company.slug}`}>
-                    <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                       Go to restaurant
                     </button>
                   </Link>
                   {isShown && actualProduct === product.id && (
                     <Link to={`/${product.company.slug}`}>
-                      <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Go to restaurant
                       </button>
                     </Link>
