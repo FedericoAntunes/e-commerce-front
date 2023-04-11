@@ -114,12 +114,14 @@ function Restaurant() {
             <div className="mb-2">
               <FontAwesomeIcon className="text-yellow-300" icon={faStar} /> 4.2
               <span className="text-gray-500"> (100+ reviews) • </span>
-              <button
-                className="underline text-blue-600"
-                onClick={HandleMoreInfoModal}
-              >
-                More information
-              </button>
+              {company.description ? (
+                <button
+                  className="underline text-blue-600"
+                  onClick={HandleMoreInfoModal}
+                >
+                  More information
+                </button>
+              ) : null}
               <RestaurantInfoModal
                 company={company}
                 isDescriptionOpen={isDescriptionOpen}
