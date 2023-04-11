@@ -162,22 +162,22 @@ function Header() {
             <>
               <Link
                 to={"/login"}
-                className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
+                className="block py-2 border-0 bg-transparent hover:text-yellow-100 text-[1.15rem] font-bold ease-in-out duration-200"
                 style={
                   navbarScroll || location.pathname !== "/"
                     ? { color: "gray" }
-                    : { color: "lightyellow" }
+                    : { color: "white" }
                 }
               >
                 Login
               </Link>
               <Link
                 to={"/register"}
-                className="block py-2 border-0 bg-transparent hover:text-yellow-400 fs-[0.875rem] font-normal ease-in-out duration-200"
+                className="block py-2 border-0 bg-transparent hover:text-yellow-100 text-[1.15rem] font-bold ease-in-out duration-200"
                 style={
                   navbarScroll || location.pathname !== "/"
                     ? { color: "gray" }
-                    : { color: "lightyellow" }
+                    : { color: "white" }
                 }
               >
                 Register

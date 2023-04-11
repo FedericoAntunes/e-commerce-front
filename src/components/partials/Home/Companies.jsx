@@ -20,7 +20,9 @@ function Companies({ companies }) {
               )}
             </div>
             <div className="text-left bg-white relative p-4">
-              <h5 className="font-bold mb-1 text-lg mr-12">{company.name}</h5>
+              <h5 className="font-bold mb-1 text-lg mr-12 truncate">
+                {company.name}
+              </h5>
               <span className="absolute right-2 top-6 md:font-bold">
                 {company.valoration}
                 <FontAwesomeIcon
