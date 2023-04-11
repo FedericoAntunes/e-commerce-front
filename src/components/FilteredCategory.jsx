@@ -46,7 +46,7 @@ function FilteredCategory() {
   }, [location.pathname]);
 
   return companies && category && products ? (
-    companies.length || category.length ? (
+    companies.length || Object.keys(category) ? (
       <div className="mt-20 pt-6">
         <h3 className="text-2xl font-semibold">{category.name}</h3>
         {companies.length && (
@@ -57,7 +57,7 @@ function FilteredCategory() {
             <Companies companies={companies} />
           </div>
         )}
-        {category.length && (
+        {Object.keys(category) && (
           <h4 className="font-semibold mt-16">
             Featured products of {category.name}
           </h4>
