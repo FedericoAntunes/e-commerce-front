@@ -4,7 +4,7 @@ function Shipping({ shippingData, setShippingData }) {
   return (
     <>
     <ScrollToTop/>
-      <form action="">
+      <form className="checkout">
         <Box
           sx={{
             display: "flex",

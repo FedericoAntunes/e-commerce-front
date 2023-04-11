@@ -1,0 +1,11 @@
+#searchForm input:focus {
+  box-shadow: none !important;
+  border: 2 !important;
+}
+#searchForm small {
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: vertical-lr;
+}
+
+

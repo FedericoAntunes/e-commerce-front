@@ -71,3 +71,10 @@
   /* Code for Firefox */
   background: transparent;
 }
+
+form.checkout input, #checkout input {
+  box-shadow: none !important;
+  border: 2 !important;
+}
+
+

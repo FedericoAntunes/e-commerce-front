@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "./Search.module.css";
+import  "./Search.css";
 
 // ApiCall
 import apiCall from "../../api/api";
@@ -100,7 +100,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
   };
   return (
     <>
-      <form
+      <form id="searchForm"
         style={
           navbarScroll || location.pathname !== "/"
             ? {
