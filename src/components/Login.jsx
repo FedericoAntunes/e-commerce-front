@@ -133,7 +133,7 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-gray-100 shadow-xl rounded-lg md:mt-0 lg:w-1/3 py-6">
+        <div className=" w-full sm:w-[600px] bg-transparent backdrop-blur border border-gray backdrop-grayscale-[0.5]  shadow-xl rounded-lg md:mt-0 py-6">
           <div className="p-6 pb-0 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
@@ -205,6 +205,16 @@ function Login() {
                     </label>
                   </div>
                 </div>
+                <div className="flex justify-center text-sm font-medium">
+                  <button
+                    className="m-2 md:px-4 md:py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                    type="button"
+                    onClick={handleFillInputs}
+                  >
+                    <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
+                    Fill Inputs
+                  </button>
+                </div>
                 <Link
                   to="#"
                   className="text-base font-medium text-blue-500 md:hover:underline"
@@ -229,16 +239,6 @@ function Login() {
                   Sign up
                 </Link>
               </p>
-              <div className="flex justify-center text-sm font-medium">
-                <button
-                  className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
-                  type="button"
-                  onClick={handleFillInputs}
-                >
-                  <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
-                  Fill Inputs
-                </button>
-              </div>
             </form>
             <div className="flex items-center justify-center mb-4">
               <hr className="w-full border-t-2 border-gray-200" />
