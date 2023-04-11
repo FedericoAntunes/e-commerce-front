@@ -15,7 +15,6 @@ export default function OrderHistory() {
       const orders = await apiCall(`/orders/user`, "get", null, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("order", orders.data);
       setOrders(orders.data);
     };
     ordersHandler();

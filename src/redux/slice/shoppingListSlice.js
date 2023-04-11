@@ -17,7 +17,6 @@ export const shoppingListSlice = createSlice({
         return state;
       }
       state.push(action.payload);
-      console.log(current(state));
       return state;
     },
     removeItem: (state, action) => {

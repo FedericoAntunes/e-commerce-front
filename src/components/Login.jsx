@@ -94,7 +94,6 @@ function Login() {
       email: inputEmail,
       password: inputPassword,
     });
-    console.log(response);
     if (response.data && response.data.id) {
       dispatch(
         loginUser({
