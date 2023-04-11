@@ -1,16 +1,10 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
+import { useState, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
 import { addItem } from "../../redux/slice/shoppingListSlice";
 import AddItemBtn from "./AddItemBtn";
-
-function notify(message) {
-  toast.warn(message, {
-    position: "bottom-right",
-  });
-}
 
 function CenteredModal({
   product,
@@ -20,11 +14,32 @@ function CenteredModal({
 }) {
   const [quantity, setQuantity] = useState(1);
 
+  const shoppingData = useSelector((state) => state.shoppingList);
+
   const dispatch = useDispatch();
 
+  const toastId = useRef(null);
+
+  function notify(message) {
+    if (!toast.isActive(toastId.current)) {
+      toastId.current = toast.warn(message, {
+        position: "bottom-right",
+      });
+    }
+  }
   const handleSubmit = (product) => {
-    if (quantity > product.stock) {
-      return notify("The quantity cannot exceed the stock of the product.");
+    const productInCart = shoppingData.filter(
+      (item) => item.slug === actualProduct
+    );
+
+    if (
+      quantity > product.stock ||
+      (productInCart.length &&
+        product.stock < quantity + productInCart[0].quantity)
+    ) {
+      return notify("The quantity cannot exceed the stock of the product.", {
+        toastId: "quantity-exceeded",
+      });
     }
     if (quantity < 1) {
       return notify("The quantity cannot be less than 0.");
@@ -42,8 +57,17 @@ function CenteredModal({
     <>
       {isModalOpen && product.slug === actualProduct ? (
         <>
-          <div className="fixed left-0 h-screen top-0 right-0 bottom-0 z-40 flex items-center justify-center">
-            <div className="relative w-full max-w-2xl mx-auto">
+          <ToastContainer className="z-[51]" />
+          <div
+            onClick={() => {
+              setIsModalOpen(false);
+            }}
+            className="backdrop-blur-sm fixed left-0 h-screen top-0 right-0 bottom-0 z-50 flex items-center justify-center"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl mx-auto"
+            >
               <div className="border-0 rounded-lg h-screen sm:h-[65vh] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b mt-16 sm:mt-0 border-solid border-slate-200 rounded-t">
                   <h3 className="text-2xl font-semibold text-left">
