@@ -48,7 +48,7 @@ export default function RestaurantInfoModal({
             </div>
           </div>
           <div
-            onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
+            onClick={() => setIsDescriptionOpen(false)}
             className="opacity-25 fixed inset-0 z-50 bg-black"
           ></div>
         </>
