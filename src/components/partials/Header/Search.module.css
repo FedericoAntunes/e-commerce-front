@@ -1,7 +1,7 @@
-form input:focus {
+.form_input:focus {
   box-shadow: none !important;
   border: 0 !important;
 }
-form small {
+.form_small {
   writing-mode: vertical-lr;
 }

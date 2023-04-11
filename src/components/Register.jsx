@@ -67,7 +67,8 @@ function Register() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500 md:min-h-screen">
+    <section className="bg-[url('https://images-ext-2.discordapp.net/external/B-Q5yWCKhF1nxZrMrnfRo3NIfNEwWDplURKiwmDcx2E/%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1260%26h%3D750%26dpr%3D1/https/images.pexels.com/photos/616401/pexels-photo-616401.jpeg')] bg-cover bg-no-repeat w-full md:min-h-screen">
+      {" "}
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
         <Link
           to="/about-us"
@@ -79,7 +80,7 @@ function Register() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-gray-100 rounded-lg shadow-xl md:mt-0 py-6 lg:w-2/4">
+        <div className="w-full sm:w-[700px] bg-transparent backdrop-blur border border-gray backdrop-grayscale-[0.5]  shadow-xl rounded-lg md:mt-0 py-6">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Create your account
@@ -102,7 +103,7 @@ function Register() {
                     type="text"
                     name="firstname"
                     id="firstname"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg block w-full p-2.5"
                     placeholder="Insert your firstname..."
                     required=""
                     value={firstname}
@@ -120,7 +121,7 @@ function Register() {
                     type="text"
                     name="lastname"
                     id="lastname"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg block w-full p-2.5"
                     placeholder="Insert your lastname..."
                     required=""
                     value={lastname}
@@ -138,7 +139,7 @@ function Register() {
                     type="text"
                     name="username"
                     id="username"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg block w-full p-2.5"
                     placeholder="Insert your username..."
                     required=""
                     value={username}
@@ -156,7 +157,7 @@ function Register() {
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg  block w-full p-2.5"
                     placeholder="Insert your email..."
                     required=""
                     value={email}
@@ -199,7 +200,7 @@ function Register() {
               </div>
               <div className="flex justify-center">
                 <button className="lg:w-2/4 w-full text-base text-center tracking-wide text-white my-4 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5">
-                  <p className="mx-auto font-sm">
+                  <p className="mx-auto font-sm ">
                     {loader ? <SpinnerLoader /> : "Sign up"}
                   </p>
                 </button>

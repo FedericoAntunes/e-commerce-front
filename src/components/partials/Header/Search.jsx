@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Search.css";
+import styles from "./Search.module.css";
 
 // ApiCall
 import apiCall from "../../api/api";
