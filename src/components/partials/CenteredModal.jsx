@@ -27,7 +27,6 @@ function CenteredModal({
       });
     }
   }
-
   const handleSubmit = (product) => {
     const productInCart = shoppingData.filter(
       (item) => item.slug === actualProduct
@@ -35,7 +34,8 @@ function CenteredModal({
 
     if (
       quantity > product.stock ||
-      product.stock < quantity + productInCart[0].quantity
+      (productInCart.length &&
+        product.stock < quantity + productInCart[0].quantity)
     ) {
       return notify("The quantity cannot exceed the stock of the product.", {
         toastId: "quantity-exceeded",
