@@ -24,13 +24,8 @@ export default function RestaurantInfoModal({
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative md:p-6 p-2 flex-auto flex justify-center flex-wrap md:flex-nowrap items-start">
-                  <img
-                    src={`${company.logo}`}
-                    alt=""
-                    className="grow-0 h-40 md:my-6 flex-none"
-                  />
-                  <p className="flex-grow  my-4 text-slate-500 text-lg leading-relaxed mx-4 overflow-y-scroll h-24 sm:h-fit sm:overflow-y-hidden">
+                <div className="relative md:p-6 p-2 flex justify-center md:flex-nowrap items-start">
+                  <p className=" text-left my-4 text-slate-500 text-lg leading-relaxed mx-4 overflow-y-scroll h-24 sm:h-fit sm:overflow-y-hidden">
                     {company.description}
                   </p>
                 </div>
