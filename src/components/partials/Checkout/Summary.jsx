@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import ScrollToTop from "../../ScrollToTop";
 
 function Summary() {
   const shoppingList = useSelector((state) => state.shoppingList);
@@ -14,6 +15,7 @@ function Summary() {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-0 lg:p-6">
+      <ScrollToTop/>
       <h2 className="text-3xl font-medium mb-6 text-center">Order Summary</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-between bg-gray-100 rounded-lg p-6">

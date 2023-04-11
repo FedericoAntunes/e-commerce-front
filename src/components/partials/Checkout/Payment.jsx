@@ -16,6 +16,7 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
+import ScrollToTop from "../../ScrollToTop";
 
 function Payment({ shippingData, setShippingData }) {
   const [active, setActive] = useState(null);
@@ -68,6 +69,7 @@ function Payment({ shippingData, setShippingData }) {
 
   return (
     <>
+      <ScrollToTop />
       <FormControl component="fieldset">
         <FormLabel component="legend" id="demo-row-radio-buttons-group-label">
           <div className="justify-center my-6 flex">
@@ -139,7 +141,8 @@ function Payment({ shippingData, setShippingData }) {
             </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField className="" // CardName
+            <TextField
+              className="" // CardName
               id="card-name"
               label="Name"
               type="text"
