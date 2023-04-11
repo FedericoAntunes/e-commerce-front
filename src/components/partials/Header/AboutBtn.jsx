@@ -20,7 +20,7 @@ function AboutBtn() {
       >
         <p className={styles.buttonP}>About this project</p>
         <svg
-          stroke-width="4"
+          strokeWidth="4"
           stroke="currentColor"
           viewBox="0 0 24 24"
           fill="none"
@@ -29,8 +29,8 @@ function AboutBtn() {
         >
           <path
             d="M14 5l7 7m0 0l-7 7m7-7H3"
-            stroke-linejoin="round"
-            stroke-linecap="round"
+            strokeLinejoin="round"
+            strokeLinecap="round"
           ></path>
         </svg>
       </button>
