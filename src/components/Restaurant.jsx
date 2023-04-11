@@ -18,7 +18,7 @@ import {
 // Components
 import CenteredModal from "./partials/CenteredModal";
 import RestaurantLoader from "./partials/loaders/RestaurantLoader";
-
+import RestaurantInfoModal from "./partials/RestaurantInfoModal";
 // ApiCall
 import apiCall from "./api/api";
 
@@ -26,6 +26,7 @@ function Restaurant() {
   const [products, setProducts] = useState([]);
   const [company, setCompany] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [actualProduct, setActualProduct] = useState({});
   const [isShown, setIsShown] = useState(false);
   const [showBtn, setShowBtn] = useState("");
@@ -47,6 +48,11 @@ function Restaurant() {
       setIsModalOpen(!isModalOpen);
     }
   };
+
+  function HandleMoreInfoModal(event) {
+    event.preventDefault();
+    return setIsDescriptionOpen(!isDescriptionOpen);
+  }
 
   const params = useParams();
   const getData = async () => {
@@ -108,7 +114,17 @@ function Restaurant() {
             <div className="mb-2">
               <FontAwesomeIcon className="text-yellow-300" icon={faStar} /> 4.2
               <span className="text-gray-500"> (100+ reviews) • </span>
-              <span className="underline text-blue-600">More information</span>
+              <button
+                className="underline text-blue-600"
+                onClick={HandleMoreInfoModal}
+              >
+                More information
+              </button>
+              <RestaurantInfoModal
+                company={company}
+                isDescriptionOpen={isDescriptionOpen}
+                setIsDescriptionOpen={setIsDescriptionOpen}
+              />
             </div>
             <div className="text-gray-400 mb-2">$ • {company.tags} •</div>
             <div className="font-semibold text-orange-400">
