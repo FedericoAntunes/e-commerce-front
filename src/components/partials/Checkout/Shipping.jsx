@@ -3,7 +3,7 @@ import ScrollToTop from "../../ScrollToTop";
 function Shipping({ shippingData, setShippingData }) {
   return (
     <>
-    <ScrollToTop/>
+      <ScrollToTop />
       <form className="checkout">
         <Box
           sx={{
@@ -14,6 +14,7 @@ function Shipping({ shippingData, setShippingData }) {
           }}
         >
           <TextField
+            required
             helperText=" "
             id="demo-helper-text-aligned"
             value={shippingData.address.firstname}

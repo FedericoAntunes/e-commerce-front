@@ -66,7 +66,7 @@ function CenteredModal({
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl overflow-y-scroll mx-auto"
+              className="relative w-full max-w-2xl overflow-y-auto mx-auto"
             >
               <div className="border-0 rounded-lg min-h-fit h-screen sm:h-fit shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b mt-2 sm:mt-0 border-solid border-slate-200 rounded-t">
