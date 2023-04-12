@@ -30,7 +30,9 @@ function Header() {
 
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
-  const isShoppingCartOpen = useSelector((state) => state.showShoppingCart);
+  const isShoppingCartOpen = useSelector(
+    (state) => state.showShoppingCart.showCart
+  );
 
   function handleLogOut() {
     googleLogout();
@@ -46,13 +48,18 @@ function Header() {
     }
   };
 
-  useEffect(() => {
-    if (!isShoppingCartOpen) {
-      document.body.style.overflow = "visible";
-    } else {
+  /*   useEffect(() => {
+    console.log(isShoppingCartOpen);
+    if (isShoppingCartOpen) {
+      console.log("elimino scroll");
       document.body.style.overflow = "hidden";
+    } else {
+      console.log("habilito scroll");
+
+      document.body.style.overflow = "visible";
     }
-  }, [isShoppingCartOpen]);
+    console.log(document.body.style);
+  }, [isShoppingCartOpen]); */
 
   useEffect(() => {
     navbarScrolling();
@@ -98,7 +105,9 @@ function Header() {
             )}
             <FontAwesomeIcon
               className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
-              onClick={() => dispatch(toggleMenu())}
+              onClick={() =>
+                dispatch(toggleMenu({ scroll: false, showCart: true }))
+              }
               icon={faCartShopping}
             />
             {shoppingList.length > 0 && (

@@ -23,7 +23,9 @@ function notify(message) {
 
 function ShoppingCart() {
   const shoppingList = useSelector((state) => state.shoppingList);
-  const showShoppingCart = useSelector((state) => state.showShoppingCart);
+  const showShoppingCart = useSelector(
+    (state) => state.showShoppingCart.showCart
+  );
 
   const dispatch = useDispatch();
 
@@ -53,7 +55,9 @@ function ShoppingCart() {
         <div className="bg-gradient-to-r flex items-center from-yellow-200 to-yellow-400 h-[5.25rem] w-22 text-black text-lg py-2 px-3">
           <span
             className="absolute top-3 right-4"
-            onClick={() => dispatch(toggleMenu())}
+            onClick={() =>
+              dispatch(toggleMenu({ scroll: true, showCart: false }))
+            }
           >
             <button>
               <FontAwesomeIcon
@@ -130,7 +134,9 @@ function ShoppingCart() {
               <div className="bg-gray-200 border  w-full absolute bottom-0 p-5  left-0 right-0">
                 <Link to={"/checkout"}>
                   <button
-                    onClick={() => dispatch(toggleMenu())}
+                    onClick={() =>
+                      dispatch(toggleMenu({ scroll: true, showCart: false }))
+                    }
                     className=" text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="submit"
                   >
@@ -149,7 +155,9 @@ function ShoppingCart() {
               <p>Your shopping cart is empty!</p>
               <p>Add products to start an order.</p>
               <button
-                onClick={() => dispatch(toggleMenu())}
+                onClick={() =>
+                  dispatch(toggleMenu({ scroll: true, showCart: false }))
+                }
                 className="mt-2 md:mt-16 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Start buying
@@ -161,7 +169,9 @@ function ShoppingCart() {
       {showShoppingCart ? (
         <div
           className="opacity-25 fixed inset-0 z-20 bg-black"
-          onClick={() => dispatch(toggleMenu())}
+          onClick={() =>
+            dispatch(toggleMenu({ scroll: true, showCart: false }))
+          }
         ></div>
       ) : null}
     </>

@@ -6,7 +6,7 @@ import {
   useSearchParams,
   useParams,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
@@ -15,10 +15,14 @@ import {
   faStopwatch,
 } from "@fortawesome/free-solid-svg-icons";
 
+// Actions
+import { toggleMenu } from "../redux/slice/showShoppingCartSlice";
+
 // Components
 import CenteredModal from "./partials/CenteredModal";
 import RestaurantLoader from "./partials/loaders/RestaurantLoader";
 import RestaurantInfoModal from "./partials/RestaurantInfoModal";
+
 // ApiCall
 import apiCall from "./api/api";
 
@@ -32,6 +36,7 @@ function Restaurant() {
   const [showBtn, setShowBtn] = useState("");
 
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
 
@@ -43,9 +48,11 @@ function Restaurant() {
   const handleOpenModal = (productSlug, forceOpen) => {
     setActualProduct(productSlug);
     if (forceOpen) {
+      dispatch(toggleMenu({ scroll: false, showCart: false }));
       setIsModalOpen(true);
     } else {
       setIsModalOpen(!isModalOpen);
+      dispatch(toggleMenu({ scroll: isModalOpen, showCart: false }));
     }
   };
 
@@ -72,14 +79,6 @@ function Restaurant() {
     getData();
     // eslint-disable-next-line
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (!isModalOpen) {
-      document.body.style.overflow = "visible";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
-  }, [isModalOpen]);
 
   useEffect(() => {
     const productExists = products.some((item) => item.slug === productSlug);

@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const showShoppingCartSlice = createSlice({
   name: "showShoppingCart",
-  initialState: false,
+  initialState: { scroll: true, showCart: false },
 
   reducers: {
     toggleMenu(state, action) {
-      return action.payload ? true : !state;
+      return action.payload;
     },
   },
 });

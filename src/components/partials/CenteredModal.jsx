@@ -44,8 +44,8 @@ function CenteredModal({
     if (quantity < 1) {
       return notify("The quantity cannot be less than 0.");
     }
+    dispatch(toggleMenu({ scroll: false, showCart: true }));
     setIsModalOpen();
-    dispatch(toggleMenu(true));
     dispatch(addItem({ ...product, quantity }));
   };
 
@@ -60,6 +60,7 @@ function CenteredModal({
           <ToastContainer className="z-[51]" />
           <div
             onClick={() => {
+              dispatch(toggleMenu({ scroll: true, showCart: false }));
               setIsModalOpen(false);
             }}
             className="backdrop-blur-sm fixed left-0 h-screen top-0 right-0 bottom-0 z-50 flex items-center justify-center"
@@ -74,7 +75,10 @@ function CenteredModal({
                     {product.title}
                   </h3>
                   <span
-                    onClick={() => setIsModalOpen()}
+                    onClick={() => {
+                      dispatch(toggleMenu({ scroll: true, showCart: false }));
+                      setIsModalOpen();
+                    }}
                     className="bg-transparent text-black hover:cursor-pointer float-right h-6 w-6 text-3xl leading-none block outline-none font-semibold focus:outline-none"
                   >
                     ×
@@ -145,10 +149,6 @@ function CenteredModal({
               </div>
             </div>
           </div>
-          <div
-            onClick={() => setIsModalOpen()}
-            className={`opacity-25 fixed inset-0 z-30 bg-black`}
-          ></div>
         </>
       ) : null}
     </>

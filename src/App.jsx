@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 
 //  Components  //
@@ -16,8 +18,20 @@ import OrderStatus from "./components/OrderStatus";
 import OrderHistory from "./components/OrderHistory";
 
 function App() {
+  const handleScroll = useSelector((state) => state.showShoppingCart.scroll);
+
+  useEffect(() => {
+    console.log(handleScroll);
+    if (!handleScroll) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+    console.log(document.body.style);
+  }, [handleScroll]);
+
   return (
-    <div className="App bg-gray-200">
+    <div className={`App bg-gray-200 ${"overflow-y-hidden"}`}>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
