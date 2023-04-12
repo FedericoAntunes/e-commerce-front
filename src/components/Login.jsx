@@ -10,6 +10,9 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 // Actions
 import { loginUser } from "../redux/slice/userSlice";
 
+// Components
+import ScrollToTop from "./ScrollToTop";
+
 // Google authentication
 import { useGoogleLogin } from "@react-oauth/google";
 
@@ -23,7 +26,7 @@ function notify(message) {
     autoClose: 3000,
     hideProgressBar: true,
     closeOnClick: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     draggable: true,
   });
 }
@@ -120,6 +123,7 @@ function Login() {
 
   return (
     <section className="bg-[url('https://images-ext-2.discordapp.net/external/B-Q5yWCKhF1nxZrMrnfRo3NIfNEwWDplURKiwmDcx2E/%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1260%26h%3D750%26dpr%3D1/https/images.pexels.com/photos/616401/pexels-photo-616401.jpeg')] bg-cover bg-no-repeat w-full md:min-h-screen">
+      <ScrollToTop />
       <ToastContainer limit={1} />
       <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto">
         <Link
