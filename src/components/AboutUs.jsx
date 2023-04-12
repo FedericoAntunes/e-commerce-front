@@ -47,9 +47,9 @@ function AboutUs() {
           <CardAbout
             name={"Juan Martín Madoz"}
             image={
-              "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+              "https://i.ibb.co/0KjhBFj/jmadoz.png"
             }
-            description={`Lorem ipsum dolor`}
+            description={`Computer Science Student and Full Stack Developer`}
             github={"https://github.com/Madozito"}
             linkedin={"https://www.linkedin.com/in/juanmartinmadoz/"}
           />
