@@ -124,7 +124,7 @@ function CenteredModal({
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex bg-white flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <span
                     className="hidden md:inline"
                     onClick={() => {
