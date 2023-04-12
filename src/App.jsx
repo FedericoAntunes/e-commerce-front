@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
 
 //  Components  //
 import Home from "./components/Home";
@@ -53,6 +54,7 @@ function App() {
         </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

@@ -197,7 +197,6 @@ function Checkout() {
         sx={{ maxWidth: "100%" }}
         className="mt-[84px] md:p-6 mx-auto md:mx-24 lg:px-44 xl:px-96 bg-white rounded-lg shadow-lg"
       >
-        <ToastContainer />
         <ScrollToTop />
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
@@ -220,8 +219,7 @@ function Checkout() {
         </Stepper>
         {activeStep === steps.length ? (
           <>
-
-            <Loader/>
+            <Loader />
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
               <Button onClick={handleReset}>Reset</Button>
