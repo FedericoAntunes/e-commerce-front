@@ -22,6 +22,7 @@ import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
 import Summary from "./partials/Checkout/Summary";
 import SpinnerLoader from "./partials/loaders/SpinnerLoader";
+import Loader from "./partials/loaders/Loader";
 import FinishBtn from "./partials/Checkout/FinishBtn";
 import NextBtn from "./partials/Checkout/NextBtn";
 import BackBtn from "./partials/Checkout/BackBtn";
@@ -104,7 +105,6 @@ function Checkout() {
   };
 
   const handleNext = async () => {
-    console.log(activeStep);
     if (activeStep === steps.length - 1) {
       setLoader(true);
       const response = await apiCall(
@@ -132,8 +132,8 @@ function Checkout() {
         notifySuccess();
         dispatch(removeAllItems());
         dispatch(saveLastOrderInfo(response.data));
-        setLoader(false);
         navigate("/order-status");
+        setLoader(false);
       }, 4000);
     } else if (activeStep === 0) {
       if (
@@ -220,9 +220,8 @@ function Checkout() {
         </Stepper>
         {activeStep === steps.length ? (
           <>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
+
+            <Loader/>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
               <Button onClick={handleReset}>Reset</Button>
@@ -249,9 +248,7 @@ function Checkout() {
               <Button onClick={handleNext}>
                 {activeStep === steps.length - 1 ? (
                   loader ? (
-                    <button className="w-full text-gray-200 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  ">
-                      <SpinnerLoader />
-                    </button>
+                    <Loader />
                   ) : (
                     <FinishBtn />
                   )
