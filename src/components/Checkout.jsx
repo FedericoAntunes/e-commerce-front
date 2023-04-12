@@ -110,6 +110,12 @@ function Checkout() {
           Authorization: `Bearer ${token}`,
         }
       );
+      if (response.response.data === "Fill all fields.") {
+        setLoader(false);
+        return toast.warn("Please, fill all fields.", {
+          position: "bottom-right",
+        });
+      }
       if (response.response && response.response.status === 406) {
         setLoader(false);
         return toast(Msg, {
@@ -171,7 +177,7 @@ function Checkout() {
     <div className="">
       <Box
         sx={{ maxWidth: "100%" }}
-        className="mt-[84px] md:px-40 mx-auto md:mx-24 lg:px-44 xl:px-96 bg-white rounded-lg shadow-lg"
+        className="mt-[84px] md:p-6 mx-auto md:mx-24 lg:px-44 xl:px-96 bg-white rounded-lg shadow-lg"
       >
         <ToastContainer />
         <ScrollToTop />
@@ -214,7 +220,7 @@ function Checkout() {
                 onClick={handleBack}
                 sx={{ mr: 1 }}
               >
-                <BackBtn />
+                {activeStep !== 0 ? <BackBtn /> : null}
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
               {isStepOptional(activeStep) && (

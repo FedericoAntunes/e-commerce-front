@@ -3,7 +3,7 @@ import ScrollToTop from "../../ScrollToTop";
 function Shipping({ shippingData, setShippingData }) {
   return (
     <>
-    <ScrollToTop/>
+      <ScrollToTop />
       <form className="checkout">
         <Box
           sx={{
@@ -14,6 +14,7 @@ function Shipping({ shippingData, setShippingData }) {
           }}
         >
           <TextField
+            required
             helperText=" "
             id="demo-helper-text-aligned"
             value={shippingData.address.firstname}
@@ -28,6 +29,7 @@ function Shipping({ shippingData, setShippingData }) {
             }
           />
           <TextField
+            required
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label={<span style={{}}>Lastname</span>}
@@ -51,6 +53,7 @@ function Shipping({ shippingData, setShippingData }) {
           }}
         >
           <TextField
+            required
             helperText=" "
             id="address"
             label={<span style={{}}>Address</span>}
@@ -74,6 +77,7 @@ function Shipping({ shippingData, setShippingData }) {
           }}
         >
           <TextField
+            required
             helperText=" "
             id="city"
             label={<span style={{}}>City</span>}
@@ -88,6 +92,7 @@ function Shipping({ shippingData, setShippingData }) {
             }
           />
           <TextField
+            required
             helperText=" "
             id="province"
             label={<span style={{}}>Province/State</span>}
@@ -102,6 +107,7 @@ function Shipping({ shippingData, setShippingData }) {
             }
           />
           <TextField
+            required
             helperText=" "
             id="postalcode"
             label={<span style={{}}>Postal Code</span>}

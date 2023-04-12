@@ -147,7 +147,7 @@ function Restaurant() {
                   icon={faStopwatch}
                 />
               </h2>
-              <div className="grid-cols-1 sm:grid-cols-4 mt-6 grid gap-2">
+              <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-2">
                 {products.map((product, index) => {
                   return (
                     product.in_offer && (
@@ -247,7 +247,7 @@ function Restaurant() {
               Picked for you{" "}
               <FontAwesomeIcon className="text-red-500" icon={faHeart} />
             </h2>
-            <div className="grid-cols-1 sm:grid-cols-4 mt-6 grid gap-2">
+            <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-2">
               {products.map((product, index) => {
                 return (
                   <div
