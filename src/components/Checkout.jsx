@@ -33,6 +33,10 @@ const notifySuccess = () =>
   toast.success("Order created successfully.", {
     position: "bottom-right",
   });
+const notifyError = () =>
+  toast.error("Please fill all the fields.", {
+    position: "bottom-right",
+  });
 
 function Checkout() {
   const [activeStep, setActiveStep] = useState(0);
@@ -100,6 +104,7 @@ function Checkout() {
   };
 
   const handleNext = async () => {
+    console.log(activeStep);
     if (activeStep === steps.length - 1) {
       setLoader(true);
       const response = await apiCall(
@@ -110,7 +115,8 @@ function Checkout() {
           Authorization: `Bearer ${token}`,
         }
       );
-      if (response.response.data === "Fill all fields.") {
+
+      if (response.response && response.response.data === "Fill all fields.") {
         setLoader(false);
         return toast.warn("Please, fill all fields.", {
           position: "bottom-right",
@@ -122,18 +128,30 @@ function Checkout() {
           position: "bottom-right",
         });
       }
-      notifySuccess();
-      dispatch(removeAllItems());
-      dispatch(saveLastOrderInfo(response.data));
-      setLoader(false);
-      navigate("/order-status");
+      setTimeout(() => {
+        notifySuccess();
+        dispatch(removeAllItems());
+        dispatch(saveLastOrderInfo(response.data));
+        setLoader(false);
+        navigate("/order-status");
+      }, 4000);
+    } else if (activeStep === 0) {
+      if (
+        shippingData.address.firstname === "" ||
+        shippingData.address.lastname === "" ||
+        shippingData.address.address === "" ||
+        shippingData.address.city === "" ||
+        shippingData.address.province === "" ||
+        shippingData.address.postal_code === ""
+      ) {
+        return notifyError();
+      }
     }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
       newSkipped.delete(activeStep);
     }
-
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
   };
