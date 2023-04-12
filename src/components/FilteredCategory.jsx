@@ -79,13 +79,15 @@ function FilteredCategory() {
                   className="pb-6 mx-auto overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                   <div className="flex items-center mx-auto z-30 justify"></div>
-                  <Link to={`/${product.company.slug}`}>
+                  <Link to={`/${product.company.slug}?product=${product.slug}`}>
                     <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                       Go to restaurant
                     </button>
                   </Link>
                   {isShown && actualProduct === product.id && (
-                    <Link to={`/${product.company.slug}`}>
+                    <Link
+                      to={`/${product.company.slug}?product=${product.slug}`}
+                    >
                       <button className="text-white absolute z-20 opacity-80 right-1 bottom-1 bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Go to restaurant
                       </button>
