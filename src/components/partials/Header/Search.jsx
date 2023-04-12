@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import  "./Search.css";
+import "./Search.css";
 
 // ApiCall
 import apiCall from "../../api/api";
@@ -25,7 +25,11 @@ function Search({ navbarScroll, toggleSearch, header }) {
     const companies = await apiCall("/companies", "get");
     const categories = await apiCall("/categories", "get");
 
-    setItems([...products.data, ...companies.data, ...categories.data]);
+    const formatedProducts = await products.data.map((product) => {
+      return { ...product, name: product.title };
+    });
+
+    setItems([...formatedProducts, ...companies.data, ...categories.data]);
   };
 
   useEffect(() => {
@@ -100,7 +104,8 @@ function Search({ navbarScroll, toggleSearch, header }) {
   };
   return (
     <>
-      <form id="searchForm"
+      <form
+        id="searchForm"
         style={
           navbarScroll || location.pathname !== "/"
             ? {
@@ -146,7 +151,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
             maxResults={5}
             showNoResultsText={"No results"}
             formatResult={formatResult}
-            fuseOptions={{ keys: ["title", "name"] }}
+            fuseOptions={{ keys: ["name"] }}
             resultStringKeyName="name"
           />
         </div>
