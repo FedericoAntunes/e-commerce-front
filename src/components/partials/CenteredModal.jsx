@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
@@ -57,7 +57,6 @@ function CenteredModal({
     <>
       {isModalOpen && product.slug === actualProduct ? (
         <>
-          <ToastContainer className="z-[51]" />
           <div
             onClick={() => {
               dispatch(toggleMenu({ scroll: true, showCart: false }));
