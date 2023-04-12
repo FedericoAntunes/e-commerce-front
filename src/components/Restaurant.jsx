@@ -112,7 +112,8 @@ function Restaurant() {
           </h2>
           <small className="text-left block">
             <div className="mb-2">
-              <FontAwesomeIcon className="text-yellow-300" icon={faStar} /> 4.2
+              <FontAwesomeIcon className="text-yellow-400 ml-1" icon={faStar} />
+              {company.valoration}
               <span className="text-gray-500"> (100+ reviews) • </span>
               {company.description ? (
                 <button
@@ -132,7 +133,7 @@ function Restaurant() {
             <div className="font-semibold text-orange-400">
               {!user
                 ? "Login to see the estimated delivery time"
-                : "The estimated waiting time is 30 - 40 min"}
+                : company.estimated_time}
             </div>
           </small>
         </div>
