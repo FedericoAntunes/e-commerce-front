@@ -195,11 +195,11 @@ function Restaurant() {
                           />
                         </div>
                         <Link to={`/${product.company.slug}`}>
-                          <div className="md:hover:scale-105 relative ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
+                          <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
                             {product.stock === 0 && (
                               <img
-                                className="absolute inset-0"
-                                src="/img/sold_out.png"
+                                className="absolute h-[270px]"
+                                src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
                                 alt="Out of stock"
                               />
                             )}
