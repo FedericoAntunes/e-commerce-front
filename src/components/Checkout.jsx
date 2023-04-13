@@ -152,7 +152,18 @@ function Checkout() {
       ) {
         return notifyError();
       }
+    } else if (activeStep === 2){
+      if (
+        shippingData.payment_info.card_number === "" ||
+        shippingData.payment_info.name_card === "" ||
+        shippingData.payment_info.expiration_date === "" ||
+        shippingData.payment_info.cvv === "" 
+      ) {
+        return notifyError();
+      }
+
     }
+    
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
