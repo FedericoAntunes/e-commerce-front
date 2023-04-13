@@ -76,7 +76,7 @@ function Header() {
             ? { backgroundColor: "white" }
             : { backgroundColor: "transparent" }
         }
-        className="ease-in-out duration-300 lg:px-24"
+        className="ease-in-out duration-300 px-4 lg:px-24"
       >
         <Logo />
         <Search
@@ -129,7 +129,7 @@ function Header() {
                       : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
                   }
                   rounded={true}
-                  className="pt-2 lg:pr-1"
+                  className="pt-2"
                 />
               }
             >

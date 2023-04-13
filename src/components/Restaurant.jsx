@@ -104,19 +104,22 @@ function Restaurant() {
           icon={faHeart}
         />
       </div>
-      <div className="mx-2 lg:mx-24">
-        <div className="mx-2">
-          <h2 className="text-left font-bold text-4xl mb-6 mt-12">
-            {company.name}
-          </h2>
+      <div className="mx-4 lg:mx-24">
+        <div>
+          <h2 className="text-left font-bold text-4xl mb-6">{company.name}</h2>
           <small className="text-left block">
             <div className="mb-2">
-              <FontAwesomeIcon className="text-yellow-400 ml-1" icon={faStar} />
-              {company.valoration}
+              <span className="font-bold">
+                <FontAwesomeIcon
+                  className="text-yellow-400 h-[15px]"
+                  icon={faStar}
+                />{" "}
+                {company.valoration}
+              </span>
               <span className="text-gray-500"> (100+ reviews) • </span>
               {company.description ? (
                 <button
-                  className="underline text-blue-600"
+                  className="underline leading-10 text-green-600"
                   onClick={HandleMoreInfoModal}
                 >
                   More information
@@ -139,31 +142,18 @@ function Restaurant() {
         {products.some((item) => item.in_offer) && (
           <>
             <div className="mt-16">
-              <h2 className="text-2xl font-semibold text-left mx-2">
+              <h2 className="text-2xl font-semibold text-left">
                 Limited time offerts!{" "}
                 <FontAwesomeIcon
                   className="text-green-500"
                   icon={faStopwatch}
                 />
               </h2>
-              <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-2">
+              <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-4">
                 {products.map((product, index) => {
                   return (
                     product.in_offer && (
-                      <div
-                        onMouseEnter={() => {
-                          setActualProduct(product.slug);
-                          setIsShown(true);
-                          setShowBtn(`${index}a`);
-                        }}
-                        onMouseLeave={() => {
-                          setActualProduct(product.slug);
-                          setIsShown(false);
-                          setShowBtn("");
-                        }}
-                        key={`${index}a`}
-                        className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
-                      >
+                      <div>
                         <div className="flex items-center mx-auto z-30 justify">
                           <CenteredModal
                             product={product}
@@ -172,64 +162,66 @@ function Restaurant() {
                             actualProduct={actualProduct}
                           />
                         </div>
-                        <button
+                        <div
+                          onMouseEnter={() => {
+                            setActualProduct(product.slug);
+                            setIsShown(true);
+                            setShowBtn(`${index}a`);
+                          }}
+                          onMouseLeave={() => {
+                            setActualProduct(product.slug);
+                            setIsShown(false);
+                            setShowBtn("");
+                          }}
                           onClick={() => handleOpenModal(product.slug)}
-                          className="md:hidden absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                          key={`${index}a`}
+                          className="pb-6 lg:hover:scale-105 ease-in-out duration-300 cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
                         >
-                          View more
-                        </button>
-                        {isShown && showBtn === `${index}a` && (
-                          <button
-                            onClick={() => handleOpenModal(product.slug)}
-                            className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                          >
-                            View more
-                          </button>
-                        )}
-                        <div className="-mb-6 relative">
-                          <img
-                            className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                            src={product.company.logo}
-                            alt="company"
-                          />
-                        </div>
-                        <Link to={`/${product.company.slug}`}>
-                          <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
-                            {product.stock === 0 && (
-                              <img
-                                className="absolute h-[270px]"
-                                src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
-                                alt="Out of stock"
-                              />
-                            )}
+                          <div className="-mb-6 relative">
                             <img
-                              className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
-                              src={product.image}
-                              alt="product"
+                              className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
+                              src={product.company.logo}
+                              alt="company"
                             />
                           </div>
-                        </Link>
-                        <div className="px-5">
                           <Link to={`/${product.company.slug}`}>
-                            <h5 className="text-md text-start font-semibold tracking-tight text-gray-900 dark:text-white">
-                              {product.title}
-                            </h5>
+                            <div className="relative w-full h-[200px] mb-5 overflow-hidden">
+                              {product.stock === 0 && (
+                                <img
+                                  className="absolute h-[270px]"
+                                  src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
+                                  alt="Out of stock"
+                                />
+                              )}
+                              <img
+                                className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
+                                src={product.image}
+                                alt="product"
+                              />
+                            </div>
                           </Link>
-                          <div className="flex items-end">
-                            {product.in_offer ? (
-                              <>
-                                <span className="line-through text-gray-400">
+                          <div className="px-5">
+                            <Link to={`/${product.company.slug}`}>
+                              <h5 className="text-md text-start font-semibold truncate tracking-tight text-gray-900 dark:text-white">
+                                {product.title}
+                              </h5>
+                            </Link>
+                            <div className="flex items-end">
+                              {product.in_offer ? (
+                                <>
+                                  <span className="line-through text-gray-400">
+                                    ${product.price.toFixed(2)}
+                                  </span>
+                                  <span className="font-bold text-xl ml-2 text-green-500">
+                                    ${(product.price * 0.8).toFixed(2)}
+                                  </span>
+                                </>
+                              ) : (
+                                <span className="font-bold text-xl text-green-500">
                                   ${product.price.toFixed(2)}
                                 </span>
-                                <span className="font-bold text-xl ml-2 text-green-500">
-                                  ${(product.price * 0.8).toFixed(2)}
-                                </span>
-                              </>
-                            ) : (
-                              <span className="font-bold text-xl text-green-500">
-                                ${product.price.toFixed(2)}
-                              </span>
-                            )}
+                              )}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -242,27 +234,14 @@ function Restaurant() {
         )}
         {products.some((item) => item.id === item.id) && (
           <div className="mt-16">
-            <h2 className="text-2xl font-semibold text-left mx-2">
+            <h2 className="text-2xl font-semibold text-left">
               Picked for you{" "}
               <FontAwesomeIcon className="text-red-500" icon={faHeart} />
             </h2>
-            <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-2">
+            <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-4">
               {products.map((product, index) => {
                 return (
-                  <div
-                    onMouseEnter={() => {
-                      setActualProduct(product.slug);
-                      setIsShown(true);
-                      setShowBtn(`${index}b`);
-                    }}
-                    onMouseLeave={() => {
-                      setActualProduct(product.slug);
-                      setIsShown(false);
-                      setShowBtn("");
-                    }}
-                    key={`${index}b`}
-                    className="pb-6 overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
-                  >
+                  <div>
                     <div className="flex items-center mx-auto z-30 justify">
                       <CenteredModal
                         product={product}
@@ -271,64 +250,66 @@ function Restaurant() {
                         actualProduct={actualProduct}
                       />
                     </div>
-                    <button
+                    <div
+                      onMouseEnter={() => {
+                        setActualProduct(product.slug);
+                        setIsShown(true);
+                        setShowBtn(`${index}b`);
+                      }}
+                      onMouseLeave={() => {
+                        setActualProduct(product.slug);
+                        setIsShown(false);
+                        setShowBtn("");
+                      }}
                       onClick={() => handleOpenModal(product.slug)}
-                      className="md:hidden absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                      key={`${index}b`}
+                      className="pb-6 lg:hover:scale-105 ease-in-out duration-300 cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg"
                     >
-                      View more
-                    </button>
-                    {isShown && showBtn === `${index}b` && (
-                      <button
-                        onClick={() => handleOpenModal(product.slug)}
-                        className="hidden md:inline absolute z-20 opacity-80 right-1 bottom-1 text-white bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      >
-                        View more
-                      </button>
-                    )}
-                    <div className="-mb-6 relative">
-                      <img
-                        className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                        src={product.company.logo}
-                        alt="company"
-                      />
-                    </div>
-                    <Link to={`/${product.company.slug}`}>
-                      <div className="md:hover:scale-105 ease-in-out relative w-full h-[200px] mb-5 overflow-hidden duration-300">
-                        {product.stock === 0 && (
-                          <img
-                            className="absolute h-[270px]"
-                            src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
-                            alt="Out of stock"
-                          />
-                        )}
+                      <div className="-mb-6 relative">
                         <img
-                          className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
-                          src={product.image}
-                          alt="product"
+                          className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
+                          src={product.company.logo}
+                          alt="company"
                         />
                       </div>
-                    </Link>
-                    <div className="px-5">
                       <Link to={`/${product.company.slug}`}>
-                        <h5 className="text-md text-start font-semibold tracking-tight text-gray-900 dark:text-white">
-                          {product.title}
-                        </h5>
+                        <div className="relative w-full h-[200px] mb-5 overflow-hidden">
+                          {product.stock === 0 && (
+                            <img
+                              className="absolute h-[270px]"
+                              src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
+                              alt="Out of stock"
+                            />
+                          )}
+                          <img
+                            className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
+                            src={product.image}
+                            alt="product"
+                          />
+                        </div>
                       </Link>
-                      <div className="flex items-end">
-                        {product.in_offer ? (
-                          <>
-                            <span className="line-through text-gray-400">
+                      <div className="px-5">
+                        <Link to={`/${product.company.slug}`}>
+                          <h5 className="text-md text-start font-semibold tracking-tight truncate text-gray-900 dark:text-white">
+                            {product.title}
+                          </h5>
+                        </Link>
+                        <div className="flex items-end">
+                          {product.in_offer ? (
+                            <>
+                              <span className="line-through text-gray-400">
+                                ${product.price.toFixed(2)}
+                              </span>
+                              <span className="font-bold text-xl ml-2 text-green-500">
+                                ${(product.price * 0.8).toFixed(2)}
+                              </span>
+                            </>
+                          ) : (
+                            <span className="font-bold text-xl text-green-500">
                               ${product.price.toFixed(2)}
                             </span>
-                            <span className="font-bold text-xl ml-2 text-green-500">
-                              ${(product.price * 0.8).toFixed(2)}
-                            </span>
-                          </>
-                        ) : (
-                          <span className="font-bold text-xl text-green-500">
-                            ${product.price.toFixed(2)}
-                          </span>
-                        )}
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

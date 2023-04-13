@@ -23,8 +23,8 @@ export default function CategoryCarousel() {
   }, []);
 
   return (
-    <div className="pt-2 my-16 px-4 md:px-24 w-full mx-auto">
-      <h4 className="text-left mb-12 border-t pt-6 text-3xl font-semibold">
+    <div className="pt-2 my-16 px-4 lg:px-24 w-full mx-auto">
+      <h4 className="text-center lg:text-left mb-12 border-t pt-6 text-3xl font-semibold">
         Explore by category
       </h4>
       <Swiper

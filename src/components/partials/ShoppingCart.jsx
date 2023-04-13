@@ -92,7 +92,7 @@ function ShoppingCart() {
                             <h4 className="text-black inline text-start font-semibold">
                               {product.title}
                             </h4>
-                            <span className="text-gray-600 w-[125px] text-green-500">
+                            <span className="w-[125px] text-green-500">
                               $ {(product.price * product.quantity).toFixed(2)}{" "}
                               <p className="text-gray-500">
                                 ($ {product.price.toFixed(2)} p/u)
@@ -102,7 +102,7 @@ function ShoppingCart() {
                           <div className="w-[125px]">
                             <div className="flex items-center justify-between mt-4 w-full rounded-full px-1">
                               <button
-                                className=" w-[35px] pr-1 pb-[5px] pt-[3px] text-red-400 hover:bg-red-100 border-2 border-red-400 align-text-bottom text-gray-800 font-bold px-2 rounded-l-full focus:outline-none"
+                                className=" w-[35px] pr-1 pb-[5px] pt-[3px] text-red-400 hover:bg-red-100 border-2 border-red-400 align-text-bottom font-bold px-2 rounded-l-full focus:outline-none"
                                 onClick={() => handleSubstractOne(product)}
                               >
                                 -
@@ -111,7 +111,7 @@ function ShoppingCart() {
                                 {product.quantity}
                               </span>
                               <button
-                                className="w-[35px] pl-1 text-green-500 bg-green-100 hover:bg-green-200 border-2 align-text-bottom border-green-500 text-gray-800 font-bold py-1 px-2 rounded-r-full focus:outline-none"
+                                className="w-[35px] pl-1 text-green-500 bg-green-100 hover:bg-green-200 border-2 align-text-bottom border-green-500 font-bold py-1 px-2 rounded-r-full focus:outline-none"
                                 onClick={() => handleAddOne(product)}
                               >
                                 +

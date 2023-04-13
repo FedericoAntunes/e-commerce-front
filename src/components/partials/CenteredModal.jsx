@@ -129,7 +129,7 @@ function CenteredModal({
                 </div>
                 <div className="flex bg-white flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <span
-                    className="hidden md:inline"
+                    className="hidden lg:inline"
                     onClick={() => {
                       handleSubmit(product);
                     }}
@@ -140,7 +140,7 @@ function CenteredModal({
                     onClick={() => {
                       handleSubmit(product);
                     }}
-                    className="bg-yellow-500 md:hidden  text-white font-bold py-2 px-4 rounded-full w-4/5"
+                    className="bg-yellow-500 lg:hidden text-white font-bold ml-auto py-2 px-4 rounded-full w-40"
                   >
                     Add to my cart
                   </button>
@@ -148,6 +148,7 @@ function CenteredModal({
               </div>
             </div>
           </div>
+          <div className={`opacity-25 fixed inset-0 z-30 bg-black`}></div>
         </>
       ) : null}
     </>
