@@ -76,7 +76,7 @@ function Header() {
             ? { backgroundColor: "white" }
             : { backgroundColor: "transparent" }
         }
-        className="ease-in-out duration-300 px-4 lg:px-24"
+        className="ease-in-out duration-500 pl-4 lg:px-24"
       >
         <Logo />
         <Search
