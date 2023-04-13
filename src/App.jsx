@@ -33,7 +33,7 @@ function App() {
   }, [handleScroll]);
 
   return (
-    <div className={`App bg-gray-200 ${"overflow-y-hidden"} touch-auto`}>
+    <div className={`App bg-gray-200 ${"overflow-y-hidden"}`}>
       <ScrollToTop />
       <Routes>
         <Route path="/login" element={<Login />} />
