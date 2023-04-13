@@ -55,7 +55,7 @@ function AboutUs() {
             }
           />
           <CardAbout
-            name={"Martin Bentura"}
+            name={"Martín Bentura"}
             image={
               "https://i.ibb.co/qxgXxZx/mbentura-removebg-preview.png"
             }
