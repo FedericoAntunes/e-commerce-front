@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 
@@ -19,8 +19,22 @@ import OrderStatus from "./components/OrderStatus";
 import OrderHistory from "./components/OrderHistory";
 import ScrollToTop from "./components/ScrollToTop";
 
+// Actions
+import { previousUrl } from "./redux/slice/previousUrlSlice";
+
 function App() {
+  const [actualUrl, setActualUrl] = useState("");
+
   const handleScroll = useSelector((state) => state.showShoppingCart.scroll);
+
+  const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    dispatch(previousUrl(actualUrl));
+    setActualUrl(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     console.log(handleScroll);
@@ -29,7 +43,6 @@ function App() {
     } else {
       document.body.style.overflow = "visible";
     }
-    console.log(document.body.style);
   }, [handleScroll]);
 
   return (

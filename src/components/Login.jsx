@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,6 +36,8 @@ function Login() {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(false);
 
+  const previousUrl = useSelector((state) => state.previousUrl);
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -68,7 +70,7 @@ function Login() {
           avatar: userToAuth.data.avatar,
         })
       );
-      navigate("/");
+      navigate(previousUrl === "/checkout" ? "/checkout" : "/");
     }
   };
 
@@ -108,7 +110,7 @@ function Login() {
           avatar: response.data.avatar,
         })
       );
-      navigate("/");
+      navigate(previousUrl === "/checkout" ? "/checkout" : "/");
     } else {
       notify("Invalid credentials, try again.");
     }

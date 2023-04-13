@@ -17,12 +17,14 @@ import userReducer from "./slice/userSlice";
 import shoppingListSlice from "./slice/shoppingListSlice";
 import showShoppingCartSlice from "./slice/showShoppingCartSlice";
 import lastOrderInfoSlice from "./slice/lastOrderInfoSlice";
+import previousUrlSlice from "./slice/previousUrlSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   shoppingList: shoppingListSlice,
   showShoppingCart: showShoppingCartSlice,
   lastOrderInfo: lastOrderInfoSlice,
+  previousUrl: previousUrlSlice,
 });
 
 const persistConfig = { key: "root", storage };
