@@ -1,9 +1,7 @@
 import { Box, TextField } from "@mui/material";
-import ScrollToTop from "../../ScrollToTop";
 function Shipping({ shippingData, setShippingData }) {
   return (
     <>
-      <ScrollToTop />
       <form className="checkout">
         <Box
           sx={{

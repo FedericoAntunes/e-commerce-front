@@ -3,7 +3,7 @@ import styles from "./AddItemBtn.module.css";
 function AddItemBtn() {
   return (
     <>
-      <button className={`${styles.button} rounded overflow-hidden`}>
+      <button className={`${styles.button} rounded-lg overflow-hidden`}>
         <span className={styles.button__text}>Add Item</span>
         <span className={styles.button__icon}>
           <svg

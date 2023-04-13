@@ -69,7 +69,7 @@ function CenteredModal({
               className="relative w-full max-w-2xl overflow-y-auto mx-auto"
             >
               <div className="border-0 rounded-lg min-h-fit h-screen sm:h-fit shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b mt-2 sm:mt-0 border-solid border-slate-200 rounded-t">
+                <div className="flex items-start justify-between p-5 border-b mt-2 sm:mt-0 border-solid border-slate-200">
                   <h3 className="text-2xl font-semibold text-left">
                     {product.title}
                   </h3>
@@ -86,7 +86,7 @@ function CenteredModal({
                 <div className="relative p-6 sm:grid bg-gray-100 sm:grid-cols-2">
                   <div className="pr-4 my-auto">
                     <img
-                      className="h-40 w-[219px] mx-auto border mt-8 md:mt-0 rounded"
+                      className="h-40 w-[219px] mx-auto border mt-8 md:mt-0 rounded-lg"
                       src={`${product.image}`}
                       alt="category-img"
                     />
@@ -127,7 +127,7 @@ function CenteredModal({
                     </p>
                   </div>
                 </div>
-                <div className="flex bg-white flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex bg-white flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b-lg">
                   <span
                     className="hidden lg:inline"
                     onClick={() => {

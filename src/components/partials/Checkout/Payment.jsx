@@ -16,7 +16,6 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
-import ScrollToTop from "../../ScrollToTop";
 
 function Payment({ shippingData, setShippingData }) {
   const [active, setActive] = useState(null);
@@ -35,7 +34,11 @@ function Payment({ shippingData, setShippingData }) {
 
   const handleDateChange = (newValue) => {
     setState((prev) => ({ ...prev, selectedDate: newValue }));
-    if (newValue && newValue.getFullYear() >= 2023 && newValue.getMonth() + 1 <= 12) {
+    if (
+      newValue &&
+      newValue.getFullYear() >= 2023 &&
+      newValue.getMonth() + 1 <= 12
+    ) {
       handleInputChange({
         target: {
           name: "expiry",
@@ -78,7 +81,6 @@ function Payment({ shippingData, setShippingData }) {
 
   return (
     <>
-      <ScrollToTop />
       <div id="checkout">
         <FormControl id="checkout">
           <FormLabel component="legend" id="demo-row-radio-buttons-group-label">

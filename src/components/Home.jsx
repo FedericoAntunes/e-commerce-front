@@ -8,7 +8,6 @@ import Hero from "./partials/Hero";
 import CompaniesLoader from "./partials/loaders/CompaniesLoader";
 import CategoriesLoader from "./partials/loaders/CategoriesLoader";
 import Loader from "./partials/loaders/Loader";
-import ScrollToTop from "./ScrollToTop";
 
 // ApiCall
 import apiCall from "./api/api";
@@ -30,7 +29,6 @@ function Home() {
 
   return (
     <>
-      <ScrollToTop />
       <Hero />
       {companies.length > 0 ? (
         <>

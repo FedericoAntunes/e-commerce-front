@@ -17,6 +17,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import FilteredCategory from "./components/FilteredCategory";
 import OrderStatus from "./components/OrderStatus";
 import OrderHistory from "./components/OrderHistory";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const handleScroll = useSelector((state) => state.showShoppingCart.scroll);
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <div className={`App bg-gray-200 ${"overflow-y-hidden"}`}>
+      <ScrollToTop />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

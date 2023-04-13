@@ -17,7 +17,6 @@ import { removeAllItems } from "../redux/slice/shoppingListSlice";
 import { saveLastOrderInfo } from "../redux/slice/lastOrderInfoSlice";
 
 // Components
-import ScrollToTop from "./ScrollToTop";
 import Shipping from "./partials/Checkout/Shipping";
 import Payment from "./partials/Checkout/Payment";
 import Summary from "./partials/Checkout/Summary";
@@ -202,9 +201,8 @@ function Checkout() {
     <div className="">
       <Box
         sx={{ maxWidth: "100%" }}
-        className="mt-[84px] md:p-6 mx-auto md:mx-24 lg:px-44 xl:px-96 bg-white rounded-lg shadow-lg"
+        className="mt-[200px] p-6 md:px-6 md:py-16 mx-auto border md:mx-24 lg:px-44 bg-white rounded-lg shadow-lg"
       >
-        <ScrollToTop />
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};

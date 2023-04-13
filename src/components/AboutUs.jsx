@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
 import CardAbout from "./partials/CardAbout";
-import ScrollToTop from "./ScrollToTop";
 import AboutThisProject from "./partials/AboutThisProject";
 import AboutUsFeatures from "./partials/AboutUsFeatures";
 import AboutUsChallenges from "./partials/AboutUsChallenges";
@@ -12,7 +11,6 @@ import AboutUsTechnologies from "./partials/AboutUsTechnologies";
 function AboutUs() {
   return (
     <>
-      <ScrollToTop />
       <div className="flex flex-wrap justify-center sm:mt-[84px]">
         <div className="w-full text-center bg-yellow-200 bg-gradient-to-r from-yellow-300 to-yellow-200 py-8 shadow-lg border-b-4 border-yellow-400 ">
           <h1 className="text-4xl font-bold flex items-center justify-center">

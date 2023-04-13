@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 // Components
-import ScrollToTop from "../ScrollToTop";
 import AboutBtn from "../partials/Header/AboutBtn";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
@@ -13,7 +12,6 @@ function Layout() {
 
   return (
     <>
-      <ScrollToTop />
       <div>
         <Link to={"/about-us"}>
           <AboutBtn />
