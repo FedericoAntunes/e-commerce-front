@@ -92,12 +92,34 @@ function ShoppingCart() {
                             <h4 className="text-black inline text-start font-semibold">
                               {product.title}
                             </h4>
-                            <span className="w-[125px] text-green-500">
-                              $ {(product.price * product.quantity).toFixed(2)}{" "}
-                              <p className="text-gray-500">
-                                ($ {product.price.toFixed(2)} p/u)
-                              </p>
-                            </span>
+                            {product.in_offer ? (
+                              <span className="w-[125px] text-green-500">
+                                ${" "}
+                                {(
+                                  product.price *
+                                  product.quantity *
+                                  Number(process.env.REACT_APP_PRODUCT_DISCOUNT)
+                                ).toFixed(2)}{" "}
+                                <p className="text-gray-500">
+                                  (${" "}
+                                  {(
+                                    product.price *
+                                    Number(
+                                      process.env.REACT_APP_PRODUCT_DISCOUNT
+                                    )
+                                  ).toFixed(2)}{" "}
+                                  p/u)
+                                </p>
+                              </span>
+                            ) : (
+                              <span className="w-[125px] text-green-500">
+                                ${" "}
+                                {(product.price * product.quantity).toFixed(2)}{" "}
+                                <p className="text-gray-500">
+                                  ($ {product.price.toFixed(2)} p/u)
+                                </p>
+                              </span>
+                            )}
                           </div>
                           <div className="w-[125px]">
                             <div className="flex items-center justify-between mt-4 w-full rounded-full px-1">

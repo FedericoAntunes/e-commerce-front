@@ -5,7 +5,13 @@ function Summary() {
   const shoppingList = useSelector((state) => state.shoppingList);
 
   const subtotal = shoppingList.reduce(
-    (acc, product) => acc + product.price * product.quantity,
+    (acc, product) =>
+      product.in_offer
+        ? acc +
+          product.price *
+            process.env.REACT_APP_PRODUCT_DISCOUNT *
+            product.quantity
+        : acc + product.price * product.quantity,
     0
   );
 
@@ -15,7 +21,7 @@ function Summary() {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-0 lg:p-6">
-      <ScrollToTop/>
+      <ScrollToTop />
       <h2 className="text-3xl font-medium mb-6 text-center">Order Summary</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-between bg-gray-100 rounded-lg p-6">
@@ -36,7 +42,11 @@ function Summary() {
               <div className="text-right">
                 <span className="text-gray-500">$</span>
                 <span className="text-gray-800 font-medium ml-1">
-                  {product.price.toFixed(2)}
+                  {product.in_offer
+                    ? (
+                        product.price * process.env.REACT_APP_PRODUCT_DISCOUNT
+                      ).toFixed(2)
+                    : product.price.toFixed(2)}
                 </span>
                 <div className="flex items-center mt-2">
                   <span className="text-gray-500 text-xs mr-2">Qty:</span>

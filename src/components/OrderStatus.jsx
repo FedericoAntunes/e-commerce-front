@@ -13,7 +13,13 @@ function OrderStatus() {
   const lastOrderInfo = useSelector((state) => state.lastOrderInfo);
 
   const subtotal = lastOrderInfo.products.reduce(
-    (acc, product) => acc + product.unit_price * product.qty,
+    (acc, product) =>
+      product.in_offer
+        ? acc +
+          product.unit_price *
+            process.env.REACT_APP_PRODUCT_DISCOUNT *
+            product.qty
+        : acc + product.unit_price * product.qty,
     0
   );
   const tax = subtotal * 0.085;
@@ -64,7 +70,14 @@ function OrderStatus() {
                     <p class="text-sm text-gray-600 leading-6 tracking-wider">
                       Price:{" "}
                       <strong>
-                        ${(product.unit_price * product.qty).toFixed(2)}
+                        $
+                        {product.in_offer
+                          ? (
+                              product.unit_price *
+                              process.env.REACT_APP_PRODUCT_DISCOUNT *
+                              product.qty
+                            ).toFixed(2)
+                          : (product.unit_price * product.qty).toFixed(2)}
                       </strong>
                     </p>
                   </div>

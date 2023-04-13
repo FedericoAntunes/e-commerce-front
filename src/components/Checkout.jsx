@@ -88,11 +88,18 @@ function Checkout() {
   const calcTotal = () => {
     let total = 0;
     shoppingList.map((item) => {
-      return (total += item.price * item.quantity);
+      return item.in_offer
+        ? (total +=
+            item.price *
+            Number(process.env.REACT_APP_PRODUCT_DISCOUNT) *
+            item.quantity)
+        : (total += item.price * item.quantity);
     });
+    console.log(total);
     const shipping = Number(process.env.REACT_APP_SHIPPING);
     const tax = total * Number(process.env.REACT_APP_TAX);
     const realTotal = tax + shipping + total;
+    console.log(realTotal);
     return realTotal;
   };
 
