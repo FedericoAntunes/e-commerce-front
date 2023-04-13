@@ -30,9 +30,6 @@ function Header() {
 
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
-  const isShoppingCartOpen = useSelector(
-    (state) => state.showShoppingCart.showCart
-  );
 
   function handleLogOut() {
     googleLogout();
@@ -47,19 +44,6 @@ function Header() {
       setNavbarScroll(false);
     }
   };
-
-  /*   useEffect(() => {
-    console.log(isShoppingCartOpen);
-    if (isShoppingCartOpen) {
-      console.log("elimino scroll");
-      document.body.style.overflow = "hidden";
-    } else {
-      console.log("habilito scroll");
-
-      document.body.style.overflow = "visible";
-    }
-    console.log(document.body.style);
-  }, [isShoppingCartOpen]); */
 
   useEffect(() => {
     navbarScrolling();
@@ -129,7 +113,7 @@ function Header() {
                       : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
                   }
                   rounded={true}
-                  className="pt-2"
+                  className="pt-2 mr-2"
                 />
               }
             >
