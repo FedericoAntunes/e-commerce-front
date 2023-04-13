@@ -60,7 +60,7 @@ function Header() {
             ? { backgroundColor: "white" }
             : { backgroundColor: "transparent" }
         }
-        className="ease-in-out duration-500 pl-4 lg:px-24"
+        className="ease-in-out duration-500 px-4 lg:px-24"
       >
         <Logo />
         <Search
@@ -110,7 +110,7 @@ function Header() {
                   img={
                     user.avatar.substring(0, 4) === "http"
                       ? user.avatar
-                      : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
+                      : process.env.REACT_APP_IMAGE_BASEURL + user.avatar
                   }
                   rounded={true}
                   className="pt-2 mr-2"

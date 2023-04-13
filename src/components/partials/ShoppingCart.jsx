@@ -84,7 +84,7 @@ function ShoppingCart() {
                       <div className="block sm:flex">
                         <img
                           src={product.image}
-                          className="h-32 w-[160px] mb-4 sm:mr-2 mx-auto sm:mx-0 rounded-2xl border"
+                          className="w-[160px] mb-4 sm:mr-2 mx-auto sm:mx-0 rounded-2xl border"
                           alt="product"
                         />
                         <div className="w-full">

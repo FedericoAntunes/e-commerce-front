@@ -141,15 +141,15 @@ function Restaurant() {
         </div>
         {products.some((item) => item.in_offer) && (
           <>
-            <div className="mt-16">
-              <h2 className="text-2xl font-semibold text-left">
+            <div className="mt-16 lg:border lg:p-10 lg:rounded-lg">
+              <h2 className="lg:ml-2 text-2xl font-semibold text-left">
                 Limited time offerts!{" "}
                 <FontAwesomeIcon
                   className="text-green-500"
                   icon={faStopwatch}
                 />
               </h2>
-              <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-4">
+              <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-y-8 gap-x-4">
                 {products.map((product, index) => {
                   return (
                     product.in_offer && (
@@ -175,7 +175,7 @@ function Restaurant() {
                           }}
                           onClick={() => handleOpenModal(product.slug)}
                           key={`${index}a`}
-                          className="pb-6 lg:hover:scale-105 ease-in-out duration-300 cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
+                          className="pb-6 lg:hover:scale-105 ease-in-out mx-auto duration-300 cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
                         >
                           <div className="-mb-6 relative">
                             <img
@@ -233,8 +233,8 @@ function Restaurant() {
           </>
         )}
         {products.some((item) => item.id === item.id) && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-semibold text-left">
+          <div className="mt-16 lg:border lg:p-10 lg:rounded-lg">
+            <h2 className="text-2xl lg:ml-2 font-semibold text-left">
               Picked for you{" "}
               <FontAwesomeIcon className="text-red-500" icon={faHeart} />
             </h2>
@@ -263,7 +263,7 @@ function Restaurant() {
                       }}
                       onClick={() => handleOpenModal(product.slug)}
                       key={`${index}b`}
-                      className="pb-6 lg:hover:scale-105 ease-in-out duration-300 cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg"
+                      className="pb-6 lg:hover:scale-105 ease-in-out mx-auto duration-300 cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg"
                     >
                       <div className="-mb-6 relative">
                         <img

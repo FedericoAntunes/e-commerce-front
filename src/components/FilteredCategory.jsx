@@ -47,84 +47,86 @@ function FilteredCategory() {
 
   return companies && category && products ? (
     companies.length || Object.keys(category) ? (
-      <div className="mt-20 pt-6">
-        <h3 className="text-2xl font-semibold">{category.name}</h3>
+      <div className="mt-20 lg:mx-24 pt-6">
+        <h3 className="text-4xl font-semibold">{category.name}</h3>
         {companies.length > 0 && (
-          <div className="mx-4 lg:mx-24">
-            <h4 className="font-semibold my-10">
+          <div className="mx-4 lg:mx-0 lg:border lg:mt-20 lg:p-10 lg:rounded-lg">
+            <h4 className="font-semibold text-xl my-10 lg:mb-10">
               Featured restaurants of {category.name}
             </h4>
             <Companies companies={companies} />
           </div>
         )}
-        {Object.keys(category) && products.length > 0 && (
-          <h4 className="font-semibold my-10">
-            Featured products of {category.name}
-          </h4>
-        )}
-        <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-4 lg:mx-24 grid gap-6">
-          {products &&
-            products.map((product, index) => {
-              return (
-                <Link to={`/${product.company.slug}?product=${product.slug}`}>
-                  <div
-                    onMouseEnter={() => {
-                      setActualProduct(product.id);
-                      setIsShown(true);
-                    }}
-                    onMouseLeave={() => {
-                      setActualProduct(product.id);
-                      setIsShown(false);
-                    }}
-                    key={index}
-                    className="pb-6 lg:hover:scale-105 ease-in-out duration-300 mx-auto cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                  >
-                    <div className="-mb-6 relative">
-                      <img
-                        className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                        src={product.company.logo}
-                        alt="company"
-                      />
-                    </div>
-                    <div className="w-full h-[200px] mb-5 overflow-hidden duration-300">
-                      {product.stock === 0 && (
+        <div className="lg:mx-0 lg:border lg:p-10 lg:mt-20 lg:rounded-lg">
+          {Object.keys(category) && products.length > 0 && (
+            <h4 className="font-semibold text-xl my-10 lg:mb-10">
+              Featured products of {category.name}
+            </h4>
+          )}
+          <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-4 lg:mx-0 grid gap-6">
+            {products &&
+              products.map((product, index) => {
+                return (
+                  <Link to={`/${product.company.slug}?product=${product.slug}`}>
+                    <div
+                      onMouseEnter={() => {
+                        setActualProduct(product.id);
+                        setIsShown(true);
+                      }}
+                      onMouseLeave={() => {
+                        setActualProduct(product.id);
+                        setIsShown(false);
+                      }}
+                      key={index}
+                      className="pb-6 lg:hover:scale-105 ease-in-out duration-300 mx-auto cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                    >
+                      <div className="-mb-6 relative">
                         <img
-                          className="absolute h-[270px]"
-                          src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
-                          alt="Out of stock"
+                          className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
+                          src={product.company.logo}
+                          alt="company"
                         />
-                      )}
-                      <img
-                        className="pt-6 pb-4 z-0 w-full rounded-t-lg"
-                        src={product.image}
-                        alt="product"
-                      />
-                    </div>
-                    <div className="px-5">
-                      <h5 className="text-md text-start font-semibold tracking-tight truncate text-gray-900 dark:text-white">
-                        {product.title}
-                      </h5>
-                      <div className="flex items-end">
-                        {product.in_offer ? (
-                          <>
-                            <span className="line-through text-gray-400">
+                      </div>
+                      <div className="w-full h-[200px] mb-5 overflow-hidden duration-300">
+                        {product.stock === 0 && (
+                          <img
+                            className="absolute h-[270px]"
+                            src="https://www.gunslingerlongboards.co.za/images/overlay_image_nostock.png"
+                            alt="Out of stock"
+                          />
+                        )}
+                        <img
+                          className="pt-6 pb-4 z-0 w-full rounded-t-lg"
+                          src={product.image}
+                          alt="product"
+                        />
+                      </div>
+                      <div className="px-5">
+                        <h5 className="text-md text-start font-semibold tracking-tight truncate text-gray-900 dark:text-white">
+                          {product.title}
+                        </h5>
+                        <div className="flex items-end">
+                          {product.in_offer ? (
+                            <>
+                              <span className="line-through text-gray-400">
+                                ${product.price.toFixed(2)}
+                              </span>
+                              <span className="font-bold text-xl ml-2 text-green-500">
+                                ${(product.price * 0.8).toFixed(2)}
+                              </span>
+                            </>
+                          ) : (
+                            <span className="font-bold text-xl text-green-500">
                               ${product.price.toFixed(2)}
                             </span>
-                            <span className="font-bold text-xl ml-2 text-green-500">
-                              ${(product.price * 0.8).toFixed(2)}
-                            </span>
-                          </>
-                        ) : (
-                          <span className="font-bold text-xl text-green-500">
-                            ${product.price.toFixed(2)}
-                          </span>
-                        )}
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
+          </div>
         </div>
       </div>
     ) : (
