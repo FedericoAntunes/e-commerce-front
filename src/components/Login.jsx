@@ -143,11 +143,11 @@ function Login() {
             <div className="flex justify-end text-sm font-medium">
               <Link
                 to="https://e-commerce-admin-mu.vercel.app/login"
-                className="text-blue-600 md:hover:text-blue-700 focus:text-blue-700 md:hover:underline transform md:hover:scale-110 focus:scale-110 transition-all"
+                className="text-green-600 md:hover:text-green-700 focus:text-green-700 md:hover:underline transform md:hover:scale-110 focus:scale-110 transition-all"
               >
                 <FontAwesomeIcon
                   icon={faUserShield}
-                  className="text-blue-500 mr-2"
+                  className="text-green-600 mr-2"
                 />
                 Admin Panel
               </Link>
@@ -209,7 +209,7 @@ function Login() {
                 </div>
                 <div className="flex justify-center text-sm font-medium">
                   <button
-                    className="m-2 md:px-4 md:py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                    className="m-2 md:px-4 md:py-2 rounded-md text-white bg-green-500 md:hover:bg-green-600 focus:bg-green-600 transition-colors"
                     type="button"
                     onClick={handleFillInputs}
                   >
@@ -219,7 +219,7 @@ function Login() {
                 </div>
                 <Link
                   to="#"
-                  className="text-base font-medium text-blue-500 md:hover:underline"
+                  className="text-base font-medium text-green-600 md:hover:underline"
                 >
                   Forgot password?
                 </Link>
@@ -236,7 +236,7 @@ function Login() {
                 Don’t have an account yet?
                 <Link
                   to="/register"
-                  className="text-base font-light  text-blue-500 md:hover:underline ml-1"
+                  className="text-base font-light  text-green-600 md:hover:underline ml-1"
                 >
                   Sign up
                 </Link>

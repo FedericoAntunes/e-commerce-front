@@ -49,20 +49,20 @@ function FilteredCategory() {
     companies.length || Object.keys(category) ? (
       <div className="mt-20 pt-6">
         <h3 className="text-2xl font-semibold">{category.name}</h3>
-        {companies.length && (
-          <div className="mx-4 mt-10 sm:mx-24">
-            <h4 className="font-semibold">
+        {companies.length > 0 && (
+          <div className="mx-4 lg:mx-24">
+            <h4 className="font-semibold my-10">
               Featured restaurants of {category.name}
             </h4>
             <Companies companies={companies} />
           </div>
         )}
-        {Object.keys(category) && (
-          <h4 className="font-semibold mt-16">
+        {Object.keys(category) && products.length > 0 && (
+          <h4 className="font-semibold my-10">
             Featured products of {category.name}
           </h4>
         )}
-        <div className="pt-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-4 md:mx-24 grid gap-2">
+        <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-4 lg:mx-24 grid gap-6">
           {products &&
             products.map((product, index) => {
               return (
@@ -77,7 +77,7 @@ function FilteredCategory() {
                       setIsShown(false);
                     }}
                     key={index}
-                    className="pb-6 lg:hover:scale-105 ease-in-out duration-300 cursor-pointer mx-auto overflow-hidden relative w-70 max-w-sm bg-white border m-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                    className="pb-6 lg:hover:scale-105 ease-in-out duration-300 mx-auto cursor-pointer overflow-hidden relative w-70 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                   >
                     <div className="-mb-6 relative">
                       <img

@@ -86,7 +86,7 @@ function Footer() {
               <FontAwesomeIcon icon={faFacebook} className="" />
             </Link>
           </li>
-          <li className={styles.social_icon__item} >
+          <li className={styles.social_icon__item}>
             <Link className={styles.social_icon__link} to="/">
               <FontAwesomeIcon icon={faTwitter} />
             </Link>
@@ -127,12 +127,14 @@ function Footer() {
             </Link>
           </li>
         </ul>
-        <p className="text-xs text-gray-600 font-bold tracking-wide">&copy; 2023 HA Academy Sala 4 | All Rights Reserved</p>
-        {/* <img
+        <p className="text-xs text-gray-600 font-bold tracking-wide">
+          &copy; 2023 No Hunger | All Rights Reserved
+        </p>
+        <img
           src="https://www.animatedimages.org/data/media/157/animated-fishing-image-0057.gif"
           alt=""
-          className="absolute top-0 -m-44 z-[1001]"
-        /> */}
+          className="absolute hidden top-0 -m-44 z-[1001]"
+        />
       </footer>
     </>
   );

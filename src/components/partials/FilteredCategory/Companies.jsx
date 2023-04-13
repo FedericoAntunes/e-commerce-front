@@ -4,9 +4,9 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Companies({ companies }) {
   return (
-    <div className="grid-cols-1 sm:grid-cols-2 grid gap-y-12 gap-2 mt-4">
+    <div className="grid-cols-1 md:grid-cols-2 grid gap-y-12 gap-6 mt-4">
       {companies.map((company, index) => (
-        <div className="rounded-lg w-full max-w-[815px] text-ellipsis truncate mx-auto overflow-hidden border shadow-lg">
+        <div className="rounded-lg w-full max-w-[815px] mx-auto text-ellipsis truncate overflow-hidden border shadow-lg">
           <NavLink key={index} to={`/${company.slug}`}>
             <div
               style={{ backgroundImage: `url("${company.background}")` }}
@@ -20,7 +20,9 @@ function Companies({ companies }) {
               )}
             </div>
             <div className="text-left bg-white relative p-4">
-              <h5 className="font-bold mb-1 text-lg mr-12">{company.name}</h5>
+              <h5 className="font-bold mb-1 truncate text-lg mr-12">
+                {company.name}
+              </h5>
               <span className="absolute right-2 top-6">
                 {company.valoration}
                 <FontAwesomeIcon

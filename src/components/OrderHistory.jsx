@@ -22,8 +22,8 @@ export default function OrderHistory() {
 
   return (
     orders && (
-      <div className="bg-gray-100 mt-[84px]">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:pb-24 lg:px-8">
+      <div className="bg-gray-100 mt-[84px] mx-4 lg:mx-24">
+        <div className="mx-auto py-16 lg:pb-24">
           <div className="max-w-xl mx-auto">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
               Order history
@@ -42,7 +42,7 @@ export default function OrderHistory() {
                   <div className="bg-gray-50 rounded-lg py-6 px-4 sm:px-6 sm:flex sm:items-center sm:justify-between sm:space-x-6 lg:space-x-8">
                     <dl className="divide-y divide-gray-200 mx-auto space-y-6 text-sm text-gray-600 flex-auto sm:divide-y-0 sm:space-y-0 sm:grid sm:grid-cols-4 sm:gap-x-6 lg:w-1/2 lg:flex-none lg:gap-x-8">
                       <div className="flex justify-between sm:block">
-                        <dt className="font-medium font-semibold text-left lg:text-center text-gray-900">
+                        <dt className="font-semibold text-left lg:text-center text-gray-900">
                           Date placed
                         </dt>
                         <dd className="sm:mt-1">
@@ -53,7 +53,7 @@ export default function OrderHistory() {
                         </dd>
                       </div>
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
-                        <dt className="font-medium font-semibold text-left lg:text-center text-gray-900">
+                        <dt className="font-semibold text-left lg:text-center text-gray-900">
                           Order number
                         </dt>
                         <dd className="sm:mt-1">{order.id}</dd>
