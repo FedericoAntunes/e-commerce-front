@@ -146,7 +146,6 @@ function Search({ navbarScroll, toggleSearch, header }) {
             onHover={handleOnHover}
             onSelect={handleOnSelect}
             onFocus={handleOnFocus}
-            autoFocus
             maxResults={5}
             showNoResultsText={"No results"}
             formatResult={formatResult}
