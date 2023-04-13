@@ -1,21 +1,14 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Search.css";
 
 // ApiCall
 import apiCall from "../../api/api";
 
-const notify = () =>
-  toast.warn("This feature is not included yet.", {
-    position: "bottom-right",
-  });
-
 function Search({ navbarScroll, toggleSearch, header }) {
   const [items, setItems] = useState([]);
-  const [search, setSearch] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,7 +30,6 @@ function Search({ navbarScroll, toggleSearch, header }) {
   }, []);
 
   const handleOnSearch = (string, results) => {
-    setSearch(string);
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
     // console.log(string, results);
@@ -121,7 +113,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
                 maxWidth: "700px",
               }
         }
-        className={`px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-300 ${
+        className={`px-0 xs:px-3 mt-2 xs:mt-0 order-5 xs:order-2 ease-in-out duration-500 ${
           !toggleSearch && header && "hidden"
         } sm:inline`}
         onSubmit={(e) => e.preventDefault()}

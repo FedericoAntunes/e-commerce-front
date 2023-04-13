@@ -2,6 +2,9 @@
   box-shadow: none !important;
   border: 2 !important;
 }
+#searchForm .wrapper:hover {
+  box-shadow: none !important;
+}
 #searchForm small {
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;

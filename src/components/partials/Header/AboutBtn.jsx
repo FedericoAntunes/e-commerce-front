@@ -11,9 +11,9 @@ function AboutBtn() {
 
   return (
     <div
-      className={`fixed text-white bottom-4 flex ${
+      className={`fixed text-white bottom-5 flex ${
         timer && styles.wobble_hor_bottom
-      } z-50 right-6`}
+      } z-50 right-4 sm:right-6`}
     >
       <button
         className={`bg-green-500 text-base py-2 px-4 md:font-semibold lg:hover:bg-green-600 transition ease-in-out-300 rounded-full ${styles.button}`}

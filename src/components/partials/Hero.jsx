@@ -10,7 +10,7 @@ function Hero() {
     >
       <div
         style={{ flex: "1 1 auto", minWidth: "235px", maxWidth: "700px" }}
-        className="pl-0 pr-3 px-3 lg:px-0 mt-2 xs:mt-0 text-left order-5 xs:order-2"
+        className="pl-0 sm:px-3 lg:px-0 mt-2 xs:mt-0 text-left order-5 xs:order-2"
       >
         <label
           htmlFor="default-search"
