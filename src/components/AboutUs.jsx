@@ -33,9 +33,7 @@ function AboutUs() {
           />
           <CardAbout
             name={"Pablo Dos Santos"}
-            image={
-              "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-            }
+            image={"https://i.ibb.co/cNmsVRD/dsfpablo.png"}
             description={`Lorem ipsum dolor`}
             github={"https://github.com/dsfpablo"}
             linkedin={"https://www.linkedin.com/in/pablo-dos-santos-76683155/"}
