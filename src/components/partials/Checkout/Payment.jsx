@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
-
 // Mui
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
@@ -16,6 +15,8 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
+
+import { useForm } from "react-hook-form";
 
 function Payment({ shippingData, setShippingData }) {
   const [active, setActive] = useState(null);
@@ -32,7 +33,7 @@ function Payment({ shippingData, setShippingData }) {
     setState((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleDateChange = (newValue) => {
+  function handleDateChange(newValue) {
     setState((prev) => ({ ...prev, selectedDate: newValue }));
     if (
       newValue &&
@@ -78,6 +79,7 @@ function Payment({ shippingData, setShippingData }) {
       sx={{ my: 1 }}
     />
   );
+  const { register, handleSubmit } = useForm();
 
   return (
     <>
@@ -111,11 +113,6 @@ function Payment({ shippingData, setShippingData }) {
               control={<Radio />}
               label="Credit Card"
             />
-            <FormControlLabel
-              value="etransfer"
-              control={<Radio />}
-              label="eTransfer"
-            />
           </RadioGroup>
         </FormControl>
 
@@ -132,12 +129,22 @@ function Payment({ shippingData, setShippingData }) {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="card-number"
                 label="Card Number"
                 type="number"
                 name="number"
                 value={state.number}
-                onChange={handleInputChange}
+                onChange={(evt) => {
+                  handleInputChange(evt);
+                  setShippingData({
+                    ...shippingData,
+                    payment_info: {
+                      ...shippingData.payment_info,
+                      card_number: evt.target.value,
+                    },
+                  });
+                }}
                 onFocus={handleInputFocus}
                 sx={{ my: 1 }}
               />
@@ -145,25 +152,44 @@ function Payment({ shippingData, setShippingData }) {
             <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
+                  required
                   label="Expiration Date"
                   views={["month", "year"]}
                   format="MM/yy"
                   slotProps={{ textField: { helperText: "mm/yy" } }}
                   value={state.selectedDate}
                   sx={{ my: 1 }}
-                  onChange={handleDateChange}
+                  onChange={(date) => {
+                    handleDateChange(date);
+                    setShippingData({
+                      ...shippingData,
+                      payment_info: {
+                        ...shippingData.payment_info,
+                        expiration_date: date,
+                      },
+                    });
+                  }}
                 />
               </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 className="" // CardName
                 id="card-name"
                 label="Name"
                 type="text"
                 name="name"
-                required
-                onChange={handleInputChange}
+                onChange={(evt) => {
+                  handleInputChange(evt);
+                  setShippingData({
+                    ...shippingData,
+                    payment_info: {
+                      ...shippingData.payment_info,
+                      name_card: evt.target.value,
+                    },
+                  });
+                }}
                 onFocus={handleInputFocus}
                 onKeyPress={(event) => {
                   const regex = /^[a-zA-Z\s]*$/;
@@ -178,14 +204,23 @@ function Payment({ shippingData, setShippingData }) {
 
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="card-cvc"
                 label="CVC"
                 type="tel"
                 name="cvc"
                 className="form-control"
                 pattern="\d{3,4}"
-                required
-                onChange={handleInputChange}
+                onChange={(evt) => {
+                  handleInputChange(evt);
+                  setShippingData({
+                    ...shippingData,
+                    payment_info: {
+                      ...shippingData.payment_info,
+                      cvv: evt.target.value,
+                    },
+                  });
+                }}
                 onFocus={handleInputFocus}
                 inputProps={{
                   maxLength: 3,
@@ -202,113 +237,6 @@ function Payment({ shippingData, setShippingData }) {
               />
             </Grid>
           </Grid>
-        </Box>
-        <Box sx={{ display: active === "etransfer" ? "block" : "none" }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              "& > :not(style)": { m: 1 },
-            }}
-          >
-            <TextField
-              id="cardNumber"
-              label={<span>Card Number</span>}
-              sx={{
-                width: "100%",
-              }}
-              variant="standard"
-              inputProps={{ underline: { borderBottom: "#FCD34D" } }}
-              onChange={(e) =>
-                setShippingData({
-                  ...shippingData,
-                  payment_info: {
-                    ...shippingData.payment_info,
-                    card_number: e.target.value,
-                  },
-                })
-              }
-            />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              "& > :not(style)": { m: 1 },
-            }}
-          >
-            <TextField
-              id="nameOnCard"
-              label={<span>Name on card</span>}
-              sx={{
-                width: "100%",
-              }}
-              variant="standard"
-              onChange={(e) =>
-                setShippingData({
-                  ...shippingData,
-                  payment_info: {
-                    ...shippingData.payment_info,
-                    name_card: e.target.value,
-                  },
-                })
-              }
-            />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              "& > :not(style)": { m: 1 },
-            }}
-          >
-            <TextField
-              id="expirationDate"
-              label={<span>Expiration date</span>}
-              sx={{
-                width: "100%",
-              }}
-              variant="standard"
-              onChange={(e) =>
-                setShippingData({
-                  ...shippingData,
-                  payment_info: {
-                    ...shippingData.payment_info,
-                    expiration_date: e.target.value,
-                  },
-                })
-              }
-            />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              "& > :not(style)": { m: 1 },
-            }}
-          >
-            <TextField
-              id="cvv"
-              label={<span>CVV</span>}
-              sx={{
-                width: "100%",
-              }}
-              variant="standard"
-              onChange={(e) =>
-                setShippingData({
-                  ...shippingData,
-                  payment_info: {
-                    ...shippingData.payment_info,
-                    cvv: e.target.value,
-                  },
-                })
-              }
-            />
-          </Box>
         </Box>
       </div>
     </>
