@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +10,11 @@ import { AnimatePresence, motion } from "framer-motion";
 // Actions
 import { removeItem, addItem } from "../../redux/slice/shoppingListSlice";
 import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
+
+// ApiCall
+import apiCall from "../api/api";
+import UnavailableProducts from "./UnavailableProducts";
+import SpinnerLoader from "./loaders/SpinnerLoader";
 
 function notify(message) {
   toast.warn(message, {
@@ -21,13 +27,28 @@ function notify(message) {
   });
 }
 
+function notifyError(message) {
+  toast.error(message, {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+  });
+}
+
 function ShoppingCart() {
+  const [loader, setLoader] = useState(false);
+
   const shoppingList = useSelector((state) => state.shoppingList);
   const showShoppingCart = useSelector(
     (state) => state.showShoppingCart.showCart
   );
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const handleRemove = (productId) => {
     return dispatch(removeItem(productId));
@@ -42,6 +63,29 @@ function ShoppingCart() {
 
   const handleSubstractOne = (product) => {
     dispatch(addItem({ ...product, quantity: -1 }));
+  };
+
+  const handleCheckout = async () => {
+    setLoader(true);
+    const products = await apiCall("/products", "get");
+    console.log("[ALL PRODUCTS]:", products.data);
+    const sameProducts = products.data.filter((product) =>
+      shoppingList.some((userProduct) => product.id === userProduct.id)
+    );
+    const unavailableProducts = sameProducts.filter((product) =>
+      shoppingList.some((userProduct) => product.stock < userProduct.quantity)
+    );
+
+    if (unavailableProducts.length > 0) {
+      setLoader(false);
+      return notifyError(
+        <UnavailableProducts products={unavailableProducts} />
+      );
+    } else {
+      setLoader(false);
+      dispatch(toggleMenu({ scroll: true, showCart: false }));
+      navigate("/checkout");
+    }
   };
 
   return (
@@ -153,17 +197,15 @@ function ShoppingCart() {
                 );
               })}
               <div className="bg-gray-200 border  w-full absolute bottom-0 p-5  left-0 right-0">
-                <Link to={"/checkout"}>
-                  <button
-                    onClick={() =>
-                      dispatch(toggleMenu({ scroll: true, showCart: false }))
-                    }
-                    className=" text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    type="submit"
-                  >
-                    Checkout
-                  </button>
-                </Link>
+                <button
+                  onClick={() => {
+                    handleCheckout();
+                  }}
+                  className=" text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  type="submit"
+                >
+                  {loader ? <SpinnerLoader /> : "Checkout"}
+                </button>
               </div>
             </ul>
           ) : (

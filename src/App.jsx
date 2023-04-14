@@ -37,7 +37,6 @@ function App() {
   }, [location.pathname]);
 
   useEffect(() => {
-    console.log(handleScroll);
     if (!handleScroll) {
       document.body.style.overflow = "hidden";
     } else {

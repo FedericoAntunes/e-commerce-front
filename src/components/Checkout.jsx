@@ -25,6 +25,7 @@ import Loader from "./partials/loaders/Loader";
 import FinishBtn from "./partials/Checkout/FinishBtn";
 import NextBtn from "./partials/Checkout/NextBtn";
 import BackBtn from "./partials/Checkout/BackBtn";
+import UnavailableProducts from "./partials/UnavailableProducts";
 
 // ApiCall
 import apiCall from "./api/api";
@@ -37,6 +38,17 @@ const notifyError = () =>
   toast.error("Please fill all the fields.", {
     position: "bottom-right",
   });
+
+function notifyErrorUnavailable(message) {
+  toast.error(message, {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+  });
+}
 
 function Checkout() {
   const [activeStep, setActiveStep] = useState(0);
@@ -113,6 +125,7 @@ function Checkout() {
   const handleNext = async () => {
     if (activeStep === steps.length - 1) {
       setLoader(true);
+
       const response = await apiCall(
         "/orders",
         "post",
@@ -134,6 +147,24 @@ function Checkout() {
           position: "bottom-right",
         });
       }
+
+      // NOT WORKING, unavailableProducts empty
+      /*  const products = await apiCall("/products", "get");
+      const sameProducts = products.data.filter((product) =>
+        shoppingList.some((userProduct) => product.id === userProduct.id)
+      );
+      console.log(sameProducts);
+      const unavailableProducts = sameProducts.filter((product) =>
+        shoppingList.some((userProduct) => product.stock < userProduct.quantity)
+      );
+      console.log(unavailableProducts);
+      if (unavailableProducts.length > 0) {
+        setLoader(false);
+        return notifyErrorUnavailable(
+          <UnavailableProducts products={unavailableProducts} />
+        );
+      } */
+
       setTimeout(() => {
         notifySuccess();
         dispatch(removeAllItems());
@@ -152,18 +183,17 @@ function Checkout() {
       ) {
         return notifyError();
       }
-    } else if (activeStep === 2){
+    } else if (activeStep === 2) {
       if (
         shippingData.payment_info.card_number === "" ||
         shippingData.payment_info.name_card === "" ||
         shippingData.payment_info.expiration_date === "" ||
-        shippingData.payment_info.cvv === "" 
+        shippingData.payment_info.cvv === ""
       ) {
         return notifyError();
       }
-
     }
-    
+
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
