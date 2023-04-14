@@ -87,7 +87,11 @@ function CenteredModal({
                   <div className="pr-4 my-auto">
                     <img
                       className="h-40 w-[219px] mx-auto border mt-8 md:mt-0 rounded-lg"
-                      src={`${product.image}`}
+                      src={`${
+                        product.image.substring(0, 4) === "http"
+                          ? product.image
+                          : process.env.REACT_APP_IMAGE_BASEURL + product.image
+                      }`}
                       alt="category-img"
                     />
                     <h4 className="my-4 text-slate-800 text-sm font-bold text-left leading-6">

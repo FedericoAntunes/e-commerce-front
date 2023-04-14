@@ -63,7 +63,16 @@ function Search({ navbarScroll, toggleSearch, header }) {
               <small>Product</small>
             </span>
             <div className="">
-              <img src={item.logo} width="50px" height="50px" alt="" />
+              <img
+                src={
+                  item.image.substring(0, 4) === "http"
+                    ? item.image
+                    : process.env.REACT_APP_IMAGE_BASEURL + item.image
+                }
+                width="50px"
+                height="50px"
+                alt=""
+              />
             </div>
             <span className="block">{item.title}</span>
             <hr />
@@ -74,7 +83,16 @@ function Search({ navbarScroll, toggleSearch, header }) {
               <small>Company</small>
             </span>
             <div className="">
-              <img src={item.logo} width="50px" height="50px" alt="" />
+              <img
+                src={
+                  item.logo.substring(0, 4) === "http"
+                    ? item.logo
+                    : process.env.REACT_APP_IMAGE_BASEURL + item.logo
+                }
+                width="50px"
+                height="50px"
+                alt=""
+              />
             </div>
             <span className="block">{item.name}</span>
             <hr />

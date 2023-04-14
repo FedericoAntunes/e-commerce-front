@@ -9,7 +9,13 @@ function Companies({ companies }) {
         <NavLink key={index} to={`/${company.slug}`}>
           <div className="rounded-lg overflow-hidden border shadow-lg lg:hover:scale-105 ease-in-out duration-300 cursor-pointer">
             <div
-              style={{ backgroundImage: `url("${company.background}")` }}
+              style={{
+                backgroundImage: `url("${
+                  company.background.substring(0, 4) === "http"
+                    ? company.background
+                    : process.env.REACT_APP_IMAGE_BASEURL + company.background
+                }")`,
+              }}
               className="h-28 relative bg-cover bg-no-repeat"
             >
               {company.valoration >= 4.7 && (
@@ -24,7 +30,7 @@ function Companies({ companies }) {
                 {company.name}
               </h5>
               <span className="absolute right-2 top-6 font-bold">
-                {company.valoration}
+                {company.valoration === 0 ? "-" : company.valoration}
                 <FontAwesomeIcon
                   className="text-yellow-400 ml-1"
                   icon={faStar}

@@ -90,7 +90,11 @@ function Restaurant() {
       <div
         className="w-full mb-6 h-32 md:h-[20rem]"
         style={{
-          backgroundImage: `url("${company.background}")`,
+          backgroundImage: `url("${
+            company.background.substring(0, 4) === "http"
+              ? company.background
+              : process.env.REACT_APP_IMAGE_BASEURL + company.background
+          }")`,
           backgroundSize: "100%",
           backgroundRepeat: "no-repeat",
         }}
@@ -180,7 +184,12 @@ function Restaurant() {
                           <div className="-mb-6 relative">
                             <img
                               className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                              src={product.company.logo}
+                              src={
+                                product.company.logo.substring(0, 4) === "http"
+                                  ? product.company.logo
+                                  : process.env.REACT_APP_IMAGE_BASEURL +
+                                    product.company.logo
+                              }
                               alt="company"
                             />
                           </div>
@@ -195,7 +204,12 @@ function Restaurant() {
                               )}
                               <img
                                 className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
-                                src={product.image}
+                                src={
+                                  product.image.substring(0, 4) === "http"
+                                    ? product.image
+                                    : process.env.REACT_APP_IMAGE_BASEURL +
+                                      product.image
+                                }
                                 alt="product"
                               />
                             </div>
@@ -268,7 +282,12 @@ function Restaurant() {
                       <div className="-mb-6 relative">
                         <img
                           className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                          src={product.company.logo}
+                          src={
+                            product.company.logo.substring(0, 4) === "http"
+                              ? product.company.logo
+                              : process.env.REACT_APP_IMAGE_BASEURL +
+                                product.company.logo
+                          }
                           alt="company"
                         />
                       </div>
@@ -283,7 +302,12 @@ function Restaurant() {
                           )}
                           <img
                             className="pt-6 pb-4 z-0 mx-auto rounded-t-lg"
-                            src={product.image}
+                            src={
+                              product.image.substring(0, 4) === "http"
+                                ? product.image
+                                : process.env.REACT_APP_IMAGE_BASEURL +
+                                  product.image
+                            }
                             alt="product"
                           />
                         </div>

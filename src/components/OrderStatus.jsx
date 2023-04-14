@@ -82,7 +82,11 @@ function OrderStatus() {
                     </p>
                   </div>
                   <img
-                    src={product.image}
+                    src={
+                      product.image.substring(0, 4) === "http"
+                        ? product.image
+                        : process.env.REACT_APP_IMAGE_BASEURL + product.image
+                    }
                     alt="Product"
                     class="w-[100px] rounded-lg shadow-md"
                   />

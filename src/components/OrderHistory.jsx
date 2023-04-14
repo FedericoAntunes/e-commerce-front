@@ -118,7 +118,13 @@ export default function OrderHistory() {
                           <td className="py-6 pr-8">
                             <div className="flex items-center">
                               <img
-                                src={orderProduct.product.image}
+                                src={
+                                  orderProduct.product.image.substring(0, 4) ===
+                                  "http"
+                                    ? orderProduct.product.image
+                                    : process.env.REACT_APP_IMAGE_BASEURL +
+                                      orderProduct.product.image
+                                }
                                 alt={""}
                                 className="w-16 h-16 object-center object-cover rounded ml-2 border mr-6"
                               />

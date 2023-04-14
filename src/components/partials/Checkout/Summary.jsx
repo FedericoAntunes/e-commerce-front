@@ -30,7 +30,11 @@ function Summary() {
               className="flex flex-col h-full bg-white border pb-2 lg:overflow-hidden rounded-l-lg items-center mb-4"
             >
               <img
-                src={product.image}
+                src={
+                  product.image.substring(0, 4) === "http"
+                    ? product.image
+                    : process.env.REACT_APP_IMAGE_BASEURL + product.image
+                }
                 className="h-full w-32 lg:h-[80px] lg:border-r mx-auto rounded-lg mt-6 object-fit mb-4"
                 alt=""
               />

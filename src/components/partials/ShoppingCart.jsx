@@ -127,7 +127,12 @@ function ShoppingCart() {
                     >
                       <div className="block sm:flex">
                         <img
-                          src={product.image}
+                          src={
+                            product.image.substring(0, 4) === "http"
+                              ? product.image
+                              : process.env.REACT_APP_IMAGE_BASEURL +
+                                product.image
+                          }
                           className="w-[160px] mb-4 sm:mr-2 mx-auto sm:mx-0 rounded-2xl border"
                           alt="product"
                         />

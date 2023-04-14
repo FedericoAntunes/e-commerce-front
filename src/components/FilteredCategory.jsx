@@ -46,7 +46,7 @@ function FilteredCategory() {
   }, [location.pathname]);
 
   return companies && category && products ? (
-    companies.length || Object.keys(category) ? (
+    companies.length > 0 || products.length > 0 ? (
       <div className="mt-20 lg:mx-24 pt-6">
         <h3 className="text-4xl font-semibold">{category.name}</h3>
         {companies.length > 0 && (
@@ -83,7 +83,12 @@ function FilteredCategory() {
                       <div className="-mb-6 relative">
                         <img
                           className="rounded-full absolute z-10 left-4 top-2 w-12 h-12"
-                          src={product.company.logo}
+                          src={
+                            product.company.logo.substring(0, 4) === "http"
+                              ? product.company.logo
+                              : process.env.REACT_APP_IMAGE_BASEURL +
+                                product.company.logo
+                          }
                           alt="company"
                         />
                       </div>
@@ -97,7 +102,12 @@ function FilteredCategory() {
                         )}
                         <img
                           className="pt-6 pb-4 z-0 w-full rounded-t-lg"
-                          src={product.image}
+                          src={
+                            product.image.substring(0, 4) === "http"
+                              ? product.image
+                              : process.env.REACT_APP_IMAGE_BASEURL +
+                                product.image
+                          }
                           alt="product"
                         />
                       </div>
