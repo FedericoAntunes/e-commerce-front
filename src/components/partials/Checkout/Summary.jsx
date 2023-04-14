@@ -31,7 +31,7 @@ function Summary() {
             >
               <img
                 src={product.image}
-                className="h-full w-32 lg:h-[30px] lg:border-r mx-auto rounded-lg mt-6 object-fit mb-4"
+                className="h-full w-32 lg:h-[80px] lg:border-r mx-auto rounded-lg mt-6 object-fit mb-4"
                 alt=""
               />
               <div className="flex-1">

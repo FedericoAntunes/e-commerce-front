@@ -239,10 +239,10 @@ function Checkout() {
     );
   }
   return (
-    <div className="">
+    <div className="pt-6">
       <Box
         sx={{ maxWidth: "100%" }}
-        className="mt-[200px] p-6 md:px-6 md:py-16 mx-auto border md:mx-24 lg:px-44 bg-white rounded-lg shadow-lg"
+        className="mt-[125px] lg:mt-[150px] p-6 md:px-6 md:py-16 mx-auto border md:mx-24 lg:px-44 bg-white rounded-lg shadow-lg"
       >
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
