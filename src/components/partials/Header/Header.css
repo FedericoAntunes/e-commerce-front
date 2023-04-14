@@ -3,9 +3,7 @@
   margin-right: 7px !important;
   color: lightyellow;
 }
-.navbar-links-container ul a:hover {
-  color: #10B981 !important;
-}
+
 .nav-cart-user {
   color: lightyellow;
 }
@@ -39,5 +37,11 @@
   45% {
     animation-timing-function: ease-out;
     transform: scale(1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-links-container ul a:hover {
+    color: #10B981 !important;
   }
 }

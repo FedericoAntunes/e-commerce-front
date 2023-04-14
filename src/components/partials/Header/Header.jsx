@@ -98,7 +98,7 @@ function Header() {
           <div className="relative">
             {(navbarScroll || location.pathname !== "/") && (
               <FontAwesomeIcon
-                className={`p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400 sm:hidden`}
+                className={`p-4 pt-5 pl-1 md:pl-3 lg:hover:cursor-pointer lg:hover:text-yellow-400 sm:hidden`}
                 onClick={() => {
                   setToggleSearch(!toggleSearch);
                 }}
@@ -106,7 +106,7 @@ function Header() {
               />
             )}
             <FontAwesomeIcon
-              className="p-4 pt-5 pl-1 md:pl-3 hover:cursor-pointer hover:text-yellow-400"
+              className="p-4 pt-5 pl-1 md:pl-3 lg:hover:cursor-pointer lg:hover:text-yellow-400"
               onClick={() =>
                 dispatch(toggleMenu({ scroll: false, showCart: true }))
               }
@@ -151,7 +151,7 @@ function Header() {
             </Dropdown>
           ) : (
             <Navbar.Toggle
-              className={`hover:text-yellow-400`}
+              className={`lg:hover:text-yellow-400`}
               style={
                 navbarScroll || location.pathname !== "/"
                   ? {
@@ -173,7 +173,7 @@ function Header() {
             <>
               <Link
                 to={"/login"}
-                className="block py-2 border-0 bg-transparent hover:scale-110 hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-[1.15rem] font-bold ease-in-out duration-200"
+                className="block py-2 border-0 bg-transparent lg:hover:scale-110 lg:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-[1.15rem] font-bold ease-in-out duration-200"
                 style={
                   navbarScroll || location.pathname !== "/"
                     ? {
@@ -187,7 +187,7 @@ function Header() {
               </Link>
               <Link
                 to={"/register"}
-                className="block py-2 border-0 bg-transparent hover:scale-110 hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-[1.15rem] font-bold ease-in-out duration-200"
+                className="block py-2 border-0 bg-transparent lg:hover:scale-110 lg:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-[1.15rem] font-bold ease-in-out duration-200"
                 style={
                   navbarScroll || location.pathname !== "/"
                     ? { color: "gray", filter: "none" }

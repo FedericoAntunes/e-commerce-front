@@ -59,7 +59,7 @@ function Payment({ shippingData, setShippingData }) {
         },
       });
     }
-  };
+  }
 
   const handleInputFocus = (evt) => {
     setState((prev) => ({ ...prev, focus: evt.target.name }));
@@ -95,25 +95,28 @@ function Payment({ shippingData, setShippingData }) {
               <span className="ml-2">Secure payment system</span>
             </div>
           </FormLabel>
-          <RadioGroup
-            row
-            required
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
-            onChange={(e) => {
-              setActive(e.target.value);
-              setShippingData({
-                ...shippingData,
-                payment_method: e.target.value,
-              });
-            }}
-          >
-            <FormControlLabel
-              value="credit_card"
-              control={<Radio />}
-              label="Credit Card"
-            />
-          </RadioGroup>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <RadioGroup
+              row
+              required
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="row-radio-buttons-group"
+              onChange={(e) => {
+                setActive(e.target.value);
+                setShippingData({
+                  ...shippingData,
+                  payment_method: e.target.value,
+                });
+              }}
+            >
+              <FormControlLabel
+                value="credit_card"
+                className="mb-4"
+                control={<Radio />}
+                label="Credit Card"
+              />
+            </RadioGroup>
+          </div>
         </FormControl>
 
         <Box sx={{ display: active === "credit_card" ? "block" : "none" }}>
@@ -127,115 +130,120 @@ function Payment({ shippingData, setShippingData }) {
                 focused={state.focus}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="card-number"
-                label="Card Number"
-                type="number"
-                name="number"
-                value={state.number}
-                onChange={(evt) => {
-                  handleInputChange(evt);
-                  setShippingData({
-                    ...shippingData,
-                    payment_info: {
-                      ...shippingData.payment_info,
-                      card_number: evt.target.value,
-                    },
-                  });
-                }}
-                onFocus={handleInputFocus}
-                sx={{ my: 1 }}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
+            <div className="mt-10 mx-auto w-[400px] flex justify-center gap-4">
+              <Grid item xs={12} sm={6}>
+                <TextField
                   required
-                  label="Expiration Date"
-                  views={["month", "year"]}
-                  format="MM/yy"
-                  slotProps={{ textField: { helperText: "mm/yy" } }}
-                  value={state.selectedDate}
-                  sx={{ my: 1 }}
-                  onChange={(date) => {
-                    handleDateChange(date);
+                  id="card-number"
+                  label="Card Number"
+                  type="number"
+                  name="number"
+                  value={state.number}
+                  onChange={(evt) => {
+                    handleInputChange(evt);
                     setShippingData({
                       ...shippingData,
                       payment_info: {
                         ...shippingData.payment_info,
-                        expiration_date: date,
+                        card_number: evt.target.value,
                       },
                     });
                   }}
+                  onFocus={handleInputFocus}
+                  sx={{ my: 1 }}
                 />
-              </LocalizationProvider>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                className="" // CardName
-                id="card-name"
-                label="Name"
-                type="text"
-                name="name"
-                onChange={(evt) => {
-                  handleInputChange(evt);
-                  setShippingData({
-                    ...shippingData,
-                    payment_info: {
-                      ...shippingData.payment_info,
-                      name_card: evt.target.value,
-                    },
-                  });
-                }}
-                onFocus={handleInputFocus}
-                onKeyPress={(event) => {
-                  const regex = /^[a-zA-Z\s]*$/;
-                  const key = String.fromCharCode(event.which);
-                  if (!regex.test(key)) {
-                    event.preventDefault();
-                  }
-                }}
-                sx={{ my: 1 }}
-              />
-            </Grid>
+              </Grid>
 
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="card-cvc"
-                label="CVC"
-                type="tel"
-                name="cvc"
-                className="form-control"
-                pattern="\d{3,4}"
-                onChange={(evt) => {
-                  handleInputChange(evt);
-                  setShippingData({
-                    ...shippingData,
-                    payment_info: {
-                      ...shippingData.payment_info,
-                      cvv: evt.target.value,
-                    },
-                  });
-                }}
-                onFocus={handleInputFocus}
-                inputProps={{
-                  maxLength: 3,
-                }}
-                onKeyPress={(event) => {
-                  const keyCode = event.keyCode || event.which;
-                  const keyValue = String.fromCharCode(keyCode);
-                  const regex = /^[0-9]*$/;
-                  if (!regex.test(keyValue)) {
-                    event.preventDefault();
-                  }
-                }}
-                sx={{ my: 1 }}
-              />
-            </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  className="" // CardName
+                  id="card-name"
+                  label="Name"
+                  type="text"
+                  name="name"
+                  onChange={(evt) => {
+                    handleInputChange(evt);
+                    setShippingData({
+                      ...shippingData,
+                      payment_info: {
+                        ...shippingData.payment_info,
+                        name_card: evt.target.value,
+                      },
+                    });
+                  }}
+                  onFocus={handleInputFocus}
+                  onKeyPress={(event) => {
+                    const regex = /^[a-zA-Z\s]*$/;
+                    const key = String.fromCharCode(event.which);
+                    if (!regex.test(key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                  sx={{ my: 1 }}
+                />
+              </Grid>
+            </div>
+            <div className="mt-10 mx-auto w-[400px] flex justify-center gap-4">
+              <Grid item xs={12} sm={6}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    required
+                    label="Expiration Date"
+                    views={["month", "year"]}
+                    format="MM/yy"
+                    slotProps={{ textField: { helperText: "mm/yy" } }}
+                    value={state.selectedDate}
+                    sx={{ my: 1, maxWidth: "223px" }}
+                    onChange={(date) => {
+                      handleDateChange(date);
+                      setShippingData({
+                        ...shippingData,
+                        payment_info: {
+                          ...shippingData.payment_info,
+                          expiration_date: date,
+                        },
+                      });
+                    }}
+                  />
+                </LocalizationProvider>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="card-cvc"
+                  label="CVC"
+                  type="tel"
+                  name="cvc"
+                  className="form-control"
+                  pattern="\d{3,4}"
+                  onChange={(evt) => {
+                    handleInputChange(evt);
+                    setShippingData({
+                      ...shippingData,
+                      payment_info: {
+                        ...shippingData.payment_info,
+                        cvv: evt.target.value,
+                      },
+                    });
+                  }}
+                  onFocus={handleInputFocus}
+                  inputProps={{
+                    maxLength: 3,
+                  }}
+                  onKeyPress={(event) => {
+                    const keyCode = event.keyCode || event.which;
+                    const keyValue = String.fromCharCode(keyCode);
+                    const regex = /^[0-9]*$/;
+                    if (!regex.test(keyValue)) {
+                      event.preventDefault();
+                    }
+                  }}
+                  sx={{ my: 1 }}
+                />
+              </Grid>
+            </div>
           </Grid>
         </Box>
       </div>

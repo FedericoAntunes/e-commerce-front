@@ -26,47 +26,37 @@ function AboutUs() {
         </div>
         <div className="flex flex-wrap justify-center my-8">
           <motion.div
-            animate={{
-              x: [-50, 50, 0],
-              y: [0, 20, 0],
-              rotateZ: [0, 5, 0],
-              opacity: 1,
-              scale: 1,
-            }}
+            initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+            whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
             transition={{
-              duration: 1,
-              delay: 1.1,
+              duration: 0.6,
+              delay: 0.5,
               ease: "anticipate",
             }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            className="mt-10 mb-20 sm:my-3"
           >
             <CardAbout
               name={"Federico Antunes"}
               image={"https://i.ibb.co/J3Hx0k7/fede-cleanup.png"}
-              description={`Lorem ipsum dolor`}
+              description={`"Es muy temprano, ¿sale una siestita?"`}
               github={"https://github.com/FedericoAntunes"}
               linkedin={"https://www.linkedin.com/in/federico-antunes/"}
             />
           </motion.div>
           <motion.div
-            animate={{
-              x: [-50, 50, 0],
-              y: [0, 20, 0],
-              rotateZ: [0, 5, 0],
-              opacity: 1,
-              scale: 1,
-            }}
+            initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+            whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
             transition={{
-              duration: 1,
-              delay: 0.9,
+              duration: 0.6,
+              delay: 0.4,
               ease: "anticipate",
             }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            className="mt-10 mb-20 sm:my-3"
           >
             <CardAbout
               name={"Pablo Dos Santos"}
               image={"https://i.ibb.co/cNmsVRD/dsfpablo.png"}
-              description={`Lorem ipsum dolor`}
+              description={`Ascendido a "Capataz"`}
               github={"https://github.com/dsfpablo"}
               linkedin={
                 "https://www.linkedin.com/in/pablo-dos-santos-76683155/"
@@ -74,46 +64,36 @@ function AboutUs() {
             />{" "}
           </motion.div>
           <motion.div
-            animate={{
-              x: [-50, 50, 0],
-              y: [0, 20, 0],
-              rotateZ: [0, 5, 0],
-              opacity: 1,
-              scale: 1,
-            }}
+            initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+            whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
             transition={{
-              duration: 1,
-              delay: 0.7,
+              duration: 0.6,
+              delay: 0.3,
               ease: "anticipate",
             }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            className="mt-10 mb-20 sm:my-3"
           >
             <CardAbout
               name={"Juan Martín Madoz"}
               image={"https://i.ibb.co/0KjhBFj/jmadoz.png"}
-              description={`Computer Science Student and Full Stack Developer`}
+              description={`"¿Porque mi variable esta undefined? JavaScript"`}
               github={"https://github.com/Madozito"}
               linkedin={"https://www.linkedin.com/in/juanmartinmadoz/"}
             />
           </motion.div>
           <motion.div
-            animate={{
-              x: [-50, 50, 0],
-              y: [0, 20, 0],
-              rotateZ: [0, 5, 0],
-              opacity: 1,
-              scale: 1,
-            }}
+            initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+            whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
             transition={{
-              duration: 1,
-              delay: 0.5,
+              duration: 0.6,
+              delay: 0.2,
               ease: "anticipate",
             }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            className="mt-10 mb-20 sm:my-3"
           >
             <CardAbout
               name={"Sebastián Yaben"}
-              description={`Full Stack Developer, "Learning to do modals even in React"`}
+              description={`"Learning to do modals even in React"`}
               image={"https://i.ibb.co/r2sH692/img-ecomerce.png"}
               github={"https://github.com/sebasan22"}
               linkedin={
@@ -122,24 +102,19 @@ function AboutUs() {
             />
           </motion.div>
           <motion.div
-            animate={{
-              x: [-50, 50, 0],
-              y: [0, 20, 0],
-              rotateZ: [0, 5, 0],
-              opacity: 1,
-              scale: 1,
-            }}
+            initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+            whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
             transition={{
-              duration: 1,
-              delay: 0.3,
+              duration: 0.6,
+              delay: 0.1,
               ease: "anticipate",
             }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            className="mt-10 mb-20 sm:my-3"
           >
             <CardAbout
               name={"Martin Bentura"}
               image={"https://i.ibb.co/qxgXxZx/mbentura-removebg-preview.png"}
-              description={`Lorem ipsum dolor`}
+              description={`"Cada hora: Me hago un tesito y seguimos"`}
               github={"https://github.com/MartinBentura"}
               linkedin={"https://www.linkedin.com/in/martin-bentura-88365326b/"}
             />
@@ -147,25 +122,50 @@ function AboutUs() {
         </div>
       </div>
       <motion.div
-        animate={{
-          x: [500, 0],
-          opacity: 1,
-          scale: 1,
-        }}
-        initial={{ opacity: 0, scale: 0.5 }}
+        initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+        whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
         transition={{
-          duration: 2,
-          delay: 0.3,
+          duration: 1,
           ease: "anticipate",
         }}
-        className="my-6"
+        className="my-6 px-3 md:px-10"
       >
         <AboutThisProject />
       </motion.div>
-      <div className="flex flex-col mb-20 sm:flex-row justify-center sm:gap-6">
-        <AboutUsFeatures />
-        <AboutUsTechnologies />
-        <AboutUsChallenges />
+      <div className="flex flex-wrap mb-20 justify-center sm:gap-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+          whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
+          transition={{
+            duration: 1,
+            ease: "anticipate",
+          }}
+          className="my-6"
+        >
+          <AboutUsFeatures />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+          whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
+          transition={{
+            duration: 1,
+            ease: "anticipate",
+          }}
+          className="my-6"
+        >
+          <AboutUsTechnologies />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, marginLeft: "5px" }}
+          whileInView={{ opacity: 1, translateX: "-5px", scale: 1 }}
+          transition={{
+            duration: 1,
+            ease: "anticipate",
+          }}
+          className="my-6"
+        >
+          <AboutUsChallenges />
+        </motion.div>
       </div>
     </AnimatePresence>
   );

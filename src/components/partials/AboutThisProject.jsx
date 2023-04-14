@@ -1,10 +1,10 @@
 export default function AboutThisProject() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col max-w-[1130px] mx-auto items-center my-4 sm:my-0 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
       <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
         About this project
       </h2>
-      <p className="sm:w-1/2 w-full px-4 mb-8 text-lg font-medium text-gray-700 dark:text-gray-400 text-left leading-relaxed">
+      <p className="sm:w-2/3 w-full px-4 mb-8 text-md md:text-lg font-medium text-gray-700 dark:text-gray-400 text-left leading-relaxed">
         Welcome to No Hunger, an e-commerce platform dedicated to delivering
         food all around the world. Our mission is to make it easy and convenient
         for you to shop for your favorite products while making a positive
@@ -12,7 +12,7 @@ export default function AboutThisProject() {
         shopping experience for our customers. Shop with us today and join the
         fight against hunger!
       </p>
-      <ul className="sm:w-1/2 w-full sm:px-4 px-8 mb-8 text-lg font-medium text-gray-700 dark:text-gray-400 text-left leading-relaxed list-decimal">
+      <ul className="sm:w-2/3 w-full sm:px-4 px-8 mb-8 text-md md:text-lg font-medium text-gray-700 dark:text-gray-400 text-left leading-relaxed list-decimal">
         <li>
           We used <span className="font-bold">Node.js</span>,{" "}
           <span className="font-bold">Express.js</span>,{" "}
