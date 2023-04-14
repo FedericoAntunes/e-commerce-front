@@ -93,7 +93,7 @@ function AboutUs() {
           >
             <CardAbout
               name={"Sebastián Yaben"}
-              description={`"Learning to do modals even in React"`}
+              description={`"Aprendiendo a hacer modales incluso en React"`}
               image={"https://i.ibb.co/r2sH692/img-ecomerce.png"}
               github={"https://github.com/sebasan22"}
               linkedin={
