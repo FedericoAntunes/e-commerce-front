@@ -128,7 +128,7 @@ function Header() {
                   img={
                     user.avatar.substring(0, 4) === "http"
                       ? user.avatar
-                      : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
+                      : process.env.REACT_APP_IMAGE_BASEURL + user.avatar
                   }
                   rounded={true}
                   className="pt-2"
