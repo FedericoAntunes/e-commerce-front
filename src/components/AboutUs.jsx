@@ -114,7 +114,7 @@ function AboutUs() {
             <CardAbout
               name={"Martin Bentura"}
               image={"https://i.ibb.co/qxgXxZx/mbentura-removebg-preview.png"}
-              description={`""`}
+              description={`"Cada hora: Me hago un tesito y seguimos"`}
               github={"https://github.com/MartinBentura"}
               linkedin={"https://www.linkedin.com/in/martin-bentura-88365326b/"}
             />
