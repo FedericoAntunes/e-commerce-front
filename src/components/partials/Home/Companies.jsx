@@ -23,7 +23,7 @@ function Companies({ companies }) {
               <h5 className="font-bold mb-1 text-lg mr-12 truncate">
                 {company.name}
               </h5>
-              <span className="absolute right-2 top-6 md:font-bold">
+              <span className="absolute right-2 top-6 font-bold">
                 {company.valoration}
                 <FontAwesomeIcon
                   className="text-yellow-400 ml-1"

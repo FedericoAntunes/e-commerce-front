@@ -30,6 +30,9 @@ function Header() {
 
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
+  const isShoppingCartOpen = useSelector(
+    (state) => state.showShoppingCart.showCart
+  );
 
   function handleLogOut() {
     googleLogout();
@@ -45,6 +48,19 @@ function Header() {
     }
   };
 
+  /*   useEffect(() => {
+    console.log(isShoppingCartOpen);
+    if (isShoppingCartOpen) {
+      console.log("elimino scroll");
+      document.body.style.overflow = "hidden";
+    } else {
+      console.log("habilito scroll");
+
+      document.body.style.overflow = "visible";
+    }
+    console.log(document.body.style);
+  }, [isShoppingCartOpen]); */
+
   useEffect(() => {
     navbarScrolling();
     // adding the event when scroll change background
@@ -57,10 +73,12 @@ function Header() {
         fluid={true}
         style={
           navbarScroll || location.pathname !== "/"
-            ? { backgroundColor: "white" }
+            ? {
+                backgroundColor: "white",
+              }
             : { backgroundColor: "transparent" }
         }
-        className="ease-in-out duration-500 px-4 lg:px-24"
+        className="ease-in-out duration-500 pl-4 lg:px-24"
       >
         <Logo />
         <Search
@@ -110,10 +128,10 @@ function Header() {
                   img={
                     user.avatar.substring(0, 4) === "http"
                       ? user.avatar
-                      : process.env.REACT_APP_IMAGE_BASEURL + user.avatar
+                      : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
                   }
                   rounded={true}
-                  className="pt-2 mr-2"
+                  className="pt-2"
                 />
               }
             >
@@ -155,10 +173,13 @@ function Header() {
             <>
               <Link
                 to={"/login"}
-                className="block py-2 border-0 bg-transparent hover:text-yellow-100 text-[1.15rem] font-bold ease-in-out duration-200"
+                className="block py-2 border-0 bg-transparent hover:scale-110 hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-[1.15rem] font-bold ease-in-out duration-200"
                 style={
                   navbarScroll || location.pathname !== "/"
-                    ? { color: "gray" }
+                    ? {
+                        color: "gray",
+                        filter: "none",
+                      }
                     : { color: "white" }
                 }
               >
@@ -166,10 +187,10 @@ function Header() {
               </Link>
               <Link
                 to={"/register"}
-                className="block py-2 border-0 bg-transparent hover:text-yellow-100 text-[1.15rem] font-bold ease-in-out duration-200"
+                className="block py-2 border-0 bg-transparent hover:scale-110 hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-[1.15rem] font-bold ease-in-out duration-200"
                 style={
                   navbarScroll || location.pathname !== "/"
-                    ? { color: "gray" }
+                    ? { color: "gray", filter: "none" }
                     : { color: "white" }
                 }
               >

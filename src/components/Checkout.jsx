@@ -126,6 +126,22 @@ function Checkout() {
     if (activeStep === steps.length - 1) {
       setLoader(true);
 
+      const products = await apiCall("/products", "get");
+      const sameProducts = products.data.filter((product) =>
+        shoppingList.some((userProduct) => product.id === userProduct.id)
+      );
+      console.log(sameProducts);
+      const unavailableProducts = sameProducts.filter((product) =>
+        shoppingList.some((userProduct) => product.stock < userProduct.quantity)
+      );
+      console.log(unavailableProducts);
+      if (unavailableProducts.length > 0) {
+        setLoader(false);
+        return notifyErrorUnavailable(
+          <UnavailableProducts products={unavailableProducts} />
+        );
+      }
+
       const response = await apiCall(
         "/orders",
         "post",
@@ -147,23 +163,6 @@ function Checkout() {
           position: "bottom-right",
         });
       }
-
-      // NOT WORKING, unavailableProducts empty
-      /*  const products = await apiCall("/products", "get");
-      const sameProducts = products.data.filter((product) =>
-        shoppingList.some((userProduct) => product.id === userProduct.id)
-      );
-      console.log(sameProducts);
-      const unavailableProducts = sameProducts.filter((product) =>
-        shoppingList.some((userProduct) => product.stock < userProduct.quantity)
-      );
-      console.log(unavailableProducts);
-      if (unavailableProducts.length > 0) {
-        setLoader(false);
-        return notifyErrorUnavailable(
-          <UnavailableProducts products={unavailableProducts} />
-        );
-      } */
 
       setTimeout(() => {
         notifySuccess();

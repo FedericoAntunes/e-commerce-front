@@ -4,7 +4,7 @@
   color: lightyellow;
 }
 .navbar-links-container ul a:hover {
-  color: rgb(227 160 8 / var(--tw-text-opacity)) !important;
+  color: #10B981 !important;
 }
 .nav-cart-user {
   color: lightyellow;
