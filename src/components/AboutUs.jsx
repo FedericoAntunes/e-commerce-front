@@ -38,7 +38,7 @@ function AboutUs() {
             <CardAbout
               name={"Federico Antunes"}
               image={"https://i.ibb.co/J3Hx0k7/fede-cleanup.png"}
-              description={`Lorem ipsum dolor`}
+              description={`"Es muy temprano, ¿sale una siestita?"`}
               github={"https://github.com/FedericoAntunes"}
               linkedin={"https://www.linkedin.com/in/federico-antunes/"}
             />
@@ -76,7 +76,7 @@ function AboutUs() {
             <CardAbout
               name={"Juan Martín Madoz"}
               image={"https://i.ibb.co/0KjhBFj/jmadoz.png"}
-              description={`Computer Science Student and Full Stack Developer`}
+              description={`"¿Porque mi variable esta undefined? JavaScript"`}
               github={"https://github.com/Madozito"}
               linkedin={"https://www.linkedin.com/in/juanmartinmadoz/"}
             />
@@ -93,7 +93,7 @@ function AboutUs() {
           >
             <CardAbout
               name={"Sebastián Yaben"}
-              description={`Full Stack Developer, "Learning to do modals even in React"`}
+              description={`"Learning to do modals even in React"`}
               image={"https://i.ibb.co/r2sH692/img-ecomerce.png"}
               github={"https://github.com/sebasan22"}
               linkedin={
@@ -114,7 +114,7 @@ function AboutUs() {
             <CardAbout
               name={"Martin Bentura"}
               image={"https://i.ibb.co/qxgXxZx/mbentura-removebg-preview.png"}
-              description={`Lorem ipsum dolor`}
+              description={`""`}
               github={"https://github.com/MartinBentura"}
               linkedin={"https://www.linkedin.com/in/martin-bentura-88365326b/"}
             />
