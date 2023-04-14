@@ -88,7 +88,7 @@ function Restaurant() {
   return company && products ? (
     <div className="mt-20">
       <div
-        className="w-full mb-6 h-32"
+        className="w-full mb-6 h-32 md:h-[20rem]"
         style={{
           backgroundImage: `url("${company.background}")`,
           backgroundSize: "100%",
@@ -105,18 +105,18 @@ function Restaurant() {
         />
       </div>
       <div className="mx-4 lg:mx-24">
-        <div>
+        <div className="md:absolute md:top-[142px] md:px-10 md:py-[1rem] md:border md:rounded-lg md:bg-white md:bg-opacity-50 md:shadow-lg md:backdrop-blur-sm  ">
           <h2 className="text-left font-bold text-4xl mb-6">{company.name}</h2>
           <small className="text-left block">
             <div className="mb-2">
-              <span className="font-bold">
+              <span className="font-bold text-gray-700">
                 <FontAwesomeIcon
                   className="text-yellow-400 h-[15px]"
                   icon={faStar}
                 />{" "}
                 {company.valoration}
               </span>
-              <span className="text-gray-500"> (100+ reviews) • </span>
+              <span className="text-gray-700"> (100+ reviews) • </span>
               {company.description ? (
                 <button
                   className="underline leading-10 text-green-600"
@@ -131,8 +131,8 @@ function Restaurant() {
                 setIsDescriptionOpen={setIsDescriptionOpen}
               />
             </div>
-            <div className="text-gray-400 mb-2">$ • {company.tags} •</div>
-            <div className="font-semibold text-orange-400">
+            <div className="text-gray-700 mb-2">$ • {company.tags} •</div>
+            <div className="font-semibold text-red-600">
               {!user
                 ? "Login to see the estimated delivery time"
                 : company.estimated_time}
@@ -141,15 +141,15 @@ function Restaurant() {
         </div>
         {products.some((item) => item.in_offer) && (
           <>
-            <div className="mt-16 lg:border lg:p-10 lg:rounded-lg">
-              <h2 className="lg:ml-2 text-2xl font-semibold text-left">
+            <div className="mt-16">
+              <h2 className="text-2xl lg:ml-10 font-semibold text-left">
                 Limited time offerts!{" "}
                 <FontAwesomeIcon
                   className="text-green-500"
                   icon={faStopwatch}
                 />
               </h2>
-              <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-y-8 gap-x-4">
+              <div className="grid-cols-1 md:grid-cols-2 lg:border-x lg:px-10 lg:grid-cols-4 mt-6 grid gap-y-8 gap-x-4">
                 {products.map((product, index) => {
                   return (
                     product.in_offer && (
@@ -233,12 +233,12 @@ function Restaurant() {
           </>
         )}
         {products.some((item) => item.id === item.id) && (
-          <div className="mt-16 lg:border lg:p-10 lg:rounded-lg">
-            <h2 className="text-2xl lg:ml-2 font-semibold text-left">
+          <div className="mt-16 lg:rounded-lg">
+            <h2 className="text-2xl lg:ml-10 font-semibold text-left">
               Picked for you{" "}
               <FontAwesomeIcon className="text-red-500" icon={faHeart} />
             </h2>
-            <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 grid gap-4">
+            <div className="grid-cols-1 md:grid-cols-2 lg:border-x lg:px-10 lg:grid-cols-4 mt-6 grid gap-4 gap-y-8">
               {products.map((product, index) => {
                 return (
                   <div>
