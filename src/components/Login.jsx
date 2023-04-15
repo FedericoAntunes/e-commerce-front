@@ -124,7 +124,7 @@ function Login() {
 
   return (
     <section className="bg-[url('https://images-ext-2.discordapp.net/external/B-Q5yWCKhF1nxZrMrnfRo3NIfNEwWDplURKiwmDcx2E/%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1260%26h%3D750%26dpr%3D1/https/images.pexels.com/photos/616401/pexels-photo-616401.jpeg')] bg-cover bg-no-repeat w-full md:min-h-screen">
-      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto">
+      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen">
         <Link
           to="/about-us"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -140,18 +140,6 @@ function Login() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your account
             </h1>
-            <div className="flex justify-end text-sm font-medium">
-              <Link
-                to="https://e-commerce-admin-mu.vercel.app/login"
-                className="text-green-600 md:hover:text-green-700 focus:text-green-700 md:hover:underline transform md:hover:scale-110 focus:scale-110 transition-all"
-              >
-                <FontAwesomeIcon
-                  icon={faUserShield}
-                  className="text-green-600 mr-2"
-                />
-                Admin Panel
-              </Link>
-            </div>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -207,16 +195,6 @@ function Login() {
                     </label>
                   </div>
                 </div>
-                <div className="flex justify-center text-sm font-medium">
-                  <button
-                    className="m-2 md:px-4 md:py-2 rounded-md text-white bg-green-500 md:hover:bg-green-600 focus:bg-green-600 transition-colors"
-                    type="button"
-                    onClick={handleFillInputs}
-                  >
-                    <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
-                    Fill Inputs
-                  </button>
-                </div>
                 <Link
                   to="#"
                   className="text-base font-medium text-green-600 md:hover:underline"
@@ -258,6 +236,45 @@ function Login() {
               />{" "}
               Login with Google
             </button>
+          </div>
+        </div>
+        <div className="bg-white text-left border shadow-lg rounded-lg mt-10 w-full sm:w-[600px] px-5 py-8 lg:absolute lg:right-0 lg:w-[200px] lg:rounded-r-none">
+          <h3 className="mb-2 font-semibold">Fill fields with test data</h3>
+          <p className="text-sm">
+            To simplify the access to the application, we provide the
+            information of an existing account to fill the fields:
+          </p>
+          <div className="flex justify-center text-sm font-medium border-b pb-2">
+            <button
+              className="m-2 p-2 md:px-4 md:py-2  rounded-md text-white bg-green-500 md:hover:bg-green-600 focus:bg-green-600 transition-colors"
+              type="button"
+              onClick={handleFillInputs}
+            >
+              <div className="flex mx-auto items-center">
+                <FontAwesomeIcon icon={faPencilAlt} className="mr-2 " />
+                <p className="lg:text-left lg:w-[65px]">
+                  {" "}
+                  Insert test user data
+                </p>
+              </div>
+            </button>
+          </div>
+          <h3 className="mb-2 font-semibold mt-6">Try the admin panel</h3>
+          <p className="text-sm">
+            Go to the admin page to edit, delete or create to see the full
+            administrator experience:
+          </p>
+          <div className="flex justify-center mt-2 text-sm font-medium">
+            <Link
+              to="https://e-commerce-admin-mu.vercel.app/login"
+              className="text-green-600 md:hover:text-green-700 focus:text-green-700 md:hover:underline transform md:hover:scale-110 focus:scale-110 transition-all"
+            >
+              <FontAwesomeIcon
+                icon={faUserShield}
+                className="text-green-600 mr-2"
+              />
+              Admin Panel
+            </Link>
           </div>
         </div>
       </div>
