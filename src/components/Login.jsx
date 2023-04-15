@@ -130,7 +130,7 @@ function Login() {
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
         >
           <img
-            className=" h-24 -mb-[4.5rem] z-10"
+            className=" h-24 -mb-[4.5rem] rounded-full z-10"
             src="https://i.ibb.co/pQFPDr4/no-hunger-update.png"
             alt="logo"
           />
