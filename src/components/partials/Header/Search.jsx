@@ -58,10 +58,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
     return (
       <>
         {item.title ? (
-          <div key={"prod" + item.id} className="flex items-center gap-2">
-            <span className="text-gray-400">
-              <small>Product</small>
-            </span>
+          <div key={"prod" + item.id} className="flex items-center gap-2 h-10">
             <div className="">
               <img
                 src={
@@ -75,13 +72,13 @@ function Search({ navbarScroll, toggleSearch, header }) {
               />
             </div>
             <span className="block">{item.title}</span>
+            <span className="text-gray-300 text-sm">
+              <span>(Product)</span>
+            </span>
             <hr />
           </div>
         ) : item.logo ? (
-          <div key={"co" + item.id} className="flex items-center gap-2">
-            <span className="text-gray-400">
-              <small>Company</small>
-            </span>
+          <div key={"co" + item.id} className="flex items-center gap-2 h-10">
             <div className="">
               <img
                 src={
@@ -95,17 +92,20 @@ function Search({ navbarScroll, toggleSearch, header }) {
               />
             </div>
             <span className="block">{item.name}</span>
+            <span className="text-gray-300 text-sm">
+              <span>(Company)</span>
+            </span>
             <hr />
           </div>
         ) : (
-          <div key={"cat" + item.id} className="flex items-center gap-2">
-            <span className="text-gray-400">
-              <small>Category</small>
-            </span>
+          <div key={"cat" + item.id} className="flex items-center gap-2 h-10">
             <div className="">
               <img src={item.image} width="50px" height="50px" alt="" />
             </div>
             <span className="block">{item.name}</span>
+            <span className="text-gray-300 text-sm">
+              <span>(Category)</span>
+            </span>
             <hr />
           </div>
         )}
@@ -143,9 +143,6 @@ function Search({ navbarScroll, toggleSearch, header }) {
           Search
         </label>
         <div className="relative w-auto z-10">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <img src="/img/no-hunger.png" width="25" height="25" alt="" />
-          </div>
           <ReactSearchAutocomplete
             type="search"
             id="default-search"
@@ -161,6 +158,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
             formatResult={formatResult}
             fuseOptions={{ keys: ["name"] }}
             resultStringKeyName="name"
+            showIcon={true}
           />
         </div>
       </form>
