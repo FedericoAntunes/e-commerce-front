@@ -83,9 +83,9 @@ function Register() {
         </Link>
         <div className="w-full sm:w-[700px] bg-transparent backdrop-blur border border-gray backdrop-grayscale-[0.5]  shadow-xl rounded-lg md:mt-0 py-6">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
+            <h2 className="text-xl font-bold leading-tight tracking-tight mt-4 text-black md:text-2xl">
               Create your account
-            </h1>
+            </h2>
             <form
               onSubmit={createUser}
               className="space-y-4 md:space-y-6"
@@ -104,7 +104,7 @@ function Register() {
                     type="text"
                     name="firstname"
                     id="firstname"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                     placeholder="Insert your firstname..."
                     required=""
                     value={firstname}
@@ -122,7 +122,7 @@ function Register() {
                     type="text"
                     name="lastname"
                     id="lastname"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                     placeholder="Insert your lastname..."
                     required=""
                     value={lastname}
@@ -140,7 +140,7 @@ function Register() {
                     type="text"
                     name="username"
                     id="username"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                     placeholder="Insert your username..."
                     required=""
                     value={username}
@@ -158,7 +158,7 @@ function Register() {
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg  block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                     placeholder="Insert your email..."
                     required=""
                     value={email}
@@ -172,9 +172,8 @@ function Register() {
                     Avatar:
                   </label>
                   <input
-                    className="my-auto block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                    className="my-auto block w-full text-xs text-gray-900 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 cursor-pointer bg-gray-50"
                     onChange={(e) => setAvatar(e.target.files[0])}
-                    multiple
                     name="avatar"
                     id="avatar"
                     type="file"
@@ -193,14 +192,14 @@ function Register() {
                     name="password"
                     id="password"
                     placeholder="••••••••"
-                    className="w-full bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                    className="w-full bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
                     required=""
                     value={password}
                   />
                 </div>
               </div>
               <div className="flex justify-center">
-                <button className="lg:w-2/4 w-full text-base text-center tracking-wide text-white my-4 bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5">
+                <button className="lg:w-2/4 w-full text-base text-center tracking-wide ease-in-out duration-300 text-white my-4 bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 font-medium rounded-lg px-5 py-2.5">
                   <p className="mx-auto font-sm ">
                     {loader ? <SpinnerLoader /> : "Sign up"}
                   </p>
@@ -210,7 +209,7 @@ function Register() {
                 Do you already have an account?
                 <Link
                   to="/login"
-                  className="font-medium text-base text-blue-500 hover:underline ml-1 "
+                  className="font-medium text-base text-green-600 lg:hover:underline ml-1 "
                 >
                   Sign in
                 </Link>

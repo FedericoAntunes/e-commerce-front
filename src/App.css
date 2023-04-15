@@ -23,6 +23,20 @@
   box-shadow: none;
 }
 
+input::file-selector-button {
+background-color: rgb(194 120 3) !important;
+}
+
+input::file-selector-button:hover {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  background-color: rgb(194 120 3) !important;
+  }
+
+input::file-selector-button:active {
+  background-color: #92400E !important;
+  }
+
 .MuiInput-underline:focu
   .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(
     .Mui-disabled,
@@ -77,4 +91,10 @@ form.checkout input, #checkout input {
   border: 2 !important;
 }
 
-
+@media (max-width: 1024px) {
+  input::file-selector-button:hover {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    background-color: rgb(194 120 3) !important;
+    }
+}

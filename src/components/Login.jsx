@@ -137,9 +137,9 @@ function Login() {
         </Link>
         <div className="w-full sm:w-[600px] bg-transparent backdrop-blur border border-gray backdrop-grayscale-[0.5]  shadow-xl rounded-lg md:mt-0 py-6">
           <div className="p-6 pb-0 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
+            <h2 className="text-xl font-bold leading-tight tracking-tight mt-4 text-black md:text-2xl">
               Sign in to your account
-            </h1>
+            </h2>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -152,7 +152,7 @@ function Login() {
                   type="email"
                   name="email"
                   id="email"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                   placeholder="Insert your email..."
                   value={inputEmail}
                   onChange={(event) => setInputEmail(event.target.value)}
@@ -170,7 +170,7 @@ function Login() {
                   name="password"
                   id="password"
                   placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                  className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 "
                   value={inputPassword}
                   onChange={(event) => setInputPassword(event.target.value)}
                 />
@@ -182,7 +182,7 @@ function Login() {
                       id="remember"
                       aria-describedby="remember"
                       type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
+                      className="w-4 h-4  border-gray-300 rounded cursor-pointer text-green-500 bg-gray-50 focus:ring-0 focus:ring-offset-0 active:ring-0"
                       required=""
                     />
                   </div>
@@ -197,14 +197,14 @@ function Login() {
                 </div>
                 <Link
                   to="#"
-                  className="text-base font-medium text-green-600 md:hover:underline"
+                  className="text-base font-medium text-green-600 lg:hover:underline"
                 >
                   Forgot password?
                 </Link>
               </div>
               <button
                 type="submit"
-                className="w-full text-gray-200	bg-yellow-500 md:hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
+                className="w-full text-gray-200	bg-yellow-500 lg:hover:bg-yellow-400 ease-in-out duration-300 active:bg-yellow-600 font-medium rounded-lg text-base px-5 py-2.5 text-center"
               >
                 <p className="mx-auto inline-block text-md">
                   {loader ? <SpinnerLoader /> : "Sign in"}
@@ -214,7 +214,7 @@ function Login() {
                 Don’t have an account yet?
                 <Link
                   to="/register"
-                  className="text-base font-light  text-green-600 md:hover:underline ml-1"
+                  className="text-base font-light  text-green-600 lg:hover:underline ml-1"
                 >
                   Sign up
                 </Link>
@@ -227,7 +227,7 @@ function Login() {
             </div>
             <button
               onClick={() => login()}
-              className="flex w-full p-2 font-medium items-center md:hover:bg-gray-50 bg-white justify-center rounded-lg border"
+              className="flex w-full p-2 font-medium items-center ease-in-out duration-300 lg:hover:bg-gray-50 bg-white active:bg-gray-100 justify-center rounded-lg border"
             >
               <img
                 className="w-6 mr-2"
@@ -246,14 +246,13 @@ function Login() {
           </p>
           <div className="flex justify-center text-sm font-medium border-b pb-2">
             <button
-              className="m-2 p-2 md:px-4 md:py-2  rounded-md text-white bg-green-500 md:hover:bg-green-600 focus:bg-green-600 transition-colors"
+              className="m-2 p-2 md:px-4 md:py-2  rounded-md text-white bg-green-500 lg:hover:bg-green-600 active:bg-green-600 transition-colors"
               type="button"
               onClick={handleFillInputs}
             >
               <div className="flex mx-auto items-center">
                 <FontAwesomeIcon icon={faPencilAlt} className="mr-2 " />
                 <p className="lg:text-left lg:w-[65px]">
-                  {" "}
                   Insert test user data
                 </p>
               </div>
@@ -267,7 +266,7 @@ function Login() {
           <div className="flex justify-center mt-2 text-sm font-medium">
             <Link
               to="https://e-commerce-admin-mu.vercel.app/login"
-              className="text-green-600 md:hover:text-green-700 focus:text-green-700 md:hover:underline transform md:hover:scale-110 focus:scale-110 transition-all"
+              className="text-green-600 lg:hover:text-green-700 active:text-green-700 lg:hover:underline transform lg:hover:scale-110 transition-all"
             >
               <FontAwesomeIcon
                 icon={faUserShield}
