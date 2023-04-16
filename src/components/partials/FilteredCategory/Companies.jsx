@@ -9,7 +9,15 @@ function Companies({ companies }) {
         <div className="rounded-lg w-full max-w-[815px] mx-auto text-ellipsis truncate overflow-hidden border shadow-lg">
           <NavLink key={index} to={`/${company.slug}`}>
             <div
-              style={{ backgroundImage: `url("${company.background}")` }}
+              style={{
+                backgroundImage: `url("${
+                  company.background.substring(0, 4) === "http"
+                    ? company.background
+                    : process.env.REACT_APP_IMAGE_BASEURL + company.background
+                }")`,
+                backgroundSize: "100%",
+                backgroundRepeat: "no-repeat",
+              }}
               className="h-28 relative bg-cover bg-no-repeat"
             >
               {company.valoration >= 4.7 && (
