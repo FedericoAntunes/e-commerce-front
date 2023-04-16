@@ -68,7 +68,6 @@ function ShoppingCart() {
   const handleCheckout = async () => {
     setLoader(true);
     const products = await apiCall("/products", "get");
-    console.log("[ALL PRODUCTS]:", products.data);
     const sameProducts = products.data.filter((product) =>
       shoppingList.some((userProduct) => product.id === userProduct.id)
     );

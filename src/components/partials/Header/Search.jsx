@@ -72,7 +72,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
               />
             </div>
             <span className="block">{item.title}</span>
-            <span className="text-gray-300 text-sm">
+            <span className="text-gray-400 text-sm">
               <span>(Product)</span>
             </span>
             <hr />
@@ -92,7 +92,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
               />
             </div>
             <span className="block">{item.name}</span>
-            <span className="text-gray-300 text-sm">
+            <span className="text-gray-400 text-sm">
               <span>(Company)</span>
             </span>
             <hr />
@@ -103,7 +103,7 @@ function Search({ navbarScroll, toggleSearch, header }) {
               <img src={item.image} width="50px" height="50px" alt="" />
             </div>
             <span className="block">{item.name}</span>
-            <span className="text-gray-300 text-sm">
+            <span className="text-gray-400 text-sm">
               <span>(Category)</span>
             </span>
             <hr />
