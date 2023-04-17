@@ -78,7 +78,7 @@ function Header() {
               }
             : { backgroundColor: "transparent" }
         }
-        className="ease-in-out duration-500 pl-4 lg:px-24"
+        className="ease-in-out duration-500 px-4 lg:px-24"
       >
         <Logo />
         <Search

@@ -1,10 +1,6 @@
-import { useDispatch } from "react-redux";
-import { toggleMenu } from "../../redux/slice/showShoppingCartSlice";
-
 export default function RestaurantInfoModal({
   company,
   isDescriptionOpen,
-  setIsDescriptionOpen,
   handleMoreInfoModal,
 }) {
   return (
