@@ -78,7 +78,7 @@ function CenteredModal({
                       dispatch(toggleMenu({ scroll: true, showCart: false }));
                       setIsModalOpen();
                     }}
-                    className="bg-transparent text-black hover:cursor-pointer float-right h-6 w-6 text-3xl leading-none block outline-none font-semibold focus:outline-none"
+                    className="bg-transparent text-red-500 lg:hover:text-red-600 active:text-red-700 lg:active:text-red-700 hover:cursor-pointer absolute right-2 top-2 h-6 w-6 text-3xl leading-none block outline-none font-semibold focus:outline-none"
                   >
                     ×
                   </span>
@@ -144,7 +144,7 @@ function CenteredModal({
                     onClick={() => {
                       handleSubmit(product);
                     }}
-                    className="bg-yellow-500 lg:hidden text-white font-bold ml-auto py-2 px-4 rounded-full w-40"
+                    className="bg-yellow-500 active:bg-yellow-600 ease-in-out duration-100 lg:hidden text-white font-bold ml-auto py-2 px-4 rounded-full w-40"
                   >
                     Add to my cart
                   </button>

@@ -106,7 +106,7 @@ function Header() {
               />
             )}
             <FontAwesomeIcon
-              className="p-4 pt-5 pl-1 md:pl-3 active:text-yellow-500 lg:active:text-yellow-500 lg:hover:cursor-pointer lg:hover:text-yellow-400"
+              className="m-4 mt-5 ml-1 md:ml-3 active:text-yellow-500 lg:active:text-yellow-500 ease-in-out duration-100 lg:hover:cursor-pointer lg:hover:text-yellow-400"
               onClick={() =>
                 dispatch(toggleMenu({ scroll: false, showCart: true }))
               }

@@ -199,7 +199,7 @@ function Register() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <button className="lg:w-2/4 w-full text-base text-center tracking-wide ease-in-out duration-300 text-white my-4 bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 font-medium rounded-lg px-5 py-2.5">
+                <button className="lg:w-2/4 w-full text-base text-center tracking-wide ease-in-out duration-300 text-white my-4 bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 lg:active:bg-yellow-600 font-medium rounded-lg px-5 py-2.5">
                   <p className="mx-auto font-sm ">
                     {loader ? <SpinnerLoader /> : "Sign up"}
                   </p>

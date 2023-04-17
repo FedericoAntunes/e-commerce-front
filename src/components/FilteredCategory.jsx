@@ -161,7 +161,7 @@ function FilteredCategory() {
           />
           <Link
             to={"/"}
-            className="md:w-[150px] text-white mt-[3rem] inline-block bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 lg:active:bg-yellow-600 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
+            className="md:w-[150px] text-white mt-[3rem] inline-block bg-yellow-500 ease-in-out duration-100 lg:hover:bg-yellow-400 active:bg-yellow-600 lg:active:bg-yellow-600 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
           >
             <p className="mx-auto font-semibold inline-block text-md">
               Back to home
