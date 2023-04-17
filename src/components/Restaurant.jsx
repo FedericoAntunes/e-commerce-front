@@ -56,8 +56,8 @@ function Restaurant() {
     }
   };
 
-  function HandleMoreInfoModal(event) {
-    event.preventDefault();
+  function handleMoreInfoModal() {
+    dispatch(toggleMenu({ scroll: isDescriptionOpen, showCart: false }));
     return setIsDescriptionOpen(!isDescriptionOpen);
   }
 
@@ -87,6 +87,11 @@ function Restaurant() {
 
   return company && products ? (
     <div className="mt-20">
+      <RestaurantInfoModal
+        company={company}
+        isDescriptionOpen={isDescriptionOpen}
+        setIsDescriptionOpen={setIsDescriptionOpen}
+      />
       <div
         className="w-full mb-6 h-32 md:h-[20rem]"
         style={{
@@ -109,7 +114,7 @@ function Restaurant() {
         />
       </div>
       <div className="mx-4 lg:mx-24">
-        <div className="md:absolute md:top-[142px] md:px-10 md:py-[1rem] md:border md:rounded-lg md:bg-white md:bg-opacity-50 md:shadow-lg md:backdrop-blur-sm  ">
+        <div className="md:absolute md:top-[142px] lg:left-[136px] md:px-10 md:py-[1rem] md:border md:rounded-lg md:bg-white md:bg-opacity-50 md:shadow-lg md:backdrop-blur-sm  ">
           <h2 className="text-left font-bold text-4xl mb-6">{company.name}</h2>
           <small className="text-left block">
             <div className="mb-2">
@@ -124,16 +129,11 @@ function Restaurant() {
               {company.description ? (
                 <button
                   className="underline leading-10 text-green-600"
-                  onClick={HandleMoreInfoModal}
+                  onClick={handleMoreInfoModal}
                 >
                   More information
                 </button>
               ) : null}
-              <RestaurantInfoModal
-                company={company}
-                isDescriptionOpen={isDescriptionOpen}
-                setIsDescriptionOpen={setIsDescriptionOpen}
-              />
             </div>
             <div className="text-gray-700 mb-2">$ • {company.tags} •</div>
             <div className="font-semibold text-red-600">
