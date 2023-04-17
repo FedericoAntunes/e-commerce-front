@@ -21,7 +21,7 @@ function Companies({ companies }) {
               {company.valoration >= 4.7 && (
                 <span className="bg-green-500 md:font-semibold text-white rounded-r-full absolute left-0 top-2 py-1 px-3">
                   {" "}
-                  Trending restaurant{" "}
+                  Among the best rated{" "}
                 </span>
               )}
             </div>

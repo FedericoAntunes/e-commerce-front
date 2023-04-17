@@ -105,14 +105,14 @@ function Restaurant() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <FontAwesomeIcon
+        {/*         <FontAwesomeIcon
           className="rounded-full bg-gray-100 p-2 float-right mr-2 mt-3"
           icon={faEllipsis}
         />
         <FontAwesomeIcon
           className="rounded-full bg-gray-100 p-2 float-right mr-2 mt-3"
           icon={faHeart}
-        />
+        /> */}
       </div>
       <div className="mx-4 lg:mx-24">
         <div className="md:absolute md:top-[142px] lg:left-[136px] md:px-10 md:py-[1rem] md:border md:rounded-lg md:bg-white md:bg-opacity-50 md:shadow-lg md:backdrop-blur-sm  ">
@@ -343,7 +343,7 @@ function Restaurant() {
             </div>
           </div>
         )}
-        <div className="text-left mt-12 border-t pt-12">
+        <div className="text-left mt-16 border-t pt-12">
           <h5 className="text-2xl font-semibold">Frequently asked questions</h5>
           <div className="mt-4">
             <h6 className="font-semibold text-lg">

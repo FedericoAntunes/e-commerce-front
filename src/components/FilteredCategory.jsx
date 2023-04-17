@@ -48,18 +48,27 @@ function FilteredCategory() {
   return companies && category && products ? (
     companies.length > 0 || products.length > 0 ? (
       <div className="mt-20 lg:mx-24 pt-6">
-        <h3 className="text-4xl font-semibold">{category.name}</h3>
+        <div className="text-left mt-4 bg-white py-6 px-8 border shadow-lg rounded-lg">
+          <h3 className="text-4xl font-semibold mb-4">
+            {category.name} Delivery
+          </h3>
+          <p>
+            Enjoy {category.name} delivery and takeaway with No Hunger near you
+            from restaurants serving Mexican Food nearby, place your order and
+            enjoy! Your order will be delivered in minutes.
+          </p>
+        </div>
         {companies.length > 0 && (
-          <div className="mx-4 lg:mx-0 lg:border lg:mt-20 lg:p-10 lg:rounded-lg">
-            <h4 className="font-semibold text-xl my-10 lg:mb-10">
-              Featured restaurants of {category.name}
+          <div className="mx-4 lg:mx-0 lg:border-x lg:mt-20 lg:p-10">
+            <h4 className="font-semibold text-xl my-10 lg:mt-0 lg:mb-10">
+              Trending restaurants of {category.name}
             </h4>
             <Companies companies={companies} />
           </div>
         )}
-        <div className="lg:mx-0 lg:border lg:p-10 lg:mt-20 lg:rounded-lg">
+        <div className="lg:mx-0 lg:border-x lg:p-10 lg:mt-20">
           {Object.keys(category) && products.length > 0 && (
-            <h4 className="font-semibold text-xl my-10 lg:mb-10">
+            <h4 className="font-semibold text-xl my-10 lg:mb-10 lg:mt-0">
               Featured products of {category.name}
             </h4>
           )}
@@ -140,8 +149,25 @@ function FilteredCategory() {
         </div>
       </div>
     ) : (
-      <div className="mt-20 pt-6">
-        <h3 className="text-2xl font-semibold">No results...</h3>
+      <div className="mt-20 pt-6 flex h-[80vh] justify-center items-center">
+        <div>
+          <h3 className="text-2xl font-semibold">
+            No results, you can try another category!
+          </h3>
+          <img
+            className="h-[300px] md:h-[500px] mx-auto"
+            src="https://cdni.iconscout.com/illustration/premium/thumb/empty-page-3936848-3277288.png?f=webp"
+            alt=""
+          />
+          <Link
+            to={"/"}
+            className="md:w-[150px] text-gray-200 mt-[3rem] inline-block bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 font-medium rounded-lg text-base px-5 py-2.5 text-center  "
+          >
+            <p className="mx-auto font-semibold inline-block text-md">
+              Back to home
+            </p>
+          </Link>
+        </div>
       </div>
     )
   ) : (
