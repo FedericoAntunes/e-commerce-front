@@ -18,6 +18,7 @@ import shoppingListSlice from "./slice/shoppingListSlice";
 import showShoppingCartSlice from "./slice/showShoppingCartSlice";
 import lastOrderInfoSlice from "./slice/lastOrderInfoSlice";
 import previousUrlSlice from "./slice/previousUrlSlice";
+import rememberUser from "./slice/rememberUser";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   showShoppingCart: showShoppingCartSlice,
   lastOrderInfo: lastOrderInfoSlice,
   previousUrl: previousUrlSlice,
+  rememberUser: rememberUser,
 });
 
 const persistConfig = { key: "root", storage };

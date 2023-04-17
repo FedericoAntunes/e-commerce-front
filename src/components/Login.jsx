@@ -18,6 +18,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 // ApiCall
 import apiCall from "./api/api";
 import SpinnerLoader from "./partials/loaders/SpinnerLoader";
+import { saveUserData } from "../redux/slice/rememberUser";
 
 function notify(message) {
   toast.error(message, {
@@ -33,10 +34,12 @@ function notify(message) {
 function Login() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [remember, setRemember] = useState(false);
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(false);
 
   const previousUrl = useSelector((state) => state.previousUrl);
+  const rememberUser = useSelector((state) => state.rememberUser);
 
   const navigate = useNavigate();
 
@@ -82,6 +85,11 @@ function Login() {
         console.log(error);
       }
     }
+    if (rememberUser.remember) {
+      setInputEmail(rememberUser.userData.inputEmail);
+      setInputPassword(rememberUser.userData.inputPassword);
+    }
+    rememberUser.remember && setRemember(true);
     // eslint-disable-next-line
   }, [user]);
 
@@ -90,9 +98,16 @@ function Login() {
     onError: (error) => console.log("Login Failed:", error),
   });
 
+  const handleRememberUser = (bool) => {
+    dispatch(
+      saveUserData({ remember: bool, userData: { inputEmail, inputPassword } })
+    );
+  };
+
   const handleSubmit = async (event) => {
     setLoader(true);
     event.preventDefault();
+    handleRememberUser(remember);
 
     const response = await apiCall("/login", "post", {
       email: inputEmail,
@@ -179,11 +194,16 @@ function Login() {
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
                     <input
+                      onChange={() => {
+                        setRemember(!remember);
+                      }}
                       id="remember"
+                      name="remember"
                       aria-describedby="remember"
                       type="checkbox"
                       className="w-4 h-4  border-gray-300 rounded cursor-pointer text-green-500 bg-gray-50 focus:ring-0 focus:ring-offset-0 active:ring-0"
-                      required=""
+                      checked={remember}
+                      value={remember}
                     />
                   </div>
                   <div className="sm:mx-3 ml-3 text-base font-medium text-black">
@@ -191,7 +211,7 @@ function Login() {
                       htmlFor="remember"
                       className="text-black font-medium"
                     >
-                      Remember
+                      Remember me
                     </label>
                   </div>
                 </div>
