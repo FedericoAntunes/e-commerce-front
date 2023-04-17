@@ -16,7 +16,7 @@ function AboutBtn() {
       } z-50 right-4 sm:right-6`}
     >
       <button
-        className={`bg-green-500 text-base py-2 px-4 md:font-semibold lg:hover:bg-green-600 transition ease-in-out-300 rounded-full ${styles.button}`}
+        className={`bg-green-500 text-base py-2 px-4 md:font-semibold lg:hover:bg-green-600 active:bg-green-400 lg:active:bg-green-400 transition ease-in-out-300 rounded-full ${styles.button}`}
       >
         <p className={styles.buttonP}>About this project</p>
         <svg
