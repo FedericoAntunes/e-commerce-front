@@ -91,6 +91,7 @@ function Restaurant() {
         company={company}
         isDescriptionOpen={isDescriptionOpen}
         setIsDescriptionOpen={setIsDescriptionOpen}
+        handleMoreInfoModal={handleMoreInfoModal}
       />
       <div
         className="w-full mb-6 h-32 md:h-[20rem]"

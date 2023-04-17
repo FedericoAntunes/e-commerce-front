@@ -5,14 +5,8 @@ export default function RestaurantInfoModal({
   company,
   isDescriptionOpen,
   setIsDescriptionOpen,
+  handleMoreInfoModal,
 }) {
-  const dispatch = useDispatch();
-
-  function handleMoreInfoModal() {
-    dispatch(toggleMenu({ scroll: isDescriptionOpen, showCart: false }));
-    return setIsDescriptionOpen(!isDescriptionOpen);
-  }
-
   return (
     <>
       {isDescriptionOpen ? (
