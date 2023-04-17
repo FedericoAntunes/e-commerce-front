@@ -105,7 +105,7 @@ function CenteredModal({
                         min={1}
                         max={product.stock}
                         value={quantity}
-                        className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 placeholder-gray-400 focus:ring-green-500 focus:border-green-500"
                       />
                       <div>
                         {product.in_offer ? (
