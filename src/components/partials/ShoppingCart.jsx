@@ -103,7 +103,7 @@ function ShoppingCart() {
           >
             <button>
               <FontAwesomeIcon
-                className="text-white hover:text-red-500"
+                className="text-white lg:hover:text-red-500 active:text-red-600 lg:active:text-red-600"
                 icon={faClose}
               />
             </button>
@@ -114,7 +114,7 @@ function ShoppingCart() {
         </div>
         <div className="flex text-black py-3 justify-center mx-2 h-[calc(100vh-166px)]">
           {shoppingList.length > 0 ? (
-            <ul className="text-center w-full overflow-y-scroll">
+            <ul className="text-center w-full overflow-y-auto">
               {shoppingList.map((product) => {
                 return (
                   <AnimatePresence key={product.id} mode="popLayout">
@@ -172,7 +172,7 @@ function ShoppingCart() {
                           <div className="w-[125px]">
                             <div className="flex items-center justify-between mt-4 w-full rounded-full px-1">
                               <button
-                                className=" w-[35px] pr-1 pb-[5px] pt-[3px] text-red-400 hover:bg-red-100 border-2 border-red-400 align-text-bottom font-bold px-2 rounded-l-full focus:outline-none"
+                                className=" w-[35px] pr-1 pb-[5px] pt-[3px] text-red-400 lg:hover:bg-red-100 lg:active:bg-red-300 active:bg-red-300 border-2 border-red-400 align-text-bottom font-bold px-2 rounded-l-full focus:outline-none"
                                 onClick={() => handleSubstractOne(product)}
                               >
                                 -
@@ -181,7 +181,7 @@ function ShoppingCart() {
                                 {product.quantity}
                               </span>
                               <button
-                                className="w-[35px] pl-1 text-green-500 bg-green-100 hover:bg-green-200 border-2 align-text-bottom border-green-500 font-bold py-1 px-2 rounded-r-full focus:outline-none"
+                                className="w-[35px] pl-1 text-green-500 bg-green-100 lg:hover:bg-green-200 active:bg-green-300 lg:active:bg-green-300 border-2 align-text-bottom border-green-500 font-bold py-1 px-2 rounded-r-full focus:outline-none"
                                 onClick={() => handleAddOne(product)}
                               >
                                 +
@@ -191,7 +191,7 @@ function ShoppingCart() {
                         </div>
                         <button
                           onClick={() => handleRemove(product.id)}
-                          className="text-xs absolute bottom-2 right-2 text-red-400 hover:text-red-600"
+                          className="text-xs absolute bottom-2 right-2 text-red-400 lg:hover:text-red-500 active:text-red-600 lg:active:text-red-600"
                         >
                           <FontAwesomeIcon icon={faTrash} />
                         </button>
@@ -205,7 +205,7 @@ function ShoppingCart() {
                   onClick={() => {
                     handleCheckout();
                   }}
-                  className=" text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className=" text-white bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 lg:active:bg-yellow-600 lg:hover:scale-105 ease-in-out duration-150 font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
                   type="submit"
                 >
                   {loader ? <SpinnerLoader /> : "Checkout"}
@@ -225,7 +225,7 @@ function ShoppingCart() {
                 onClick={() =>
                   dispatch(toggleMenu({ scroll: true, showCart: false }))
                 }
-                className="mt-2 md:mt-16 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="mt-2 md:mt-16 text-white bg-yellow-500 lg:hover:bg-yellow-400 active:bg-yellow-600 lg:active:bg-yellow-600 font-medium rounded-full text-sm px-5 py-2.5 text-center"
               >
                 Start buying
               </button>
