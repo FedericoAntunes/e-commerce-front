@@ -152,7 +152,7 @@ function FilteredCategory() {
       <div className="mt-20 pt-6 flex h-[80vh] justify-center items-center">
         <div>
           <h3 className="text-2xl font-semibold">
-            No results, you can try another category!
+            This category looks empty... <br /> You can try another!
           </h3>
           <img
             className="h-[300px] md:h-[500px] mx-auto"
