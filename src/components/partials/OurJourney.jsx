@@ -1,11 +1,5 @@
 import { Link } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faNodeJs,
-  faReacteurope,
-  faDatabase,
-  faMoneyCheck,
-} from "@fortawesome/free-solid-svg-icons";
+
 
 export default function OurJourney() {
   return (
