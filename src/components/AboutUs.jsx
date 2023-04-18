@@ -1,6 +1,7 @@
 import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, AnimatePresence } from "framer-motion";
+import OurJourney from "./partials/OurJourney";
 
 // Components
 import CardAbout from "./partials/CardAbout";
@@ -130,7 +131,10 @@ function AboutUs() {
         }}
         className="my-6 px-3 md:px-10"
       >
-        <AboutThisProject />
+        <div className="mb-10">
+          <AboutThisProject />
+        </div>
+        <OurJourney />
       </motion.div>
       <div className="flex flex-wrap mb-20 justify-center sm:gap-6">
         <motion.div
